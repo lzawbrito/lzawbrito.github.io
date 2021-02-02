@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="stylesheet.css">
     <title> Lucas Brito </title>
@@ -8,14 +9,59 @@
     <h1> Lucas Brito </h1>
     <h4> &nbsp <a href="index.html">Home</a> &nbsp
         | &nbsp <a href="research.html">Research</a> &nbsp
-        | &gt  <a href="music.html">Music</a> &lt
+        | &gt <a href="music.html">Music</a> &lt
         | &nbsp <a href="writing.html">Writing</a> &nbsp</h4>
 </header>
 <hr>
+
 <body>
-    <iframe class= "center", style="padding-bottom: 5%; border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/album=2456696634/size=large/bgcol=ffffff/linkcol=333333/minimal=true/transparent=true/" seamless><a href="https://lucaszbrito.bandcamp.com/album/the-sky-drapes-a-cloth">The Sky Drapes, a Cloth by Lucas Brito</a></iframe>
+    <p id="hoverover">
+        hover for audio
+    </p>
+    <iframe class="center" , style="padding-bottom: 5%; border: 0; width: 350px; height: 350px;"
+        src="https://bandcamp.com/EmbeddedPlayer/album=2456696634/size=large/bgcol=ffffff/linkcol=333333/minimal=true/transparent=true/"
+        seamless>
+        <a href="https://lucaszbrito.bandcamp.com/album/the-sky-drapes-a-cloth">The Sky Drapes, a Cloth by Lucas
+            Brito</a>
+    </iframe>
 </body>
 <footer>
-    <h4> <a href="https://www.instagram.com/lzawbrito/">Instagram</a> | <a href="https://twitter.com/lucaszawbrito">Twitter</a> </h4>
+    <h4> <a href="https://www.instagram.com/lzawbrito/">Instagram</a>
+        | <a href="https://twitter.com/lucaszawbrito">Twitter</a>
+        | <a href="https://www.linkedin.com/in/lucas-brito-9165a11a0/">LinkedIn</a>
+        | <a href="mailto:lucas_brito@brown.edu">Email</a> </h4>
 </footer>
+<audio id="flor-de-belem">
+    <source src="resources/music/flor-de-belem.mp3">
+    </source>
+    <!-- <source src="audio/beep.ogg"></source> add support for this later-->
+    Your browser doesn't have audio support.
+</audio>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    console.log("test");    
+    // var audio = document.getElementById("flor-de-belem");
+    // var hoverover = document.getElementById("hoverover");
+    // hoverover.addEventListener("mouseover", function( event ){ 
+    //     audio.play();
+    //     console.log("works");
+    // });
+    // hoverover.addEventListener("mouseleave", function( event ){
+    //     audio.pause();
+    // });
+    const $audio = $("#flor-de-belem")[0];
+    $audio.volume = 0.0;
+    $("#hoverover").mouseleave(function () {
+        console.log("stopping...");
+        $("#flor-de-belem").animate({volume: 0.0}, 500, function(){
+            $audio.pause();
+        });
+    })
+    $("#hoverover").mouseover(function () {
+        $audio.play();
+        console.log("playing...");
+        $("#flor-de-belem").animate({volume: 1.0}, 500);
+    });
+</script>
+
 </html>

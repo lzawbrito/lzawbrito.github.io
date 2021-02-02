@@ -172,3 +172,11 @@ p {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
+
+  .quote {
+      font-family: 'LMMono10';
+      font-style: italic;
+      padding-left: 30%;
+      padding-right: 30%;
+      font-size: 18px;
+  }
