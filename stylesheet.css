@@ -1,40 +1,174 @@
+html {
+    overflow-y: scroll;
+  }
+  @font-face {
+    font-family: 'LMMono9';
+    src: url('fonts/LMMono9-Regular.woff2') format('woff2'),
+        url('fonts/LMMono9-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: replace;
+}
+
+@font-face {
+    font-family: 'LMMono10';
+    src: url('fonts/LMMono10-Italic.woff2') format('woff2'),
+        url('fonts/LMMono10-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: replace;
+}
+
+@font-face {
+    font-family: 'LMMono8';
+    src: url('fonts/LMMono8-Regular.woff2') format('woff2'),
+        url('fonts/LMMono8-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: replace;
+}
+
+@font-face {
+    font-family: 'LMMono10';
+    src: url('fonts/LMMono10-Regular.woff2') format('woff2'),
+        url('fonts/LMMono10-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: replace;
+}
+
+@font-face {
+    font-family: 'LMMono12';
+    src: url('fonts/LMMono12-Regular.woff2') format('woff2'),
+        url('fonts/LMMono12-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: replace;
+}
+
+@font-face {
+    font-family: 'LMRoman12';
+    src: url('fonts/LMRoman12-Bold.woff2') format('woff2'),
+        url('fonts/LMRoman12-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: replace;
+}
+
+@font-face {
+    font-family: 'LMRoman12';
+    src: url('fonts/LMRoman12-Italic.woff2') format('woff2'),
+        url('fonts/LMRoman12-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: replace;
+}
+
+@font-face {
+    font-family: 'LMRoman12';
+    src: url('fonts/LMRoman12-Regular.woff2') format('woff2'),
+        url('fonts/LMRoman12-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: replace;
+}
+
+@font-face {
+    font-family: 'LMRoman17';
+    src: url('fonts/LMRoman17-Regular.woff2') format('woff2'),
+        url('fonts/LMRoman17-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: replace;
+}
+
+hr {
+    width: 40%;
+}
+
+
 body {
     background-color: rgb(245, 245, 245);
   }
   
+
 h1 {
-    font-family: 'Courier New', Courier, monospace;
+    font-size: 36px;
+    font-family: 'LMRoman12';
     color: rgb(0, 0, 0);
     text-align: center;
   }
 
 h2 {
-    padding-left: 400px;
-    padding-right: 400px;
-    font-family: 'Courier New', Courier, monospace;
+    padding-left: 30%;
+    padding-right: 30%;
+    font-family: 'LMRoman12';
     color:rgb(0, 0, 0);
-    text-align: left;
+    text-align: center;
 }
 
 h3 {
-    padding-left: 400px;
-    padding-right: 400px;
-    font-family: 'Courier New', Courier, monospace;
+    padding-left: 30%;
+    padding-right: 30%;
+    font-family: 'LMRoman12';
     color:rgb(0, 0, 0);
     text-align: left;
+    font-size: 24px;
 }
+
+
+h4 {
+    font-family: 'LMMono9';
+    text-align: center;
+    font-weight: lighter;
+}
+
 
 p {
     text-indent: 50px;
-    padding-left: 400px;
-    padding-right: 400px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
+    padding-left: 30%;
+    padding-right: 30%;
+    font-family:'LMRoman12';
+    font-weight: regular; 
+    font-style: normal;
+    font-size: 18px;
   }   
 
+  
   a {
-    padding-left: 400px;
-    padding-right: 400px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
+    color: rgb(56, 2, 184);
+  }
+
+  footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    color: rgb(80, 80, 80);
+    text-align: center;
+    background-color:  rgb(245, 245, 245);
+  }
+  
+  /* .cursor {
+        position: relative;
+        left: 57.5%;
+        font-family: 'Courier New', Courier, monospace;
+        padding-top: 0px; 
+        color:rgb(0, 0, 0);
+        font-weight: bold;
+  } */
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  .vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
