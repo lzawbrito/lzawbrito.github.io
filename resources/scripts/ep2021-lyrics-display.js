@@ -185,7 +185,7 @@ The sun shone above, it made me feel warm. It was only then that I could see mys
 `
 
 const $marinus = $('#marinus');
-var $marinusSelected = false;
+var marinusSelected = false;
 const $mukilteoSpeedway = $('#mukilteo-speedway');
 var mukilteoSpeedwaySelected = false;
 const $spider = $('#spider');
@@ -199,8 +199,7 @@ function resetUnderlines(){
     $mukilteoSpeedway.css({ "text-decoration": "none" });
     $spider.css({ "text-decoration": "none" });
     $hypercommodity.css({ "text-decoration": "none" });
-}
-
+};
 
 $marinus.mouseenter(function () {
     $marinus.css({ "text-decoration": "underline" });
