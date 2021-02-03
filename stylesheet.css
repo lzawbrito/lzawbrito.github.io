@@ -147,6 +147,15 @@ p {
     text-align: center;
     background-color:  rgb(245, 245, 245);
   }
+
+  .player {
+      position: fixed;
+      bottom: 0;
+      text-align: left;
+      padding-bottom: 1.5%;
+      padding-left: 7%;
+      font-family: 'LMMono12';
+  }
   
   /* .cursor {
         position: relative;
@@ -182,8 +191,27 @@ p {
   }
 
   .row {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
+    padding: 0;
+    margin: 0;
+    width: 600px;
     flex-wrap: wrap;
-    padding: 0 4px;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .column {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
   }
