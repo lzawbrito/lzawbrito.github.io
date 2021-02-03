@@ -19,21 +19,19 @@
 <body>
     <div class="column">
         <div class="row">
-            <img id="ep-2021" , src="resources/album-covers/ep-2020.png" , width="200px">
-            <img id="tsdac" , src="resources/album-covers/tsdac.png" , width="200px">
-            <img id="pc" , src="resources/album-covers/pc.jpg" , width="200px">
-            <img id="marinus" , src="resources/album-covers/marinus.png" , width="200px">
+            <a href="ep-2021.html"><img id="ep-2021" , src="resources/album-covers/ep-2020.png"></a>
+            <a href="tsdac.html"><img id="tsdac" , src="resources/album-covers/tsdac.png"></a>
         </div>
-</div>
+    </div>
 </body>
 <footer>
     <h4> <a href="https://www.instagram.com/lzawbrito/" target="_blank">Instagram</a>
         | <a href="https://twitter.com/lucaszawbrito" target="_blank">Twitter</a>
         | <a href="https://www.linkedin.com/in/lucas-brito-9165a11a0/" target="_blank">LinkedIn</a>
         | <a href="mailto:lucas_brito@brown.edu">Email</a> </h4>
-    <div id="player", class="player", style="opacity: 0.0;">
-        Now playing: 
-        </div>
+    <div id="player" , class="player" , style="opacity: 0.0;">
+        Now playing:
+    </div>
 </footer>
 <audio id="flor-de-belem">
     <source src="resources/music/flor-de-belem.mp3">
@@ -49,44 +47,62 @@
 </audio>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+    var autoplayEnabled = false;
+    const $player = $('#player');
+    $player.animate({ opacity: 1.0 });
+    document.getElementById('player').innerHTML = 'Click here to enable autoplay.';
+    $player.click(function () {
+        $player.animate({ opacity: 0.0 });
+        autoplayEnabled = true;
+    });
     console.log("test");
-    const $player = $('#player')[0];
     const $florDeBelem = $("#flor-de-belem")[0];
     $florDeBelem.volume = 0.0;
     $("#tsdac").mouseleave(function () {
-        console.log("stopping..."); 
-        $('#player').animate({opacity : 0.0});
+        console.log("stopping...");
         $("#tsdac").animate({ width: "200px" }, 441)
-        $("#flor-de-belem").animate({ volume: 0.0 }, 441, function () {
-            $florDeBelem.pause();
-        });
-    })
+
+        if (autoplayEnabled) {
+            $('#player').animate({ opacity: 0.0 });
+            $("#flor-de-belem").animate({ volume: 0.0 }, 441, function () {
+                $florDeBelem.pause();
+            });
+        }
+    });
     $("#tsdac").mouseover(function () {
         $florDeBelem.play();
         console.log("playing...");
-        document.getElementById('player').innerHTML = 'Now playing: Flor de Belem'; 
-        $('#player').animate({opacity : 1.0});
-        $("#flor-de-belem").animate({ volume: 1.0 }, 441);
         $("#tsdac").animate({ width: "175px" }, 441)
+        if (autoplayEnabled) {
+            $("#flor-de-belem").animate({ volume: 1.0 }, 441);
+            document.getElementById('player').innerHTML = 'Now playing: Flor de Belém';
+            $('#player').animate({ opacity: 1.0 });
+        }
     });
 
     const $mukilteoSpeedway = $("#mukilteo-speedway")[0];
     $mukilteoSpeedway.volume = 0.0;
     $("#ep-2021").mouseleave(function () {
         console.log("stopping...");
-        $('#player').animate({opacity : 0.0});
         $("#ep-2021").animate({ width: "200px" }, 441)
-        $("#mukilteo-speedway").animate({ volume: 0.0 }, 441, function () {
-            $mukilteoSpeedway.pause();
-        });
+
+        if (autoplayEnabled) {
+            $('#player').animate({ opacity: 0.0 });
+            $("#mukilteo-speedway").animate({ volume: 0.0 }, 441, function () {
+                $mukilteoSpeedway.pause();
+            });
+        }
     })
     $("#ep-2021").mouseover(function () {
         $mukilteoSpeedway.play();
         console.log("playing...");
-        document.getElementById('player').innerHTML = 'Now playing: Mukilteo Speedway'; 
-        $('#player').animate({opacity : 1.0});
-        $("#mukilteo-speedway").animate({ volume: 1.0 }, 441);
         $("#ep-2021").animate({ width: "175px" }, 441)
+        if (autoplayEnabled) {
+            $("#mukilteo-speedway").animate({ volume: 1.0 }, 441);
+            document.getElementById('player').innerHTML = 'Now playing: Mukilteo Speedway';
+            $('#player').animate({ opacity: 1.0 });
+        }
     });
 </script>
+
 </html>

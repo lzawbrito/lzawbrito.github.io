@@ -89,6 +89,7 @@ hr {
 
 body {
     background-color: rgb(245, 245, 245);
+    padding-bottom: 10%;
   }
   
 
@@ -174,7 +175,7 @@ p {
     padding-top: 10px;
   }
 
-  .vertical-center {
+  .vertical-center {    
     margin: 0;
     position: absolute;
     top: 50%;
@@ -215,3 +216,64 @@ p {
     justify-content: center;
     align-items: center;
   }
+
+
+  .row a {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+  }
+  
+  .row img {
+      width: 200px;
+      margin: 10px;
+  }
+
+  .logo-row {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    padding-left: 30%;
+    padding-right: 30%;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo-row img {
+    width: 75px;
+    flex: 45%;
+    margin: 50px;
+}
+
+.lyrics-row {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    padding-left: 30%;
+    padding-right: 30%;
+    flex-wrap: nowrap;
+    display: flex;
+  }
+  
+
+.selection-column {
+    flex: 35%;
+    padding-right: 5%;
+    /* width: 10px; */
+}
+
+.lyrics-column {
+    flex: 65%
+  }
+
+.lyrics-selection {
+    cursor: pointer;
+    font-family:'LMRoman12';
+    font-weight: regular; 
+    font-style: normal;
+    font-size: 18px;
+}
