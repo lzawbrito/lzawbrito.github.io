@@ -1,5 +1,5 @@
 const lyricsFlorDeBelem = `
-<a href="resources/tabs/tsdac/flor-de-belem.txt">View tabs</a>
+<a href="resources/tabs/tsdac/flor-de-belem.txt", target="_blank">View tabs</a>
 <br><br>
 When I first saw you I tumbled and toiled and labored to hear, you my king<br>
 Perched on the skyline, you sounded above me<br>
