@@ -19,8 +19,9 @@
 <body>
     <div class="column">
         <div class="row">
-            <a href="ep-2021.html"><img id="ep-2021" , src="resources/album-covers/ep-2020.png"></a>
+            <a href="ep-2021.html"><img id="ep-2021" , src="resources/album-covers/final-possibly-2.png"></a>
             <a href="tsdac.html"><img id="tsdac" , src="resources/album-covers/tsdac.png"></a>
+            <a href="https://www.stevesmindband.com/#red-mud", target="_blank"><img id="red-mud" , src="resources/album-covers/red-mud.png"></a>
         </div>
     </div>
 </body>
@@ -45,8 +46,15 @@
     <!-- <source src="audio/beep.ogg"></source> add support for this later-->
     Your browser doesn't have audio support.
 </audio>
+<audio id="on-the-wire">
+    <source src="resources/music/on-the-wire.mp3"> 
+    </source>
+    <!-- <source src="audio/beep.ogg"></source> add support for this later-->
+    Your browser doesn't have audio support.
+</audio>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+    var maxVolume = 0.5;
     var autoplayEnabled = false;
     const $player = $('#player');
     $player.animate({ opacity: 1.0 });
@@ -55,6 +63,7 @@
         $player.animate({ opacity: 0.0 });
         autoplayEnabled = true;
     });
+
     console.log("test");
     const $florDeBelem = $("#flor-de-belem")[0];
     $florDeBelem.volume = 0.0;
@@ -76,7 +85,7 @@
         if (autoplayEnabled) {
             $("#flor-de-belem").animate({ volume: 1.0 }, 441);
             document.getElementById('player').innerHTML = 'Now playing: Flor de Belém';
-            $('#player').animate({ opacity: 1.0 });
+            $('#player').animate({ opacity: maxVolume });
         }
     });
 
@@ -98,8 +107,32 @@
         console.log("playing...");
         $("#ep-2021").animate({ width: "175px" }, 441)
         if (autoplayEnabled) {
-            $("#mukilteo-speedway").animate({ volume: 1.0 }, 441);
+            $("#mukilteo-speedway").animate({ volume: maxVolume }, 441);
             document.getElementById('player').innerHTML = 'Now playing: Mukilteo Speedway';
+            $('#player').animate({ opacity: 1.0 });
+        }
+    });
+
+    const $onTheWire = $("#on-the-wire")[0];
+    $onTheWire.volume = 0.0;
+    $("#red-mud").mouseleave(function () {
+        console.log("stopping...");
+        $("#red-mud").animate({ width: "200px" }, 441)
+        if (autoplayEnabled) {
+            $('#player').animate({ opacity: 0.0 });
+            $("#on-the-wire").animate({ volume: 0.0 }, 441, function () {
+                document.getElementById('on-the-wire').play();
+            });
+        }
+    })
+    $("#red-mud").mouseover(function () {
+        $onTheWire.play(); 
+        console.log("playing...");
+        $("#red-mud").animate({ width: "175px" }, 441);
+        if (autoplayEnabled) {
+            console.log("tst");
+            $("#on-the-wire").animate({ volume: maxVolume }, 441);
+            document.getElementById('player').innerHTML = 'Now playing: On the Wire';
             $('#player').animate({ opacity: 1.0 });
         }
     });
