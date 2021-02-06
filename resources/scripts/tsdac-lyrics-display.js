@@ -1,4 +1,6 @@
 const lyricsFlorDeBelem = `
+<a href="resources/tabs/tsdac/flor-de-belem.txt" download>View tabs</a>
+<br><br>
 When I first saw you I tumbled and toiled and labored to hear, you my king<br>
 Perched on the skyline, you sounded above me<br>
 I laid down and spread out my wings<br>
@@ -26,6 +28,8 @@ When did you build this machine?<br>
 `
 
 const lyricsTheWren = `
+<a href="resources/tabs/tsdac/the-wren.txt" download>View tabs</a>
+<br><br>
 Sing a song, lover<br>
 Make it long<br>
 So that when I'm back<br>
@@ -97,6 +101,8 @@ Longs for the cage again<br>
 `
 
 const lyricsMary = `
+<a href="resources/tabs/tsdac/mary.txt" download>View tabs</a>
+<br><br>
 I broke into a run<br>
 At the snap of a gun<br>
 My feet went ankle deep into the deluging<br>
@@ -158,6 +164,8 @@ it worked just fine, though<br>
 `
 
 const lyricsMother = `
+<a href="resources/tabs/tsdac/mother.txt" download>View tabs</a>
+<br><br>
 Oh, mother, come home<br>
 This house's so empty without your warmth<br>
 The wood sags, the floorboards moan<br>
