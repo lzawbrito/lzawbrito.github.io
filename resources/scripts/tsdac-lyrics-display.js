@@ -145,7 +145,7 @@ scathing knives<br>
 <br>
 And as she closed<br>
 her hand on mine<br>
-All those blades<br>
+All those knives<br>
 Were coming down<br>
 <br>
 Please, God, I'm done<br>

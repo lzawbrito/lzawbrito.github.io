@@ -21,7 +21,15 @@
         <div class="row">
             <a href="ep-2021.html"><img id="ep-2021" , src="resources/album-covers/final-possibly-2.png"></a>
             <a href="tsdac.html"><img id="tsdac" , src="resources/album-covers/tsdac.png"></a>
-            <a href="https://www.stevesmindband.com/#red-mud", target="_blank"><img id="red-mud" , src="resources/album-covers/red-mud.png"></a>
+        </div>
+    </div>
+    <hr>
+    <div class="column">
+        <div class="row">
+            <a href="https://www.youtube.com/watch?v=hX8yzq0Ugtw", target="_blank"><img id="ep-2021" style="width: 250px"
+                    src="resources/album-covers/sun-sheep-god-power.jpg"></a>
+            <a href="https://www.youtube.com/watch?v=CuI2DZdyM2w" target="_blank"><img id="tsdac" , style="width: 250px"
+                    src="resources/album-covers/videopractices.jpg"></a>
         </div>
     </div>
 </body>
@@ -47,7 +55,7 @@
     Your browser doesn't have audio support.
 </audio>
 <audio id="on-the-wire">
-    <source src="resources/music/on-the-wire.mp3"> 
+    <source src="resources/music/on-the-wire.mp3">
     </source>
     <!-- <source src="audio/beep.ogg"></source> add support for this later-->
     Your browser doesn't have audio support.
@@ -126,7 +134,7 @@
         }
     })
     $("#red-mud").mouseover(function () {
-        $onTheWire.play(); 
+        $onTheWire.play();
         console.log("playing...");
         $("#red-mud").animate({ width: "175px" }, 441);
         if (autoplayEnabled) {

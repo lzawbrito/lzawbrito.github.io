@@ -1,4 +1,6 @@
 const lyricsMarinus = `
+<a href="resources/tabs/ep-2021/marinus.txt", target="_blank">View tabs</a><br>
+<br>
 I know, I know<br>
 I heard it too,<br>  
 It's coming soon<br>
@@ -36,8 +38,8 @@ I don't think it was<br>
 I don't think things just disappear like that <br>
 It probably sunk into the earth while you weren't looking<br>
 That happened to my grandmother back in 2008 you know<br>
-She suffered from alzheimers and moped around the house bumping into things and opening doors that led nowhere,<br>
-Then one day she was alone and she was just gone. never saw her again<br>
+She suffered from Alzheimer's and moped around the house bumping into things and opening doors that led nowhere,<br>
+Then one day she was alone and she was just gone, never saw her again<br>
 And we live about our days as if everything's alright<br>
 But take a look around you man, 700 petty thefts in five days<br>
 And so much of it food, <br>
@@ -47,6 +49,8 @@ And what are we to do?<br>
 If things are just phasing out of existence, sprouting out and puncturing through<br>
 `
 const lyricsMukilteoSpeedway = `
+<a href="resources/tabs/ep-2021/mukilteo-speedway.txt", target="_blank">View tabs</a><br>
+<br>
 I feel the same way<br>
 I know you want to take my body <br>
 And dip your hands in it <br>
@@ -86,6 +90,19 @@ I've seen you here<br>
 My bones are thin<br>
 Made of silk<br>
 I slip away<br>
+Like I-<br>
+My bones are thin<br>
+Made of silk<br>
+I slip away<br>
+Like I-<br>
+Ah, my world<br>
+Take it from me<br>
+And I will love you<br>
+Like I-<br>
+This is my world<br>
+Take it from me<br>
+And I will love you<br>
+Like I-<br>
 <br>
 I think I was seventeen<br>
 when I first saw the movie <br>
@@ -93,30 +110,32 @@ Mukilteo Speedway<br>
 I watched the skeleton of the city,<br>
 peeled by white light, unrolling<br>
 I watched three boys underneath a stairway<br>
-letting frost through their teeth, letting their time kiss the night<br>
-time kiss the night<br>
-time kiss the night<br>
+Letting frost through their teeth, letting their time kiss the night<br>
+Time kiss the night<br>
+Time kiss the night<br>
 I watched you build this world where everyone's coked up and nothing feels either bad or alright<br>
 `
 const lyricsSpider = `
+<a href="resources/tabs/ep-2021/spider.txt", target="_blank">View tabs</a><br>
+<br>
 We must have been around thirteen when we went behind the safeway and drew our names on the fresh tar<br>
 Now we've come so far<br>
 I went there the other day to see if that had stayed and I couldn't even remember where it was<br>
 was it the sun that closed it up, or is it me misremembering us<br>
 or was it the etching springing up and crawling away like a thin black spider, across the lot onto the streets to
 squeeze into our ears laying eggs for our next big idea<br>
-I saw a sign that said where will we go when the water rises<br>
+I saw a sign that said "Where will we go when the water rises?"<br>
 I don't know, I don't know, I don't think it will<br>
 I think instead the water will fall into the ground <br>
 And you and I will be left to find our ways around<br>
 I've walked out of town and it's the same <br>
 <br>
 And after locking eyes with that sign I went across the bridge and up the hill and into my building and took a left into my crawlspace<br>
-This is where I've been, this is where I am, this is where I will be    <br>
+This is where I've been, this is where I am, this is where I will be <br>
 The hall is long, as long as time, as long as eternity,<br>
-And so I move, I move along, I move silently.<br>
+And so I move, I move along, I move silently<br>
 <br>
-Come on, have you seen the headlines, man, things are getting pretty bad in here<br>
+Come on, have you seen the headlines, man? Things are getting pretty bad in here<br>
 We're living in a funhouse mirror, it's getting hot, it's getting-<br>
 Come I've travelled for miles and miles, it's all the same shit everywhere<br>
 All the stops-<br>
@@ -141,6 +160,8 @@ Alone<br>
 Alone<br>
 `
 const lyricsHypercommodity = `
+<a href="resources/tabs/ep-2021/hypercommodity.txt", target="_blank">View tabs</a><br>
+<br>
 Walking down the stairs, to the supermarket, I took a left to my bathroom<br>
 Nothing much,  just shaking hands with time<br>
 Ceramic flooring, as it had always been<br>
