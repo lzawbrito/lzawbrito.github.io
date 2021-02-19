@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <link rel="stylesheet" href="stylesheet.css">
     <title> Lucas Brito </title>
@@ -9,7 +8,7 @@
 <header>
     <h1> Lucas Brito </h1>
     <h4> &nbsp <a href="index.html">Home</a> &nbsp
-        | &nbsp <a href="research.html">Research</a> &nbsp
+        | &nbsp <a href="academics.html">Academics</a> &nbsp
         | &gt <a href="music.html">Music</a> &lt
         | &nbsp <a href="writing.html">Writing</a> &nbsp
     </h4>
@@ -26,9 +25,9 @@
     <hr>
     <div class="column">
         <div class="row">
-            <a href="ssgp.html"><img id="ep-2021" style="width: 250px"
+            <a href="ssgp.html"><img id="ssgp" style="width: 250px"
                     src="resources/album-covers/sun-sheep-god-power.jpg"></a>
-            <a href="videopractices.html"><img id="tsdac" , style="width: 250px"
+            <a href="videopractices.html"><img id="vp" , style="width: 250px"
                     src="resources/album-covers/videopractices.jpg"></a>
         </div>
     </div>
@@ -143,6 +142,22 @@
             document.getElementById('player').innerHTML = 'Now playing: On the Wire';
             $('#player').animate({ opacity: 1.0 });
         }
+    });
+
+    // const $onTheWire = $("#on-the-wire")[0];
+    // $onTheWire.volume = 0.0;
+    $("#ssgp").mouseleave(function () {
+        $("#ssgp").animate({ width: "250px" }, 441)
+    })
+    $("#ssgp").mouseover(function () {
+        $("#ssgp").animate({ width: "225px" }, 441);
+    });
+
+    $("#vp").mouseleave(function () {
+        $("#vp").animate({ width: "250px" }, 441)
+    })
+    $("#vp").mouseover(function () {
+        $("#vp").animate({ width: "225px" }, 441);
     });
 </script>
 

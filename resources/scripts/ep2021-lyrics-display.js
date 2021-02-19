@@ -33,7 +33,7 @@ The bastard managed to put his whole life down on this wall, and so it went on a
 Til the words I love you too, I love you through and through<br>
 And I think before the day we moved the ink was fresh and I-<br>
 <br>
-My friend meg says she had her car stolen<br>
+My friend Meg says her car was stolen<br>
 I don't think it was<br>
 I don't think things just disappear like that <br>
 It probably sunk into the earth while you weren't looking<br>
@@ -47,6 +47,11 @@ So much of it food,<br>
 Like a boar whose tusk has sprouted out and punctured through<br>
 And what are we to do?<br>
 If things are just phasing out of existence, sprouting out and puncturing through<br>
+<br>
+Til the words "I love you too"<br>
+Til the words "I love you too"<br>
+Til the words "I love you too"<br>
+Til the words "I love you too"<br>
 `
 const lyricsMukilteoSpeedway = `
 <a href="resources/tabs/ep-2021/mukilteo-speedway.txt", target="_blank">View tabs</a><br>
