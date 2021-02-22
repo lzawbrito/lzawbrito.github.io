@@ -138,6 +138,7 @@ p {
   
   a {
     color: rgb(56, 2, 184);
+    text-decoration: none;
   }
 
   footer {
