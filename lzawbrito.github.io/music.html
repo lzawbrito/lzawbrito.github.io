@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="stylesheet.css">
+    <title> Lucas Brito </title>
+    <link rel="shortcut icon" type="image/jpg" href="resources/icons/favicon.ico" />
+</head>
+<header>
+    <h1> Lucas Brito </h1>
+    <h4> &nbsp <a href="index.html">Home</a> &nbsp
+        | &nbsp <a href="academics.html">Academics</a> &nbsp
+        | &gt <a href="music.html">Music</a> &lt
+        | &nbsp <a href="writing.html">Writing</a> &nbsp
+    </h4>
+</header>
+<hr>
+
+<body>
+    <div class="column">
+        <div class="row">
+            <a href="laplacian-demon.html"><img id="ep-2021" , src="resources/album-covers/final-possibly-2.png"></a>
+            <a href="tsdac.html"><img id="tsdac" , src="resources/album-covers/tsdac.png"></a>
+        </div>
+    </div>
+    <hr>
+    <div class="column">
+        <div class="row">
+            <a href="ssgp.html"><img id="ssgp" style="width: 250px"
+                    src="resources/album-covers/sun-sheep-god-power.jpg"></a>
+            <a href="videopractices.html"><img id="vp" , style="width: 250px"
+                    src="resources/album-covers/videopractices.jpg"></a>
+        </div>
+    </div>
+</body>
+<footer>
+    <h4> <a href="https://www.instagram.com/lzawbrito/" target="_blank">Instagram</a>
+        | <a href="https://twitter.com/lucaszawbrito" target="_blank">Twitter</a>
+        | <a href="https://www.linkedin.com/in/lucas-brito-9165a11a0/" target="_blank">LinkedIn</a>
+        | <a href="mailto:lucas_brito@brown.edu">Email</a> </h4>
+    <div id="player" , class="player" , style="opacity: 0.0;">
+        Now playing:
+    </div>
+</footer>
+<audio id="flor-de-belem">
+    <source src="resources/music/flor-de-belem.mp3">
+    </source>
+    <!-- <source src="audio/beep.ogg"></source> add support for this later-->
+    Your browser doesn't have audio support.
+</audio>
+<audio id="mukilteo-speedway">
+    <source src="resources/music/mukilteo-speedway.mp3">
+    </source>
+    <!-- <source src="audio/beep.ogg"></source> add support for this later-->
+    Your browser doesn't have audio support.
+</audio>
+<audio id="on-the-wire">
+    <source src="resources/music/on-the-wire.mp3">
+    </source>
+    <!-- <source src="audio/beep.ogg"></source> add support for this later-->
+    Your browser doesn't have audio support.
+</audio>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    var maxVolume = 0.5;
+    var autoplayEnabled = false;
+    const $player = $('#player');
+    $player.animate({ opacity: 1.0 });
+    document.getElementById('player').innerHTML = 'Click here to enable autoplay.';
+    $player.click(function () {
+        $player.animate({ opacity: 0.0 });
+        autoplayEnabled = true;
+    });
+
+    console.log("test");
+    const $florDeBelem = $("#flor-de-belem")[0];
+    $florDeBelem.volume = 0.0;
+    $("#tsdac").mouseleave(function () {
+        console.log("stopping...");
+        $("#tsdac").animate({ width: "200px" }, 441)
+
+        if (autoplayEnabled) {
+            $('#player').animate({ opacity: 0.0 });
+            $("#flor-de-belem").animate({ volume: 0.0 }, 441, function () {
+                $florDeBelem.pause();
+            });
+        }
+    });
+    $("#tsdac").mouseover(function () {
+        $florDeBelem.play();
+        console.log("playing...");
+        $("#tsdac").animate({ width: "175px" }, 441)
+        if (autoplayEnabled) {
+            $("#flor-de-belem").animate({ volume: 1.0 }, 441);
+            document.getElementById('player').innerHTML = 'Now playing: Flor de Belém';
+            $('#player').animate({ opacity: maxVolume });
+        }
+    });
+
+    const $mukilteoSpeedway = $("#mukilteo-speedway")[0];
+    $mukilteoSpeedway.volume = 0.0;
+    $("#ep-2021").mouseleave(function () {
+        console.log("stopping...");
+        $("#ep-2021").animate({ width: "200px" }, 441)
+
+        if (autoplayEnabled) {
+            $('#player').animate({ opacity: 0.0 });
+            $("#mukilteo-speedway").animate({ volume: 0.0 }, 441, function () {
+                $mukilteoSpeedway.pause();
+            });
+        }
+    })
+    $("#ep-2021").mouseover(function () {
+        $mukilteoSpeedway.play();
+        console.log("playing...");
+        $("#ep-2021").animate({ width: "175px" }, 441)
+        if (autoplayEnabled) {
+            $("#mukilteo-speedway").animate({ volume: maxVolume }, 441);
+            document.getElementById('player').innerHTML = 'Now playing: Mukilteo Speedway';
+            $('#player').animate({ opacity: 1.0 });
+        }
+    });
+
+    const $onTheWire = $("#on-the-wire")[0];
+    $onTheWire.volume = 0.0;
+    $("#red-mud").mouseleave(function () {
+        console.log("stopping...");
+        $("#red-mud").animate({ width: "200px" }, 441)
+        if (autoplayEnabled) {
+            $('#player').animate({ opacity: 0.0 });
+            $("#on-the-wire").animate({ volume: 0.0 }, 441, function () {
+                document.getElementById('on-the-wire').play();
+            });
+        }
+    })
+    $("#red-mud").mouseover(function () {
+        $onTheWire.play();
+        console.log("playing...");
+        $("#red-mud").animate({ width: "175px" }, 441);
+        if (autoplayEnabled) {
+            console.log("tst");
+            $("#on-the-wire").animate({ volume: maxVolume }, 441);
+            document.getElementById('player').innerHTML = 'Now playing: On the Wire';
+            $('#player').animate({ opacity: 1.0 });
+        }
+    });
+
+    // const $onTheWire = $("#on-the-wire")[0];
+    // $onTheWire.volume = 0.0;
+    $("#ssgp").mouseleave(function () {
+        $("#ssgp").animate({ width: "250px" }, 441)
+    })
+    $("#ssgp").mouseover(function () {
+        $("#ssgp").animate({ width: "225px" }, 441);
+    });
+
+    $("#vp").mouseleave(function () {
+        $("#vp").animate({ width: "250px" }, 441)
+    })
+    $("#vp").mouseover(function () {
+        $("#vp").animate({ width: "225px" }, 441);
+    });
+</script>
+
+</html>
