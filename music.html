@@ -25,6 +25,8 @@
     <hr>
     <div class="column">
         <div class="row">
+            <a href="invisible-cities.html"><img id="ic" , style="width: 250px"
+                    src="resources/album-covers/invisible-cities.jpg"></a>
             <a href="ssgp.html"><img id="ssgp" style="width: 250px"
                     src="resources/album-covers/sun-sheep-god-power.jpg"></a>
             <a href="videopractices.html"><img id="vp" , style="width: 250px"
@@ -158,6 +160,13 @@
     })
     $("#vp").mouseover(function () {
         $("#vp").animate({ width: "225px" }, 441);
+    });
+
+    $("#ic").mouseleave(function () {
+        $("#ic").animate({ width: "250px" }, 441)
+    })
+    $("#ic").mouseover(function () {
+        $("#ic").animate({ width: "225px" }, 441);
     });
 </script>
 
