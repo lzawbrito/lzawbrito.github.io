@@ -10,7 +10,7 @@ export default class NavigationComponent extends React.Component {
 		
 
 		return <div className="navigation-header">
-				{links}<hr/>
+				{links}
 			</div>
 	}
 }

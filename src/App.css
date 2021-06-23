@@ -127,8 +127,6 @@ html {
 p {
     font-family: 'LMRoman12';
     font-size: 18px;
-    padding-left: 30%;
-    padding-right: 30%;
 }
 
 a {
@@ -142,6 +140,19 @@ h1 {
     color: rgb(0, 0, 0);
     text-align: center;
   }
+
+
+p, h2, .ReadMore{
+    padding-left: 30%;
+    padding-right: 30%
+}
+
+h2 {
+    font-family: 'LMRoman12';
+    color:rgb(0, 0, 0);
+    text-align: left;
+    font-size: 24px;
+}
 
 body {
     background-color: rgb(245, 245, 245);
@@ -218,16 +229,48 @@ hr {
     display: none;
 }
 
+.quote, .ReadMore, .Location {
+    font-family: 'LMMono10';
+    font-style: italic;
+    font-size: 18px;
+    padding-left: 30%;
+    padding-right: 30%;
+}
 
+.ReadMore {
+    text-align: right;
+}
+
+ul {
+    padding-left: 30%;
+    list-style-type: square;
+    list-style-position:inside;
+}
+
+ul .quote {
+    padding: 0px
+}
+
+.Location {
+    font-size: 16px;
+}
 
 @media (max-width: 1000px) {
     hr {
-        width: 90%
+        width: 90%;
     }
 
-    p {
+    p, h2, .quote, .ReadMore, ul, .Location {
         padding-left: 20px;
         padding-right: 20px;
+    }
+
+    p, .ReadMore{
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 24px;
     }
 
     .navigation-header {
@@ -245,10 +288,22 @@ hr {
     footer {
         display: none;
     }
+
     .sideNavButton {
         display: inherit;
     }
+
     .sideNavButtonBG{
         display: inherit;
+    }
+
+    .ReadMore{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    ul {
+        list-style-position: outside;
+        padding-left: 40px;
     }
 }
