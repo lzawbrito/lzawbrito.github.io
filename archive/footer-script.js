@@ -1,6 +1,0 @@
-document.getElementById("footer").innerHTML = "<h4>\n" 
-    + "<a href=\"https://www.instagram.com/lzawbrito/\" target=\"_blank\">Instagram</a>\n"
-    + "| <a href=\"https://twitter.com/lucaszawbrito\" target=\"_blank\">Twitter</a>\n"
-    + "| <a href=\"https://www.linkedin.com/in/lucas-brito-9165a11a0/\" target=\"_blank\">LinkedIn</a>\n"
-    + "| <a href=\"https://github.com/lzawbrito\" target=\"_blank\">GitHub</a>\n"
-    + "| <a href=\"mailto:lucas_brito@brown.edu\">Email</a>\n </h4>"
