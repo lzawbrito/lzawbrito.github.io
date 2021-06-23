@@ -20,6 +20,7 @@ function App() {
       <h1>Lucas Brito</h1>
       <HashRouter>
         <div className="sideNavButton" onClick={openSidenav}>{'\u00a7'}</div>
+        <div className="sideNavButtonBG"/>
         <NavigationComponent/>
         <SideNavComponent width={wid} closeNav={closeSideanv}/>
         <Switch>
