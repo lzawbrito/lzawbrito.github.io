@@ -13,9 +13,12 @@ export default class FooterComponent extends React.Component{
 			</span>
 		}
 		const socialLinks = socials.map(makeLink);
-		return <footer>
+		return <>
+		<div id="square"></div>
+		<footer>
 			{socialLinks}
 		</footer>
+		</>
 	}
 }
 

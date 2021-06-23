@@ -125,6 +125,7 @@ html {
 }
 
 p {
+    text-indent: 50px;
     font-family: 'LMRoman12';
     font-size: 18px;
 }
@@ -168,6 +169,14 @@ footer {
     background-color:  rgb(245, 245, 245);
     font-family: 'LMMono12';
     padding-bottom: 20px;
+}
+
+#square {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 55px;
+    background: rgb(245, 245, 245)
 }
 
 .navSelected {
@@ -254,6 +263,12 @@ ul .quote {
 .Location {
     font-size: 16px;
 }
+.centerImage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%
+}
 
 @media (max-width: 1000px) {
     hr {
@@ -267,6 +282,7 @@ ul .quote {
 
     p, .ReadMore{
         font-size: 20px;
+        text-indent: 20px;
     }
 
     h2 {
@@ -305,5 +321,13 @@ ul .quote {
     ul {
         list-style-position: outside;
         padding-left: 40px;
+    }
+
+    .centerImage {
+        width: 75%;
+    }
+
+    #square {
+        display: none;
     }
 }
