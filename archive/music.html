@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="stylesheet.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Lucas Brito </title>
+    <link rel="shortcut icon" type="image/jpg" href="resources/icons/favicon.ico" />
+</head>
+<header>
+    <h1> Lucas Brito </h1>
+    <h4> &nbsp <a href="index.html">Home</a> &nbsp
+        | &nbsp <a href="academics.html">Academics</a> &nbsp
+        | &gt <a href="music.html">Music</a> &lt
+        | &nbsp <a href="writing.html">Writing</a> &nbsp
+    </h4>
+</header>
+<hr>
+
+<body>
+    <div class="column">
+        <div class="row">
+            <a href="laplacian-demon.html"><img id="laplacian-demon" , src="resources/album-covers/final-possibly-2.png"></a>
+            <a href="tsdac.html"><img id="tsdac" , src="resources/album-covers/tsdac.png"></a>
+        </div>
+    </div>
+    <hr>
+    <div class="column", id="video-gallery">
+        <div class="row">
+            <!-- <a href="invisible-cities.html"><img id="ic" , style="width: 250px"
+                    src="resources/album-covers/invisible-cities.jpg"></a>
+            <a href="ssgp.html"><img id="ssgp" style="width: 250px"
+                    src="resources/album-covers/sun-sheep-god-power.jpg"></a>
+            <a href="videopractices.html"><img id="vp" , style="width: 250px"
+                    src="resources/album-covers/videopractices.jpg"></a> -->
+        </div>
+    </div>
+</body>
+<footer id="footer">
+</footer>
+<script src="resources/scripts/footer-script.js"></script>
+<audio id="flor-de-belem">
+    <source src="resources/music/flor-de-belem.mp3">
+    </source>
+    <!-- <source src="audio/beep.ogg"></source> add support for this later-->
+    Your browser doesn't have audio support.
+</audio>
+<audio id="mukilteo-speedway">
+    <source src="resources/music/mukilteo-speedway.mp3">
+    </source>
+    <!-- <source src="audio/beep.ogg"></source> add support for this later-->
+    Your browser doesn't have audio support.
+</audio>
+<audio id="on-the-wire">
+    <source src="resources/music/on-the-wire.mp3">
+    </source>
+    <!-- <source src="audio/beep.ogg"></source> add support for this later-->
+    Your browser doesn't have audio support.
+</audio>
+<script type="text/javascript"
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function (){
+    var maxVolume = 0.5;
+    var autoplayEnabled = false;
+    const $player = $('#player');
+    $player.animate({ opacity: 1.0 });
+    document.getElementById('player').innerHTML = 'Click here to enable autoplay.';
+    $player.click(function () {
+        $player.animate({ opacity: 0.0 });
+        autoplayEnabled = true;
+        console.log("Autoplay enabled.")
+    });
+
+    class Release {
+    constructor(album, single, link) {
+        this.album = album;
+        this.link = single;
+        this.link = link;
+    }
+    }
+    class Video {
+        constructor(name, image, link) {
+            this.name = name;
+            this.image = image;
+            this.link = link;
+        }
+    }
+
+    var music = [
+        new Release(
+            "laplacian-demon",
+            "mukilteo-speedway", 
+            "laplacian-demon.html"),
+        new Release(
+            "tsdac",
+            "flor-de-belem", 
+            "tsdac.html")];
+
+    var videos = [
+        new Video("ttr", "things-to-remember.png", "https://vimeo.com/553240546"),
+        new Video("ic", "invisible-cities.jpg", "invisible-cities.html"),
+        new Video("vp", "videopractices.jpg", "videopractices.html"),
+        new Video("ssgp", "sun-sheep-god-power.jpg", "ssgp.html")
+        ];
+
+//     var text = "";
+
+//     for (i in music) {
+//         currentRelease = music[1];
+//         console.log("Current release: " + currentRelease.album);
+
+//         // const $florDeBelem = $("#flor-de-belem")[0];
+//         $("#" + currentRelease.single).volume = 0.0;
+//         $("#" + currentRelease.album).mouseleave(function () {
+//             console.log("stopping...");
+//             $("#" + currentRelease.album).animate({ width: "200px" }, 441)
+//             if (autoplayEnabled) {
+//                 $('#player').animate({ opacity: 0.0 });
+//                 $florDeBelem.pause();
+//                 $florDeBelem.animate({ volume: 0.0 }, 441, function () {
+//                     $florDeBelem.pause();
+//                 console.log("Test");
+//                 });
+//             }
+//         });
+//         $("#" + currentRelease.album).mouseover(function () {
+//             $("#" + currentRelease.single).get(0).play();
+//             console.log("playing...");
+//             $("#" + currentRelease.album).animate({ width: "175px" }, 441)
+//             if (autoplayEnabled) {
+//                 $("#" + currentRelease.single).animate({ volume: maxVolume }, 441);
+//                 document.getElementById('player').innerHTML = 'Now playing: Flor de Belém';
+//                 $('#player').animate({ opacity: 1.0 });
+//             }
+//         });
+//     }
+// });
+
+    console.log("test");
+    const $florDeBelem = $("#flor-de-belem")[0];
+    $florDeBelem.volume = 1.0;
+    $("#tsdac").mouseleave(function () {
+        console.log("stopping...");
+        $("#tsdac").animate({ width: "200px" }, 441)
+
+        if (autoplayEnabled) {
+            $('#player').animate({ opacity: 0.0 });
+            $("#flor-de-belem").animate({ volume: 0.0 }, 441, function () {
+                $florDeBelem.pause();
+            });
+        }
+    });
+    $("#tsdac").mouseover(function () {
+        $florDeBelem.play();
+        console.log("playing...");
+        $("#tsdac").animate({ width: "174px" }, 441)
+        if (autoplayEnabled) {
+            $("#flor-de-belem").animate({ volume: maxVolume }, 441);
+            document.getElementById('player').innerHTML = 'Now playing: Flor de Belém';
+            $('#player').animate({ opacity: 1.0 });
+        }
+    });
+
+    const $mukilteoSpeedway = $("#mukilteo-speedway")[0];
+    $mukilteoSpeedway.volume = 0.0;
+    $("#laplacian-demon").mouseleave(function () {
+        console.log("stopping...");
+        $("#laplacian-demon").animate({ width: "200px" }, 441)
+
+        if (autoplayEnabled) {
+            $('#player').animate({ opacity: 0.0 });
+            $("#mukilteo-speedway").animate({ volume: 0.0 }, 441, function () {
+                $mukilteoSpeedway.pause();
+            });
+        }
+    })
+    $("#laplacian-demon").mouseover(function () {
+        $mukilteoSpeedway.play();
+        console.log("playing...");
+        $("#laplacian-demon").animate({ width: "175px" }, 441)
+        if (autoplayEnabled) {
+            $("#mukilteo-speedway").animate({ volume: maxVolume }, 441);
+            document.getElementById('player').innerHTML = 'Now playing: Mukilteo Speedway';
+            $('#player').animate({ opacity: 1.0 });
+        }
+    });
+
+    const $onTheWire = $("#on-the-wire")[0];
+    $onTheWire.volume = 0.0;
+    $("#red-mud").mouseleave(function () {
+        console.log("stopping...");
+        $("#red-mud").animate({ width: "200px" }, 441)
+        if (autoplayEnabled) {
+            $('#player').animate({ opacity: 0.0 });
+            $("#on-the-wire").animate({ volume: 0.0 }, 441, function () {
+                document.getElementById('on-the-wire').play();
+            });
+        }
+    })
+    $("#red-mud").mouseover(function () {
+        $onTheWire.play();
+        console.log("playing...");
+        $("#red-mud").animate({ width: "175px" }, 441);
+        if (autoplayEnabled) {
+            console.log("tst");
+            $("#on-the-wire").animate({ volume: maxVolume }, 441);
+            document.getElementById('player').innerHTML = 'Now playing: On the Wire';
+            $('#player').animate({ opacity: 1.0 });
+        }
+    });
+
+    //Put images in gallery
+    var videoGalleryHtml = "<div class=\"row\">";
+    //Put images in galler
+    for (i in videos) {
+        var currentVideo = videos[i];
+       videoGalleryHtml += "<a href=\"" + currentVideo.link + "\">\n"
+        + "<img id=\"" + currentVideo.name + "\"," + 
+        " src=\"resources/album-covers/" + currentVideo.image + "\", "+ 
+        "style=\"width: 250px\"></a>"   
+        + "\n"
+    }
+    videoGalleryHtml += "<\div>"
+    console.log(videoGalleryHtml)
+    document.getElementById('video-gallery').innerHTML = videoGalleryHtml;
+
+    //Animation for videos
+    function generateMouseoverHandler(id) {
+        return function(event) {
+            $(id).animate({width: "225px"}, 441)
+        }
+    };
+
+    function generateMouseleaveHandler(id) {
+        return function(event) {
+            $(id).animate({width: "250px"}, 441)
+        }
+    };
+
+    for (i in videos) {
+        var currentVideo = videos[i];
+        var id = "#" + currentVideo.name;
+        $(id).mouseover(generateMouseoverHandler(id));
+        $(id).mouseleave(generateMouseleaveHandler(id));
+    }
+});
+</script>
+
+</html>
