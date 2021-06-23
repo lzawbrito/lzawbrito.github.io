@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { lastPage } from "./NavigationComponent";
 import { pages } from "./NavigationComponent";
+import { socials } from "./FooterComponent";
 
 
 export default class SideNavComponent extends React.Component {
@@ -16,10 +17,18 @@ export default class SideNavComponent extends React.Component {
 			</NavLink> 
 			</span>
 		}
+		function getSocial(social) {
+			return <div><a className="sideNavSocials" href={social.url} target="_blank">{social.name}</a></div>
+		}
+	
 		const links = pages.map(getLink);
+		const socialLinks = socials.map(getSocial);
 		return <div className="sidenav" style={{width: this.props.width}}>
-				<button onClick={this.props.closeNav}>X</button>
+				<a className="navUnselected" onClick={this.props.closeNav} style={{cursor:`pointer`}}>(X)</a>
 				{links}
+			<div className="sideNavSocialsBlock" style={{bottom:50}}>
+				{socialLinks}
+				</div>
 			</div>
 	}
 }

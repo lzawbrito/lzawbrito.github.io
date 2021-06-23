@@ -19,7 +19,7 @@ function App() {
       <meta name="viewport" content="width=device-width"/>
       <h1>Lucas Brito</h1>
       <HashRouter>
-        <button onClick={openSidenav}>open</button>
+        <div className="sideNavButton" onClick={openSidenav}>{'\u00a7'}</div>
         <NavigationComponent/>
         <SideNavComponent width={wid} closeNav={closeSideanv}/>
         <Switch>

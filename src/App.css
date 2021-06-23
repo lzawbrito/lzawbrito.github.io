@@ -100,7 +100,7 @@ html {
     height: 100%;
     width: 35%;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     left:0 ;
     background-color: rgb(241, 240, 240);
@@ -108,9 +108,21 @@ html {
     overflow-x: hidden;
     padding-top: 20px;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
 }
 
+.sideNavSocials {
+    font: 'LMMono12';
+}
+
+.sideNavSocials::before {
+    content: "   ";
+    white-space: pre;
+}
+
+.sideNavSocialsBlock {
+    position: absolute;
+}
 
 p {
     font-family: 'LMRoman12';
@@ -147,22 +159,32 @@ footer {
     padding-bottom: 20px;
 }
 
+.navSelected {
+    overflow-x: hidden;
+}
+
+.navUnselected {
+    overflow-x: hidden;
+}
+
 .navUnselected::before {
     content: "   ";
     white-space: pre;
+    overflow-x: hidden;
 }
 
 .navUnselected::after {
-    content: "   "
+    content: "   ";
 }
 .navSelected::before{
     color: black;
-    content: " > "
+    content: " > ";
+    overflow-x: hidden;
 }
 
 .navSelected::after{
     color: black;
-    content: " < "
+    content: " < ";
 }
 
 hr {
@@ -170,6 +192,18 @@ hr {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+
+.sideNavButton {
+    font-size: 36px;
+    font-family: 'LMMono12';
+    float: left;
+    z-index: 1;
+    position: absolute;
+    left: 15px;
+    top: 5px;
+}
+
 
 @media (max-width: 1000px) {
     hr {
@@ -187,5 +221,13 @@ hr {
 
     .sidenav {
         display: flex;
+    }
+    
+    .navSelected::after {
+        display: none;
+    }
+
+    footer {
+        display: none;
     }
 }
