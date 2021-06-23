@@ -128,6 +128,8 @@ p {
     text-indent: 50px;
     font-family: 'LMRoman12';
     font-size: 18px;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 a {
@@ -281,7 +283,7 @@ ul .quote {
     }
 
     p, .ReadMore{
-        font-size: 20px;
+        font-size: 18px;
         text-indent: 20px;
     }
 
