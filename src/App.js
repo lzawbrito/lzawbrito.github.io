@@ -1,7 +1,7 @@
 import './App.css';
 import {useState} from "react";
 import NavigationComponent from './components/NavigationComponent';
-import {Route, Switch, BrowserRouter, Redirect} from 'react-router-dom'
+import {Route, Switch, BrowserRouter, Redirect, HashRouter} from 'react-router-dom'
 import HomeComponent from './components/HomeComponent';
 import MusicComponent from './components/music/MusicComponent';
 import AcademicsComponent from './components/academics/AcademicsComponent';
@@ -18,7 +18,7 @@ function App() {
     <div className="App" >
       <meta name="viewport" content="width=device-width"/>
       <h1>Lucas Brito</h1>
-      <BrowserRouter>
+      <HashRouter>
         <button onClick={openSidenav}>open</button>
         <NavigationComponent/>
         <SideNavComponent width={wid} closeNav={closeSideanv}/>
@@ -31,7 +31,7 @@ function App() {
           <Route path="/music" component={MusicComponent} exact></Route>
           <Route path="/writing" component={WritingComponent} exact></Route>
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
       <FooterComponent/>
     </div>
   );
