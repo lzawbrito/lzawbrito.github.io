@@ -9,6 +9,7 @@ import WritingComponent from './components/writing/WritingComponent'
 import FooterComponent from './components/FooterComponent';
 import SideNavComponent from './components/SideNavComponent'
 import Coursework from './components/academics/Coursework'
+import ChicoBuarqueConstrucao from './components/writing/ChicoBuarqueConstrucao'
 
 function App() {
   const [wid, setWid] = useState(`0%`);
@@ -33,6 +34,7 @@ function App() {
             <Route path="/academics/coursework" component={Coursework}exact></Route>
           <Route path="/music" component={MusicComponent} exact></Route>
           <Route path="/writing" component={WritingComponent} exact></Route>
+            <Route path="/writing/chico-buarque-construcao" component={ChicoBuarqueConstrucao} exact></Route>
         </Switch>
       </HashRouter>
       <FooterComponent/>
