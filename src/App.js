@@ -15,9 +15,7 @@ import articleDisplay from './components/writing/ArticleDisplay';
 function App() {
   const [wid, setWid] = useState(`0%`);
   const openSidenav = () => setWid(`50%`)
-  const closeSidenav = () => {
-    setWid('0%');
-  }
+  const closeSidenav = () => setWid('0%')
   return (
     <div className="App" >
       <h1>Lucas Brito</h1>
