@@ -1,8 +1,5 @@
-import { get } from "jquery";
 import React from "react";
-import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import { lastPage } from "./NavigationComponent";
 import { pages } from "./NavigationComponent";
 import { socials } from "./FooterComponent";
 
@@ -11,8 +8,8 @@ export default class SideNavComponent extends React.Component {
 	
 	render() {
 		function getLink(page) {
-			return <span>
-			<NavLink to={page.link} className="navUnselected" activeClassName="navSelected" exact={true}>
+			return <span >
+			<NavLink  to={page.link} className="navUnselected" activeClassName="navSelected" exact={true} >
 					{page.name}
 			</NavLink> 
 			</span>

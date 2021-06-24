@@ -31,7 +31,7 @@ export const pages = [
 	{
 		name: "Writing",
 		link: "/writing"
-	},
+	}
 ]
 
 const isSelected = (target) => target === this.props.current;

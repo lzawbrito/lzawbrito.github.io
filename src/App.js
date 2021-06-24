@@ -12,10 +12,13 @@ import Coursework from './components/academics/Coursework'
 import ArticleDisplay from './components/writing/ArticleDisplay';
 import articleDisplay from './components/writing/ArticleDisplay';
 
+
 function App() {
   const [wid, setWid] = useState(`0%`);
   const openSidenav = () => setWid(`50%`)
-  const closeSideanv = () => setWid('0%')
+  const closeSidenav = () => {
+    setWid('0%');
+  }
   return (
     <div className="App" >
       <h1>Lucas Brito</h1>
@@ -24,7 +27,7 @@ function App() {
         <div className="sideNavButtonBG"/>
         <NavigationComponent/>
         <hr/>
-        <SideNavComponent width={wid} closeNav={closeSideanv}/>
+        <SideNavComponent width={wid} closeNav={closeSidenav}/>
         <Switch>
           <Route exact path="/">
             <Redirect to="/home"/>
@@ -38,6 +41,7 @@ function App() {
             component={() => articleDisplay({id: "chico-review"})}></Route>
             <Route path="/writing/visions-of-guajiru" 
             component={() => articleDisplay({id: "visions-of-guajiru"})}></Route>
+            <Route path="/writing/test" component={()=> articleDisplay({id: "test"})}></Route>
         </Switch>
       </HashRouter>
       <FooterComponent/>
