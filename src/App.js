@@ -9,7 +9,6 @@ import WritingComponent from './components/writing/WritingComponent'
 import FooterComponent from './components/FooterComponent';
 import SideNavComponent from './components/SideNavComponent'
 import Coursework from './components/academics/Coursework'
-import ArticleDisplay from './components/writing/ArticleDisplay';
 import articleDisplay from './components/writing/ArticleDisplay';
 
 
@@ -41,7 +40,6 @@ function App() {
             component={() => articleDisplay({id: "chico-review"})}></Route>
             <Route path="/writing/visions-of-guajiru" 
             component={() => articleDisplay({id: "visions-of-guajiru"})}></Route>
-            <Route path="/writing/test" component={()=> articleDisplay({id: "test"})}></Route>
         </Switch>
       </HashRouter>
       <FooterComponent/>

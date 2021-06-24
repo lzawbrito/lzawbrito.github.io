@@ -262,12 +262,5 @@ export const articles = [
 			his patients needed. It was as if the only cure for his own burdens was a
 			complex and impenetrable panorama of others’. 
 			`
-	},
-	{
-		id: "test",
-		title: "Test",
-		date: "6/23/2021",
-		summary: "This is the summary of the article",
-		content: "This is the article itself."
 	}
 ]
