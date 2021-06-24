@@ -1,22 +1,21 @@
-import React from "react";
-import NavigationComponent from "../NavigationComponent";
-import ReadMore from "../ReadMore";
-import LocationComponent from "../LocationComponent";
-
-export default class WritingComponent extends React.Component {
-	render() {
-		return <>
-		<LocationComponent/>
-		<h2>Chico Buarque's Construção: A Historical Review</h2>
-		<p>
-			It is often said that music has the power to heal emotional distress; in times of civil or personal unrest, we
-			call not to any rational or scientific disciplines, but to those that capture the nuance and potency of an
+export const articles = [
+	{
+		id: "chico-review",
+		title: "Chico Buarque's Construção: A Historical Review",
+		summary: `
+			It is often said that music has the power to heal emotional distress; in times of civil or personal unrest, we call not to any rational or scientific disciplines, but to those that capture the nuance and potency of an
 			emotion: art, music, poetry. With this in mind, it’s easy to see why Brazil saw the prolific artistic output it
 			did in the sixties and seventies: the nation had just undergone a dramatic shift in power from a left-wing
 			administration to a U.S.-backed military dictatorship, rampant censorship limited individual expression, and
 			dissidents were silenced—even tortured.
-		</p>
-		<p>
+		`,
+		content: `
+			It is often said that music has the power to heal emotional distress; in times of civil or personal unrest, we call not to any rational or scientific disciplines, but to those that capture the nuance and potency of an
+			emotion: art, music, poetry. With this in mind, it’s easy to see why Brazil saw the prolific artistic output it
+			did in the sixties and seventies: the nation had just undergone a dramatic shift in power from a left-wing
+			administration to a U.S.-backed military dictatorship, rampant censorship limited individual expression, and
+			dissidents were silenced—even tortured.
+
 			In midst of this political turmoil, it is fitting that the son of a prominent leftist sociologist began penning
 			songs that would later define the artistic outlook of that era. Our artist of interest is Chico Buarque de
 			Holanda—who had, prior to the 1970s, led a somewhat unremarkable career in straightforward sambas and bossas.
@@ -28,16 +27,14 @@ export default class WritingComponent extends React.Component {
 			Italy and returning to Brazil, Chico began concocting a set of songs would later constitute
 			Construção—Portuguese for “Construction”—a ten-track album considered not only his finest, but one of the
 			defining moments of Brazilian music.
-		</p>
-		<p>
+
 			Before we dig into this album: I find that the global conception of Brazilian music is somewhat one-dimensional.
 			Sambas are characterized by the liveliness of Carnavais and postcard-exoticism Rio de Janeiro, and bossas are
 			forever tarnished by their once over-commercialization, now colloquially identified as “elevator music.” This is
 			why Construção might come as a shock to most non-Brazilian listeners: it does not hold your hand. It does not
 			paint an Anglocentric view of Brazil as an exotic far-away land. It opens, in fact, with one of the more twisted
 			takes on traditional Brazilian music I’ve heard: “Deus Lhe Page,” roughly translating to “May God Pay You.”
-		</p>
-		<p>
+
 			Beneath hurried—almost scurrying—percussion and a piercing, haunting berimbau, we hear an ascending horn line
 			that leads into Chico Buarque’s opening lines: “For this bread to eat, for this floor to sleep on/The certainty
 			of birth and the permission to smile/For letting me breathe, for letting me exist/May God pay you.” This goes on
@@ -49,8 +46,7 @@ export default class WritingComponent extends React.Component {
 			“breathe” and “exist,” the character feels he is trapped by them. Right off the bat, this is a darker picture of
 			Brazilian music than we’re used to; more importantly, though, we get the sense that there’s a far richer subtext
 			to be looked at in this particular album, albeit one that doesn’t become clear until some songs later.
-		</p>
-		<p>
+
 			The track then ascends to a piercingly dissonant vocal harmony, ends, and we’re taken right into the next song,
 			“Cotidiano,” Like “Deus Lhe Page,” this track sees Chico deconstructing Brazilian music; he starts and stop the
 			steady samba, taking moments to linger in a silence, only to start the instrumentation once again and set the
@@ -59,8 +55,7 @@ export default class WritingComponent extends React.Component {
 			lyrics depict a cryptic story—a disillusioned lover? A 40-hour work week? What’s he getting at?—until the end of
 			the track, when he circles back to the opening “Every day…” stanza, almost as if setting us on an infinite loop
 			not unlike the life of the song’s protagonist.
-		</p>
-		<p>
+
 			Some songs later and we get to the title track, Construção. Lest you forget our brief lesson on Brazilian
 			history: Chico Buarque’s life, in context with the political climate of his time, had primed him for scrutiny of
 			the Brazilian government of the 1970s. But he couldn’t imbue his music with overt criticism—he was, after all,
@@ -74,8 +69,7 @@ export default class WritingComponent extends React.Component {
 			and tears, then sitting for his break. The man eats, drinks—dances, inebriated—and falls off the construction
 			site, to his death, splattering onto the pavement of a road below: “And he ruined himself like a flaccid
 			package/Agonized in the middle of the public sidewalk/He died in the wrong way, interrupting traffic.”
-		</p>
-		<p>
+
 			I contend this is the lyricism of a man with a strong opinion on the state of affairs. I contend that the
 			“something” that has been beating him down is an allusion for that which sent the singer fleeing to Italy.
 			Chico’s lyricism is, as a matter of fact, far from accidentally esoteric—the military administration’s
@@ -86,8 +80,7 @@ export default class WritingComponent extends React.Component {
 			eventually dying by the hands of the status quo. His death is but a nuisance to the system, an “interruption” of
 			traffic—perhaps a metaphor for the loss of his labor, or for the reliance of capitalism on efficient and
 			uninterrupted commute.
-		</p>
-		<p>
+
 			But Chico isn’t satisfied with telling this tale once—he feels the need to retell it in the second verse.
 			Hitting rewind for us, the lyrics play the tape once more: “He loved that time as if he was a machine/Kissed his
 			wife as if it was logical/Raised, in the landing, four flaccid walls… Brick by brick in a logical drawing.” This
@@ -104,8 +97,7 @@ export default class WritingComponent extends React.Component {
 				complicit. This character, evidently beat down by the system enough to cease questioning its functionality,
 				is
 				complicit.
-		</p>
-		<p>
+
 			There’s an undeniable tension to Chico’s rhetoric. The lyrics begin looping over this moment over and over, each
 			time becoming more convoluted in vocabulary, hazier in narrative, until the story becomes so tangled in itself
 			it feels as if something is about to break. Underneath this, the instrumentation chugs on: Chico first
@@ -120,8 +112,7 @@ export default class WritingComponent extends React.Component {
 			The worker, speaking on behalf of the working class, sardonically asks God to repay the system for the abysmal
 			quality of life it has provided him. “And for the flies that kiss us and cover us/And for the ultimate peace
 			that will redeem us/May god pay you.”
-		</p>
-		<p>
+
 			There is a plethora of sly criticisms of fascism, capitalism, and the military throughout this album. “Samba de
 			Orly,” for example, deals with Chico’s exile in Italy, indirectly mentioning the derisive remarks Chico would
 			have made had he been able to openly critique the dictatorship. I highly encourage you to read through a
@@ -138,8 +129,138 @@ export default class WritingComponent extends React.Component {
 			experiencing an entirely different—but equally unforgiving—system such as 21st century American capitalism. We
 			are told to study history to avoid making the mistakes of the past, but on occasion, studying history—in this
 			case, history in the form of music—helps us understand what to do and how to feel in the present.
-		</p>
-			<div class="quote" style={{textAlign:"right"}}>November 13, 2020</div>
-		</>
+			`,
+		date: `
+			November 21, 2020
+		`	
+	},
+	{
+		id: "visions-of-guajiru",
+		title: "Visions of Guajiru",
+		summary: `
+			Artur’s mother grew up in the attic of a little blue house in the town of
+			Maravilha, Santa Catarina. Every morning, she’d put on disc two, side A, track
+			one from Milton Nascimento’s Clube da Esquina—the song “Paisagem da Janela”—and
+			skip around her room while changing out of her pajamas; when Lô Borges sang of
+			seeing a white mural from his bedroom, she would lean out her window and look at
+			her own white mural behind her house, basking in the simple happiness of this
+			coincidence. 
+		`,
+		date: " ",
+		content: `
+			<div class="quote" style="padding-left: 0px; padding-right: 0px">
+			This is an excerpt from a novel I have been working on, Visions of Guajiru. 
+			The release date is to be determined as of June 2021. 
+			</div>			
+
+			Artur’s mother grew up in the attic of a little blue house in the town of
+			Maravilha, Santa Catarina. Every morning, she’d put on disc two, side A, track
+			one from Milton Nascimento’s Clube da Esquina—the song “Paisagem da Janela”—and
+			skip around her room while changing out of her pajamas; when Lô Borges sang of
+			seeing a white mural from his bedroom, she would lean out her window and look
+			at her own white mural behind her house, basking in the simple happiness of
+			this coincidence.
+			
+			She was the oldest of three sisters and the daughter of a Polish-Jewish father
+			and an Italian mother. Her name was Ceres, her sisters were Simone and Michele,
+			her father Orlando, her mother Gelci. They lived in a town called Maravilha,
+			which was, at the time, a dirt-road settlement—water was still fetched from
+			wells and the electricity was scarce—so her father was the only doctor. They
+			lived across the street from the hospital, to the daughters’ dismay, as the
+			nurses would tell their father of any rowdiness they caught transpiring in the
+			front yard. “Orlando!” they would yell, marching into the surgery room. “Your
+			children are climbing the roof!” Orlando would sigh, look up from the patient,
+			then tell the nurses he would deal with it later. Late at night, after Orlando
+			had come home and kissed the daughters good night, Ceres tiptoed downstairs to
+			see if he was going to chastise them for their behavior. He would be sitting on
+			the sofa, a book in one hand, a stick of salami in the other, and a glass of
+			wine on the coffee table. She’d assume he forgot about it and sneak back
+			upstairs, but he never really forgot—he just let children be children.
+
+			Ceres’s childhood days were spent inventing meaningless games with her sisters.
+			Other than climbing roofs, they’d poke caterpillars, pretend to be fairies, play
+			“Indians” with the boys two houses down, and, when someone broke a rule or
+			played the wrong way, argue with each other. In the heat of one particularly
+			ugly altercation, Simone yanked the loose doorknob out of her bedroom door and
+			threw it at Ceres; it hit her in the leg and the sharp metal became lodged in
+			her thigh. Hearing the screams, her mother ran up the stairs, saw what happened,
+			and called for Orlando. Later, Orlando found himself carefully removing the
+			doorknob, applying some pressure with a rag, and telling Ceres: “I’ve seen
+			worse. I don’t think we’ll have to amputate.” This did not seem to reassure
+			her.
+
+			But there was a hint of truth in Orlando’s jokes—he had seen much worse.
+			“Artur,” Ceres would say to her son, “do you have any idea the things my dad saw
+			in that town?”
+
+			“What, mom?”
+
+			Orlando once took in the town drunkard because he’d downed a bottle of isopropyl
+			alcohol. The local bar had kicked him out for belligerence and, fazed by
+			withdrawal, he purchased rubbing alcohol from the drug store and guzzled it on
+			his way home. They’d found him collapsed in a pool of vomit a few steps away
+			from his front door. He lived but started drinking again a week later.
+
+			Some months after the drunkard, Orlando had to deliver a cow. There was no
+			veterinary in Maravilha and he owed the cattle rancher a favor, so he rushed to
+			the barn at one in the morning and delivered the calf via c-section. The mother
+			died—she lost too much blood; regardless, the rancher was so thankful he named
+			the calf Orlanda and even offered it to him as a gift. When Orlando told the
+			girls he’d refused to accept it, Ceres and her sisters were indignant. “We have
+			space in the backyard!” Orlando simply sighed and reached for a stick of
+			salami.
+
+			One hot day in July, Orlando came home and threw up in the sink. When Gelci
+			approached him, he was fuming. Ceres and her sisters, perched on the stairs,
+			overheard him throwing furniture and yelling in the kitchen. After some time,
+			Gelci came out to the living room and hissed at them to go their rooms. They
+			ambled away and, later, when Orlando came up to tell them everything was okay,
+			they saw his hair disheveled and his hand bloody. He looked tired.
+
+			Years later, after his death, Gelci told Ceres that that day the nurses had
+			brought in a drowned infant. She had been wrapped in barbed wire and thrown down
+			a well.
+
+			“Your father wasn’t an angry man,” Gelci said over a glass of wine. Ceres hadn’t
+			touched her drink.
+
+			After some years of living in Maravilha, the town insisted that Orlando run for
+			mayor. It was the cattle rancher’s idea, and most everyone supported it. The
+			previous mayors were all opportunist politicians; the people demanded someone
+			who, by trade, was trustworthy and genuine.
+
+			Orlando seriously considered it. It seemed as if he would win. But he knew
+			politics, knew every one of the town’s problems would be blamed on him, that the
+			people’s respect for him was, in fact, surface level; the populace was, just
+			like any populace, fickle.
+
+			So, after watching the election cycle from afar and seeing the mayor incumbent
+			get reelected for what felt like the tenth time, Orlando quietly returned to his
+			little hospital and continued to work as the town’s doctor; and that’s where he
+			stayed for years. Orlando was, above all, a man invested in his work, defined by
+			his work. He wasn’t, as Gelci noted, a particularly impulsive or angry man. He
+			had the sangfroid control of a surgeon as well as the altruism and sensitivity
+			of a healer. He found poetry in his profession, and, sometimes, peace. Through
+			the chunks of twenty to thirty patients he saw a day, he found himself lost in
+			the repetition of it—the stage was the same, the scenery the same, the only
+			element that changed was the characters. Sometimes the case was a comedy, other
+			times a tragedy or a drama—it depended on the story that the patient brought to
+			the table.
+
+			Orlando noted that they didn’t tell their stories through words, rather through
+			their body and their movements. Little windows to the soul, he told Gelci,
+			novellas walking before him every moment of every hour of every day. There, more
+			than in the body, he found ailments of magnitudes that couldn’t be cured by
+			remedies or injections, rather by some change in their lives—more compassion or
+			understanding from a spouse, a glimpse of prosperity, or perhaps some
+			invigoration of spirit. But Orlando only had medicine for the body—he had no
+			recourse other than his private testaments to these unspoken ailments, some of
+			which occasionally poured into conversations with his wife or correspondence
+			with his family, while the rest remained in the corners of his mind, slowly
+			building into a picture that could have been completed, but never was. There, in
+			his patched-up tapestry of consultation room scenes, he found the very solace
+			his patients needed. It was as if the only cure for his own burdens was a
+			complex and impenetrable panorama of others’. 
+			`
 	}
-}
+]

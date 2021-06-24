@@ -9,7 +9,8 @@ import WritingComponent from './components/writing/WritingComponent'
 import FooterComponent from './components/FooterComponent';
 import SideNavComponent from './components/SideNavComponent'
 import Coursework from './components/academics/Coursework'
-import ChicoBuarqueConstrucao from './components/writing/ChicoBuarqueConstrucao'
+import ArticleDisplay from './components/writing/ArticleDisplay';
+import articleDisplay from './components/writing/ArticleDisplay';
 
 function App() {
   const [wid, setWid] = useState(`0%`);
@@ -17,7 +18,6 @@ function App() {
   const closeSideanv = () => setWid('0%')
   return (
     <div className="App" >
-      <meta name="viewport" content="width=device-width"/>
       <h1>Lucas Brito</h1>
       <HashRouter>
         <div className="sideNavButton" onClick={openSidenav}>{'\u00a7'}</div>
@@ -34,7 +34,10 @@ function App() {
             <Route path="/academics/coursework" component={Coursework}exact></Route>
           <Route path="/music" component={MusicComponent} exact></Route>
           <Route path="/writing" component={WritingComponent} exact></Route>
-            <Route path="/writing/chico-buarque-construcao" component={ChicoBuarqueConstrucao} exact></Route>
+            <Route path="/writing/chico-review" 
+            component={() => articleDisplay({id: "chico-review"})}></Route>
+            <Route path="/writing/visions-of-guajiru" 
+            component={() => articleDisplay({id: "visions-of-guajiru"})}></Route>
         </Switch>
       </HashRouter>
       <FooterComponent/>
