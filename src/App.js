@@ -10,7 +10,7 @@ import FooterComponent from './components/FooterComponent';
 import SideNavComponent from './components/SideNavComponent'
 import Coursework from './components/academics/Coursework'
 import articleDisplay from './components/writing/ArticleDisplay';
-
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   const [wid, setWid] = useState(`0%`);
@@ -20,6 +20,7 @@ function App() {
     <div className="App" >
       <h1>Lucas Brito</h1>
       <HashRouter>
+        <ScrollToTop/> 
         <div className="sideNavButton" onClick={openSidenav}>{'\u00a7'}</div>
         <div className="sideNavButtonBG"/>
         <NavigationComponent/>
