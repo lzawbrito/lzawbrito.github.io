@@ -7,7 +7,6 @@ export default class WritingComponent extends React.Component {
 	render() {
 		function getMenu(article) {
 			return <>
-			<LocationComponent hasSlash={true}/>
 			<h2>{article.title}</h2>
 			<p>{article.summary}</p>
 			<ReadMore to={`/writing/${article.id}`}></ReadMore>
@@ -16,6 +15,7 @@ export default class WritingComponent extends React.Component {
 		}
 		const content = articles.map(getMenu)
 		return <>
+		<LocationComponent hasSlash={true}/>
 		{content}
 		</>
 	}

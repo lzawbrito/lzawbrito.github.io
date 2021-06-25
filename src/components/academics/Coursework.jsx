@@ -40,7 +40,7 @@ export const courseworkList = [
 				hasNotes: false
 			},
 			{
-				name: "PHYS1510 - Advanced Electromagneetic Theory",
+				name: "PHYS1510 - Advanced Electromagnetic Theory",
 				hasNotes: false
 			},
 			{
