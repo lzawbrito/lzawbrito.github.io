@@ -1,10 +1,12 @@
 import React from "react";
 import NavigationComponent from "../NavigationComponent";
 import ReadMore from "../ReadMore";
+import LocationComponent from "../LocationComponent";
 
 export default class AcademicsComponent extends React.Component {
 	render() {
 		return <>
+		<LocationComponent hasSlash={true}/>
 		<h2>
 			Research
 		</h2>

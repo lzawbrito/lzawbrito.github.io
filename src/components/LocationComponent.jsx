@@ -23,6 +23,7 @@ export default class LocationComponent extends React.Component {
 		return <>
 		<div className="Location">
 			{links}
+			{(this.props.hasSlash) ? "/" : ""}
 		</div>
 		</>
 	}

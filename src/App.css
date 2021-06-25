@@ -82,6 +82,7 @@ html {
     font-display: replace;
 }
 
+
 .navigation-header {
   font-size: 16px;
   font-family: 'LMMono9';
@@ -332,4 +333,5 @@ ul .quote {
     #square {
         display: none;
     }
+
 }
