@@ -144,7 +144,7 @@ h1 {
 
 p, h2, .ReadMore{
     padding-left: 30%;
-    padding-right: 30%
+    padding-right: 30%;
 }
 
 h2 {
@@ -222,7 +222,6 @@ hr {
     left: 15px;
     top: 5px;
     display: none;
-    /* background: radial-gradient(circle, rgba(255,255,255,1) 48%, rgba(0,212,255,0) 100%); */
 }
 
 .sideNavButtonBG {
@@ -262,12 +261,28 @@ ul .quote {
 .Location {
     font-size: 16px;
 }
+
 .centerImage{
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 25%
 }
+
+.albumCoverContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    padding-right: 30%;
+    padding-left: 30%;
+	justify-content: center;
+}
+
+.albumCoverContainer img {
+    max-width: 200px;
+    margin: 13px;
+}
+
 
 @media (max-width: 1000px) {
     hr {
@@ -332,6 +347,16 @@ ul .quote {
 
     #square {
         display: none;
+    }
+    
+    .albumCoverContainer {
+        padding-right: 20px;
+        padding-left: 20px
+    }
+
+    .albumCoverContainer {
+        width: 80%;
+        max-width: 400px;
     }
 
 }

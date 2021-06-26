@@ -1,11 +1,10 @@
 import React from "react";
 import NavigationComponent from "./NavigationComponent";
-import me from '../images/me-round.png';
 
 export default class HomeComponent extends React.Component {
 	render() {
 		return <>
-		<img src={me} alt="Me" className="centerImage"></img>
+		<img src="/images/me-round.png" alt="Me" className="centerImage"></img>
 		<p>
 		Astrophysics and computer science student at Brown University. Songwriter and occasional writer. Interested in 
 		math, philosophy, and powerlifting.
