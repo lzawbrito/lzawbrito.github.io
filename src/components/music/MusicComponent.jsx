@@ -1,6 +1,7 @@
 import React from "react";
 import NavigationComponent from "../NavigationComponent";
 import { Link } from "react-router-dom";
+import LocationComponent from "../LocationComponent";
 
 export default class HomeComponent extends React.Component {
 	render() {
@@ -11,8 +12,11 @@ export default class HomeComponent extends React.Component {
 		}
 		const scoreContent = scores.map(makeScoreThumbnail)
 		return <>
+		<LocationComponent hasSlash={true}/>
 		<div className="albumCoverContainer">
+			<Link className="albumLink" to={`/music/laplacian-demon`}>
 			<img src="/images/covers/laplacian-demon.png" alt="Laplacian Demon"/>
+			</Link>
 			<img src="/images/covers/tsdac.png" alt="TSDAC"/>
 		</div>
 		<hr></hr>

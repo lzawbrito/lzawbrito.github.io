@@ -269,6 +269,16 @@ ul .quote {
     width: 25%
 }
 
+.bandcampEmbed{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0;
+    width: 450px;
+    aspect-ratio: 1 / 1;
+    padding-top: 50px;
+}
+
 .albumCoverContainer{
     display: flex;
     flex-direction: row;
@@ -283,6 +293,22 @@ ul .quote {
     margin: 13px;
 }
 
+.logo-row {
+    display: flex;
+    padding-left: 30%;
+    padding-right: 30%;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-row img {
+    width: 75px;
+}
+
+.logo-row .logoRowItem{
+    margin: 40px;
+}
 
 @media (max-width: 1000px) {
     hr {
@@ -359,4 +385,25 @@ ul .quote {
         max-width: 400px;
     }
 
+    .logo-row {
+        display: flex;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo-row .logoRowItem {
+        margin: 20px
+    }
+
+    .bandcampEmbed{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border: 0;
+        width: 80%;
+        aspect-ratio: 1 / 1;
+    }
 }

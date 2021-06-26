@@ -12,6 +12,7 @@ import Coursework from './components/academics/Coursework'
 import Research from './components/academics/Research';
 import articleDisplay from './components/writing/ArticleDisplay';
 import ScrollToTop from './components/ScrollToTop'
+import albumDisplay from './components/music/AlbumDisplay';
 
 function App() {
   const [wid, setWid] = useState(`0%`);
@@ -36,6 +37,8 @@ function App() {
             <Route path="/academics/coursework" component={Coursework}exact></Route>
             <Route path="/academics/research" component={Research}exact></Route>
           <Route path="/music" component={MusicComponent} exact></Route>
+            <Route path="/music/laplacian-demon"
+            component={() => albumDisplay({id: "laplacian-demon"})}></Route>
           <Route path="/writing" component={WritingComponent} exact></Route>
             <Route path="/writing/chico-review" 
             component={() => articleDisplay({id: "chico-review"})}></Route>
