@@ -9,6 +9,7 @@ import WritingComponent from './components/writing/WritingComponent'
 import FooterComponent from './components/FooterComponent';
 import SideNavComponent from './components/SideNavComponent'
 import Coursework from './components/academics/Coursework'
+import Research from './components/academics/Research';
 import articleDisplay from './components/writing/ArticleDisplay';
 import ScrollToTop from './components/ScrollToTop'
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/home" component={HomeComponent} exact></Route>
           <Route path="/academics" component={AcademicsComponent} exact></Route>
             <Route path="/academics/coursework" component={Coursework}exact></Route>
+            <Route path="/academics/research" component={Research}exact></Route>
           <Route path="/music" component={MusicComponent} exact></Route>
           <Route path="/writing" component={WritingComponent} exact></Route>
             <Route path="/writing/chico-review" 

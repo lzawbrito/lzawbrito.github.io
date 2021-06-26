@@ -15,7 +15,7 @@ export default class AcademicsComponent extends React.Component {
 			Ian Dell'Antonio. In particular, I am applying machine learning 
 			techniques to weak gravitational lensing detection. 
 		</p>
-		<ReadMore to="/coursework"></ReadMore>	
+		<ReadMore to="/academics/research"></ReadMore>	
 		<hr/>
 		<h2>
 			Coursework
