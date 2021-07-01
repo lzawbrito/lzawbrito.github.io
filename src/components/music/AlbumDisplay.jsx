@@ -3,6 +3,7 @@ import LocationComponent from "../LocationComponent"
 import { releases } from "./Releases"
 import ReactHtmlParser from 'react-html-parser';
 
+
 export default function albumDisplay(props) {
 	var release = {
 		id: "",
@@ -39,6 +40,22 @@ export default function albumDisplay(props) {
 		</div>
 	</div>
 	<hr></hr>
+	<div className="lyricsDisplay">
+		<div className="lyricsDisplayTracklist">
+            <div class="lyricsSelection" id="marinus">
+                1. Marinus
+            </div>
+            <div class="lyricsSelection" id="mukilteo-speedway">
+                2. Mukilteo Speedway
+            </div>
+            <div class="lyricsSelection" id="spider">
+                3. Thin Black Spider Across the Lot
+            </div>
+            <div class="lyricsSelection" id="hypercommodity">
+                4. Hypercommodity
+            </div>
+		</div>
+	</div>
 	<hr></hr>
 	<p style={{textIndent:"0px"}}>
 		{release.blurb}

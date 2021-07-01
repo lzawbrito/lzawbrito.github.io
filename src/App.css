@@ -277,6 +277,7 @@ ul .quote {
     width: 450px;
     aspect-ratio: 1 / 1;
     padding-top: 50px;
+    padding-bottom: 20px;
 }
 
 .albumCoverContainer{
@@ -307,7 +308,33 @@ ul .quote {
 }
 
 .logo-row .logoRowItem{
-    margin: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+.lyricsDisplay {
+    display: grid;
+    margin-left: 30%;
+    margin-right: 30%;
+    grid-template-columns: 200px auto;
+    grid-template-rows: auto;
+}
+
+.lyricsDisplayTracklist {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    font-family: 'LMRoman12';
+    font-size: 18px
+}
+
+.lyrics-selection {
+    cursor: pointer;
+    font-family:'LMRoman12';
+    font-weight: regular; 
+    font-style: normal;
+    font-size: 18px;
 }
 
 @media (max-width: 1000px) {

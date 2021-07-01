@@ -13,6 +13,7 @@ import Research from './components/academics/Research';
 import articleDisplay from './components/writing/ArticleDisplay';
 import ScrollToTop from './components/ScrollToTop'
 import albumDisplay from './components/music/AlbumDisplay';
+import NotFound from './components/NotFound';
 
 function App() {
   const [wid, setWid] = useState(`0%`);
@@ -44,6 +45,7 @@ function App() {
             component={() => articleDisplay({id: "chico-review"})}></Route>
             <Route path="/writing/visions-of-guajiru" 
             component={() => articleDisplay({id: "visions-of-guajiru"})}></Route>
+          <Route component={NotFound}></Route>
         </Switch>
       </HashRouter>
       <FooterComponent/>
