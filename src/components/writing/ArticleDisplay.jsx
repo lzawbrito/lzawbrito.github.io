@@ -1,8 +1,7 @@
 import React from "react";
 import LocationComponent from "../LocationComponent";
 import { articles } from "./Articles";
-import ReactHtmlParser from 'react-html-parser';
-
+import ReactMarkdown from 'react-markdown';
 
 export default function articleDisplay(props) {
 		var article = {id: "", title: "Something has gone wrong.", content: [], date: ""};
@@ -13,13 +12,13 @@ export default function articleDisplay(props) {
 		}
 		const title = article.title;
 
-		const content = '<p>' + article.content.replaceAll('\n\n', '</p><p>') + '</p>'
+		const content = article.content.replaceAll('\t', '')
 		const date = article.date;
 		return <>
 		<LocationComponent/>
 		<h2>{title}</h2>
 		<body>
-			{ReactHtmlParser(content)}
+			<ReactMarkdown>{content}</ReactMarkdown>
 			<div class="quote" style={{textAlign:"right"}}>{date}</div>
 		</body>
 		</>

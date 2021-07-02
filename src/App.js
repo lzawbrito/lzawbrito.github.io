@@ -13,7 +13,17 @@ import Research from './components/academics/Research';
 import articleDisplay from './components/writing/ArticleDisplay';
 import ScrollToTop from './components/ScrollToTop'
 import albumDisplay from './components/music/AlbumDisplay';
+import { articles } from './components/writing/Articles';
 import NotFound from './components/NotFound';
+
+
+function generateArticleRouter(a) {
+  return <Route path={`/writing/${a.id}`} 
+  component={() => articleDisplay({id: `${a.id}`})}></Route>
+}
+
+const articleRouters = articles.map(generateArticleRouter)
+console.log(articleRouters)
 
 function App() {
   const [wid, setWid] = useState(`0%`);
@@ -41,10 +51,13 @@ function App() {
             <Route path="/music/laplacian-demon"
             component={() => albumDisplay({id: "laplacian-demon"})}></Route>
           <Route path="/writing" component={WritingComponent} exact></Route>
-            <Route path="/writing/chico-review" 
+            {articleRouters}
+            {/* <Route path="/writing/chico-review" 
             component={() => articleDisplay({id: "chico-review"})}></Route>
             <Route path="/writing/visions-of-guajiru" 
             component={() => articleDisplay({id: "visions-of-guajiru"})}></Route>
+            <Route path="/writing/locke-property-rights" 
+            component={() => articleDisplay({id: "locke-property-rights"})}></Route> */}
           <Route component={NotFound}></Route>
         </Switch>
       </HashRouter>

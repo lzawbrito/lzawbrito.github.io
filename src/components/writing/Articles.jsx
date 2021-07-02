@@ -1,5 +1,126 @@
 export const articles = [
 	{
+		id: "locke-property-rights",
+		title: "Locke's Property Rights through a Natural State",
+		summary: `
+			The right to obtain and preserve one's own property is a pillar of 
+			popular ethics, and to many constitutes the most dominant impetus 
+			for a civil state. The notion found its popularity through John 
+			Locke's famous _Second Treatise of Government_, which 
+			additionally outlines his theory on the natural (i.e., 
+			pre-civilization) state of humanity. In this paper I argue that 
+			the right to property as outlined by Locke (and thus as commonly 
+			interpreted) is fundamentally at odds with this so-called state of 
+			nature, and thus property rights are in fact much more limited 
+			and moderate than generally accepted. 
+		`,
+		date: "July 2, 2021",
+		content: `
+		John Locke’s famous _Second Treatise of Government_ describes what is
+		regarded as the thinker’s most influential program: the emergence,
+		limits, and value of property rights. Locke’s thought is that property
+		originates in what is now known as “labor mixing”—one is said to “own”
+		an object upon applying labor to it such that the object yields some
+		value. This value, Locke says, can be distributed to others such that
+		the object is of net benefit to the community at large. Since Locke’s
+		argument is buttressed on this ostensible benefit to individuals other
+		than the property owner, Locke finds it proper to qualify his stance by
+		appending to his description the so called Lockean proviso: that “no man
+		but he can have a right to what that is once joined to, at least where
+		there is enough, and as good, left in common for others” (Locke 19).
+		There is strength to these ideas, and history to show for it: the
+		founding tenets of the current chief mode of economy are direct
+		applications of Locke’s thinking. Despite this, the discussion that
+		follows will outline the theory’s shortcomings and present them as
+		results of Locke’s ill-defined property rights; specifically, I contend
+		that because property is a superstructure of the state of nature (as can
+		be shown by Locke’s own account), the program of property ownership that
+		the Second Treatise outlines is contradictory and self-effacing. I will
+		do this in three stages: first, I argue that property rights are nether
+		parallel to nor more fundamental than, but rather emergent from the
+		state of nature; then I will turn to showing that the limitations of
+		property rights—as Locke himself lays them out—naturally lead to a
+		degree of “unreasonable” use of property, for property use needs not be
+		as reasonable as anything else; finally, I will conclude by arguing that
+		these unreasonable uses of property are, by Locke’s state of nature,
+		just cause to disarm the property owner of their property, thereby
+		placing a natural limitation on property rights unaccounted for by the
+		thinker himself.
+		
+		The state of nature, by Locke’s design, is more fundamental than all
+		other constructs of a political philosophy—thus these remaining
+		constructs should be taken as dependent on the state of nature and, most
+		importantly, a state of governance does not imply the constituency
+		cannot be in a state of nature. This is of note because it grants one
+		the liberty of discussing features of the state of nature in spite of
+		possibly contrary (BETTER WORD?) features of sovereign legislation; in
+		particular, it permits us to discuss elements of the state of nature
+		that help deconstruct Locke’s theory of property. The state of nature’s
+		feature of interest is the tendency to “preserve [oneself]” as well as
+		“the rest of mankind,” which necessitates the ability to “punish the
+		transgressors of that law”—a right which we will see becomes
+		instrumental in delimiting property rights. Yet Locke describes the
+		inception of civil society as a renunciation of the right to “private
+		judgement” in favor of a communal “umpire,” requiring an abandonment of
+		this crucial natural right to punish “transgressors” (Locke 9, 46). I am
+		nevertheless compelled to challenge this interface between the states of
+		nature and civility, for the so-called right to revolution is introduced
+		by Locke in order to ensure the sovereignty does legislate contrary to
+		the preservation of humanity which the civil government itself was
+		formed under the pretense of upholding. Locke argues that the particular
+		right the violation of which warrants revolution is indeed the right to
+		property—he writes that “whenever the legislators endeavor to take away,
+		and destroy the property of the people… they put themselves into a state
+		of war with the people”—but I contend that the right to property is to
+		be upheld precisely because it poses a supposed benefit to humanity, and
+		that other violations of the preservation of humanity should likewise be
+		met with a state of war. For Locke sees fit to add the “[reduction] of
+		[the populace] to slavery under arbitrary power” as a condition that may
+		invoke the right to revolution (Locke 111). Such “slavery” is of course
+		to be repudiated on the grounds that it infringes on natural rights,
+		freedoms, and preservations of humanity, so to speak, which are arguably
+		punishable by the state of nature. 
+
+		Sovereignty is then not a substitution of the state of nature, rather a
+		state that extends from, depends on, and is defined in relation to the
+		state of nature. This is an interpretation supported not only by the
+		conditions of the right to revolution but also by Locke’s own
+		definitions: “to understand political power right,” he writes, “and
+		derive it from its original, we must consider what state men are
+		naturally in, and that is, a state of perfect freedom to order their
+		action” (Locke 8). Here Locke motivates his study of the state of nature
+		by defining it as constituting the “original” from which “political
+		power” arises—as opposed to defining it in relation to sovereignty or
+		political power—and thus one construes the remaining elements of Locke's
+		theory as emerging from particular conditions in addition to the
+		conditions of the state of nature. Among these elements is indeed his
+		theory of property, although this does not initially appear to be the
+		case in his treatment of it. After all, Locke claims the “natural” right
+		to property is justified by the divine provision of abundant earthly
+		resources: “God, who hath given the world to men in common, hath also
+		given them reason to make use of it to the best advantage of life, and
+		convenience. The earth, and all that is therein, is given to men for the
+		support and comfort of their being” (Locke 18). This is, however, the
+		only deontological (?) claim Locke makes in discussing property—the
+		remainder of the program lacks in a description of, say, how individuals
+		in a state of nature ought to interact with property rights. In fact,
+		the preservation of property ownership is entirely hinged on the claimed
+		benefit that individual ownership poses to the general populace, for
+		under the state of nature individuals reserve the right to reprimand and
+		punish violations of the sanctity of life. From this one infers that
+		property rights are only unalienable insofar as “…”; in other words,
+		that for the right to property to be absolute, these proclaimed benefits
+		must universally hold for any piece of property under any circumstance
+		(Locke _). This is all to say that, despite God’s having bestowed upon
+		humanity a plethora of available natural resources (i.e., despite the
+		ostensibly divine right one has to obtain property), the right to
+		continue owning that property is contingent on that property being of
+		greater benefit than harm to the larger populace, and thus what one
+		construes as the right to property—but which really is something like
+		“the right to continue having an object as property”—is in fact not at
+		all fundamental nor unalienable.`
+	},
+	{
 		id: "chico-review",
 		title: "Chico Buarque's Construção: A Historical Review",
 		summary: `
@@ -74,7 +195,7 @@ export const articles = [
 			“something” that has been beating him down is an allusion for that which sent the singer fleeing to Italy.
 			Chico’s lyricism is, as a matter of fact, far from accidentally esoteric—the military administration’s
 			censorship forced Buarque’s social commentary into an indirect yet equally potent vocabulary of metaphors. Many
-			analyses (see <a href="https://cafecomsociologia.com/analise-da-musica-construcao-chico-buarque/">here</a>) of this track have
+			analyses (see [this article](https://cafecomsociologia.com/analise-da-musica-construcao-chico-buarque/)) of this track have
 			taken Chico’s construction worker to be an embodiment of the proletariat: practically forced into labor for an
 			unforgiving system—the construction site, i.e., capitalism—paid a meager wage, abusing substances to cope, and
 			eventually dying by the hands of the status quo. His death is but a nuisance to the system, an “interruption” of
@@ -85,8 +206,7 @@ export const articles = [
 			Hitting rewind for us, the lyrics play the tape once more: “He loved that time as if he was a machine/Kissed his
 			wife as if it was logical/Raised, in the landing, four flaccid walls… Brick by brick in a logical drawing.” This
 			is the same verse, save for a rearrangement of adjectives. We go from “he loved that time as if it was his last”
-			to “he loved that time as if he was a machine,” and similarly for the remainder of the verse. (<a
-				href="https://en.wikipedia.org/wiki/Constru%C3%A7%C3%A3o_(song)">Wikipedia</a> has a
+			to “he loved that time as if he was a machine,” and similarly for the remainder of the verse. ([Wikipedia](https://en.wikipedia.org/wiki/Constru%C3%A7%C3%A3o_(song)) has a
 				neat spreadsheet of the variation in lyrics from stanza to stanza). At the risk of over-analyzing these lines, I’d argue
 				the alteration was a careful decision: his retelling highlights to us the cracks in this man’s life. A
 				mechanical work life leads to a mechanical love life. An act of passion becomes an act of logic. His brick
@@ -148,10 +268,8 @@ export const articles = [
 		`,
 		date: " ",
 		content: `
-			<div class="quote" style="padding-left: 0px; padding-right: 0px">
-			This is an excerpt from a novel I have been working on, Visions of Guajiru. 
-			The release date is to be determined as of June 2021. 
-			</div>			
+			_This is an excerpt from a novel I have been working on, Visions of Guajiru. 
+			The release date is to be determined as of June 2021._
 
 			Artur’s mother grew up in the attic of a little blue house in the town of
 			Maravilha, Santa Catarina. Every morning, she’d put on disc two, side A, track
