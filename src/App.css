@@ -363,7 +363,7 @@ td {
         width: 90%;
     }
 
-    p, h2, .quote, .ReadMore, ul, .Location {
+    p, h2, .quote, .ReadMore, ul, .Location, h3 {
         padding-left: 20px;
         padding-right: 20px;
     }

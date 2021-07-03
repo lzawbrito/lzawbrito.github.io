@@ -42,8 +42,8 @@ the right to “private judgement” in favor of a communal “umpire,” requir
 abandonment of this crucial natural right to punish “transgressors” (9,
 46). I am nevertheless compelled to challenge this interface between the states
 of nature and civility, for the so-called _right to revolution_ is introduced by
-Locke in order to ensure the sovereignty does legislate contrary to the
-preservation of humanity which the civil government itself was formed under the
+Locke in order to ensure the sovereignty does not legislate contrary to the
+preservation of humanity it was formed under the
 pretense of upholding. Locke argues that the particular right the violation of
 which warrants revolution is indeed the right to property—he writes that
 “whenever the legislators endeavor to take away, and destroy the property of the
@@ -55,7 +55,7 @@ should likewise be met with a state of war. For Locke sees fit to add the
 that may invoke the right to revolution (111). Such “slavery” is of course
 to be repudiated on the grounds that it infringes on natural rights, freedoms,
 and preservations of humanity, so to speak, which are arguably punishable by the
-state of nature. 
+state of nature.
 
 Sovereignty is then not a substitution of the state of nature, rather a state
 that extends from, depends on, and is defined in relation to the state of
@@ -67,7 +67,7 @@ freedom to order their action” (8). Here Locke motivates his study of the
 state of nature by defining it as constituting the “original” from which
 “political power” arises—as opposed to defining it in relation to sovereignty or
 political power—and thus one construes the remaining elements of Locke's theory
-as emerging from particular conditions in addition to the conditions of the
+as emerging from conditions _additional_ to the those of the
 state of nature. Among these elements is indeed his theory of property, although
 this does not initially appear to be the case in his treatment of it. After all,
 Locke claims the “natural” right to property is justified by the divine
@@ -77,7 +77,7 @@ of life, and convenience. The earth, and all that is therein, is given to men
 for the support and comfort of their being” (18). This is, however, the
 only deontological claim Locke makes in discussing property—the remainder of the
 program lacks in a description of, say, how individuals in a state of nature
-ought to interact with property rights. In fact, the preservation of property
+ought to _interact_ with property rights. In fact, the preservation of property
 ownership is entirely hinged on the claimed benefit that individual ownership
 poses to the general populace, for under the state of nature individuals reserve
 the right to reprimand and punish violations of the sanctity of life. From this
@@ -90,7 +90,7 @@ of available natural resources (i.e., despite the ostensibly divine right one
 has to _obtain_ property), the right to _continue owning_ that property is
 contingent on that property being of greater benefit than harm to the larger
 populace, and thus what one construes as the right to property—but which really
-is something like “the right to continue having an object as property”—is in
+is something like “the right to continue claiming an object as property”—is in
 fact not at all fundamental nor unalienable.
 
 Granted, Locke’s claim is
@@ -101,15 +101,17 @@ at face value leads to a reading of Locke that seemingly permits boundless
 accumulation of property under the guise of a concomitant benefit to others. The
 above discussion on the state of nature’s precedency over property rights
 challenges this justification for limitless property accumulation, but it
-remains to show that Locke’s above claim regarding property ownership’s moral
+remains to show that Locke’s claim of property ownership’s positive moral
 value is ill-conceived. I propose that owning and maintaining property within
-the bounds of the Lockean proviso is an act devoid of moral value, and that
-ownership of sufficient property to violate the proviso is not only morally
-improper but a natural consequence of Locke’s theory of property. The proviso,
+the bounds of the Lockean proviso is an act _devoid_ of moral value, and that
+ownership of sufficient property to violate the preservation of humanity is not
+only morally
+improper but a natural consequence of Locke’s theory of property.
+The proviso,
 of course, places a natural limit on the amount of natural resources one can
 appropriate for oneself—with the earth’s fruits distributed to all individuals
 for their survival and enjoyment, and with the use of these fruits being a
-fundamental—perhaps divine—right, it follows that exploiting this right until
+divine right, it follows that exploiting this right until
 others’ abilities to exercise it are compromised constitutes a violation of
 natural rights. In fact, one may claim that the state of nature is precisely
 what permits punishing against transgressions of the proviso: if human beings
@@ -149,14 +151,14 @@ humanity; then, ordinarily, there little room for the general populace to
 deliberate on what is and is not deemed a transgression and what is and is not a
 proper punishment. Yet, as has been argued above, individuals are entitled to
 their natural judgement if a sovereignty is found to be either unrightfully
-seizing property or enslaving the populace. With that, I propose that the state
+seizing property or enslaving the populace. With that, I suggest that the state
 need not be exploiting its people out of its own volition—_neglect_ of extraneous
 exploitative forces is sufficient to implicate the sovereign and place the
 citizenry in a state of war against the state; namely, if resources are being
 exploited or misused, or if the proviso is blatantly violated, and legislation
-either does not address these matters or perhaps even supports these usages, the
+does not address these matters—or perhaps is in support of them—the
 populace reserves the right to invoke a state of war, reintroduce features of
-the state of nature, and pressure the state to either revise its legislation or
+the state of nature, and pressure the sovereignty to either revise its legislation or
 entirely dissolve. With civil government and property rights being constructs
 superposed over the state of nature, I further argue that the degree of natural
 judgement that the constituency will exercise—as well as the particular facets
@@ -180,7 +182,7 @@ remain steadfast to the driving mechanisms of the argument: that the state of
 nature is indeed universal and only on occasion compromised, that labor mixing
 holds no special moral value, and that these two ideas work in conjunction to
 ensure a natural control of property accumulation. This all may place
-individuals in a constant and cyclical revolution against their own sovereign,
+citizens in a constant and cyclical revolution against their own sovereign,
 but if that is the case, so be it.
 
 ### Work Cited 
