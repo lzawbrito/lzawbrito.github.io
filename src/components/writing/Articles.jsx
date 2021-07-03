@@ -6,9 +6,9 @@ import visionsOfGuajiru from './articles/visions-of-guajiru.md'
 export var articles = [
 	{
 		id: "locke-property-rights",
-		title: "Locke's Property Rights through a Natural State",
+		title: "Of Every Fruit Thou Mayest Freely Eat",
 		summary: `
-		The right to obtain and preserve one's own property is a pillar of 
+		The right to obtain and preserve one's own property has long been a pillar 
 		popular ethics, and to many constitutes the most dominant impetus 
 		for a civil state. The notion found its popularity through John 
 		Locke's famous _Second Treatise of Government_, which 
