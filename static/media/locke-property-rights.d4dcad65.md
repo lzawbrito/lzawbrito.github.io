@@ -186,5 +186,5 @@ citizens in a constant and cyclical revolution against their own sovereign,
 but if that is the case, so be it.
 
 ### Work Cited 
-Locke, John. _Second Treatise of Civil Government_. Hackett, 1980, Indianapolis.
+Locke, John. [_Second Treatise of Civil Government_](https://www.hackettpublishing.com/philosophy/second-treatise-of-government). Hackett, 1980, Indianapolis.
 
