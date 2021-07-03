@@ -10,7 +10,7 @@ import FooterComponent from './components/FooterComponent';
 import SideNavComponent from './components/SideNavComponent'
 import Coursework from './components/academics/Coursework'
 import Research from './components/academics/Research';
-import articleDisplay from './components/writing/ArticleDisplay';
+import ArticleDisplay from './components/writing/ArticleDisplay';
 import ScrollToTop from './components/ScrollToTop'
 import albumDisplay from './components/music/AlbumDisplay';
 import { articles } from './components/writing/Articles';
@@ -19,7 +19,7 @@ import NotFound from './components/NotFound';
 
 function generateArticleRouter(a) {
   return <Route path={`/writing/${a.id}`} 
-  component={() => articleDisplay({id: `${a.id}`})}></Route>
+  component={() => <ArticleDisplay id={`${a.id}`}/>}></Route>
 }
 
 const articleRouters = articles.map(generateArticleRouter)

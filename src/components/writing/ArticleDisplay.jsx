@@ -1,25 +1,50 @@
 import React from "react";
 import LocationComponent from "../LocationComponent";
-import { articles } from "./Articles";
+import { articles, getData } from "./Articles";
 import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css'; 
+import gfm from 'remark-gfm';
 
-export default function articleDisplay(props) {
-		var article = {id: "", title: "Something has gone wrong.", content: [], date: ""};
+export default class ArticleDisplay extends React.Component {
+	state = {externalData: null}
+	article = null;
+
+	componentWillMount() {
 		for (let i in articles) {
-			if (articles[i].id === props.id) {
-				article = articles[i]	
+			if (articles[i].id === this.props.id) {
+				this.article = articles[i];
 			}
 		}
-		const title = article.title;
-
-		const content = article.content.replaceAll('\t', '')
-		const date = article.date;
-		return <>
-		<LocationComponent/>
-		<h2>{title}</h2>
-		<body>
-			<ReactMarkdown>{content}</ReactMarkdown>
-			<div class="quote" style={{textAlign:"right"}}>{date}</div>
-		</body>
-		</>
+	}
+	async componentDidMount() {
+		const response = await getData();
+		this.setState({externalData: response})
+	}
+	render() {
+		const date = this.article.date;
+		const content = this.article.content
+		const title = this.article.title
+		if (this.state.externalData === null) {
+			return <>
+			<LocationComponent/>
+			<h2>{title}</h2>
+			<p>Loading article...</p>
+			</>
+		} else {
+			return <>
+			<LocationComponent/>
+			<h2>{title}</h2>
+			<body>
+				<ReactMarkdown
+				remarkPlugins={[remarkMath, gfm]}
+				rehypePlugins={[rehypeKatex]}>
+					{content}
+				</ReactMarkdown>
+				<div class="quote" style={{textAlign:"right"}}>{date}</div>
+			</body>
+			</>
+		}
+	}
 }
