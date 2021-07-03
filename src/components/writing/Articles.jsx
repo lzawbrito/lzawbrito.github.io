@@ -2,8 +2,17 @@ import { read } from 'fs';
 import locke from './articles/locke-property-rights.md';
 import chicoReview from './articles/chico-review.md'
 import visionsOfGuajiru from './articles/visions-of-guajiru.md'
+import test from './articles/test.md'
 
 export var articles = [
+	// {
+	// 	id: "test-article",
+	// 	title: "Test Article",
+	// 	summary: "This entry is a test of some `remarkjs` features.",
+	// 	date: "July 3, 2021",
+	// 	contentPath: test,
+	// 	content: null
+	// },
 	{
 		id: "locke-property-rights",
 		title: "Of Every Fruit Thou Mayest Freely Eat",
@@ -72,6 +81,4 @@ export async function getData() {
 	} 
 	return true;
 }
-
-
 

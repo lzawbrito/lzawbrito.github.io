@@ -39,7 +39,8 @@ export default class ArticleDisplay extends React.Component {
 			<body>
 				<ReactMarkdown
 				remarkPlugins={[remarkMath, gfm]}
-				rehypePlugins={[rehypeKatex]}>
+				rehypePlugins={[rehypeKatex]}
+				linkTarget={"_target"}>
 					{content}
 				</ReactMarkdown>
 				<div class="quote" style={{textAlign:"right"}}>{date}</div>

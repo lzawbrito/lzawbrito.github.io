@@ -254,11 +254,17 @@ hr {
     text-align: right;
 }
 
-ul {
+ul, ol {
+    font-family: 'LMRoman12';
     padding-left: 30%;
-    list-style-type: square;
     list-style-position:inside;
 }
+
+ul {
+    list-style-type: square;
+}
+
+
 
 ul .quote {
     padding: 0px
@@ -358,6 +364,28 @@ td {
     padding: 7px
 }
 
+code {
+    font-family: 'LMMono12';
+}
+
+pre  {
+    padding-left: 30%;
+    padding-right: 30%;
+}
+blockquote {
+    padding: 0;
+    margin-left: 85px;
+    font-style: italic;
+}
+
+blockquote p{
+    text-indent: 0px;
+    margin-left: 0px; 
+}
+
+
+
+
 @media (max-width: 1000px) {
     hr {
         width: 90%;
@@ -374,6 +402,10 @@ td {
 
     p {
         text-indent: 20px;
+    }
+
+    blockquote {
+        margin-left: 20px
     }
 
 
