@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.2de9fe32.chunk.css",
-    "main.js": "/static/js/main.3d5cabbd.chunk.js",
-    "main.js.map": "/static/js/main.3d5cabbd.chunk.js.map",
+    "main.css": "/static/css/main.4a00ab01.chunk.css",
+    "main.js": "/static/js/main.7f097596.chunk.js",
+    "main.js.map": "/static/js/main.7f097596.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.f1498c61.js",
     "runtime-main.js.map": "/static/js/runtime-main.f1498c61.js.map",
     "static/css/2.08484f15.chunk.css": "/static/css/2.08484f15.chunk.css",
@@ -12,19 +12,19 @@
     "static/js/3.34a470cf.chunk.js.map": "/static/js/3.34a470cf.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.08484f15.chunk.css.map": "/static/css/2.08484f15.chunk.css.map",
-    "static/css/main.2de9fe32.chunk.css.map": "/static/css/main.2de9fe32.chunk.css.map",
+    "static/css/main.4a00ab01.chunk.css.map": "/static/css/main.4a00ab01.chunk.css.map",
     "static/js/2.f5908de1.chunk.js.LICENSE.txt": "/static/js/2.f5908de1.chunk.js.LICENSE.txt",
     "static/media/katex.min.css": "/static/media/KaTeX_Typewriter-Regular.ea67dc3c.ttf",
     "static/media/App.css": "/static/media/LMRoman17-Regular.89d38486.woff",
     "static/media/chico-review.64da27b1.md": "/static/media/chico-review.64da27b1.md",
-    "static/media/locke-property-rights.367caa63.md": "/static/media/locke-property-rights.367caa63.md",
+    "static/media/locke-property-rights.3aef87d5.md": "/static/media/locke-property-rights.3aef87d5.md",
     "static/media/visions-of-guajiru.be1afdfa.md": "/static/media/visions-of-guajiru.be1afdfa.md"
   },
   "entrypoints": [
     "static/js/runtime-main.f1498c61.js",
     "static/css/2.08484f15.chunk.css",
     "static/js/2.f5908de1.chunk.js",
-    "static/css/main.2de9fe32.chunk.css",
-    "static/js/main.3d5cabbd.chunk.js"
+    "static/css/main.4a00ab01.chunk.css",
+    "static/js/main.7f097596.chunk.js"
   ]
 }
