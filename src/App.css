@@ -304,6 +304,7 @@ ul .quote {
 .albumCoverContainer img {
     max-width: 200px;
     margin: 13px;
+    flex-basis: 200px;
 }
 
 .logo-row {
@@ -457,12 +458,14 @@ blockquote p{
     
     .albumCoverContainer {
         padding-right: 20px;
-        padding-left: 20px
+        padding-left: 20px;
+        width: 80%;
+        /* max-width: 400px; */
     }
 
-    .albumCoverContainer {
-        width: 80%;
-        max-width: 400px;
+    .albumCoverContainer img {
+        /* width: 80% */
+        max-width: 100%;
     }
 
     .logo-row {

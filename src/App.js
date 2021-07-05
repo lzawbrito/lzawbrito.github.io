@@ -50,6 +50,8 @@ function App() {
           <Route path="/music" component={MusicComponent} exact></Route>
             <Route path="/music/laplacian-demon"
             component={() => albumDisplay({id: "laplacian-demon"})}></Route>
+            <Route path="/music/tsdac"
+            component={() => albumDisplay({id: "tsdac"})}></Route>
           <Route path="/writing" component={WritingComponent} exact></Route>
             {articleRouters}
             {/* <Route path="/writing/chico-review" 

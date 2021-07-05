@@ -5,16 +5,7 @@ import ReactHtmlParser from 'react-html-parser';
 
 
 export default function albumDisplay(props) {
-	var release = {
-		id: "",
-		title: "Something has gone wrong.",
-		date: "",
-		bandcampEmbed: "",
-		bandcampLink: "",
-		spotifyLink: "",
-		blurb: "",
-		tracks: []
-	}
+	var release = null
 
 	for (let i in releases) {
 		if (releases[i].id === props.id) {
@@ -29,13 +20,13 @@ export default function albumDisplay(props) {
 	{ReactHtmlParser(release.bandcampEmbed)}
 	<div className="logo-row">
 		<div className="logoRowItem">
-		<a href={release.spotifyLink} target="_blank">
-			<img src="images/logos/spotify-logo.png"/>
+		<a href={release.spotifyLink} target="_blank" rel="noreferrer">
+			<img src="images/logos/spotify-logo.png" alt="spotify-logo"/>
 		</a>
 		</div>
 		<div className="logoRowItem">
-		<a href={release.bandcampLink} target="_blank">
-			<img src="images/logos/bandcamp-logo.png"/>
+		<a href={release.bandcampLink} target="_blank" rel="noreferrer">
+			<img src="images/logos/bandcamp-logo.png" alt="spotify-logo"/>
 		</a>
 		</div>
 	</div>

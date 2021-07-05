@@ -3,6 +3,7 @@ export const releases = [
 		id: "laplacian-demon",
 		title: "Laplacian Demon",
 		date: "March 5, 2021",
+		cover: "laplacian-demon.png",
 		bandcampEmbed: `
 			<iframe class="bandcampEmbed" 
 			src="https://bandcamp.com/EmbeddedPlayer/album=1835763423/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/"
@@ -244,5 +245,19 @@ export const releases = [
 				`
 			}
 		]
+	},
+	{
+		id: "tsdac",
+		title: "The Sky Drapes, a Cloth",
+		date: "October 1, 2020",
+		cover: "tsdac.png",
+		bandcampEmbed: `
+		<iframe class="bandcampEmbed"
+        src="https://bandcamp.com/EmbeddedPlayer/album=2456696634/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/"
+        seamless><a href="https://lucaszbrito.bandcamp.com/album/the-sky-drapes-a-cloth">The Sky Drapes, a Cloth by
+		Lucas Brito</a></iframe>
+		`,
+		bandcampLink: "https://lucaszbrito.bandcamp.com/album/the-sky-drapes-a-cloth",
+		spotifyLink: "https://open.spotify.com/album/7GJRjB6QoV5Jq0KSgH2TDz?si=RELZQ8ZvRFyHmGXGzICndQ&dl_branch=1"
 	}
 ]
