@@ -142,8 +142,8 @@ potential to obtain those fruits; or, in a more extreme example, one could labor
 over ores to carve weapons with which they may kill. If we are to permit such
 misuses or abuses of resources, we must likewise permit the populace to exercise
 their natural right to “punishment of transgressors” and, in a manner of
-speaking, “infringe” on the right to property of the perpetrator. This is, of
-course, given proper conditions to exercise features of the state of
+speaking, “infringe” on the right to property of the perpetrator. This is, 
+granted, given proper conditions to exercise features of the state of
 nature—i.e., given the civil state does not legislate against such matters. Of
 course, the civil state should legislate against abuse of natural resources, for
 Locke’s theory necessitates a government’s investment in the sanctity of
