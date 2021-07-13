@@ -12,73 +12,72 @@ export const releases = [
 			`,
 		bandcampLink: "https://lucaszbrito.bandcamp.com/album/laplacian-demon",
 		spotifyLink: "https://open.spotify.com/album/1KQHeA4AhkVjOhr1BQtZwD?si=bH7waGXQS8uH5nqG1Yuaow&dl_branch=1",
-		blurb: `
-		"...It would embrace in a single formula the movements of the
+		blurb: `"...It would embrace in a single formula the movements of the
 		greatest bodies of the universe and those of the tiniest atom; for such
 		an intellect nothing would be uncertain and the future just like the
-		past would be present before its eyes."
-		`,
+		past would be present before its eyes."`,
 		tracks: [
 			{
 				name: "Marinus",
-				lyrics: `
-				I know, I know
-				I heard it too,
-				It's coming soon
+				tabs: "marinus.txt",
+				lyrics: `I know, I know
+I heard it too,
+It's coming soon
+I know, too slow
 
-				I know, too slow
-				I sink my teeth into the blue
-				And as I do,
-				It seeps in me and thus in you
-				my blood will mix with yours
-				in our veins, through our pores
-				I fade to you, you to me
+I sink my teeth into the blue
 
-				Like a boar whose bony tusk has sprouted up and punctured through
-				Slowly cutting, white through marrow, I saw it then, you saw it too
+And as I do,
+It seeps in me and thus in you
+my blood will mix with yours
+in our veins, through our pores
+I fade to you, you to me
 
-				You move along a line
-				you move along a line all the time
-				All I do is follow you
-				all you do is follow me
+Like a boar whose bony tusk has sprouted up and punctured through
+Slowly cutting, white through marrow, I saw it then, you saw it too
 
-				I know, I know
-				This brings me back to when we were young
-				Walking along the streets of Abolição
-				And all the men with the cardboard sheets and loudspeakers droning on
-				Saying "it's ending soon, i hear it too, the boars, the tusks, the me, the you, we turn to one, we turn to two,"
-				We take a left, and he drowns in-
-				And the wall we'd drive past on our way home, covered in the words of a man no one knew
-				I think the wall was white and the ink was blue
-				The bastard managed to put his whole life down on this wall, and so it went on and on and on and on...
-				Til the words I love you too, I love you through and through
-				And I think before the day we moved the ink was fresh and I-
+You move along a line
+you move along a line all the time
+All I do is follow you
+all you do is follow me
 
-				My friend Meg says her car was stolen
-				I don't think it was
-				I don't think things just disappear like that
-				It probably sunk into the earth while you weren't looking
-				That happened to my grandmother back in 2008 you know
-				She suffered from Alzheimer's and moped around the house bumping into things and opening doors that led nowhere,
-				Then one day she was alone and she was just gone, never saw her again
-				And we live about our days as if everything's alright
-				But take a look around you man, 700 petty thefts in five days
-				And so much of it food,
-				So much of it food,
-				Like a boar whose tusk has sprouted out and punctured through
-				And what are we to do?
-				If things are just phasing out of existence, sprouting out and puncturing through
+I know, I know
+This brings me back to when we were young
+Walking along the streets of Abolição
+And all the men with the cardboard sheets and loudspeakers droning on
+Saying "it's ending soon, i hear it too, the boars, the tusks, the me, the you, we turn to one, we turn to two,"
+We take a left, and he drowns in-
+And the wall we'd drive past on our way home, covered in the words of a man no one knew
+I think the wall was white and the ink was blue
+The bastard managed to put his whole life down on this wall, and so it went on and on and on and on...
+Til the words I love you too, I love you through and through
+And I think before the day we moved the ink was fresh and I-
 
-				Til the words "I love you too"
-				Til the words "I love you too"
-				Til the words "I love you too"
-				Til the words "I love you too"
-				`
+My friend Meg says her car was stolen
+I don't think it was
+I don't think things just disappear like that
+It probably sunk into the earth while you weren't looking
+That happened to my grandmother back in 2008 you know
+She suffered from Alzheimer's and moped around the house bumping into things and opening doors that led nowhere,
+Then one day she was alone and she was just gone, never saw her again
+And we live about our days as if everything's alright
+But take a look around you man, 700 petty thefts in five days
+And so much of it food,
+So much of it food,
+Like a boar whose tusk has sprouted out and punctured through
+And what are we to do?
+If things are just phasing out of existence, sprouting out and puncturing through
+
+Til the words "I love you too"
+Til the words "I love you too"
+Til the words "I love you too"
+Til the words "I love you too"
+`
 			},
 			{
 				name: "Mukilteo Speedway",
-				lyrics: `
-				I feel the same way
+				tabs: "mukilteo-speedway.txt",
+				lyrics: `I feel the same way
 				I know you want to take my body
 				And dip your hands in it
 				Like it's a vessel that will give
@@ -145,8 +144,8 @@ export const releases = [
 			},
 			{
 				name: "Thin Black Spider Across the Lot",
-				lyrics:`
-				I know, I know
+				tabs: "spider.txt",
+				lyrics:`I know, I know
 				I heard it too,
 				It's coming soon
 
@@ -201,8 +200,8 @@ export const releases = [
 			},
 			{
 				name: "Hypercommodity",
-				lyrics:`
-				Walking down the stairs, to the supermarket, I took a left to my bathroom
+				tabs: "hypercommodity.txt",
+				lyrics:`Walking down the stairs, to the supermarket, I took a left to my bathroom
 				Nothing much, just shaking hands with time
 				Ceramic flooring, as it had always been
 				"I heard a song on the radio yesterday," you said, from downstairs. I could hear you through the tiles
@@ -258,6 +257,205 @@ export const releases = [
 		Lucas Brito</a></iframe>
 		`,
 		bandcampLink: "https://lucaszbrito.bandcamp.com/album/the-sky-drapes-a-cloth",
-		spotifyLink: "https://open.spotify.com/album/7GJRjB6QoV5Jq0KSgH2TDz?si=RELZQ8ZvRFyHmGXGzICndQ&dl_branch=1"
+		spotifyLink: "https://open.spotify.com/album/7GJRjB6QoV5Jq0KSgH2TDz?si=RELZQ8ZvRFyHmGXGzICndQ&dl_branch=1",
+		blurb: "_The Sky Drapes, a Cloth_ provides a subtle account of power, and our emotional and physical reliance on other people. Both touching and caustic, this EP constructs soul as body, power as physical structure, and the personality as a building. This EP also features Brito’s most complex and touching guitar playing, making great use of the sound of classical guitar, along with well-constructed harmony that provides great emotional weight to his words and to the melodies he sings. `- Ted Howard`",
+		tracks: [
+			{
+				name: "Flor de Belém",
+				tabs: "flor-de-belem.txt",
+				lyrics: `When I first saw you I tumbled and toiled and labored to hear, you my king
+Perched on the skyline, you sounded above me
+I laid down and spread out my wings
+You listened, I told you: you've hurt me, I love you, I need you, I hate you, my friend
+Only now you choose to descend
+
+Tossing and turning, I felt you below me
+Your body cold, I touched your mould, I felt you old and somehow lonely
+I saw you tread across the power lines
+Down the only roads you recognized
+I asked you where you set your sight
+You took a sigh and then replied
+"My, this city quickly broke without me."
+
+The carpenters cleaned you, the weavers had held you,
+They said you let spill out your name
+Along with with a calling for me, or for anyone
+"Beija-me flor de Belém,
+I know somewhere you're still the same."
+I walked on the granite of your lemon garden
+An angel had plucked them for me
+The hedgerows had opened, the center unfolded, I walked into your mausoleum
+Light strung from heaven, down, like a weapon, cleaving the dust and the green
+When did you build this machine?
+				`
+			},
+			{
+				name: "The Wren",
+				lyrics: `Sing a song, lover
+Make it long
+So that when I'm back
+You're not yet done
+
+Let go my hand, lover
+It's time to go
+I've got your face memorized
+Your roman nose
+
+Though, years from now,
+Who knows?
+That face will wane
+Time, who draws these aging lines,
+Should cast its shade
+
+So I,
+Drunk on wine,
+Turn away
+
+And the nights
+Start to wind
+Around
+Connecting flights
+And unbought tickets to Venus
+
+You're
+Just the pin
+That holds
+As we spin
+Coiling on
+This orrery
+
+Sing a song, lover,
+Make it hurt
+Make it known that we leave
+So much undone
+
+Our weighed chests,
+Which, brazen, bear
+A thousand words
+Each one a silent testament
+Spelling a poem:
+
+Deixo meu coração
+Em suas mãos
+Enfim, então
+Atravesso so
+Esse país
+O seu meu lampião
+
+Lá,
+Te vejo lá,
+Na Abolição
+
+Is what I'd write,
+What I'd pen
+What I'd say
+If only then
+Your wild eyes
+Met mine again
+
+And now
+I, the wren,
+Am to fly
+At your command
+Yet this bird
+Longs for the cage again
+				`
+			},
+			{
+				name: "Mary Lit Her Leaves",
+				lyrics: `I broke into a run
+At the snap of a gun
+My feet went ankle deep into the deluging
+Streets, under the rain and sun
+
+Please, God, I'm done
+
+And from within the earth
+Came a beating drum
+Which sounded as a pulse
+Bouncing off the raindrops, then to my bones
+
+Mary lit her leaves,
+I stood in their smoke
+And that moment I knew
+the lord perched onto me
+and wouldn't let go
+
+Mary lit her leaves
+I stood in their smoke
+So as I ran from the men with the gun in their hands
+I felt my body burn
+
+Please, God, I'm done
+
+I called my love
+with cause to mourn
+Embraced, alone
+She softly told:
+
+I wish above
+a light would burn
+and strip our skins
+of bark and mold
+
+Instead, the sky
+drapes, a cloth,
+punctured by
+scathing knives
+
+And as she closed
+her hand on mine
+All those knives
+Were coming down
+
+Please, God, I'm done
+
+All those years of chemicals
+at the dry cleaner
+Made Mary's hands spindly
+and sallowed
+But still, as she lit her match
+There was a preserved elegance to them
+
+All those years of blades at the meatpacker
+Made Joseph's leg atrophied and cold
+Still, when he ran and he cried and he ducked
+it worked just fine, though
+				`
+			},
+			{
+				name: "Mother",
+				lyrics: `Oh, mother, come home
+This house's so empty without your warmth
+The wood sags, the floorboards moan
+Your nerves softly hum inside the walls
+
+Remember last July, when we let the birds escape?
+I came home, the window ajar, and an empty cage
+We followed the trail of feathers down the alleyway
+You sat on the garden chair and said "why won't they stay?"
+
+Oh, mother, come home
+Every day I miss you more
+If only I had known before
+What a mother's love is worth
+
+Remember when, remember when?
+We lived up a dozen floors
+You held my hand as I went down
+Floating to the streets below,
+Gently coasting on Abolição
+Then sweeping up toward the sun
+And all the city's people'd point
+At the figures sailing on,
+Silhouettes, hand in hand, against the big blue sky
+
+Oh, we age and we mourn
+We all leave, we all roam
+One day we leave and don't come home
+This day will come for you too, mom
+				`
+			}
+		]
 	}
 ]

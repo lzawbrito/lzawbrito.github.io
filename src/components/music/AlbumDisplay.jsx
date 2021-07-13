@@ -2,7 +2,8 @@ import React from "react"
 import LocationComponent from "../LocationComponent"
 import { releases } from "./Releases"
 import ReactHtmlParser from 'react-html-parser';
-
+import ReactMarkdown from 'react-markdown';
+import LyricsSelector from "./LyricsSelector";
 
 export default function albumDisplay(props) {
 	var release = null
@@ -32,24 +33,9 @@ export default function albumDisplay(props) {
 	</div>
 	<hr></hr>
 	<div className="lyricsDisplay">
-		<div className="lyricsDisplayTracklist">
-            <div class="lyricsSelection" id="marinus">
-                1. Marinus
-            </div>
-            <div class="lyricsSelection" id="mukilteo-speedway">
-                2. Mukilteo Speedway
-            </div>
-            <div class="lyricsSelection" id="spider">
-                3. Thin Black Spider Across the Lot
-            </div>
-            <div class="lyricsSelection" id="hypercommodity">
-                4. Hypercommodity
-            </div>
-		</div>
+		<LyricsSelector tracks={release.tracks}/>
 	</div>
 	<hr></hr>
-	<p style={{textIndent:"0px"}}>
-		{release.blurb}
-	</p>
+	<ReactMarkdown>{release.blurb}</ReactMarkdown>
 	</>
 }

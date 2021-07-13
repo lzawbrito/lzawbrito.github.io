@@ -15,7 +15,7 @@ export default class SideNavComponent extends React.Component {
 			</span>
 		}
 		function getSocial(social) {
-			return <div><a className="sideNavSocials" href={social.url} target="_blank">{social.name}</a></div>
+			return <div><a className="sideNavSocials" href={social.url} target="_blank" rel="noreferrer">{social.name}</a></div>
 		}
 	
 		const links = pages.map((elem) => getLink(elem, this.props.closeNav));

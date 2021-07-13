@@ -23,7 +23,6 @@ function generateArticleRouter(a) {
 }
 
 const articleRouters = articles.map(generateArticleRouter)
-console.log(articleRouters)
 
 function App() {
   const [wid, setWid] = useState(`0%`);
@@ -54,12 +53,6 @@ function App() {
             component={() => albumDisplay({id: "tsdac"})}></Route>
           <Route path="/writing" component={WritingComponent} exact></Route>
             {articleRouters}
-            {/* <Route path="/writing/chico-review" 
-            component={() => articleDisplay({id: "chico-review"})}></Route>
-            <Route path="/writing/visions-of-guajiru" 
-            component={() => articleDisplay({id: "visions-of-guajiru"})}></Route>
-            <Route path="/writing/locke-property-rights" 
-            component={() => articleDisplay({id: "locke-property-rights"})}></Route> */}
           <Route component={NotFound}></Route>
         </Switch>
       </HashRouter>

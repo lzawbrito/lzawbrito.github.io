@@ -90,7 +90,7 @@ html {
   text-align: center;
 }
 
-.sidenav{
+.sidenav {
     font-family: 'LMMono12';
     font-size: 24px;
     display: none;
@@ -342,12 +342,28 @@ ul .quote {
     font-size: 18px
 }
 
-.lyrics-selection {
+.lyricsContainer {
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+
+.lyricsContainer p {
+    font-family: 'LMRoman12';
+    text-indent: 0px;
+    font-size: 18px;
+    padding: 0
+}
+
+.lyricsUnselected, .lyricsSelected {
     cursor: pointer;
     font-family:'LMRoman12';
     font-weight: regular; 
     font-style: normal;
     font-size: 18px;
+}
+
+.lyricsSelected {
+    text-decoration: underline;
 }
 
 table, th, td {
@@ -382,6 +398,10 @@ blockquote {
 blockquote p{
     text-indent: 0px;
     margin-left: 0px; 
+}
+
+.hide {
+    display: none;
 }
 
 
@@ -488,5 +508,12 @@ blockquote p{
         border: 0;
         width: 80%;
         aspect-ratio: 1 / 1;
+    }
+
+    .lyricsDisplay {
+        margin-left: 20px;
+        margin-right: 20px;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
     }
 }

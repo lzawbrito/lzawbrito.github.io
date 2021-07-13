@@ -44,6 +44,7 @@ export default class ArticleDisplay extends React.Component {
 					{content}
 				</ReactMarkdown>
 				<div class="quote" style={{textAlign:"right"}}>{date}</div>
+				<a href={this.article.contentPath}><div class="quote" style={{textAlign:"right"}}>Download .md</div></a>
 			</body>
 			</>
 		}
