@@ -7,12 +7,12 @@ export default class AcademicsComponent extends React.Component {
 		return <>
 		<LocationComponent hasSlash={true}/>
 		<h2>
-			Research
+			CV / Research
 		</h2>
 		<p>
 			I am currently researching dark matter under Professor 
 			Ian Dell'Antonio. In particular, I am applying machine learning 
-			techniques to weak gravitational lensing detection. 
+			techniques to strong gravitational lensing detection. 
 		</p>
 		<ReadMore to="/academics/research"></ReadMore>	
 		<hr/>

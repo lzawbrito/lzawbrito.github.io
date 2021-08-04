@@ -25,6 +25,9 @@ export default class AcademicsComponent extends React.Component {
 			<LocationComponent/>
 			<body>
 				{content}
+			<p style={{textIndent:0}}>
+			* Graduate course.
+			</p>
 			</body>
 		</>
 	}
@@ -36,7 +39,7 @@ export const courseworkList = [
 		term: "Fall 2021 (Provisional List)",
 		courses: [
 			{
-				name: "PHYS2050 - Quantum Mechanics (Graduate)",
+				name: "PHYS2050 - Quantum Mechanics*",
 				hasNotes: false
 			},
 			{
@@ -44,7 +47,7 @@ export const courseworkList = [
 				hasNotes: false
 			},
 			{
-				name: "CSCI0320 - Introduction to Software Engineering",
+				name: "CSCI2370 - Interdisciplinary Scientific Visualization*",
 				hasNotes: false
 			},
 			{

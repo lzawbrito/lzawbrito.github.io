@@ -1,7 +1,8 @@
 html {
     overflow-y: scroll;
   }
-  @font-face {
+
+@font-face {
     font-family: 'LMMono9';
     src: url('./fonts/LMMono9-Regular.woff2') format('woff2'),
         url('./fonts/LMMono9-Regular.woff') format('woff');
@@ -257,11 +258,13 @@ hr {
 ul, ol {
     font-family: 'LMRoman12';
     padding-left: 30%;
+    padding-right: 30%;
     list-style-position:inside;
 }
 
 ul {
     list-style-type: square;
+    font-size: 18px;
 }
 
 
@@ -466,6 +469,7 @@ blockquote p{
     ul {
         list-style-position: outside;
         padding-left: 40px;
+        font-size: 16px
     }
 
     .centerImage {
