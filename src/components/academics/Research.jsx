@@ -29,8 +29,6 @@ I am currently researching dark matter cosmology under
 In particular, we are using [weak gravitational lensing](https://ned.ipac.caltech.edu/level5/Tyson2/Tyson_contents.html)
 to study dark matter distributions in galactic clusters. 
 
-
-
 The specific project I'm involved in is an extension of a 
 [recent publication by Huang, et al.](https://arxiv.org/abs/1906.00970) 
 wherein new instances of strongly lensed objects 
@@ -39,6 +37,7 @@ interested in training the same model to classify instances of strong lensing
 in a longer (by roughly five times) exposure and thus deeper survey, in hopes of 
 applying similar techniques to identify weak lensing further in the future. 
 `
+
 export default class Research extends React.Component {
 	render(){
 		return <>

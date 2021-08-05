@@ -61,7 +61,8 @@ export const courseworkList = [
 		courses: [
 			{
 				name: "PHYS1980 - Independent Study in Electromagnetism",
-				hasNotes: false
+				hasNotes: true,
+				notes: "electromagnetism-notes.pdf"
 			},
 			{
 				name: "MATH1530 - Abstract Algebra",
