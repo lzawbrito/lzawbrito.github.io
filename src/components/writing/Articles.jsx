@@ -2,6 +2,7 @@ import { read } from 'fs';
 import locke from './articles/locke-property-rights.md';
 import chicoReview from './articles/chico-review.md'
 import visionsOfGuajiru from './articles/visions-of-guajiru.md'
+import danceAsWeapons from './articles/dance-as-weapons.md'
 import test from './articles/test.md'
 
 export var articles = [
@@ -13,6 +14,21 @@ export var articles = [
 	// 	contentPath: test,
 	// 	content: null
 	// },
+	{
+		id: "dance-as-weapons",
+		title: "Dance as Weapons: Civil Simulacra and the Human Material",
+		summary: `
+		Karl Marx's unfortunately titled _On the Jewish Question_ is known for 
+		its formulation of liberty: true, _human_ liberty is a physical one, 
+		and it is not a liberty defined by legislative terms. In this essay I 
+		explore the idea further, recasting Marx's "living individual"/"citizen"
+		dialectic as a "real"/"hyperreal" relationship in order to argue for a 
+		_physical_ praxis as opposed to an ideological or intellectual one. 
+		`,
+		date: "August 11, 2021",
+		contentPath: danceAsWeapons,
+		content: null,
+	},
 	{
 		id: "locke-property-rights",
 		title: "Of Every Fruit Thou Mayest Freely Eat",
