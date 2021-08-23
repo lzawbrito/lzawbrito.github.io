@@ -9,7 +9,7 @@ import gfm from 'remark-gfm';
 const content = `
 ## Education
 - **2014 - 2020**: The Overlake School, Redmond, WA
-- **2020 - present**: Brown University, Providence, RI, B.Sc. in Astrophysics and
+- **2020 - present**: Brown University, Providence, RI, B.Sc. in Physics and
   Computer Science
 ## Research
 - **2021-02 - present**: Research in ML applications to strong gravitational 

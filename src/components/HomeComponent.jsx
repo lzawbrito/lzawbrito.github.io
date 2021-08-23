@@ -6,7 +6,7 @@ import 'katex/dist/katex.min.css';
 import gfm from 'remark-gfm';
 
 const content = `
-Astrophysics and computer science student at Brown University. Songwriter and occasional writer. Interested in 
+Physics and computer science student at Brown University. Songwriter and occasional writer. Interested in 
 math, philosophy, and powerlifting.
 
 I was born in San Francisco, grew up in Brazil, and am currently living in the suburbs of Seattle. 

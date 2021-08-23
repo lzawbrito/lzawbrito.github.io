@@ -21,8 +21,8 @@ export var articles = [
 		Karl Marx's unfortunately titled _On the Jewish Question_ is known for 
 		its formulation of liberty: true, _human_ liberty is a physical one, 
 		and it is not a liberty defined by legislative terms. In this essay I 
-		explore the idea further, recasting Marx's "living individual"/"citizen"
-		dialectic as a "real"/"hyperreal" relationship in order to argue for a 
+		explore the idea further, recasting Marx's living individual/citizen
+		dialectic as a real/hyperreal relationship in order to argue for a 
 		_physical_ praxis as opposed to an ideological or intellectual one. 
 		`,
 		date: "August 11, 2021",
