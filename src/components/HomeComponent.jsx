@@ -22,7 +22,7 @@ five-piece, and I have scored several short films.
 export default class HomeComponent extends React.Component {
 	render() {
 		return <>
-		<img src="/images/me-round.png" alt="Me" className="centerImage"></img>
+		<img src="/images/me-round.png" alt="Me" className="centerImage" width='500x'></img>
 		<body>
 			<ReactMarkdown
 			remarkPlugins={[remarkMath, gfm]}

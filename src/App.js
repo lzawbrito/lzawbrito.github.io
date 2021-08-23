@@ -15,6 +15,7 @@ import ScrollToTop from './components/ScrollToTop'
 import albumDisplay from './components/music/AlbumDisplay';
 import { articles } from './components/writing/Articles';
 import NotFound from './components/NotFound';
+import EPK from './components/academics/EPK';
 
 
 function generateArticleRouter(a) {
@@ -39,6 +40,7 @@ function App() {
         <hr/>
         <SideNavComponent width={wid} closeNav={closeSidenav}/>
         <Switch>
+          <Route path="/epk" component={EPK}/>
           <Route exact path="/">
             <Redirect to="/home"/>
           </Route>
