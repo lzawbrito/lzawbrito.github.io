@@ -70,7 +70,8 @@ export const courseworkList = [
 			},
 			{
 				name: "CSCI1971A - Data Science",
-				hasNotes: false
+				hasNotes: true, 
+				notes: "csci1951a-notes.pdf"
 			},
 			{
 				name: "PHIL0211 - Modern Political Philosophy",
