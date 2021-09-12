@@ -36,7 +36,7 @@ export default class AcademicsComponent extends React.Component {
 
 export const courseworkList = [
 	{
-		term: "Fall 2021 (Provisional List)",
+		term: "Fall 2021",
 		courses: [
 			{
 				name: "PHYS2050 - Quantum Mechanics*",
@@ -51,7 +51,7 @@ export const courseworkList = [
 				hasNotes: false
 			},
 			{
-				name: "MATH1260 - Complex Analysis",
+				name: "CSCI0320 - Introduction to Software Engineering",
 				hasNotes: false
 			}
 		]
