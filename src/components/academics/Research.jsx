@@ -19,7 +19,7 @@ const content = `
 - **2021-08 - present**: Differential simulation of active Brownian particles 
   in arbitrary confinements. Code for the project can be found 
   [here](https://github.com/lzawbrito/active-matter).
-  ## Employment 
+## Employment 
 - **2017 - 2018**: Assistant instructor, Play-Well Teknologies
 ## Skills
 - **Languages**: Python (Scipy, Numpy, Matplotlib/Seaborn, SKLearn, Pandas),
