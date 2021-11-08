@@ -4,14 +4,15 @@ import chicoReview from './articles/chico-review.md'
 import visionsOfGuajiru from './articles/visions-of-guajiru.md'
 import danceAsWeapons from './articles/dance-as-weapons.md'
 import test from './articles/test.md'
+import randomWalkerHeatEquation from './articles/random-walker-heat-equation.md'
 
 export var articles = [
 	// {
-	// 	id: "test-article",
-	// 	title: "Test Article",
-	// 	summary: "This entry is a test of some `remarkjs` features.",
-	// 	date: "July 3, 2021",
-	// 	contentPath: test,
+	// 	id: "discrete-continuous-phenomena",
+	// 	title: "On Discrete and Continuous Phenomena"
+	// 	summary: "A brief derivation of an unexpected occurrence of the heat equation, and some discussion.",
+	// 	date: "October 17, 2021",
+	// 	contentPath: randomWalkerHeatEquation,
 	// 	content: null
 	// },
 	{

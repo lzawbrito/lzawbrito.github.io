@@ -10,10 +10,11 @@ export default class AcademicsComponent extends React.Component {
 			CV / Research
 		</h2>
 		<p>
-			I am currently researching dark matter under Professor 
-			Ian Dell'Antonio. In particular, I am applying machine learning 
-			techniques to strong gravitational lensing detection. 
-		</p>
+			An aggregate of research experience I've had as well as employment, 
+			education, and skills. I have done work in observational
+			astrophysics, computational biophysics, and most recently have taken
+			an interest in computational condensed matter physics. 
+ </p>
 		<ReadMore to="/academics/research"></ReadMore>	
 		<hr/>
 		<h2>

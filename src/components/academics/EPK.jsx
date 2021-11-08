@@ -15,15 +15,14 @@ export default class EPK extends React.Component {
         he primarily plays drums and cowrites.
     </p>
     <p>
-
-        Brito is currently studying astrophysics and computer science at Brown University as a freshman. He continues to
+        Brito is currently studying physics and computer science at Brown University. He continues to
         work on his solo music, as well as continuing to collaborate with Steve’s Mind. Brito also creates works of
         literature such as essays, novels, as well as guides on concepts in math, physics, and computer science. Brito
         also competes in the United States Powerlifting Association, which he has done since 2019.
     </p>
     <hr/>
     <h3>Music</h3>
-	<p>
+	<p style={{textIndent:'0px'}}>
 	My music and scores can be found <Link to="/music">here</Link>
 	</p>
     <hr/>
@@ -33,13 +32,7 @@ export default class EPK extends React.Component {
         allowfullscreen></iframe>
     <hr/>
     <h3>Contact</h3>
-    <p style={{textIndent: '0px',
-    paddingLeft: '30%',
-    paddingRight: '30%',
-    fontFamily:'LMRoman12',
-    fontWeight: 'regular',
-    fontStyle: 'normal',
-    fontSize: '18px'}}>Email: <a href="mailto:lzawbritomusic@gmail.com">lzawbritomusic@gmail.com</a><br/>
+    <p style={{textIndent: '0px'}}>Email: <a href="mailto:lzawbritomusic@gmail.com">lzawbritomusic@gmail.com</a><br/>
         Phone: (206)816-4186
     </p>
     <hr/>
