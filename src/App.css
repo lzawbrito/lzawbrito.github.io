@@ -135,6 +135,10 @@ a {
     text-decoration: none;
 }
 
+.noIndent{
+    text-indent: 0px
+}
+
 h1 {
     font-size: 36px;
     font-family: 'LMRoman12';
@@ -143,9 +147,32 @@ h1 {
   }
 
 
-p, h2, h3, .ReadMore{
+p, h2, h3, .ReadMore, .languageBadgeContainer {
     padding-left: 30%;
     padding-right: 30%;
+}
+
+.languageBadgeContainer {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    margin-top: -10px
+}
+
+.languageBadge {
+    font-family: 'LMMono10';
+    font-size: 14px;
+    border: 1px solid gray;
+    margin-right: 10px;
+    font-family: 'LMMono12';
+    padding: 5px;
+    margin-top: 5px;
+    transition-duration: 0.1s;
+}
+
+.languageBadge:hover {
+    background-color: rgb(233, 233, 233);
+    transition-duration: 0.1s;
 }
 
 h2 {
@@ -445,6 +472,11 @@ blockquote p{
 }
 
 @media (max-width: 1000px) {
+
+    .languageBadgeContainer{
+        padding-left: 20px; 
+        padding-right: 20px;
+    }
 
     .lyricsDisplay {
         grid-template-columns: 100%;

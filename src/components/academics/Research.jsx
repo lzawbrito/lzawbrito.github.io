@@ -47,12 +47,12 @@ const col = `
 - Spanish (conversational)
 
 ## Programming Languages
-Python (Scipy, Numpy, Matplotlib/Seaborn, SKLearn, Pandas, Django),
-Java,
-Javascript, HTML, CSS,
-React,
-SQL,
-$$\\LaTeX$$, bash scripting.
+- Python (Scipy, Numpy, Matplotlib/Seaborn, SKLearn, Pandas, Django, PySpark)
+- Java
+- Javascript, HTML, CSS, React
+- SQL
+- $$\\LaTeX$$
+- bash scripting
 
 ## Software 
 MATLAB, Mathematica, Excel, Ableton Live, Adobe Suite, Blender.

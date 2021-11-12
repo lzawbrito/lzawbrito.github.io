@@ -36,6 +36,31 @@ export default class AcademicsComponent extends React.Component {
 
 export const courseworkList = [
 	{
+		term: "Spring 2021 (intended)",
+		courses: [
+			{
+				name: "PHYS2060 - Quantum Mechanics*",
+				hasNotes: false
+			},
+			{
+				name: "PHYS2100 - General Relativity*",
+				hasNotes: false
+			},
+			{
+				name: "PHYS0560 - Experiments in Modern Physics",
+				hasNotes: false
+			},
+			{
+				name: "CSCI0300 - Fundamentals of Computer Systems",
+				hasNotes: false
+			},
+			{
+				name: "PHIL0995 - Recent Developments in the Philosophy of Language",
+				hasNotes: false
+			}
+		]
+	},
+	{
 		term: "Fall 2021",
 		courses: [
 			{

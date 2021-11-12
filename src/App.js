@@ -16,6 +16,7 @@ import albumDisplay from './components/music/AlbumDisplay';
 import { articles } from './components/writing/Articles';
 import NotFound from './components/NotFound';
 import EPK from './components/academics/EPK';
+import Projects from './components/projects/Projects';
 
 
 function generateArticleRouter(a) {
@@ -46,15 +47,16 @@ function App() {
           </Route>
           <Route path="/home" component={HomeComponent} exact></Route>
           <Route path="/academics" component={AcademicsComponent} exact></Route>
-            <Route path="/academics/coursework" component={Coursework}exact></Route>
-            <Route path="/academics/research" component={Research}exact></Route>
+          <Route path="/academics/coursework" component={Coursework}exact></Route>
+          <Route path="/academics/research" component={Research}exact></Route>
           <Route path="/music" component={MusicComponent} exact></Route>
-            <Route path="/music/laplacian-demon"
-            component={() => albumDisplay({id: "laplacian-demon"})}></Route>
-            <Route path="/music/tsdac"
-            component={() => albumDisplay({id: "tsdac"})}></Route>
+          <Route path="/music/laplacian-demon"
+          component={() => albumDisplay({id: "laplacian-demon"})}></Route>
+          <Route path="/music/tsdac"
+          component={() => albumDisplay({id: "tsdac"})}></Route>
           <Route path="/writing" component={WritingComponent} exact></Route>
-            {articleRouters}
+          <Route path="/projects" component={Projects} exact></Route> 
+          {articleRouters}
           <Route component={NotFound}></Route>
         </Switch>
       </HashRouter>

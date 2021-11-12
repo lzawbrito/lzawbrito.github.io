@@ -25,6 +25,10 @@ export const pages = [
 		link: "/academics"
 	},
 	{
+		name: "Projects",
+		link: "/projects"
+	},
+	{
 		name: "Music",
 		link: "/music"	
 	},
