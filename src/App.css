@@ -135,7 +135,7 @@ a {
     text-decoration: none;
 }
 
-.noIndent{
+.noIndent p {
     text-indent: 0px
 }
 
