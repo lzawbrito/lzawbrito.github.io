@@ -12,7 +12,7 @@ const content = `
 - **2020 - present**: Brown University, Providence, RI, B.Sc. in Physics and
   Computer Science
 ## Research
-- **2021-02 - present** _(under Prof. Ian Dell'Antonio)_: Strong gravitational lens classifier in 
+- **2021-02 - 2021-08** _(under Prof. Ian Dell'Antonio)_: Strong gravitational lens classifier in 
   in long-exposure [DECaLS](https://www.legacysurvey.org/decamls/) 
   survey using a residual neural network. The code for the project can be found
   [here](https://github.com/lzawbrito/red-galaxies).
@@ -22,17 +22,20 @@ const content = `
   
 ## Employment 
 - **2017 - 2018**: Assistant instructor, Play-Well Teknologies
+- **2020**: Private guitar instruction, self-employed. 
 
 ## [Coursework](https://www.lucasbrito.site/#/academics/coursework)
 - **Physics** Analytical Mechanics, Advanced Classical Mechanics, 
   Electricity and Magnetism, Advanced Electromagnetic Theory, Quantum 
-	Mechanics (graduate).
+	Mechanics (graduate), Introduction to Nuclear and High Energy Physics.
 - **Computer Science:** Accelerated Introduction to Computer Science, 
   Data Science, Introduction to Software Engineering, Interdisciplinary 
-  Scientific Visualization (graduate).
+  Scientific Visualization (graduate), Probabilistic Methods in Computer 
+  Science (graduate).
 - **Mathematics:** Single-variable Calculus, Multivariable Calculus, 
   Linear Algebra, Ordinary Differential Equations, Partial Differential 
-  Equations, Abstract Algebra, selected topics in discrete mathematics.
+  Equations, Abstract Algebra, Differential Geometry, Topology, 
+  selected topics in discrete mathematics.
 - **Misc.:** Philosophy of Quantum Mechanics, Modern Political
   Philosophy.
 

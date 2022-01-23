@@ -17,6 +17,8 @@ import { articles } from './components/writing/Articles';
 import NotFound from './components/NotFound';
 import EPK from './components/academics/EPK';
 import Projects from './components/projects/Projects';
+import HarmonicOscillator from './components/projects/local-web-apps/HarmonicOscillator';
+import { MathJaxContext } from 'better-react-mathjax';
 
 
 function generateArticleRouter(a) {
@@ -56,6 +58,7 @@ function App() {
           component={() => albumDisplay({id: "tsdac"})}></Route>
           <Route path="/writing" component={WritingComponent} exact></Route>
           <Route path="/projects" component={Projects} exact></Route> 
+          <Route path="/projects/stationary-states-of-qho" component={HarmonicOscillator} exact></Route> 
           {articleRouters}
           <Route component={NotFound}></Route>
         </Switch>

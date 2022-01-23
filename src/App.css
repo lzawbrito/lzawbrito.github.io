@@ -189,6 +189,7 @@ h3 {
 }
 
 body {
+    font-size: 16px;
     background-color: rgb(245, 245, 245);
     padding-bottom: 5%;
   }
@@ -308,6 +309,14 @@ ul .quote {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+#centerPlotly {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 30%;
+    padding-right: 30%;
 }
 
 .bandcampEmbed{
@@ -471,8 +480,61 @@ blockquote p{
     text-indent: 0;
 }
 
-@media (max-width: 1000px) {
+.MathJax {
+    font-size: 36px;
+}
 
+mjx-container[display="true"] {
+    margin-top: 5px ! important ;
+    margin-bottom: 10px ! important 
+}
+
+input {
+    border-color: transparent;
+    background-color: rgb(231, 231, 231);
+    border-radius: 5px;
+    font-family: 'LMMono12';
+    font-size: 16px;
+}
+
+input:focus {
+    outline: none;
+    background-color: rgb(224, 224, 224);
+}
+
+button {
+    font-family: 'LMMono12';
+    font-size: 16px;
+    border-radius: 0px;
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(189, 189, 189);
+    background-color: rgb(241, 240, 240);
+    transition-duration: 0.1s;
+    padding: 6px;
+}
+
+button:hover {
+    background-color: rgb(228, 228, 228);
+    transition-duration: 0.1s;
+}
+
+.horizontalButtonContainer {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+.katex {
+    font-size: 18px !important;    
+    /* overflow-x: scroll; */
+    /* overflow-y: visible; */
+    /* overflow: auto; */
+}
+
+
+@media (max-width: 1000px) {
     .languageBadgeContainer{
         padding-left: 20px; 
         padding-right: 20px;
@@ -638,5 +700,22 @@ blockquote p{
         margin-right: 20px;
         grid-template-columns: auto;
         grid-template-rows: auto;
+    }
+
+    #centerPlotly {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .MathJax {
+        font-size: 16px;
+        overflow-x: scroll;
+    }
+
+    #centerPlotly {
+        height: 300px;
     }
 }

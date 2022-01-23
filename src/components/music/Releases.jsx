@@ -145,58 +145,43 @@ Til the words "I love you too"
 			{
 				name: "Thin Black Spider Across the Lot",
 				tabs: "spider.txt",
-				lyrics:`I know, I know
-				I heard it too,
-				It's coming soon
+				lyrics:`We must have been around thirteen when we went behind the Safeway and drew our names on the fresh tar
+Now we've come so far
+I went there the other day to see if it had stayed and I couldn't even remember where it was
+Was it the sun that closed it up, or is it me misremembering us
+Or was it the etching springing up and crawling away like a thin black spider, across the lot onto the streets to squeeze into our ears laying eggs for our next big idea
+I saw a sign that said "where will we go when the water rises?"
+I don't know, I don't know, I don't think it will
+I think instead the water will fall into the ground 
+And you and I will be left to find our ways around
+And honestly man, I've walked around out of town and it's the same for miles and miles, it's the same
 
-				I know, too slow
-				I sink my teeth into the blue
-				And as I do,
-				It seeps in me and thus in you
-				my blood will mix with yours
-				in our veins, through our pores
-				I fade to you, you to me
+And after locking eyes with that sign I went across the bridge and up the hill and into my building and took a left into my crawlspace
+This is where I am, this is where I've been, this is where I will be    
+The hall is long, as long as time, as long as eternity
+And so I move, I move along, I move silently.
 
-				Like a boar whose bony tusk has sprouted up and punctured through
-				Slowly cutting, white through marrow, I saw it then, you saw it too
+Come on, have you seen the headlines, man, things are getting pretty bad in here
+We're living in a fun-house mirror, it's getting hot, it's getting—
+And come on, I've traveled for miles and miles, it's all the same shit everywhere
+All the stops—
+I saw a sign that said "we want everything" on the canal across from us 
+I want more, I want more, it's not enough
+That our atoms will scatter into the ground and we'll all be left to be unbound, unbound, unbound
 
-				You move along a line
-				you move along a line all the time
-				All I do is follow you
-				all you do is follow me
+A noisy bliss beyond this room, the rain pitter-pattering on my window 
+Suddenly, I remember being born, I remember being young, I remember I'm alone
+I remember I'm alone
 
-				I know, I know
-				This brings me back to when we were young
-				Walking along the streets of Abolição
-				And all the men with the cardboard sheets and loudspeakers droning on
-				Saying "it's ending soon, i hear it too, the boars, the tusks, the me, the you, we turn to one, we turn to two,"
-				We take a left, and he drowns in-
-				And the wall we'd drive past on our way home, covered in the words of a man no one knew
-				I think the wall was white and the ink was blue
-				The bastard managed to put his whole life down on this wall, and so it went on and on and on and on...
-				Til the words I love you too, I love you through and through
-				And I think before the day we moved the ink was fresh and I-
+My grandmother suffered from dementia. She died at 67. Toward the end of her life she had this fear of being inside, couldn't bear it. She'd kick and scream and we'd have to restrain her to take her in the nursing home.
+And when she was there, this pacified look glazed over her face and suddenly she was placid. During one of these episodes I tried to speak to her and she thought she was in her childhood bedroom in Erexim. Then she thought she was in the house she raised my mother in, and I was her husband. Then she thought she was in a hotel she stayed at in Greece, 1997. And this went on and on for every place she'd ever been in. 
 
-				My friend Meg says her car was stolen
-				I don't think it was
-				I don't think things just disappear like that
-				It probably sunk into the earth while you weren't looking
-				That happened to my grandmother back in 2008 you know
-				She suffered from Alzheimer's and moped around the house bumping into things and opening doors that led nowhere,
-				Then one day she was alone and she was just gone, never saw her again
-				And we live about our days as if everything's alright
-				But take a look around you man, 700 petty thefts in five days
-				And so much of it food,
-				So much of it food,
-				Like a boar whose tusk has sprouted out and punctured through
-				And what are we to do?
-				If things are just phasing out of existence, sprouting out and puncturing through
-
-				Til the words "I love you too"
-				Til the words "I love you too"
-				Til the words "I love you too"
-				Til the words "I love you too"
-				`
+We come alone, we leave alone
+We come alone, we leave alone
+We come alone, we leave alone
+We come alone, we leave alone, alone
+Alone
+Alone`
 			},
 			{
 				name: "Hypercommodity",
@@ -235,6 +220,8 @@ Til the words "I love you too"
 				It's not enough, give me more
 				I want more,
 				Goddamn, please give me more
+
+				I know
 
 				I've done the math inside and outside and forwards and backwards,
 				the ceramic flooring is smaller than it used to be, and none of the keys work on the bathroom lock

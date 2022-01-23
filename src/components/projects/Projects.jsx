@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
 import LocationComponent from "../LocationComponent";
 import LanguageBadges from "./LanguageBadge";
-
+import ReadMore from '../ReadMore'
 const projects = [
 	{
 		name: "DMI",
@@ -19,12 +19,10 @@ const projects = [
 		langs: ['Python', 'React', 'Plotly', 'Django'],
 		summary: `CluMMP (Cluster Merger Matching Program) is a browser-based 
 		visualization tool for comparative analysis of simulated and observed 
-		galaxy cluster mergerss. Constructed with a React front end and Python 
-		backend buttressed by Django, the tool uses data from the [Galaxy Cluster 
+		galaxy cluster mergers.  The tool uses data from the [Galaxy Cluster 
 		Merger Catalogue](http://gcmc.hub.yt/) to algorithmically recommend 
-		candidate simulation data based on user-uploaded observed data, then 
-		provides a suite of comparative visualization methodologies to facilitate 
-		the matching task.`,
+		candidate simulation data based on user-uploaded observed data, and 
+		provides a suite of comparative visualization methodologies.`,
 		gh: "https://github.com/lzawbrito/clummp"
 	},
 	{
@@ -32,23 +30,41 @@ const projects = [
 		langs: ['Python', 'Kivy', 'Matplotlib'],
 		summary: `PULSEE (Program for the Simulation of Spin Ensemble Evolution)
 		constitutes a suite of condensed matter experiment simulations in the 
-		form of a Python package as well as a Kivy-constructed GUI.`,
-		gh: ``
+		form of a Python package as well as a Kivy GUI.`,
+		gh: `https://github.com/lzawbrito/PULSEE`
+	},
+	{
+		name: "Stationary States of Harmonic Oscillator",
+		summary: `A simple web app for visualizing arbitrary linear combinations 
+		of stationary states of the quantum harmonic oscillator.`,
+		langs: ['Javascript', 'Plotly'],
+		link: `stationary-states-of-qho`
 	}
 ]
 
 export default function Projects() {
 	function makeProject(proj) {
-		return <>
-		<h2>{proj.name}</h2>
-		<LanguageBadges langs={proj.langs}></LanguageBadges>
-		<ReactMarkdown className='noIndent'>
-		{proj.summary}
-		</ReactMarkdown>
-		{/* <p style={{textIndent:'0px'}}>{proj.summary}</p> */}
-		<div className="ReadMore"><a href={proj.gh}><img style={{height:'40px'}}src='images/logos/Octicons-mark-github.svg'></img></a></div>
-		<hr/>
-		</>
+		if (proj.gh) {
+			return <>
+			<h2>{proj.name}</h2>
+			<LanguageBadges langs={proj.langs}></LanguageBadges>
+			<ReactMarkdown className='noIndent'>
+			{proj.summary}
+			</ReactMarkdown>
+			<div className="ReadMore"><a href={proj.gh}><img style={{height:'40px'}}src='images/logos/Octicons-mark-github.svg'></img></a></div>
+			<hr/>
+			</>
+		} else {
+			return <>
+			<h2>{proj.name}</h2>
+			<LanguageBadges langs={proj.langs}></LanguageBadges>
+			<ReactMarkdown className='noIndent'>
+			{proj.summary}
+			</ReactMarkdown>
+			<ReadMore to={'/projects/' + proj.link}></ReadMore>
+			<hr/> 
+			</>
+		}
 	}
 
 	return <>

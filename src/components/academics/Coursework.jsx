@@ -27,6 +27,7 @@ export default class AcademicsComponent extends React.Component {
 				{content}
 			<p style={{textIndent:0}}>
 			* Graduate course.
+			† Self-studied.
 			</p>
 			</body>
 		</>
@@ -36,14 +37,14 @@ export default class AcademicsComponent extends React.Component {
 
 export const courseworkList = [
 	{
-		term: "Spring 2021 (intended)",
+		term: "Spring 2022 (intended)",
 		courses: [
 			{
 				name: "PHYS2060 - Quantum Mechanics*",
 				hasNotes: false
 			},
 			{
-				name: "PHYS2100 - General Relativity*",
+				name: "PHYS1170 - Introduction to Nuclear and High Energy Physics",
 				hasNotes: false
 			},
 			{
@@ -51,13 +52,26 @@ export const courseworkList = [
 				hasNotes: false
 			},
 			{
-				name: "CSCI0300 - Fundamentals of Computer Systems",
+				name: "CSCI2450 - Advanced Probabilistic Methods in Computer Science*",
 				hasNotes: false
 			},
 			{
 				name: "PHIL0995 - Recent Developments in the Philosophy of Language",
 				hasNotes: false
 			}
+		]
+	},
+	{
+		term: "Winter 2022",
+		courses: [
+			{
+				name: "Differential Geometry†",
+				hasNotes: false
+			},
+			{
+				name: "Topology†",
+				hasNotes: false
+			},
 		]
 	},
 	{
@@ -136,7 +150,7 @@ export const courseworkList = [
 				hasNotes: false
 			},
 			{
-				name: "Linear Algebra",
+				name: "Linear Algebra†",
 				hasNotes: true,
 				notes: "linear-algebra-notes.pdf"
 			}
@@ -146,7 +160,7 @@ export const courseworkList = [
 		term: "Summer 2020",
 		courses: [
 			{
-				name: "Multivariable Calculus",
+				name: "Multivariable Calculus†",
 				hasNotes: true,
 				notes: "multivariable-calculus-notes.pdf"
 			}
