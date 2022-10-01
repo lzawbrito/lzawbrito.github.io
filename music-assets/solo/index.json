@@ -3,7 +3,7 @@
 		"title": "Spaces Without Length",
 		"id": "spaces-without-length",
 		"year": "2022",
-		"img": "/music/solo/covers/swl-cover.png",
+		"img": "/music-assets/solo/covers/swl-cover.png",
 		"links": [
 			{ "name": "Spotify", "link": "https://open.spotify.com/album/3ZXi4fovVRBXtZEegx5Wxq?si=HLIhP-IZQwSpJPkMQcY5pA", "id": "spotify" },
 			{ "name": "Apple", "link": "http://itunes.apple.com/album/id/1638973251", "id": "apple-music" }
@@ -20,7 +20,7 @@
 		"title": "Laplacian Demon",
 		"id": "laplacian-demon",
 		"year": "2021",
-		"img": "/music/solo/covers/ld-cover.png",
+		"img": "/music-assets/solo/covers/ld-cover.png",
 		"links": [
 			{ "name": "Apple", "link": "http://itunes.apple.com/album/id/1554730436", "id": "apple-music" },
 			{ "name": "Bandcamp", "link": "https://lucaszbrito.bandcamp.com/album/laplacian-demon", "id": "bandcamp" }
@@ -37,7 +37,7 @@
 		"title": "The Sky Drapes, a Cloth",
 		"id": "the-sky-drapes-a-cloth",
 		"year": "2020",
-		"img": "/music/solo/covers/tsdac-cover.png",
+		"img": "/music-assets/solo/covers/tsdac-cover.png",
 		"links": [
 			{ "name": "Apple", "link": "http://itunes.apple.com/album/id/1531560737", "id": "apple-music" },
 			{ "name": "Spotify", "link": "https://open.spotify.com/album/3ZXi4fovVRBXtZEegx5Wxq?si=HLIhP-IZQwSpJPkMQcY5pA", "id": "spotify" },
