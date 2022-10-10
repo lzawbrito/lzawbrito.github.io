@@ -1,5 +1,5 @@
 # Of Every Fruit Thou Mayest Freely Eat
-
+## (Essay for PHIL0211 - Modern Political Philosophy)
 `02/02/2021`
 
 John Locke’s famous _Second Treatise of Government_ describes what is regarded as

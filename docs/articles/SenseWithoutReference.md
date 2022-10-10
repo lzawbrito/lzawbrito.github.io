@@ -1,5 +1,5 @@
 # Sense Without Reference
-
+## (Short Essay for PHIL1860 - Sense and Reference)
 `9/30/2022`
 
 > This is the principle of the theory of denoting I wish to
@@ -42,7 +42,7 @@ denotation in order to set off the aforementioned mechanism which endows
 it with meaning.
 
 Through this construction we do away with the Fregean concept of
-"sense"; indeed, this is arguably among the aims of Russell's paper. In
+"sense"; indeed, this is among the aims of Russell's paper. In
 particular, we can argue that Russell's view does not support denoting
 phrases with different senses but identical references: there is no way
 a denoting phrase can have different different senses in isolation if
