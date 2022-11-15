@@ -1,0 +1,122 @@
+\ProvidesPackage{lzawbrito-template}
+
+% Babel for language-based rules
+\usepackage[english]{babel}
+
+% Nicer typography
+\usepackage{microtype}
+
+\usepackage{multicol}
+
+% Tighter text 
+% \usepackage[subtle]{savetrees}
+
+% Symbols, etc
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx} % Units
+% \let\svqty\qty
+\usepackage{physics}
+\usepackage{upgreek} % Upright greek letters
+\usepackage{cancel}  % Cancel (slash) terms in an equation
+\usepackage{slashed} % Feynman slash
+
+% Subfigures
+\usepackage{graphicx}
+\usepackage{subfig}
+
+% Tikz for diagrams
+\usepackage{tikz}
+
+% Additional color definitions
+\usepackage{xcolor}
+\definecolor{myblue}{rgb}{0.25,0.5,0.75}
+
+% Hyperlinks, links to sections in doc, etc.
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=myblue,
+}
+
+% Custom enumeration (e.g., a), b), ...)
+\usepackage{enumitem}	
+
+% Change margin
+\usepackage[top=1in, bottom=1in, left=0.75in, right=0.75in]{geometry}
+
+% Change page layout in the middle of document or different layout for odd or 
+% even pages.
+\usepackage{changepage}
+
+% Improved table spacing
+\usepackage{booktabs}
+
+% Epigraph
+\usepackage{epigraph}
+
+% Fancy header and footer
+% Use \chead{...}, \lhead{...}, \rhead{...}...
+\usepackage{fancyhdr}
+
+
+% Fancy sections
+\usepackage{titlesec}
+\titleformat{\section}
+{\sffamily\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.5pt]}]
+\titleformat{\subsection}
+{\sffamily\Large\bfseries}{\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0in}{1em}{0.25em}
+
+% Indent size
+\setlength\parindent{0cm}
+
+% Space after paragraph
+\setlength{\parskip}{.5em}
+
+% Problem and solution sections 
+\newcommand{\problem}[1]{\section*{#1}}
+\newcommand{\solution}{\subsection*{Solution}}
+
+% Fancy code styling
+\usepackage{minted}
+\setminted[]{tabsize=4,xleftmargin=0.0in,xrightmargin=0.0in}
+
+
+% Fancy boxes
+\usepackage[breakable]{tcolorbox}
+
+% Problem question box
+\newenvironment{qbox}{\begin{tcolorbox}[
+    boxrule=0.5pt,
+    colframe=gray,
+    colback=lightgray!25!white, 
+    sharp corners,
+    breakable,
+]}
+{\end{tcolorbox}}
+
+\newtcolorbox[auto counter, number within=section]{exbox}[1][]{
+    boxrule=0.3pt,
+    colframe=gray,
+    colback=lightgray!25!white, 
+    sharp corners,
+    breakable,
+    title=\textsf{Example~\thetcbcounter: #1}
+}
+
+% Wrap minted in tcolorbox
+\BeforeBeginEnvironment{minted}{\begin{qbox}}
+\AfterEndEnvironment{minted}{\end{qbox}}
+
+\input{/Users/lzawbrito/latex-templates/macros.tex}
+
+\DeclareOption{usefancyhdr}{
+    \pagestyle{fancy}
+    \fancyhf{}
+    \fancyfoot[C]{\thepage}
+}
+\DeclareOption*{\PackageWarning{examplepackage}{Unknown ‘\CurrentOption’}}
+\ProcessOptions\relax
