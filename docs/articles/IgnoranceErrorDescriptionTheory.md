@@ -14,7 +14,7 @@ are satisfied by one unique object $\gamma$, then $\gamma$ is the referent of
 are to Kripke's *Naming and Necessity*.] He does so by means of two arguments,
 reserved for theses (2) and (3) respectively,
 for which I will borrow the terminology "argument from ignorance" and
-"argument from error." In what follows, I will argue that these are
+"argument from error."^[Due to Richard Kimberly Heck.] In what follows, I will argue that these are
 indeed distinct arguments, and that both are needed to make a strong
 case against the description theory, but that the argument from
 ignorance is more susceptible to counterattack by description theorists
