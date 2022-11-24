@@ -48,13 +48,16 @@ judgement. Humans, of course, are not. Taking control of the material of nature
 brings with it the baggage of morality—suddenly, nature is not morally
 valueless, it's not random, but intentional. In particular, as we might see much
 more clearly in the next few years, _biology_ is not valueless. It is my view
-that we run into trouble when we forget this.
+that we run into trouble when we forget this. We either create terrible things, 
+or forget that we can create great things. I am reminded not only of Jeff
+Goldblum's famous line in Jurassic Park, but also of the Laboria Cuboniks
+aphorism: "if nature is unjust, change nature!"
 
 I have considered whether this is the underlying psychological reason for the 
 unique discomfort _in vitro_ NNs, or whether this is just a rationalization of 
 that fear. As it stands, I think it is both. It's not that I will witness 
-man-made horrors beyond my comprehension, it's that everything is a horror beyond my
-comprehension, only some of it is man-made.
+man-made horrors beyond my comprehension, it's that everything is a horror
+beyond my comprehension, only some of it is man-made.
 
 ---
 
