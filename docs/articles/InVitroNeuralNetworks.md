@@ -30,23 +30,25 @@ used to make the artificial intelligence.
 What about _that_ is scary? Here's a thought: what is really scary is our
 newfound ability to wrangle away that which has been heretofore reserved for
 "Mother Nature"—natural processes, unmediated by people. (Natural) disease is
-scary, but in a different way that, say, a bio-weapon is. In the natural case, 
-there is a degree of randomness at play, randomness which in a sense facilitates 
-superstition. It's not unlike the ancient Roman practice of leaving unwanted 
-children unattended in the wilderness and claiming that "nature" is responsible 
-for the child's very likely demise. We possibly still deify nature like we 
-did then; nature operates according to principles which are beyond our
-control—evolution is not scary, because the stochastic nature of the process
-allows it to operate "mystically" within the boundaries of science. The caveat
-is, of course, that science in fact enables the very obtaining of said
-control—this is the flow of knowledge from science to _engineering_. 
+scary, but in a different way that, say, a bio-weapon is; naturally occurring 
+genetic mutation doesn't strike me as uncanny as the science fiction laboratory
+mutant trope. In the natural case, there is a degree of randomness at play,
+randomness which in a sense facilitates superstition. It's not unlike the
+ancient Roman practice of leaving unwanted children unattended in the wilderness
+and claiming that "nature" is responsible for the child's very likely demise. We
+possibly still deify nature like we did then; nature operates according to
+principles which are beyond our control—evolution is not scary, because the
+stochastic nature of the process allows it to operate "mystically" within the
+boundaries of science. The caveat is, of course, that science in fact enables
+the very obtaining of said control—this is the flow of knowledge from science to
+_engineering_.  
 
 Nature, being "mystical" or stochastic, is free from (naive, intuitive) moral
 judgement. Humans, of course, are not. Taking control of the material of nature 
 brings with it the baggage of morality—suddenly, nature is not morally
-valueless. In particular, as we might see much more clearly in the next few
-years, _biology_ is not valueless. It is my view that we run into trouble when
-we forget this.
+valueless, it's not random, but intentional. In particular, as we might see much
+more clearly in the next few years, _biology_ is not valueless. It is my view
+that we run into trouble when we forget this.
 
 I have considered whether this is the underlying psychological reason for the 
 unique discomfort _in vitro_ NNs, or whether this is just a rationalization of 
