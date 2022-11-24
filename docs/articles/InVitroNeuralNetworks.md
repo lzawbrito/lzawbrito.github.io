@@ -52,7 +52,9 @@ that we run into trouble when we forget this.
 
 I have considered whether this is the underlying psychological reason for the 
 unique discomfort _in vitro_ NNs, or whether this is just a rationalization of 
-that fear. As it stands, I think it is both.
+that fear. As it stands, I think it is both. It's not that I will witness 
+man-made horrors beyond my comprehension, it's that everything is a horror, only
+some of it is man-made.
 
 ---
 
