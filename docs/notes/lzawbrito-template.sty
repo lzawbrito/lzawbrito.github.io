@@ -1,12 +1,22 @@
 \ProvidesPackage{lzawbrito-template}
 
+% USAGE: Import using 
 % Babel for language-based rules
 \usepackage[english]{babel}
+
+% For fancier command definitions; see \setdocnames in line 142
+\usepackage{xparse}
 
 % Nicer typography
 \usepackage{microtype}
 
 \usepackage{multicol}
+
+% Table of contents formatting. 
+\usepackage[titles]{tocloft}
+\renewcommand{\cftsecfont}{\sffamily}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecpagefont}{\sffamily}
 
 % Tighter text 
 % \usepackage[subtle]{savetrees}
@@ -14,32 +24,37 @@
 % Symbols, etc
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{siunitx} % Units
-% \let\svqty\qty
-\usepackage{physics}
-\usepackage{upgreek} % Upright greek letters
-\usepackage{cancel}  % Cancel (slash) terms in an equation
-\usepackage{slashed} % Feynman slash
+\usepackage{siunitx}   % Units
+\usepackage{physics}   % Highly controversial package... can comment out 
+\usepackage{upgreek}   % Upright greek letters
+\usepackage{cancel}    % Cancel (slash) terms in an equation
+\usepackage{slashed}   % Feynman slash
 
-% Subfigures
+% Figures, etc.
 \usepackage{graphicx}
-\usepackage{subfig}
+\usepackage{subcaption} % Subfigures
+\usepackage{wrapfig}
 
 % Tikz for diagrams
 \usepackage{tikz}
+\usepackage{tikz-feynman}
 
 % Additional color definitions
 \usepackage{xcolor}
 \definecolor{myblue}{rgb}{0.25,0.5,0.75}
+\definecolor{mygreen}{HTML}{009B39}
 
 % Hyperlinks, links to sections in doc, etc.
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
+    citecolor=mygreen,
     linkcolor=black,
     filecolor=magenta,      
     urlcolor=myblue,
 }
+
+\usepackage{cleveref}
 
 % Custom enumeration (e.g., a), b), ...)
 \usepackage{enumitem}	
@@ -95,6 +110,8 @@
     colback=lightgray!25!white, 
     sharp corners,
     breakable,
+    % parbox=false,
+    after skip=15pt
 ]}
 {\end{tcolorbox}}
 
@@ -104,7 +121,21 @@
     colback=lightgray!25!white, 
     sharp corners,
     breakable,
+    toptitle=4pt,
+    bottomtitle=2pt,
+    parbox=false,
     title=\textsf{Example~\thetcbcounter: #1}
+}
+
+\newtcolorbox[auto counter, number within=section]{namedbox}[1][]{
+    boxrule=0.3pt,
+    colframe=gray,
+    colback=lightgray!25!white, 
+    sharp corners,
+    breakable,
+    toptitle=2pt,
+    bottomtitle=2pt,
+    title=\large\textsf{#1}
 }
 
 % Wrap minted in tcolorbox
@@ -116,7 +147,25 @@
 \DeclareOption{usefancyhdr}{
     \pagestyle{fancy}
     \fancyhf{}
-    \fancyfoot[C]{\thepage}
+    \fancyfoot[C]{\sffamily\thepage}
 }
 \DeclareOption*{\PackageWarning{examplepackage}{Unknown ‘\CurrentOption’}}
 \ProcessOptions\relax
+
+% Facilitate document title, author, affiliation formatting
+\NewDocumentCommand{\setdocnames}{m m o}{
+    \IfValueTF{#3}{
+        \lhead{\sffamily #1}
+        \chead{\sffamily #2}
+        \rhead{\sffamily #3}
+        \title{\textbf{\textsf{#2}}}
+        \author{#1\\\texttt{#3}}
+    }{
+        \lhead{\sffamily #1}
+        \rhead{\sffamily #2}
+        \title{\textbf{\textsf{#2}}}
+        \author{#1}
+    }
+}
+
+\newcommand{\mynote}[1]{{\color{gray}\sffamily #1}}
