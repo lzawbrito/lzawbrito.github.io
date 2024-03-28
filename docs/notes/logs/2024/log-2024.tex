@@ -1,0 +1,1271 @@
+\documentclass{report}
+\usepackage[lecture,smalltitle,usefancyhdr]{/Users/lzawbrito/latex-templates/lzawbrito-template}
+% \usepackage{sansmathfonts}
+\usepackage[T1]{fontenc}
+\usepackage[eulergreek]{sansmath}
+
+\usepackage{tikz-cd}
+\usetikzlibrary{cd}
+
+\setdocnames{Lucas Z. Brito}{Log 2024}
+\begin{document}
+% \maketitle
+\begin{titlepage}
+	\begin{minipage}[t]{\dimexpr \textwidth-10cm-\columnsep}
+		\maketitle
+	 \end{minipage}
+	% \maketitle
+	\hfill
+	% \includegraphics[width=0.5\textwidth]{figs/vortex.pdf}
+	\begingroup
+\setbox0=\hbox{\includegraphics{fig/sct.pdf}}%
+\parbox{\wd0}{\box0}\endgroup
+\end{titlepage}
+
+\dominitoc 
+\tableofcontents
+
+\chapter{January}
+\begin{tocbox}
+	\minitoc
+\end{tocbox}
+
+\entry{An Explicit Abelianization}{1/9/24}
+\parhead{Dihedral group}
+The simplest non-abelian group available is the dihedral group $ \text{D}_6
+\simeq \mathbb{Z}_2 \ltimes \mathbb{Z}_3 $, the symmetry group of a triangle.
+The $ \mathbb{Z}_2 $ consists of the reflection of the triangle, and the 
+$ \mathbb{Z}_3 $ is the rotations by $ 2\pi / 3 $ degrees. Thus we have 
+\begin{equation*}
+	\text{D}_6 \simeq \left\{ e, r, r^2 \right\} \ltimes \left\{ e, p \right\}
+\end{equation*}
+It's not too hard to draw a bunch of triangles and find that this group has the 
+following Cayley table:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c | c c c c c}
+		     & $ r $    & $ r^2 $  & $ p $    & $ rp $   & $ r^2 p $ \\ \hline
+	$ r $    & $ r^2 $  & $ e $    & $ rp $   & $ r^2p $ & $ p $     \\
+	$ r^2 $  & $ e $    & $ r $    & $ r^2p $ & $ p $    & $ rp $    \\ 
+	$ p $    & $ r^2p $ & $ rp $   & $ e $    & $ r^2 $  & $ r $     \\ 
+	$ rp $   & $ p $    & $ r^2p $ & $ r $    & $ e $    & $ r^2 $   \\
+	$ r^2p $ & $ rp $   & $ p $    & $ r^2 $  &  $ r $   & $ e $
+\end{tabular}
+\end{table}
+
+Here the nontrivial identities which require some toying around with the 
+triangles are $ pr = r^2 p $, $ pr^2 p = r $, $ pr^2 = rp $.
+
+\parhead{The semidirect} What is the semidirect product structure on $
+\mathbb{Z}_2 $ and $ \mathbb{Z}_3 $ that produces $ \text{D}_6 $?
+We can do this with a procedure identical to that which we performed on the 
+$ \text{U}(1)\ltimes \mathbb{Z}_2 $ symmetry of the particle on a ring of the
+2023 logs. Now, there are two identities that capture the non-commutativity 
+of the two symmetries, $ pr^2p = r $ and $ prp  = r^2 $ (two comments: first, 
+notice this is like $ PT_{\alpha} P = T_{-\alpha} $ for $ \text{U}(1)\ltimes
+\mathbb{Z}_2 $, and also notice that these are precisely the commutators with 
+$ p^{-1} = p $). We find 
+\begin{align*}
+	&pr^2 p = (p,e) \cdot (e, r^2)\cdot(p, e)
+		= (p, e)\cdot(p, r^2 \varphi_e(e))
+		= (p^2, \varphi_p(r^2))
+		= (e, r)\\ 
+	&prp = (p, e) \cdot (p, \varphi_p(r)) = (p^2, r^2) = (e, r^2)
+\end{align*}
+provided $ \varphi_p(r^2) = r $---we don't even have to require $ \varphi_p(r) = r^2 $ because there is no other choice in this automorphism of $ \mathbb{Z}_3 $.
+
+\parhead{Commutator} The commutator subgroup $ [G, G] $ is the subgroup generated 
+by the commutators of $ G $. If the group is abelian, the commutator subgroup 
+is trivial. The commutator is $ [a,b] = a^{-1} b^{-1} a b$; indeed it measures how 
+the conjugation by $ a $ changes $ b $ (or vice-versa): if $ a $ and $ b $
+commute
+\begin{equation*}
+	[a,b] = e \quad \iff \quad a^{-1} b a = b.
+\end{equation*}
+
+\parhead{Abelianization} Let's compute the abelianization $ \text{D}_6 /
+[\text{D}_6,\text{D}_6] $ by finding what $ [\text{D}_6, \text{D}_6] $ is. 
+We have 
+\begin{align*}
+	[r, r^2] = e, \qquad [p, r] = prp^{-1} = prpr^2 = r^2 r^2 = r, \\ 
+	[r, p] = rpr^2 p = r^2 ,\qquad [p, r^2] = pr^2 pr = r^2.
+\end{align*}
+Evidently $ r $ generates the commutator subgroup and we have that $
+[\text{D}_6, \text{D}_6] \simeq \mathbb{Z}_3$ and thus the abelianization is 
+\begin{equation*}
+	\text{D}_6/[\text{D}_6, \text{D}_6] \simeq \mathbb{Z}_2,
+\end{equation*}
+which makes sense because when the group fails to commute the difference in the 
+resulting actions is a rotation.
+
+
+\entry{Central Charge and Second Cohomology}{1/15/24}
+Blumenhagen and Plauschinn: 
+
+\begin{quotebox}
+Is is generally true that $ H^2(\mathfrak{g},\mathbb{C}) $ classifies the central 
+extensions of an algebra $ \mathfrak{g} $ modulo redefinitions of the generators. 
+However, for semi-simple finite dimensional Lie algebras, one finds that their
+second cohomology group vanishes and so in this case there do not exist any
+central extensions.
+\end{quotebox}
+
+\subsection{Group Cohomology}
+Intuitively, group (co)homology can be be understood as
+the (co)homology of the classifying space of the group $ G $, $ \mathrm{B}G $,
+which is the space whose fundamental group is $ G $: $ \pi_1(\text{B}G) = G $
+(the Eilenberg-MacLane theorem guarantees us such a space). 
+For the purposes of
+computation, however, we need a more concrete construction akin to a simplicial
+complex structure on a topological space. 
+
+TODO classifying space vs eilenberg maclane space?
+
+\parhead{Simplicial resolution} The so-called \textbf{simplicial 
+resolution}\footnote{For the present purposes, it suffices to think of a 
+resolution as a chain complex; indeed it has the same structure as an exact 
+sequence.} does the job in a fairly intuitive way: we think of elements of $ G $ 
+as vertices in a simplex, with $ n $-simplices formed of $ n $-tuples of elements 
+of $ G $, and consider the simplicial chain complex of this simplex. To be 
+specific, 
+\begin{equation*}
+	C_n = \bigoplus_{G^{n+1}} \mathbb{Z}
+\end{equation*}
+whose basis elements are $ (g_0, \dots, g_n)\in G^n $, and with boundary map 
+identical to that of simplicial complexes: 
+\begin{align*}
+	\partial_n C_n &\longrightarrow C_{n-1} \\ 
+	(g_0, \dots, g_n) &\longmapsto \sum_{i = 0}^{n}(-1)^i (g_0, \dots, \hat{g}_i, \dots,g_n)
+\end{align*}
+
+\parhead{Bar resolution} An alternative resolution (which will come into play shortly) is the \textbf{bar
+resolution} 
+\begin{equation*}
+	\bar{C}_n = \bigoplus_{G^n} \mathbb{Z}G
+\end{equation*}
+(the practical difference between this and the above direct sum is not manifest to me) 
+whose basis elements are denoted $ [g_1\vert g_2 \vert \cdots \vert g_n] $.
+Here $ \mathbb{Z}G $ is a $ \mathbb{Z}G $-module---defined as an action of $ G $ 
+on the abelian group $ \mathbb{Z} $ satisfying $ g(a + b) = ga + gb $, we can
+think of elements of $ \mathbb{Z}G $-modules as simplicial chains in the sense
+that 
+\begin{equation*}
+	g_1 n_1 + g_2 n_2 + \cdots + g_N n_N , \qquad n_i\in \Z
+\end{equation*}
+is in a $ \mathbb{Z}G $ module. This comes with its own boundary map 
+\begin{align*}
+	\bar{\partial}_n \bar{C}_n &\longrightarrow \bar{C}_{n-1} \\ 
+	[g_1 \mid \cdots \mid g_n] &\longmapsto
+	g_1 [g_2 \mid \cdots \mid g_n]\\
+		&\qquad \qquad + \sum_{i = 1}^{n-1}(-1)^i [g_1\mid\cdots\mid g_{i-1} \mid g_i g_{i+1}\mid 
+		g_{i+1} \mid \cdots \mid g_{n}]\\
+		&\qquad \qquad + (-1)^n [g_1 \mid \cdots \mid g_{n-1}]
+\end{align*}
+\parhead{Equivalence of resolutions} (It is the corresponding coboundary map of
+the bar boundary map that will appear in the classification of the central
+extension). The two constructions can be related by a map 
+\begin{equation*}
+	[g_1 \mid \cdots \mid g_n] \mapsto 
+	(e, g_1, g_1 g_2, \dots , g_1 g_2 \cdots g_n)
+\end{equation*}
+which actually is an isomorphism, meaning that the bar and simplicial resolutions 
+are entirely isomorphic and their (co)homologies will agree. Actually, this is 
+an instance of a broader fact---these resolutions are both \textbf{projective},
+and all projective resolutions are chain homotopy equivalent $ \Longrightarrow  $
+their (co)homologies agree.
+
+\subsection{Central extensions from cohomology}
+Consider the central extension $ \tilde{G} $ of $ G $ by $ Z $:
+\begin{equation*}
+	0 \longrightarrow 
+	Z
+	\longrightarrow
+	\tilde{G}
+	\longrightarrow
+	G
+	\longrightarrow 
+	0
+\end{equation*}
+Now, to differentiate the abelian group composition of $ Z $ from the 
+nonabelian composition of $ G $ and $ \tilde{G} $, we will write $ Z $ as the 
+formal exponentiation of some additive abelian group $ Z = \exp(F) $. (This is
+also in anticipation of the interpretation of $ Z $ as a phase in some field 
+$ F $, e.g., $\R$.) 
+
+We are guaranteed that $ G \simeq \tilde{G} / \exp(F)$, although this isomorphism 
+is not canonical---one way you can think of this is we need to choose which
+phase will go on each element of $ G $. To be formal,
+$ \tilde{G} /\exp(F) = \{ \tilde{g} \exp(F) \mid \tilde{g}\in \tilde{G} \}$; 
+the isomorphism assigns each element of $ g $ to a representative of a coset 
+$ \tilde{g}\exp(F) $ (i.e., an arbitrary element of that coset, meaning an element 
+of $ \tilde{g} $ with some phase); such a set---one composed of a representative 
+from each coset---is termed a \textit{section}. 
+
+At any rate, having made such a choice, the isomorphism is canonical. Let it be 
+$ \gamma : G \to \tilde{G}/Z $. Then every element of $ \tilde{G} $ can be written 
+as some $ \gamma(g)\exp(a) $, $ g\in G $, $ a\in F $, and the composition 
+is generally 
+\begin{equation}\label{eq:group-cohom-composition}
+	\gamma(g_1)\gamma(g_2) = \gamma(g_1 g_2) \exp(c(g_1, g_2))
+\end{equation}
+with $ c $ some function $ G\times G \to F $.
+Now, generally functions $ G^n \to F $ are group $ n $-cochains (strictly speaking 
+$ F $ needs to be a $ G $-module, though I'm not sure how $ G $ acts on $ F $
+in this case), so $ c $ is a group 2-cochains, but not one that is uniquely 
+determined by $ \tilde{G} $. Specifically, we can choose another section, say 
+$ \gamma' $, under which 
+\begin{equation}\label{eq:group-cohom-composition-prime}
+	\gamma'(g_1)\gamma'(g_2) = \gamma'(g_1 g_2) \exp(c'(g_1, g_2))
+\end{equation}
+Now, in transforming to our original section $ \gamma $ the worst that can 
+happen is we acquire a phase: 
+\begin{equation*}
+	\gamma'(g) = \gamma(g) \exp(d(g))
+\end{equation*}
+for some $ d : G \to F $. Then we have \cref{eq:group-cohom-composition-prime} 
+becomes 
+\begin{align*}
+	\gamma(g_1) \exp(d(g_1))\gamma(g_2)\exp(d (g_2)) &= \gamma(g_1 g_2) 
+		\exp(d(g_1 g_2)) \exp(c'(g_1, g_2))\\ 
+	\gamma(g_1) \gamma(g_2) &= \gamma(g_1 g_2) \exp\left[
+		d(g_1 g_2) - d(g_1) - d(g_1) + c'(g_1, g_2)
+	\right]
+\end{align*}
+Comparing with \cref{eq:group-cohom-composition} we find 
+\begin{equation*}
+	c(g_1, g_2) - c'(g_1, g_2) = d(b_1 b_2) - d(b_1) - d(b_2) 
+\end{equation*}
+The right hand side is nothing but the (bar) coboundary map $ \delta d(b_1, b_2) $, 
+so we have found that that any two central extensions are determined only up to a 
+coboundary.
+
+On the other hand, consider the following composition: 
+\begin{align*}
+	\gamma(g_1) \gamma(g_2) \gamma(g_3) &= \gamma(g_1 g_2) \gamma(g_3) \exp(c(g_1, g_2))\\
+		&= \gamma(g_1 g_2 g_3) \exp(c(g_1, g_2)) \exp(c(g_1 g_2, g_3))
+\end{align*}
+But associativity tells us
+\begin{align*}
+	\gamma(g_1) \gamma(g_2) \gamma(g_3) &= \gamma(g_1) \gamma(g_2 g_3) \exp(c(g_1, g_2))\\
+		&= \gamma(g_1 g_2 g_3) \exp(c(g_2, g_3)) \exp(c(g_1, g_2 g_3))
+\end{align*}
+Equating the two right hand sides:
+\begin{align*}
+	&\gamma(g_1 g_2 g_3\exp(c(g_1, g_2)) \exp(c(g_1 g_2, g_3)))
+		= \gamma(g_1 g_2 g_3) \exp(c(g_2, g_3)) \exp(c(g_1, g_2 g_3))\\
+	&\qquad \Longrightarrow \exp(c(g_1, g_2) + c(g_1 g_2, g_3) - c(g_2 , g_3) - c(g_1, g_2 g_3)) = 1\\ 
+	&\qquad \Longrightarrow  c(g_1, g_2) + c(g_1 g_2, g_3) - c(g_2 , g_3) - c(g_1, g_2 g_3) = 0
+\end{align*}
+again, this is in fact nothing but the coboundary map $ \delta c(g_1, g_2, g_3) $, 
+so that $ c $ is in fact a cocycle (it has vanishing coboundary). 
+
+\parhead{Cohomology} What we've learned is that the central extension is
+determined by a 2-cocycle $ c $ up to the addition of a 2-coboundary $ d $, thus
+it is classified by the second group cohomology $ H^2(G, F) = \ker \delta /
+\text{im}\, \delta$.
+Now, the remarkable fact is that this is also the case at the level of the Lie 
+algebra---the central extensions (properly, the central charge) is classified 
+by the second Lie algebra cohomology $ H^2(\mathfrak{g}) $. We can also
+understand this by noticing that the central charge is nothing more than the
+generator of $ Z $---it is the generator of the central extension, hence the
+terminology ``central charge'' (it is the generator---the charge---of the
+center). It is a consequence of the Whitehead lemma that $ H^2(\mathfrak{g}) = 0$
+if $ \mathfrak{g} $ is semisimple, meaning the semisimple Lie algebras cannot 
+carry a central charge.
+
+Here is a quick illustration of how the above considerations play with 
+central charges as they appear at the level of the algbera. Provided $ [X,Y] $ is central, 
+\begin{align*}
+	e^X e^Y e^{-X} e^{-Y}
+		&= e^{X + Y + \frac{1}{2}[X,Y]} e^{-X} e^{-Y}\\
+		&= e^{X + Y  + \frac{1}{2} [X,Y] - X + \tfrac{1}{2} [X, Y + \frac{1}{2}[X,Y], -X]} e^{-Y}\\
+		&= e^{Y + \frac{1}{2}[X,Y] - \frac{1}{2}[Y,X]} e^{-Y}\\ 
+		&= e^{Y + [X, Y] -Y + \cancel{ \frac{1}{2} [[X,Y], Y]}}\\ 
+		&= e^{[X,Y]}
+\end{align*}
+(this is a neat formula relating the algebra commutator to the group commutator). 
+Then
+\begin{align*}
+	e^{\gamma([X,Y])} &= \gamma(e^{X}) \gamma(e^Y)\gamma(e^{-X}) \gamma(e^{-Y})\\
+		&= \gamma(e^X e^Y e^{-X} e^{-Y})
+			e^{c(e^X, e^Y)}
+			e^{c(e^X e^Y, e^{-X})}
+			e^{c(e^X e^Y e^{-X}, e^{-Y})}\\
+		&= \gamma(e^{[X,Y]}) e^{C(X,Y)}
+\end{align*}
+Then 
+\begin{equation*}
+	\gamma([X,Y]) = [X,Y] + C(X,Y)
+\end{equation*}
+
+\subsection*{References} 
+\begin{itemize}[nosep]
+\item Clara L\"oh, \href{https://loeh.app.uni-regensburg.de/teaching/grouphom_ss19/lecture_notes.pdf}{Group Cohomology}.
+\item user568976, Understanding the relation between central extensions and
+	2-cocycles and coboundaries, URL (version: 2020-04-17):
+	\url{https://math.stackexchange.com/q/3629722}
+\end{itemize}
+
+
+\entry{Lessons from software engineering}{1/19/24}
+It just occurred to me that I've made a good amount of growth as a physicist by 
+transplanting some of the habits I built in software engineering. Specifically: 
+Part of what drew me to computational work in the first place was a certain 
+convenience that it afforded---computers do the tedious work and leave the fun 
+parts to you, and even if it takes many hours and tears, once you write a
+program that does that tedious work you can easily (1) clean it up and optimize,
+and (2) reuse the code, assured that for the most part it is set in
+stone. 
+
+The point is that your pen-and-paper calculations can improve by borrowing from 
+this mindset. This manifests as a slight change in mental and practical
+approach: 
+\begin{itemize}[itemsep=0pt, topsep=0pt]
+\item Be a compulsive notetaker and keep those notes neat, organized, and correct.
+	Thoroughness and clarity is analogous to good code documentation. Don't be 
+	afraid to return to the work and clean it up.
+\item Treat calculations others have done as ``code'' you can adapt to your own 
+	problems. 
+\end{itemize}
+Here's the motivating example: while at the airport terminal, vacantly staring at 
+the above Cayley table for $ \text{D}_6 $, I realized that if I ever need 
+to work out any other constructions defined on a non-abelian group, I already 
+understand $ \text{D}_6 $ relatively well, and could reuse the above work. Thus
+that entry is sort of like ``code'' that's written and available
+to be reused; by being thorough about its correctness I will be sure that those
+usages are less foolproof.  Having toy examples and models is crucial in
+physics, and understanding one 
+toy model well that is capable of conveying many phenomena is not only a useful 
+exercise, but one that can be built on in the future.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{February}
+\begin{tocbox}
+	\minitoc
+\end{tocbox}
+
+\entry{QFTs from Neural Networks}{2/1/24}
+In QFT topological defects are fixed points of RG flow---if learning is like an 
+rg flow, what happens if there's a topological defect in a NN?
+
+\entry{Chern-Simons Theory}{2/5/24}
+Here's a silly mnemonic to remember the Chern-Simons term: the godmother of 
+computing, Ada Lovelace, was inspired by the mechanism of mechanical looms,
+which performed weaves and braids not unlike those of the anyons that populate 
+a Chern-Simons theory. The term $ A\wedge \text{d} A $, is associated as 
+$ A\wedge \text{d}A \rightarrow \text{AdA} \rightarrow \text{Ada Lovelace} $. 
+
+(What's that? Doesn't the wedge product of any form with itself vanish? No, silly, 
+recall these are \textit{Lie algebra-valued one forms}, for which the wedge product 
+is essentially the commutator. If this theory was Abelian, however, the wedges 
+\textit{would} vanish.)
+
+The Wilson lines obey the algebra 
+\begin{equation*}
+	W_x W_y = e^{2\pi i / k} W_y W_x
+\end{equation*}
+But note that this implies $ W_y^k $ commutes with $ W_x $:
+\begin{equation*}
+	W_x W_y^k = (e^{2\pi i / k})^k W_y^k W_x
+		\Longrightarrow W_x W_y^k  = W_y^k W_x
+\end{equation*}
+and, of course, $ W_y^k $ commutes with any power of $ W_y $, so $ W_y^k $ is 
+in the center, which by Schur's lemma implies that it is proportional to the 
+identity. It is the Casimir of this algebra
+
+Now consider some state $ \ket{n} $ in this representation labelled by quantum 
+number $ n $ so that $ W_x\ket{n} = \lambda_n \ket{n} $. Then
+\begin{equation*}
+	W_x W_y \ket{n} = e^{2\pi i / k} W_y W_x \ket{n} 
+		= e^{2\pi i / k} W_y \lambda_n \ket{n} 
+		= e^{2\pi i/ k}\lambda_n W_y \ket{n}
+\end{equation*}
+So $ W_y\ket{n} $ has eigenvalue $ e^{2\pi i / k}\lambda_n \ket{n} $ and $ W_y $
+acts as a raising operator. But $ W_y^k = 1 $, so one can only move up in the 
+weight lattice $ N $ times. Thus we have a $ k $-dimensional irrep, and a 
+$ k $-degenerate groundstate. In fact, this is the irrep of the $ 1 $-form 
+symmetry generated by the Wilson lines CS theory enjoys.
+
+
+\subsection{Large-\textit{k} partition function and framing anomaly}
+We study the nonabelian Chern-Simons partition function at large $ k $, following 
+Witten (1989) and Witten and Bar-Natan (1991). Analogous to the large-$ N $
+approximation, large-$ k $ Chern-Simons theory justifies approximating the 
+partition function by its saddle-point---i.e., its classical equation of motion. 
+Since for Chern-Simons theory this equation of motion is $ F^{{\mu\nu}} = 0 $, 
+the saddle-point corresponds to the ``\textit{moduli space}'' of flat
+connections.\footnote{Physicists can think of moduli spaces as the space of
+configurations satisfying a certain requirement.}
+\begin{align*}
+	(A^{(\alpha)} + a) \wedge \text{d}(A^{(\alpha)} + a)
+		= A^{(\alpha)} \wedge \text{d}A^{(\alpha)} + A^{(\alpha)} \wedge \text{d}a 
+			+ a\wedge \text{d}A^{(\alpha)} + a\wedge \text{d}a
+\end{align*}
+(temporarily suppressing the $ (\alpha) $ index)
+\begin{align*}
+	(A + a) \wedge (A + a) \wedge (A + a) 
+		&= (A + a) \wedge \left[
+			A \wedge A + A \wedge a + a \wedge A + a \wedge a
+		\right] \\ 
+		&= A \wedge A \wedge A 
+			+ A \wedge A \wedge a 
+			+ A \wedge a \wedge A 
+			+ A \wedge a \wedge a \\
+		&\qquad + a \wedge A \wedge A 
+			+ a \wedge A \wedge a 
+			+ a \wedge a \wedge A 
+			+ a \wedge a \wedge a
+\end{align*}
+Treating $ a $ as small, we ignore the third-order term
+\begin{align*}
+	&= A \wedge A \wedge A 
+				+ \cancel{A \wedge A \wedge a}
+				+ A \wedge a \wedge A 
+				+ \cancel{A \wedge a \wedge a} \\
+			&\qquad + \cancel{a \wedge A \wedge A}
+				+ a \wedge A \wedge a 
+				+ \cancel{a \wedge a \wedge A }
+\end{align*}
+The indicated terms cancel because for the wedge product of Lie algebra-valued 
+forms we have 
+\begin{equation*}
+	\alpha\wedge\beta = (-1)^{1 + \deg a\cdot \deg \beta} \beta\wedge \alpha
+\end{equation*}
+and recall that since we are expanding about the saddle-point, linear fluctuations 
+vanish and we have
+\begin{align*}
+	&= A \wedge A \wedge A 
+				+ a \wedge A \wedge a 
+\end{align*}
+Thus we are left with 
+\begin{align*}
+	\mathcal{L} &= A^{(\alpha)} \wedge \text{d} A^{(\alpha)}
+					+ A^{(\alpha)} \wedge A^{(\alpha)} \wedge A^{(\alpha)}
+					+ a\wedge(\text{d}a + A^{(\alpha)} \wedge a)\\ 
+				&= \mathcal{L}_{\text{CS}}[A^{(\alpha)}]	
+					+  a\wedge Da
+				= \mathcal{L}_{\text{CS}}[A^{(\alpha)}]	
+					+ \epsilon^{\mu\nu\rho} a_\mu D_{\nu} a_\rho
+\end{align*}
+where we've identified a covariant derivative for the saddle point field 
+configuration $ D = \text{d} + A \wedge \cdot = \partial_\mu + [A_\mu,\cdot]$.
+
+Now, we introduce the \textit{elliptical operator} $ \star D + D\star $. This 
+operator manifestly maps odd-degree forms to odd-degree forms and even-degree 
+forms to even-degree forms, so one can consider its action on the space of 
+odd forms strictly, which we call $ L_- $. In three-dimensions $ L_- $ acts 
+on $ \Omega^1(M) \oplus \Omega^3 (M) $; we thus combine $ (a,\phi) $ into an 
+element of $ \Omega^1(M) \oplus \Omega^3 (M) $ and observe that then 
+\begin{align*}
+	(a,\phi) \wedge \star (\star D + D \star) (a,\phi)
+		&= (a,\phi) \wedge \star (\star D a + D\star \phi, \cancel{\star D \phi} + D\star a )\\
+		&= a \wedge D a + \cancel{a \wedge \star D \star \phi} + \phi \star D\star a 
+\end{align*}
+(Notice that $ L_- $'s action is a bit subtle here---we get mixing of components 
+in the sense that $ a \in \Omega^1 $ but $ D\star a \in \Omega^3 $, so we must 
+take it to the second component.) The indicated term vanishes in the last 
+line because $ \phi $ is non-dynamical. Also, if $ \phi\star D\star a $ looks 
+suspicious, notice that $ \star D \star a $ is a zero form, i.e., a scalar, 
+so this is just scalar multiplication on $ \phi $.
+
+
+\begin{itemize}[nosep]
+\item \textit{What is a spin connection?} It is the analogue of the Levi-Civita 
+	(or affine) connection for spinors. From a technical point of view, it is 
+	the pullback to the spinor group $ \text{Spin}(4) $ of the Levi-Civita 
+	connection (1-form) induced by the map $ \varphi: \text{Spin}(4) \to \text{SO}(4) $. 
+\item Why frame the Wilson line?
+\item Why $ L_- $ and $ \Delta $ nonsingular iff de Rham cohomology trivial for 
+	all dimensions?
+\end{itemize}
+
+\subsection{1-form symmetry}
+
+\subsection*{References}
+\begin{itemize}[nosep]
+\item Sachdev, ``Topology and Chern-Simons Theories,''
+	\href{http://qpt.physics.harvard.edu/phys268/}{PHYS268}.
+\item Witten, ``\href{https://projecteuclid.org/journals/communications-in-mathematical-physics/volume-141/issue-2/Perturbative-expansion-of-Chern-Simons-theory-with-noncompact-gauge-group/cmp/1104248307.full}{Perturbative expansion of Chern-Simons theory with noncompact gauge group}.''
+\item Witten, ``\href{https://projecteuclid.org/journals/communications-in-mathematical-physics/volume-121/issue-3/Quantum-field-theory-and-the-Jones-polynomial/cmp/1104178138.full}{Quantum Field Theory and the Jones Polynomial}.''
+\end{itemize}
+
+\entry{Vierbeins, Tetrads, Spin Connections}{2/11/24}
+The vierbein (German for ``four-legged'') formalism is an alternative formulation
+of a coordinate system on a curved manifold which is intimately related to the
+spin connection. They are defined as the eigenvalues of the metric: 
+\begin{equation*}
+	g_{\mu\nu} = e_\mu^a (x) \eta_{ab} e_{\nu}^{b}(x)
+\end{equation*}
+Notice that, viewing the metric as a background field, the vierbein formalism 
+essentially defines a field $ e^{a}_\mu(x) $, which we interpret as the (local)
+coefficients for a vector expressed in a \textit{fixed} orthonormal basis 
+(referred to as the \textbf{tetrad} basis). 
+
+Now, the more formal way to define the spin connection is as follows: There is a 
+short exact sequence 
+\begin{equation*}
+	0 \longrightarrow \Z_2 \xrightarrow{\quad}
+	\text{Spin}(N) \xrightarrow{\;\phi\;} \text{SO}(N) \longrightarrow 0
+	\footnote{This is silly, but for a long time I wondered why we used 
+	$\text{Spin}(N)$ instead of $\text{SU}(N)$ for spinors. Well, this only 
+	holds for $N=3$, where $\text{Spin}(3) \simeq \text{SU}(2)$. On the other hand 
+	$\text{Spin}(4)\simeq \text{SU}(2)\times \text{SU}(2)$, hence the two Weyl 
+	spinors in relativistic theories.}
+\end{equation*}
+which restates the familiar mantra ``spinors are the square root of vectors.''
+Now, we might consider a $\text{Spin}(N)$ spin bundle related to an $ \text{SO}(N) $ 
+vector bundle by $ \phi $.
+Where the Levi-Civita connection is the connection appropriate for vectors---i.e., 
+it can be thought of as an $ \text{SO}(N) $ action---the spin-connection is the 
+connection on spinors $\in\text{Spin}(N)$ induced by the pullback of $ \phi $. 
+To be sure that everything is well defined, there is a Levi-Civita one form 
+\begin{equation*}
+	\omega_{ij}(X) = g(\del_X e_i, e_j) \qquad(\text{corresponding to }D_\mu)
+\end{equation*}
+the pullback $\phi^\ast \omega$ of which is the spin connection.
+In this construction $ N $ is the dimension of the manifold (since $ \text{SO}(N) $)
+is the structure group of the orthonormal frame bundle, which seems to place
+some constraints on the spinor bundle $ \text{Spin}(N) $ that you can put on the
+manifold (though maybe you can fiber $ N>\dim M $ bundles on it through an
+immersion?).
+
+Another way to think of why we might need the spin connection: as it turns out, 
+there are no finite-dimensional spinor representations of the general covariance, 
+or autoisometry group $ \text{GL}_4(\R) $ (LOOK INTO THIS) that gravity enjoys
+as a symmetry. (Some authors refer to this as the diffeomorphism group, but they
+are WRONG! See \cref{sec:diffeo-kerfuffle}.)
+Since we know that the Lorentz group admits spinor representations, the trick 
+is to extract the curvature of the manifold into the tetrad basis $ e^{\mu}_a(x) $, 
+leaving behind the ``internal'' flat metric $ \eta_{ab} $ which of course 
+transforms under the Lorentz group, thus allowing us to define spinorial
+transformations in a curved spacetime according to the covariant derivative: 
+\begin{equation*}
+	D_\mu = \partial_\mu - \frac{i}{4}\omega_\mu^{ab} \sigma_{ab},\qquad 
+	\sigma_{ab} = \frac{i}{2}\left[\gamma^a, \gamma^b\right]
+\end{equation*}
+and the spin connection is 
+\begin{equation*}
+	\omega_{\mu b}^a = e_\nu^a e_b^\lambda \Gamma_{\mu\lambda}^\nu
+		- e_b^\lambda \partial_\mu e_\lambda^a.
+\end{equation*}
+This is the covariant derivative that would appear in, e.g., the Dirac 
+equation on a curved background.
+
+\subsection{Spinor Reps of GL\textsubscript{4}}
+TODO
+
+\subsection{Stieffel-Whitney classes}
+TODO
+
+
+$ O(n) \subset O(n+1) $. relative homotopy $ \pi_k(O(n+1), O(n)) \cong \pi_k(S^n)$.
+$ \pi_k(A) \cong \pi_k(\tilde{A})  $ (generally true?).
+
+Conformal anomaly relation to central charge
+
+\entry{The Diffeomorphism Kerfuffle}{2/16/24}\label{sec:diffeo-kerfuffle}
+People will commonly refer to general relativity theory as ``diffeomorphism 
+invariant'' (or sometimes more inocuously, ``general covariant''), 
+which they insist is euphemism for ``invariant wrt coordinate transformations.''
+The culprit which motivated this entry was the claim that Chern-Simons theory is 
+general covariant, but the framing anomaly breaks this covariance. Now, this 
+case certainly helps to split the two notions---while gravity might be general 
+covariant, it is certainly not diffeomorphism invariant in the sense that 
+Chern-Simons theory is (independent of the metric and thus completely bendable). 
+
+Ethan Lake comes to the rescue: ``...diffeomorphisms do not care about distances... 
+such a theory would therefore need to be topological.'' He accuses the physics 
+community of being terribly imprecise with terminology, and rightfully so:
+what people refer to as \textit{diffeomorphism invariance} in fact refers to 
+\textit{isometries}, transformations which preserve the metric (in a global 
+sense that would also preserve its derivatives and thus the curvature) and thus 
+the Einstein-Hilbert action; this is the \textit{true} symmetry of GR. To 
+be explicit, an isometry $ f: (M,g) \to (N, h) $ has 
+\begin{equation*}
+	g(V,W) = h(f_\ast V, f_\ast W) 
+	\iff 
+	g_{\mu\nu} V^\mu W^\nu
+		= h_{\alpha\beta} \frac{\partial y^{\alpha}}{\partial x^\mu}
+			\frac{\partial y^\beta}{\partial x^\nu} V^\mu W^\nu
+\end{equation*}
+($ f_\ast $ being the pullback of $ f $). This means the metric transforms as 
+\begin{equation*}
+	h_{\alpha\beta}(y) = \left[ \frac{\partial y^{\alpha}}{\partial x^\mu}
+			\frac{\partial y^\beta}{\partial x^\nu}\right]_{x} g_{\mu\nu}(x)
+\end{equation*}
+Properly, in GR we are concerned with what Lake calls ``autoisometries''---we 
+are sending the manifold to itself. \textit{This} is the coordinate transformation 
+people confuse for a diffeomorphism. We aren't changing the manifold, but 
+generally change the metric by virtue of changing the coordinates.
+
+WRITE A BIT ON THE KILLING EQUATION
+
+\subsection*{References}
+\begin{itemize}[nosep]
+\item Ethan Lake,
+\href{https://drive.google.com/file/d/1_w_JyW0Fppm94RNzSLckHALEUQ5xUHBH/view}{Manifesto
+on spacetime symmetries, diffeomorphisms, and conformal transformations}.
+\end{itemize}
+
+\entry{Virtual Serial Ports for Development}{2/20/24}
+I've been working on some software that reads a stream of bytes from a serial 
+port---namely, an FPGA taking input from four photon detectors. The FPGA device 
+is obviously not something I can take home; nonetheless, I want to be able to 
+develop the software outside the lab. Naturally, what I need is a virtual serial port, 
+which can be simulated with \mintinline{shell}{socat}:
+\begin{minted}{shell}
+socat -d -d pty,raw,echo=0 pty,raw,echo=0
+\end{minted}
+
+\entry{Anomaly: Fermion on a Ring}{2/20/24}
+\subsection{'t Hooft Anomalies and Cohomology}
+
+Homotopy $ \pi_k $ fails excision and additivity Eilenberg-Steenrod axioms. 
+
+https://www.damtp.cam.ac.uk/user/tong/susy/susyqm2.pdf
+
+\begin{itemize}
+	\item Why $ T(m) = -m $. It's not that deep, just work it out in the action.
+	$ \square $
+
+	\item Explain how APS implies 
+	\begin{equation*}
+		\lim_{m \rightarrow \infty}
+			\frac{Z[+m, g]}{Z[-m, g]} = \exp\left(i \int_X\text{CS}_\text{grav}\right)
+	\end{equation*}
+
+	Seems like something technical. In general look to understand the CS 
+	gravity term, see if there's relation between the above and the fact that 
+	it is the appropriate counterterm in the framing anomaly.
+
+	\item How $ \rho(m) + \rho(-m) = 1 $? 
+	\item Why $ Z[m] = 1 $ at long distances equiv to theory trivially gapped?
+	My guess is that this amounts to ignoring spectra above a certain energy 
+	scale, in which case there's just one state in the partition function. 
+	\item Understand the whole ``nontrivial physics on interfaces'' bit.
+\end{itemize}
+
+\entry{Anomaly: Compact Boson}{...}
+
+\entry{Landau Poles}{}
+
+``Power divergence is strongest at the cutoff, logarithmic divergence receives 
+equal contributions at all scales''
+https://www.youtube.com/watch?v=RiMcxSz-PnI (13:52)
+
+\entry{Zeta Function Regularization}{...}
+
+GAMMAM MATRICES FLIP SIGN UNDER TIME REVERSAL
+
+$ [Y, K(A,n)]\simeq H^n(Y,A) $ ($ K(A,n) $ is Eilenberg-Maclane space.)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{March}
+\begin{tocbox}
+	\minitoc
+\end{tocbox}
+
+\entry{Homotopy vs. Homology}{3/5/24}
+Relationship between $ \pi_k $ and $ H_k $. $ H_1 $ is abelianization of $ \pi_1
+$. In general the relationship is not so clear. E.g., $ \pi_2(\mathbb{R}\text{P}^2) 
+= \mathbb{Z}$, $ H_2(\mathbb{R}\text{P}^2) = 0$. This is because
+$\mathbb{R}\text{P}^2 = e^0\cup e^1 \cup e^2$ and 
+\begin{equation*}
+	\mathbb{Z}\left\{e^2 \right\} \xrightarrow[\partial]{2}
+		\mathbb{Z}\left\{ e^1 \right\}\xrightarrow[\partial]{0} 
+		\mathbb{Z}\left\{e^0\right\}
+\end{equation*}
+thus $ H_2(\mathbb{R}\text{P}^2)=0 $. (boundary of $ e^2 = 2e^1$).
+
+Another example: $ X = \mathbb{C}\text{P}^\infty $ has 
+\begin{align*}
+	&H_k(X) = 
+	\begin{cases}
+	\mathbb{Z} & k\text{ even}\\
+	0 & \text{else}
+	\end{cases}\\
+	&\pi_k(X) = \begin{cases}
+	\mathbb{Z} & k=2\\
+	0 & \text{else}
+	\end{cases}
+\end{align*}
+
+\begin{enumerate}[itemsep=1pt]
+\item Spaces that are weakly h.e. (in particular have the same $ \pi_k $) have 
+	the same homology groups. Given $ f:X \to Y $ whe, wlog $ f: X \hookrightarrow Y $
+	(mapping cylinder). WTS $ H_k(Y,X) \equiv 0 $, Fix $ [z] \in H_k(Y,X) $
+	$ z=\sum a_i \sigma_i $ $ a_i \in \mathbb{Z} $, $ z $ cycle: $ \partial z \in 
+	C_{k-1}(X)$, $ \sigma_i : \Delta^k \to Y $. Build complex $ (K,L) $ from $ z $
+	$ \bigcup_i \Delta^k / \sim \partial $ $ K\subset \partial K $. (take two simplices 
+	and glue along common boundary). By construction have map $ g:(K,L) \to (Y,X) $
+	$ [w]\in H_k(K,L) $ s.t. $ g^\ast(w) = [z] $.  
+	\begin{equation*}
+		\begin{tikzcd}
+		(K,L) \arrow[r] \arrow[dr, dashrightarrow]
+		& (Y,X)\\
+		& (X,X) \arrow[hook, u]
+		\end{tikzcd}
+	\end{equation*}
+	Since $ H_k(X,X) = 0 $ this implies $ [z]=0 $. WTS $ (K,L)\to(Y,X) $
+	homotopic to $ (K,L) \to (X,X) $. Use compression, $ \pi(Y,X) = 0 $
+	to inductively construct homotopy as in proof of Whitehead.
+\item If $ X $ is $ n $-connected ($ \pi_k=0 $ for $ k\leq n $)
+	then also $ \tilde{H}_k=0 $ for $ k\leq n $. 
+	Thm (cellular approx of spaces). Any space Z is whe to a cellular complex, 
+	i.e.g,, $ \exists X $ cell complex and $ f:X \to Z $if $ Z $ is $ n $-connected 
+	then can assume $X$ has no cells of dimensoin $ 1,\dots,n $. 
+	Proof: $ X $ $ n $-connected. By cellular approx $ \exists Z $ cell complex 
+	and whe $ Z\to X $ and $ Z $ has no cells in dim $ 1,\dots,n $. By 1.
+	suffices to show $ \tilde{H}_k(Z) = 0 $, $ k\leq n $. 
+	\begin{equation*}
+		Z\left\{n+1\text{-cells}\right\}
+		\to 0 \to \cdots \to 0\to\mathbb{Z}\left\{0\text{-cells}\right\}
+	\end{equation*}
+	using cellular homology $ \tilde{H}_k(Z)=0 $ $ k\leq w $. 
+\item (Hurewicz) If $ X $ is $ n $-connected $ n\geq 2 $ then $ \pi_{n+1} (X)
+\simeq H_{n+1}(X)$. 
+\end{enumerate}
+
+
+
+E.g., $ \mathbb{C}\text{P}^\infty $ 1-connected, $\pi_2(\mathbb{C}\text{P}^\infty) 
+= H_2(\mathbb{C}\text{P}^\infty) $. 
+
+
+\entry{assortment of spin chain facts}{...}
+Shorter correlation length -> gapped
+LSM. translational invariant so(3) interaction spin-1/2 chain is gapless. 
+lieb-robinson bound 
+gapless --- power law corr, gapped - exponential corr.
+
+\entry{Fibrations}{3/9/24}
+\parhead{Homotopy lifting property} A map between two spaces $ p : E \to B $ is
+said to have the homotopy lifting property for a space $ X $, given a homotopy 
+from $ X $ to $ B $ $ h:X\times[0,1] \to B $ and a lift $ \tilde{h}_0 : X \to E $ 
+lifting the starting point of the homotopy $ h(0) \equiv h_0 $ (i.e., $ h_0 = 
+p\circ \tilde{h}_0 $), there exists a homotopy $ \tilde{h} : X\times [0,1] \to E $ 
+lifting $ h $ with $\tilde{h}(0) = \tilde{h}_0$. Diagrammatically:
+\begin{equation*}
+	\begin{tikzcd}
+	X\times \left\{0\right\} \arrow[r, "\tilde{h}_0"] \arrow[d]
+		& E \arrow[d, "p"] \\
+	X\times\left[0, 1\right] \arrow[r, "h"] \arrow[from=2-1, to=1-2, "\tilde{h}", dashrightarrow]
+		& B
+	\end{tikzcd}
+\end{equation*}
+where the dashed arrow represents the induced map (i.e., the map we get by 
+specifying the other maps). The homotopy lifting property thus tells us that 
+specifying the lift of the starting point of a homotopy, we have a lift of the 
+entire homotopy.
+
+\parhead{Fibrations} A fibration is a map $ p $ (as above) that obeys the 
+homotopy lifting property for all spaces $ X $. One calls $ B $ the base space, 
+$ E $ the total space, and $ p^{(-1)} (b) \subset E $ the fiber over $ b\in B $. 
+From this nomenclature one sees that the fibration is a generalization of a 
+fiber bundle, in the sense that fiber bundles obey the homotopy lifting property 
+but fibrations don't rely on local trivializations and instead focus on homotopy. 
+Occasionally fibrations are written $ F \rightarrow E \rightarrow B $ for a 
+fiber $ F $. 
+
+\subsection{Path space fibration}
+One important example of a fibration is the \textbf{path space fibration}. It 
+is constructed as follows: consider the space of paths on a space $ B $ starting
+at some fixed point $ b\in B $, denoted
+\begin{equation*}
+	PB = \left\{ f : [0,1] \to B \mid f(0) = b \right\}
+\end{equation*}
+Futher, let $ \pi : PB \to b$ be the projection onto the endpoint of the path: 
+$ \pi(f) = f(1) $. 
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.4\textwidth]{fig/march/pathspace-fibration.pdf}
+	\caption{Sketch of the path space fibration.}
+	\label{fig:pathspace-fibration}
+\end{figure}
+
+
+\parhead{Check it's a fibration} This turns out to be a fibration in the following
+sense. Take some space $ X $ and a homotopy into $ B $: $ h_t : X \to B $ (I am
+using the Hatcher notation where one tucks the $ [0,1] $ portion of the homotopy
+into a subscript).  Say we're also given a lift $ \tilde{h}_0 : X \to PB $,
+which we choose to write as $ \tilde{h}_0(x) = (b, \gamma_x)\in PB $ for $ f : X
+\to b \in B $, and $ \gamma_x : I \to B $ (here this 2-tuple notation denotes a
+path $ \gamma_x $ starting at $ b $). 
+
+The lift we construct is $ \tilde{h}_t = (B, \gamma_x \circ h_{[0,t]} (x))$,
+where $ \circ $ here denotes path composition. Thus, this is a path starting at
+$ b $, following $ \gamma_x $ (the lift of $ h $ the homotopy from $ X $ to $ B
+$), then following $ h_s(x) $ along $ s \in [0,t] $, ending at $ h_t(x) $.
+Notice $ t $ here is the parameterization coming from the homotopy $ h_t : X \to
+B$, and the paramterization of $ \gamma_x \circ h_{[0,t]} (x)$ is that of $ PB
+$:
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{fig/march/pathspace-hlp.pdf}
+\end{center}
+
+Thus, this is a path in $ PB $; then what is the projection $
+\pi(\tilde{h}_t) $, i.e., its endpoint? Well, that's simply $ h_t(x) $. Thus $
+\tilde{h}_t $ is indeed a lift and we can see the sense in which it is a
+fibration.
+
+What is the fiber $ \pi^{-1}(b) $? It is the space of loops based at $ b $. 
+This is because $ \pi^{-1}(b) $ are precisely the paths which must end at $ b $
+and start at $ b $. Thus we have a fibration $ \Omega B \to PB \to B $. 
+See Hatcher, Prop. 4.64 for a generalization of this proof.
+\entry{Third Homotopy of Compact Lie Group is Z}{3/9/24}
+It is the case that for any simple, compact Lie group $ G $ one has $ \pi_3(G) 
+= \mathbb{Z} $. Here I provide a sketch of a proof that this is the case. 
+
+Apply the path fibration construction to $ G $:
+\begin{equation*}
+	\begin{tikzcd}
+	X\times \left\{0\right\} \arrow[r, "\tilde{h}_0"] \arrow[d]
+		& PG \arrow[d, "\pi"] \\
+	X\times\left[0, 1\right] \arrow[r, "h"] \arrow[from=2-1, to=1-2, "\tilde{h}", dashrightarrow]
+		& G
+	\end{tikzcd}
+\end{equation*}
+with fiber $ \Omega G $ the loopspace. Every fibration grants us a long exact 
+sequence of homotopy groups; in this case we have 
+\begin{equation*}
+	\cdots \to \pi_n(\Omega G) \to \pi_n(PG) \to \pi_n(G) \to \pi_{n-1}(\Omega G) 
+	\to \pi_{n-1}(PG)\to \cdots 
+\end{equation*}
+But $ PG $ is contractible (they're just paths; while you might be worried that 
+loops are not contractible, this is not the sense in which we are considering 
+contraction. Here the appropriate way to think about it is as a line being
+``sucked'' back into its starting point), so all homotopies 
+vanish and in fact one has 
+\begin{equation}\label{eq:pi3-z-les}
+	\cdots \to \pi_n(\Omega G) \to 0 \to \pi_n(G) \to \pi_{n-1}(\Omega G) 
+	\to 0 \to \cdots 
+\end{equation}
+Which implies that $ \pi_n(G) = \pi_{n-1}(\Omega G) $, and it suffices to compute 
+$ \pi_{n-1}(\Omega G) $. This is an easier task because it is possible to 
+approximate loops by geodesics, and geodesics of Lie groups are relatively
+nice to work with. In particular, we may approximate a loop based at the origin 
+$ e $ by $ k $ geodesics, all of which we take to be emanating from the origin 
+of a copy of $ G $:
+\begin{equation*}
+	\Omega G \approx \text{geodesics of } S =\text{open subset of } G\times \overset{k}{\cdots}\times G
+\end{equation*}
+where one can take better and better approximations by cranking up $ k $. 
+We are able to think of such a loop of broken geodesics as living in $ k $ 
+copies of $ G $ because $ G $'s metric is biinvariant, a fact which is derived 
+from its compactness.
+
+Now one considers the energy functional $ E (\gamma) = (\int |\gamma|^2) $, for
+which the geodesic is, by definition, a critical point (ideally, it minimizes
+it, but this is a subtle matter). Conjugate points on this geodesics are points
+such that any Jacobi field along $ \gamma $ keeps those points fixed (i.e., 
+it vanishes at that point); alternatively, they are points such that there
+exists a family of geodesics keeping those points fixed. The Morse index theorem
+then tells us that the
+number of such conjugate points is equal to the ``index'' of the Hessian of $
+E(\gamma) $. 
+
+Breaking this statement down: the Hessian is essentially a matrix of second
+derivatives; it characterizes the critical point at which we are located.
+Namely, the number of negative and positive eigenvalues characterizes the type
+of critical point; e.g., for $ n_- $ negative eigenvalues and $ n_+ $ positive
+eigenvalues one is at a saddle point with $ 2n_- $ ``decreasing directions''. $
+n_- $ is the precisely the index of the Hessian. 
+
+Thus we gain some geometric intuition for why the number 
+of conjugate points of the geodesic is equal to the index: let's say we have a 
+geodesic $ \gamma $ related by a Jacobi field to another geodesic $ \gamma' $
+such that there are $ n $ conjugate points. The fact that $ \gamma' $ is also 
+a geodesic means that we can't possibly be at a minimum of the energy functional, 
+though we are at a critical point. This is only possible if there the energy 
+functional decreases in certain directions in path space; there are as many 
+such directions as there are sections of the geodesic pinned by conjuate points,  
+as the conjugate points are necessarily shared as boundaries by a family of 
+neighboring geodesics. 
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{fig/march/conjugate-points.pdf}
+\end{center}
+
+An additional two facts we need are (1) the index of geodesics of Lie groups is 
+always even, and (2) the fundamental theorem of Morse theory: the space of paths 
+from $ p $ to $ q $ is homotopic to a CW complex with one cell of dimension $
+\lambda $ for each geodesic from $ p $ to $ q $ of index $ \lambda $. For (1),
+one can compute this explicitly, but I don't find the computation particularly
+insightful, so I am putting the matter aside until I can think of a more
+intuitive way to see it (see
+\href{https://mathoverflow.net/questions/66924/conjugate-points-in-lie-groups-with-left-invariant-metrics}{here}).
+For (2), I hope it is relatively unsurprising upon some thought---it is a
+special case of the fact that any manifold is a CW complex 
+with a cell of dimension $ \lambda $ for each critical point of index $ \lambda $
+(TODO understand this?).
+
+So every geodesic has an even index, and the space of geodesics has an $ \lambda
+$-cell for each geodesic of index $ \lambda $. Because we can approximate 
+loops by geodesics, the space of loops only has even cells, and thus 
+$ \pi_{1}(\Omega G) = 0$, and also, as a bonus, the cell complex has
+\begin{equation*}
+	\cdots\longrightarrow 0 \overset{\partial}{\longrightarrow} \mathbb{Z}\!\left\{2\text{-cells}\right\}
+	\overset{\partial}{\longrightarrow} 0
+\end{equation*}
+(since there are no 1- or 3-cells), meaning that 
+\begin{equation*}
+	H_2(S) = \frac{\ker\partial =
+	\mathbb{Z}\!\left\{2-\text{cells}\right\}}{\text{im}\,\partial = \left\{0\right\}}
+	= \mathbb{Z}^t
+\end{equation*}
+for some $ t $ (the group is generated by $ t $ 2-cells). The Hurewicz theorem 
+tells us for an $ n $-connected space the next higher ($ n+1 $) homotopy 
+and homology groups agree; thus if $ G $ is path-connected, we have $ \pi_2(S) = 
+H_2(S) =\mathbb{Z}^t $. But we've argued that $ S $ can be made to be a good 
+enough approximation of $ \Omega G $; thus, we have $ \pi_2(\Omega G) =
+\mathbb{Z}^t $ and $ \pi_3(G) = \mathbb{Z}^t $ since $ \pi_3(G) \simeq
+\pi_2(\Omega G) $ by \cref{eq:pi3-z-les}. 
+
+Now $ t $ here is related to the number of simple Lie groups that make $ G $ up. 
+Thus, if $ G $ is simple we have $ t=1 $, which is what we want.
+
+\subsection*{References}
+\begin{itemize}[nosep]
+\item Matt Noonan, Homotopy groups of Lie groups, URL (version: 2009-12-15):
+	\url{https://mathoverflow.net/q/8957}
+\item Milnor, Morse Theory (1960).
+\end{itemize}
+
+\entry{2+1 Electrodynamics}{...}
+
+\entry{Dirac Quantization and Periodic Lagrange Multipliers}{3/15/24}
+Consider a Dirac-quantization-like constraint on a field $ \phi $.
+\begin{equation}\label{eq:periodic-dirac}
+	\int_{\partial S} f[\phi] \in \mathbb{Z}
+\end{equation}
+Then consider some Lagrange multipler field $ \sigma(x) $ enforcing 
+$ df[\phi] = 0 $. The path integral reads 
+\begin{align}\label{eq:periodic-path-integral}
+	\int \mathcal{D}\phi \mathcal{D}\sigma 
+		\exp\left(i \int \mathcal{L}[\phi] + \sigma df[\phi] \right)
+\end{align}
+Consider what happens if we shift $ \sigma \to \sigma + 2\pi $:
+\begin{align*}
+	\int \mathcal{D}\phi \mathcal{D}\sigma 
+		\exp\left(i \int \mathcal{L}[\phi] + \sigma df[\phi] + 2\pi df[\phi] \right)
+\end{align*}
+Now apply Stokes' theorem and \cref{eq:periodic-dirac} to the last term:
+\begin{align*}
+	&\int \mathcal{D}\phi \mathcal{D}\sigma 
+		\exp\left(i \int \mathcal{L}[\phi] + \sigma d f[\phi] + i \int_{\partial S}2\pi f[\phi] \right)\\
+		&\qquad
+		= 
+	\int \mathcal{D}\phi \mathcal{D}\sigma 
+		\exp\left(i \int \mathcal{L}[\phi] + \sigma d f[\phi] + 2 \pi i N\right), \qquad N\in \Z
+\end{align*}
+But of course we can just extract $ \exp(2\pi i N) $ and set it to unity, so 
+the path integral returns to the form \cref{eq:periodic-path-integral}.
+Thus, as seen from the perspective of the path integral $ \sigma \sim \sigma + 
+2\pi $.
+
+any space z is whe to cell complex. whe $ \Longrightarrow $ h.e. by whitehead 
+
+\entry{Instantons and Confinement}{...}
+
+\entry{Continuum Limit of Gutzwiller Wavefunctions}{}
+
+\entry{Bosonization in 2+1}{...}
+
+\entry{Neural Quantum States}{...}
+\subsection{(Restricted) Boltzmann Machines}
+Boltzmann machines are a type of neural network which leverage insights from 
+statistical physics to perform unsupervised learning of probabilistic models. 
+That is, the goal is to use the Boltzmann machine to learn some target 
+probability distribution $ P_{\text{T}}(X) $ given samples drawn from that 
+probability distribution. The machine itself consists of a set of units 
+$ s_i $ and weights $ w_{ij} $ connecting each of those units.
+
+\subsection*{References}
+\begin{itemize}[itemsep=0.2ex]
+\item Giuseppe Carleo, Matthias Troyer, \textit{Solving the quantum many-body problem
+with artificial neural networks}. Science 355,602-606 (2017).
+\href{https://doi.org/10.1126/science.aag2302}{DOI:10.1126/science.aag2302}. 
+See the supplemental materials for information on their Monte Carlo sampling.
+\item Torlai, Giacomo, and Roger G. Melko. \textit{"Learning thermodynamics with
+Boltzmann machines."} Physical Review B 94.16 (2016): 165134.
+\href{https://doi.org/10.1103/PhysRevB.94.165134}{DOI:10.1103/PhysRevB.94.165134}.
+\item Grathwolh, et al., \textit{Your Classifier is Secretly an Energy Based Model and You Should Treat it Like One} (2019).
+ \href{https://arxiv.org/abs/1912.03263}{arXiv:1912.03263}.
+\item Hinton, \textit{A Practical Guide to Training
+Restricted Boltzmann Machines}. \url{https://www.cs.toronto.edu/~hinton/absps/guideTR.pdf}.
+\end{itemize}
+
+
+\entry{Poincar\'e Duality, Particle-Vortex, \& All That}{3/17/24}
+\subsection{1 + 1}
+\parhead{Bosonization}
+\begin{equation}\label{eq:bosonization-fermion-integration}
+	\int \mathcal{D} \psi \exp i  \left(
+		\int d^2 x \left[
+			-\bar{\psi}\slashed{\partial}\psi + i \bar{\psi} \slashed{A} \psi
+		\right]	\right)
+		= \exp \left(
+			\frac{i}{4\pi}
+			\int d^2 x F^{\mu\nu} \frac{1}{\partial^2} F_{\mu\nu}
+		\right)
+\end{equation}
+The left-hand side is of course Gaussian, so we get the usual fermionic determinant: 
+\begin{equation*}
+	\int \mathcal{D}\psi \exp\left( \int d^2x -\bar{\psi} (i\slashed{\partial} 
+		+ \slashed{A})\psi\right)
+		= \det (i\slashed{\gamma} + \slashed{A})
+\end{equation*}
+How do we evaluate this determinant? There is an exercise in Jackiw, ``Topological 
+Investigations of Quantized Gauge Theories'' which provides a 1d sketch of 
+how to do so. The story is like this: One thinks of this determinant as 
+the effective energy 
+\begin{equation*}
+	W[A] = -i \ln \det( \slashed{\partial} - \slashed{A}), \qquad 
+	e^{iW[A]} = \langle 0\vert 0 \rangle _A
+\end{equation*}
+(that is, we are viewing the path integral as the vacuum-vacuum correlation function)
+so that we may substitute the Green's function for $ \slashed{\partial} $: 
+\begin{equation*}
+	(\slashed{\partial} - i\slashed{A}) G = \delta(x) - iG\slashed{A}
+\end{equation*}
+Using $ \det M = \exp \ln M $ we write 
+\begin{equation*}
+	\ln \det(\slashed{\partial} - i\slashed{A}) 
+		= \ln \exp(\tr \ln (\delta - iG\slashed{A}))
+		= \tr \ln(\delta - iG \slashed{A})
+\end{equation*}
+One expands the log and finds that only the first order term contributes.
+{\color{myred}(I wasn't sure how this was the case.  Perhaps it had something to
+do with the step functions.)} Then we substitue $ G $ for $ i\langle\text{propagator}\rangle $
+and find
+\begin{equation*}
+	-i\tr G e\slashed{A} = \int dt A(t)
+\end{equation*}
+In $ 1+1 $d one supposedly finds 
+\begin{equation*}
+	\int dx dy A^\mu(x) G_{\mu\nu}A^\nu(y)
+\end{equation*}
+with $ G_{\mu\nu} = [g_{\mu\nu} - \partial_\mu\partial_\nu/\partial^2]\delta(x-y)$
+for the vector current propagator. This is a classic result owing to the famed 
+Schwinger paper in which he introduces what we now call the Schwinger model. 
+At any rate I could not really piece together the story for $ 1+1 $, and 
+even taking for granted the above equation I could not get the form in 
+\cref{eq:bosonization-fermion-integration}. One thought was to leverage 
+$ \partial^2 = g^{\mu\nu}\partial_\mu \partial_\nu \Longrightarrow 
+g_{\mu\nu} = \partial_\mu\partial_\nu/\partial^2 $ but I was still far from 
+the desired result.
+
+
+\parhead{T-duality}
+
+
+\subsection{2 + 1}
+\parhead{Particle-vortex} Consider the abelian Higgs model:
+\begin{equation*}
+	S = \int d^3 x \left[
+		- \frac{1}{2} |\mathcal{D}_\mu \phi|^2
+			- V(|\phi|) - \frac{1}{4} F_{\mu\nu}^2
+	\right]
+\end{equation*}
+The field $ \phi $ admits vortex configurations $ \phi = \phi_0(r)
+\exp(i\alpha(\theta)) $ where $ \alpha(\theta) = N\theta $ and $ N $ is the
+winding number of the vortex. 
+We split the field configuration into vortex solutions and smooth solutions 
+$ \phi = \phi_0 \exp(i\alpha_{\text{V}} + i \alpha_{\text{S}}) $, so that 
+the kinetic term becomes 
+\begin{align*}
+	|\mathcal{D}_\mu \phi|^2
+		&= |\partial_\mu \phi_0 \cdot e^{i\alpha} 
+			+ \phi_0 \partial_\mu e^{i\alpha_{\text{V}} + i\alpha_{\text{S}}}
+			+ ie a_\mu \phi_0 e^{i\alpha}|^2\\
+		&= |\partial_\mu \phi_0\cdot e^{i\alpha}
+		 	+ i\phi_0 e^{i\alpha}(\partial_\mu \alpha_{\text{V}} 
+			+ \partial_\mu \alpha_{\text{S}}) + iea_\mu \phi_0 e^{i\alpha}|^2\\
+		&= |\partial_\mu \phi_0 \cdot e^{i\alpha}
+		 	+ i\phi_0 e^{i\alpha}(\partial_\mu \alpha_{\text{V}} 
+			+ \partial_\mu \alpha_{\text{S}} + ea_\mu)|^2\\
+		&= \underbrace{|e^{i\alpha}|^2}_{=1}
+		  |\partial_\mu \phi_0
+		 	+ i\phi_0 (\partial_\mu \alpha_{\text{V}} 
+			+ \partial_\mu \alpha_{\text{S}} + ea_\mu)|^2
+\end{align*}
+All the quantities involved in the second factor are real so this is just 
+the square modulus of a complex number: 
+\begin{equation*}
+	\mathcal{D}_\mu \phi 
+		= |\partial_\mu\phi_0|^2 + \phi_0^2 
+			\left(\partial_\mu \alpha_{\text{V}} + \partial_\mu \alpha_{\text{S}}\right)^2
+\end{equation*}
+Note that because the curl of a gradient vanishes, we have $ \epsilon^{ij}\partial_i 
+\partial_j \alpha = 0 $ everywhere except at the vortices. We use the shorthand 
+$ b_\mu = \partial_\mu \alpha $ and enforce the aforementioned constraint
+(now reading $ \epsilon^{\mu\nu\rho} \partial_\mu b_\nu = 0$) via a Lagrange
+multiplier field $ \lambda_\mu $. The action now reads 
+\begin{equation}\label{eq:abelian-higgs-action}
+	S  = \int d^3 x \left[
+		- \frac{1}{2} |\partial_\mu \phi_0|^2 
+		- \frac{1}{2} \phi_0^2 \left(
+			b_{\mu, \text{S}} + b_{\mu, \text{V}}
+				+ ea_\mu
+		\right)^2 
+		+ \lambda_\mu \epsilon^{\mu\nu\rho} \partial_\nu b_{\rho, \text{S}}
+		+ \cdots
+	\right]
+\end{equation}
+The equation of motion of $ b_{\mu,\text{S}} $ is 
+\begin{equation}\label{eq:abelian-higgs-eom}
+	\frac{\partial \mathcal{L}}{\partial b_{\mu, \text{S}}}
+	- \partial_\nu \frac{\partial \mathcal{L}}{\partial_\nu b_{\mu,\text{S}}}
+		= 0 
+\end{equation}
+There's some index rearranging to peform to obtain the second term: the derivative 
+appears in $ \lambda_\mu \epsilon^{\mu\nu\rho} \partial_\nu b_{\rho, \text{S}}$
+which we can rewrite as $ \lambda_\rho \epsilon^{\rho \nu \mu} \partial_\nu
+b_{\mu,\text{S}} = - \lambda_\rho \epsilon^{\mu \nu \rho} \partial_\nu
+b_{\mu,\text{S}} $ by relabelling indices and rearranging the
+antisymmetric tensor. We then have 
+\begin{equation*}
+	\partial_\nu \frac{\partial \mathcal{L}}{\partial_\nu b_{\mu,\text{S}}}
+	= \partial_\nu  \frac{\partial}{\partial_\nu b_{\mu,\text{S}}} 
+		\left(\lambda_\rho \epsilon^{\mu \nu \rho} \partial_\nu
+		b_{\mu,\text{S}} \right)
+	= \partial_\nu \lambda_\rho \epsilon^{\mu\nu\rho}
+\end{equation*}
+Meanwhile, 
+\begin{equation*}
+	\phi_0^2 \left(
+		b_{\mu, \text{S}} + b_{\mu, \text{V}}
+			+ ea_\mu
+	\right)^2 
+		= \phi_0^2 \left(
+			b_{\mu,_{\text{V}}}^2 
+			+ b_{\mu,_{\text{S}}}^2 
+			+ e^2 a^2_\mu 
+			+ 2 b_{\mu,_{\text{V}}} b_{\mu,_{\text{S}}}
+			+ 2 b_{\mu,\text{V}} ea_\mu
+			+ 2 b_{\mu,\text{S}} ea_\mu
+		\right)
+\end{equation*}
+so 
+\begin{equation*}
+	\frac{\partial \mathcal{L}}{\partial b_{\mu, \text{S}}}
+		= -\phi_0^2 (b_{\mu,\text{S}} + b_{\mu,\text{V}} + ea_\mu )
+\end{equation*}
+and \cref{eq:abelian-higgs-eom} is 
+\begin{equation*}
+	\phi_0^2 (b_\mu + ea_\mu) = \epsilon^{\mu\nu\rho}\partial_\nu \lambda_\rho
+	\iff 
+	b_\mu = \frac{\epsilon^{\mu\nu\rho} \partial_\nu \lambda_\rho}{\phi_0^2}
+		-e a_\mu
+\end{equation*}
+Now we substitute this into \cref{eq:abelian-higgs-action} to eliminate
+$ b_{\mu,\text{S}} $ and find the dual action. First we find 
+\begin{equation*}
+	\phi_0^2 \left(
+			b_{\mu, \text{S}} + b_{\mu, \text{V}}
+				+ ea_\mu
+		\right)^2 
+		= \frac{1}{\phi_0^2} (\epsilon^{\mu\nu\rho} \partial_\nu \lambda_\rho)^2
+		= \frac{1}{2\phi_0^2}(\partial_\mu \lambda_\nu - \partial_\nu \lambda_\mu)^2.
+\end{equation*}
+Using 
+\begin{equation*}
+	b_{\mu, \text{S}} = 
+		\frac{\epsilon^{\mu\nu\rho} \partial_\nu \lambda_\rho}{\phi_0^2}
+			- b_{\mu, \text{V}} - e a_\mu
+\end{equation*}
+we can substitute into the Lagrange multiplier term to find
+\begin{equation*}
+	\epsilon^{\mu\nu\rho}\lambda_\mu \partial_\nu b_{\rho, \text{S}}
+	= \frac{1}{\phi_0^2} \lambda_\mu \epsilon^{\mu\nu\rho} \epsilon^{\rho\lambda\sigma}
+		\partial_\nu \partial_\lambda \lambda_\sigma
+		- \epsilon^{\mu\nu\rho} \lambda_{\mu}\partial_\nu b_{\sigma, \text{V}}
+			- e \epsilon^{\mu\nu\rho} \lambda_\mu\partial_\nu a_\mu
+\end{equation*}
+where supposedly the first term vanishes. We recognize the second term as the
+vortex current 
+\begin{equation*}
+	j_\text{vortex}^\mu 
+		= \frac{e}{2\pi} \epsilon^{\mu\nu\rho} \partial_\nu b_{\rho}
+		= \frac{1}{2\pi \phi_0^2} \epsilon^{\mu\nu\rho} \partial_\nu j_\rho
+\end{equation*}
+where $ j_\rho $ is the $ \text{U}(1) $ Noether current. This current is 
+conserved by virtue of the (topological) fact that the curl of a divergence 
+should vanish; thus it is an example of a topological current, one whose 
+conservation is ensured by topology of the field configuration. One might think
+it funny to view it as a current, seeing as as which symmetry it is associated 
+with is unclear. It is arguably this very question---what symmetry this current 
+is associated with---that motivates the introduction of generalized symmetries. 
+In fact, it is often the case that the generalized symmetry in the original 
+theory is understood as a conventional symmetry in the dual theory.
+
+At any rate, the dual action is 
+\begin{equation*}
+	S = \int d^3 x 
+		\left[
+			- \frac{1}{4\phi_0^2}(\partial_\mu \lambda_\nu - \partial_\nu \lambda_\mu)^2 
+			- \frac{1}{2} \epsilon^{\mu\nu\rho} \lambda_\mu \partial_\nu b_{\rho,\text{V}}
+			- e\epsilon^{\mu\nu\rho}\lambda_\mu \partial_\nu a_\mu
+			+ V(\phi_0) + F_{\mu\nu}^2
+		\right].
+\end{equation*}
+Now note that in \cref{eq:abelian-higgs-action} $ \phi_0^2 $ plays the role of the kinetic 
+coupling for $ (\mathcal{D}_\mu \alpha)^2 $ whereas in the dual action the 
+$ b $ field has $ 1/\phi_0^2 $; thus this is indeed a weak/strong duality.
+
+\subsection{Poincar\'e Duality}
+Current is some charge distirbution dirac delta, then hodge dual to other 
+current
+
+d - n topological current (some defect in an otherwise smooth function) is dual 
+to original n funciton.
+
+
+\subsection*{References} 
+\begin{itemize}[itemsep=0.2ex]
+\item Jackiw, ``Topological Investigations of Quantized Gauge Theories,''
+	\textit{Current Algebra and Anomaly}.
+\item N\u astase, \textit{String Theory Methods for Condensed Matter Physics}, Ch. 21. 
+	Note N\u astase uses $ b_\mu $ for the Lagrange multipliers and $ \lambda_\mu $
+	for $ \partial_\mu \alpha $. Lagrange multipliers are usually denoted $ \lambda $
+	so I switched his notation.
+\end{itemize}
+
+\entry{CFT Miscellany}{}
+
+\entry{Fast Computation of VMC Determinants}{3/18/24}
+Calculating the determinant is at best an $ O(n^3) $ task
+
+TODO explain what bug I had 
+
+\entry{Local Unitary Transformations and Phase Transitions}{3/26/24}
+Does symmetry local unitary transformation still connect two states in same 
+phase iff there's no gap closing?
+
+\entry{SPTs}{...}
+
+\entry{Useful Field Theory Formuale}{3/27/24}
+\begin{equation*}
+	T^{\mu\nu} = \frac{\delta \mathcal{L}}{\delta \partial_\mu \phi}
+		\partial^\nu \phi - g^{\mu\nu}\mathcal{L}
+\end{equation*}
+\begin{equation*}
+	\mathcal{H}
+		= \frac{\delta \mathcal{L}}{\delta \partial_0 \phi}	
+			\partial^0 \phi
+			- g^{00} \mathcal{L}
+\end{equation*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
