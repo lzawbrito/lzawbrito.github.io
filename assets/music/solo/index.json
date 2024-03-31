@@ -1,5 +1,29 @@
 [
-	{
+	{	
+		"hide": true,
+		"title": "First Magic",
+		"id": "first-magic",
+		"year": "2024",
+		"img": "/assets/music/solo/fm/fm-cover-750.png",
+		"links": [
+			{ "name": "Spotify", "link": "", "id": "spotify" },
+			{ "name": "Apple", "link": "", "id": "apple-music" }
+		],
+		"tracks": [
+			{ "tab": "/assets/music/solo/fm/before-i-sleep.txt", "title": "Before I Sleep", "lyrics": "I tell you of my dream\nIt starts before I sleep\nI’m walking by a stream\nWe’re living in a field\n\nOur house is by the bank\nI reach the door and still\nThe air within is new \nI know to look for you\n\nTo look for you \nHow where why when\nBehind my head \n\nHow where why then \nStairwell to when \nTo look for you\n\nYour coat is on the hook\nI don't even have to look \nYou left behind your book \nFace down open in the room \n\nThe wind's been dragging through \nThe open window, flanked by curtains \nBlurring, dancing in the blue \n\nSo, I know just where you'll be \nSitting, turned away from me\nOn our bed, in the field \n\nI see you in me, I do, you \nJust don't see you in me, so\nWhen I find you I don't know \nWhat to say\nWhat to say\nWhat to say" },
+			{ "tab": "/assets/music/solo/fm/the-world-can.txt", "title": "The World Can", "lyrics": "The world can see\nThe world can feel \nThe world is here\nThe world\nThe world can see again\n\n The world can hear\nwhen you speak \nThe world can whisper back \nYou just have to listen close \n\nThe world is an effect without a cause \nThe world is a dream that you forgot\nThe world is within and is without\nThe world is \nThe world lives inside a thought \n\nThe world can \nfind a way to hide\nThe world is painted in\ncolors I can never know \n\nThe world will find\na way \nThe world will go \none day\n\nThe world can \nThe world can"},
+			{ "tab": "/assets/music/solo/fm/two-windows.txt", "title": "Two Windows", "lyrics": "A house with \nTwo windows \nTo let the \nTo let the daylight in \nSo I can live alone\n\nA big bookcase \nwhich I'll read \nOne day I'll have that time\n\nAll of that is just my own \nTwo windows and home\n\nAnd my friends\nWill still call\nIt will be \nLike it always was\nThis will be\nThis will be\n\nA garden \nWith check\nWith checkered floors and lines \nAnd a threshold to the world \nWhile the world still unfolds\n\nAn earth that still \nWill surprise even then \nBut one I know \nBut one I know\n\nTo think of what is unseen\n\nWhat’s wrought by the seasons\nTo think of how it holds me near\n\nTwo windows \nA garden \nA bookcase"},
+			{ "tab": "/assets/music/solo/fm/majoranas-alive.txt", "title": "Majorana's Alive", "lyrics": "In a mid-September night \nThe great Saul Kripke died \nThe many worlds he conjured up \nTook him in with open arms\n\nIn 1959 \nMajorana's alive \nA man that never died \nForever smiles in the Argentine sky \n\nWould Dirac have paused\nwhen Ehrenfest took his life?\nIf only I could tell them now:\n\"What you started, we're still sorting out\"\n\nI'm still so humbled to kindle \nall your legacies, my heroes\n\nWhen John S. Bell's eyes\nBloomed in crimson fire\nIt took him up so high\nNow he’s everywhere, at every time\n\nAnd Stu do you think you'll find\nThe mysteries of the mind \nWhen lastly you decide \nTo take the train to the afterlife\n\nJohn Bradley Marston now, \nHiking up the clouds \nThe fight I inherit from you \nTo keep aflame the light of reason \n\nI'm still so humbled to kindle \nall your legacies, my heroes"},
+			{ "tab": "/assets/music/solo/fm/highways-in-my-hands.txt", "title": "Highways in my Hands", "lyrics": "Twelve words\nIn a way\nSixteen \nWindow panes \nHighways \nIn my hands\nOpen eyes \nDiamond rain \nTwelve words \nCyclic group \nI'm here \nYou are too \nThis is how\nI hear you\nThis is how \nI read you\n\nI'll find you, I'll find you somewhere else \nThere's a book I left on my shelf\nThere is no place, there is no home, there is no cell\nDo you want that book I left on my shelf?"},
+			{ "tab": "/assets/music/solo/fm/following.txt", "title": "Following", "lyrics": "I feel it washing over me\nBut it's so brief it stays concealed\nOff the shell, piercing the seal\n\nPlease just stay\n\nThere's a surface I can't breach\nI promise you I tried to reach [no higher note]\nA synapse fires, the channels leak\nThe wires spark, the air still bleeds\n\nI follow you but but you you follow me\nAnd and that's when I see why we're still \nLost in the field, cause the network is binding, laughing, looping, cunning"}
+		],
+		"credits": [
+			{"role": "Music, lyrics, mix", "name": "Lucas Brito"},
+			{"role": "Cello (track 4)", "name": "Breanna Humphrey"},
+			{"role": "Cover art", "name": "Breanna Humphrey"}
+		]
+	},
+	{	
 		"title": "Spaces Without Length",
 		"id": "spaces-without-length",
 		"year": "2022",
