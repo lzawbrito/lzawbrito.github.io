@@ -979,14 +979,301 @@ any space z is whe to cell complex. whe $ \Longrightarrow $ h.e. by whitehead
 
 \entry{Bosonization in 2+1}{...}
 
-\entry{Neural Quantum States}{...}
+\entry{Neural Quantum States}{3/16/24}
+\begin{figure}[t]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{fig/march/boltzmann.pdf}
+		\caption{Boltzmann machine.}
+		\label{fig:boltzmann}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{fig/march/restricted-boltzmann.pdf}
+		\caption{Restricted Boltzmann machine. $ h_i $ do not connect to other 
+		$ h_i $ and likewise for $ \sigma_i $.}
+		\label{fig:restricted-boltzmann}
+	\end{subfigure}
+	\caption{}
+\end{figure}
 \subsection{(Restricted) Boltzmann Machines}
 Boltzmann machines are a type of neural network which leverage insights from 
 statistical physics to perform unsupervised learning of probabilistic models. 
 That is, the goal is to use the Boltzmann machine to learn some target 
 probability distribution $ P_{\text{T}}(X) $ given samples drawn from that 
-probability distribution. The machine itself consists of a set of units 
-$ s_i $ and weights $ w_{ij} $ connecting each of those units.
+probability distribution. 
+
+The machine itself consists of a set of units $ \sigma_i $ and weights $ w_{ij} $
+connecting each of those units (\cref{fig:boltzmann}). One defines an energy 
+function 
+\begin{equation}
+	E(\sigma; w_{ij}, a_i) = \sum_i a_i \sigma_i + \sum_{ij} \sigma_i w_{ij} \sigma_j
+\end{equation}
+with biases $ a_i $ and weights $ w_{ij} $ connecting each unit to every other 
+unit. The units themselves are binary with $ \pm 1 $ (some other authors choose $ 
+\left\{0,1\right\} $). This model belongs to the class of \textbf{energy-based 
+models}; such models leverage the fact that for an appropriately chosen 
+$ E(v) $ (in the Boltzmann machine case, appropriately chosen $ w_{ij} $)
+the target probability distribution---call this $ p_{\text{T}}(\sigma) $---can be
+sufficiently approximated by the Boltzmann distribution
+\begin{equation*}\label{eq:boltzmann-machine-distribution}
+	p(\sigma) = \frac{1}{Z} e^{-E(\sigma; w_{ij}, a_i)}
+\end{equation*}
+where 
+\begin{equation*}
+	Z = \sum_{\left\{\sigma_i\right\}} \exp(-E (\sigma_i; w_{ij}, a_i))
+\end{equation*}
+is the partition function, i.e., the sum over all possible $ \sigma_i $ 
+configurations that functions as a normalizing constant.
+
+The model then trains $ w_{ij} $ by minizing some sort of measure of the 
+divergence of $ p(\sigma) $ from $ p_{\text{T}}(\sigma) $---for instance 
+maximum likelihood estimation or the Kullbach-Leibler divergence. Thus, given 
+an unlabelled dataset $ \left\{\vbg{\upsigma}_n\right\} $ which is drawn 
+from the unknown distribution $ p_{\text{T}} $, we may find $ E(\sigma; w_{ij},
+a_i) $ such that $ p(\sigma) $ approximates $ p_{\text{T}} $. 
+
+In practice, however, it is quite difficult to sample $ p(\sigma) $ for 
+training purposes. The culprit is $ Z $, whose difficulty to evaluate is
+well-known to physicists. One then resorts to the usual techniques employed 
+to evaluate complex sums or integrals of this kind---chiefly, Monte Carlo
+methods. We will see that the training of neural quantum states is no
+different and we will need to employ Monte Carlo sampling of the wavefunction.
+
+A special case of the Boltzmann machine that was designed with training
+convenience in mind is the \textbf{restricted Boltzmann machine}. A restricted 
+Boltzmann machine demotes a subset of $ \sigma_i $ to hidden units denoted $ h_i
+$---these are units which do not appear as arguments to the probability
+distribution $ p(\sigma_i) $ and whose purpose is analogous to a hidden layer 
+in a feedforward network. Further, and crucially, we stipulate that the 
+hidden units do not connect to themselves, only to visible units, and likewise 
+for visible units (\cref{fig:restricted-boltzmann}). This amounts to writing $
+\sigma_i w_{ij} \sigma_j$ as $ h_i w_{ij} \sigma_j $, so that 
+\begin{equation*}
+	E(\sigma_i; w_{ij}, a_i, b_i)
+		= \sum_i a_i \sigma_i + \sum_i b_i h_i + \sum_{ij} h_i w_{ij} \sigma_j
+\end{equation*}
+(we have separated the bias into a visible bias $ a_i $ and a hidden bias 
+$ b_i $).
+The target probability distribution is approximated by the marginalization 
+over $ h_i $---the trace, in physics parlance---so we must sum over $ h_i $
+\begin{equation*}
+	p(\sigma_i) 
+		= \sum_{\left\{h_i\right\}} e^{-E(\sigma, h)}
+\end{equation*}
+The gradient (of the log) for the $ n $-th vector $ \vbg{\upsigma}_n $
+\begin{align*}
+	\frac{\partial \log p(\hat{\vbg{\upsigma}}_n)}{\partial w_{ij}}
+		= \frac{1}{p(\hat{\vbg{\upsigma}}_n)} \frac{\partial p(\hat{\vbg{\upsigma}}_n)}{\partial w_{ij}}
+		= \frac{1}{p(\hat{\vbg{\upsigma}}_n)} \left[
+			\sum_{\left\{h_i\right\}} e^{-E(v,\hat{\vbg{\upsigma}}_n)} 
+			\frac{\partial }{\partial w_{ij}} \left(\frac{1}{Z}\right) 
+			+ \frac{1}{Z} \sum_{\left\{h_i\right\}} \frac{\partial }{\partial w_{ij}}
+				e^{-E(h, \hat{\vbg{\upsigma}}_n)}
+		\right]
+		\\ 
+		= \frac{1}{Z}\frac{1}{p(\hat{\vbg{\upsigma}}_n)} \left[
+			-\sum_{\left\{h_i\right\}} e^{-E(v,\hat{\vbg{\upsigma}}_n)} \frac{1}{Z^2} \frac{\partial Z }{\partial w_{ij}} 
+			- \frac{1}{Z} \sum_{\left\{h_i\right\}} 
+			e^{-E(h, \hat{\vbg{\upsigma}}_n)} \hat{\sigma}_{n,i} h_j
+			\right]
+\end{align*}
+The derivative of the partition function is 
+\begin{align*}
+	\frac{\partial Z}{\partial w_{ij}}
+		= \frac{\partial }{\partial w_{ij}} 
+			\sum_{\left\{h_i\right\}}
+			\sum_{\left\{\sigma_i\right\}}
+			e^{-E(h, \vbg{\upsigma}_n)}
+		= \sum_{\left\{h_i\right\}}
+			\sum_{\left\{\sigma_i\right\}}
+			e^{-E(h, \vbg{\upsigma}_n)}
+			(-\sigma_i, h_j)
+		= - Z \langle \sigma_i v_j \rangle_{\text{model}}
+\end{align*}
+The subscript ``model'' says that this is the expectation value of the 
+current forward pass Boltzmann machine distribution as opposed to the 
+expectation value with respect to the data, which will show up shortly. 
+Then we have 
+\begin{align*}
+	\frac{\partial \log p(\hat{\vbg{\upsigma}}_n)}{\partial w_{ij}}
+		&= \frac{1}{p(\hat{\vbg{\upsigma}}_n)} \Bigg[
+			\overbrace{\frac{1}{Z}\sum_{\left\{h_i\right\}} e^{-E(v,\hat{\vbg{\upsigma}}_n)}}^{p(\hat{\vbg{\upsigma}})}
+			\frac{Z}{Z} \langle \sigma_i h_j \rangle_{\text{model}}
+			- \overbrace{\frac{1}{Z} \sum_{\left\{h_i\right\}} 
+			e^{-E(h, \hat{\vbg{\upsigma}}_n)}}^{p(\hat{\vbg{\upsigma}})}
+			 \hat{\sigma}_{n,i} h_j
+			\Bigg]\\
+		&= \langle \sigma_i h_j \rangle_{\text{model}} 
+			- \hat{\sigma}_{n,i} h_j
+\end{align*}
+Now, the gradient is the expected value over the training vectors $ \hat{\vbg{\upsigma}}_n $, 
+so the derivative is
+\begin{equation*}
+	\frac{\partial \log p(\hat{\vbg{\upsigma}}_n)}{\partial w_{ij}}
+	= \langle \sigma_i h_j \rangle_{\text{model}} 
+		- \langle\hat{\sigma}_{n,i} h_j\rangle_{\text{data}}.
+\end{equation*}
+The benefit of the restricted Boltzmann machine is that there is an exact 
+distribution that $ h_j $ follows given some $ \hat{\upsigma}_n $, so we 
+can evaluate the second term. Let's say that $ h_k\in\left\{0,1\right\} $; 
+the probability that $ h_k = 1$ given a visible unit can be calculated as follows. 
+We have 
+\begin{equation*}
+	\frac{p(h_k=1\mid \sigma)}{p(h_k=0\mid \sigma)}
+		= \frac{
+			\exp\left[b_k + \sum_{i\neq k h_i b_i} + \sum_i v_i a_i + \sum_{i\neq k, j}h_i w_{ij} v_j
+				+ \sum_j w_{kj} v_j\right]
+		}{
+			\exp\left[0\cdot b_k + \sum_{i\neq k h_i b_i} + \sum_i v_i a_i + \sum_{i\neq k, j}h_i w_{ij} v_j
+				+ 0\cdot \sum_j w_{kj} v_j\right]
+		}
+\end{equation*}
+Now, since $ h_k $ can only be in two states, $ p(h_k = 0\mid \sigma) = 1- p(h_k 0\mid\sigma)$, and 
+
+\begin{align*}
+	\frac{p(h_k=1\mid \sigma)}{1-p(h_k=1\mid \sigma)}
+		&= \frac{
+			\exp\left[b_k + \sum_{i\neq k h_i b_i} + \sum_i v_i a_i + \sum_{i\neq k, j}h_i w_{ij} v_j
+				+ \sum_j w_{kj} v_j\right]
+		}{
+			\exp\left[\sum_{i\neq k h_i b_i} + \sum_i v_i a_i + \sum_{i\neq k, j}h_i w_{ij} v_j\right]
+		}
+		\\
+		&=\exp\left(b_k + w_{kj} v_j\right)
+\end{align*}
+We can work out
+\begin{equation*}
+	p = e^W (1-p) \Longrightarrow (1+e^W) = e \Longrightarrow 
+	p = \frac{e^W}{1 + e^W } \Longrightarrow \frac{1}{1+e^{-W}} = \sigma(-W)
+\end{equation*}
+So that the above implies
+\begin{equation*}
+	p(h_k = 1\mid \sigma) = \sigma(b_k + \sum_{j} w_{kj}v_j).
+\end{equation*}
+Notice that the argument relies on the fact that $ h_i $ does not connect 
+to other hidden units. An identical argument finds 
+\begin{equation*}
+	p(\sigma_k = 1 \mid h) = \sigma(a_k + \sum_j w_{jk} )
+\end{equation*}
+Sampling $ \langle \sigma_i h_j\rangle_{\text{model}} $, however, remains
+difficult. Strategies for doing so that leverage $ p(h_k=1\mid \sigma) $ and 
+$ p(\sigma_k = 1\mid h) $ are described in Hinton. In the case of neural quantum 
+states, however, the natural loss function is the energy of the system, and 
+the gradients we must calculate are not the above. The evaluation will still 
+be difficult, but in this case only because we must obtain the energy and its 
+gradients indirectly in order to circumvent the curse of dimensionality. 
+
+\subsection{Neural Quantum States}
+One can view the many-body wavefunction $ \psi(\sigma_1, \dots, \sigma_N) $ 
+appearing in 
+\begin{equation*}
+	\ket{\psi} = \sum_{\left\{\sigma_i\right\}} \psi(\sigma_1, \dots,\sigma_N)
+		\ket{\sigma_1,\cdots, \sigma_N }
+\end{equation*}
+as a function from local degrees of freedom to a complex number, the amplitude, 
+$ \psi : \left\{\sigma_i\right\} \to \C $. Thus we may treat $ \psi $ as a 
+a Boltzmann machine with visible units $ \left\{\sigma_i\right\} $, albeit 
+one that produces a complex number corresponding to the wavefunction as opposed 
+to the probability amplitude. We thus provide $ \psi $ with a set of weights 
+$ W = (w_{ij}, a_i, b_i)$ and hidden units $ h_i $ such that 
+\begin{equation*}
+	\psi(\sigma_1, \dots, \sigma_N; W)
+		= \sum_{\left\{h_i\right\}}
+			\exp\left(\sum_j a_j \sigma_j^z + \sum_i b_i h_i 
+					+\sum_{ij} w_{ij} h_i \sigma_j^z \right)
+\end{equation*}
+Because $ \psi $ is complex-valued, $ w_{ij} $, $ a_i $, $ b_i $ are likewise 
+taken to be complex valued. This is a restricted Boltzmann machine; we thus 
+can explicitly marginalize $ \psi $:
+\begin{align*}
+	\psi 
+		&= \sum_{\left\{ h_i \right\}}
+			\exp\left(\sum_j a_j \sigma_j^z + \sum_i b_i h_i 
+					+\sum_{ij} w_{ij} h_i \sigma_j^z \right)\\
+	    &= \sum_{\left\{ h_i \right\}}
+			\exp\left(\sum_j a_j \sigma_j^z\right) 
+			\prod_i^M \exp\left(\sum_i b_i h_i\right) 
+						\exp\left(\sum_j w_{ij} h_i \sigma_j^z\right)
+\end{align*}
+where we move the summation into the product as follows: 
+\begin{align*}
+	&= \exp \left( \sum_j a_j \sigma_j^z \right)
+		\prod_i^M \sum_{h_i = \left\{ \pm 1 \right\}} 
+			\exp\left(\sum_i b_i h_i\right)
+			\exp\left(\sum_{ij} w_{ij} h_i \sigma_j^z\right) 
+	\\ 
+	&= \exp\left(\sum_j a_j \sigma_j^z \right)
+	\prod_i^M \left[
+		\exp\left(b_i + \sum_j w_{ij} \sigma_j^z \right)
+		+ \exp\left(-b_i - \sum_j w_{ij} \sigma_j^z \right)
+	\right]
+	\\
+	&= \exp\left(\sum_j a_j \sigma_j^z \right)
+		\prod_i^M 2\cosh\left(b_i +\sum_{j} w_{ij} \sigma_j^z\right)
+\end{align*}
+
+\begin{thinnamedbox}[Note]
+For some reason I always have to convince myself that the above move works, 
+so for future reference here's the argument: we have a product indexed by 
+$ i $ and a sum indexed by $ \ell $, which expanded looks like
+\begin{align*}
+	\prod_i^I \sum_\ell^L a_{i\ell}
+		&= (a_{11} + a_{12} + \cdots + a_{1L})\\[-1em]
+		&\qquad \times (a_{21} + \cdots + a_{2L})\\
+		&\qquad \cdots \times (a_{I1} + \cdots + a_{IL})
+\end{align*}
+If we expand the products of sums, we obtain 
+\begin{equation*}
+	= a_{11} a_{21}\cdots a_{I1} + \cdots + a_{1L} a_{2L} \cdots a_{IL}
+	= \sum_{a_{1i}}^L
+	 \sum_{a_{2i}}^L \cdots
+	 \sum_{a_{Li}}^L 
+	 \prod_i^I a_{i\ell}.
+\end{equation*}
+
+\end{thinnamedbox}
+
+Thus 
+\begin{equation*}
+	\psi(\sigma_1, \dots, \sigma_N; W)
+	= 
+	\exp\left(\sum_j a_j \sigma_j^z \right)
+	\prod_i^M 2\cosh\left(b_i +\sum_{j} w_{ij} \sigma_j^z\right)
+\end{equation*}
+
+Given a Hamiltonian $ H $, how do we update $ w_{ij} $, $ a_i $, $ b_i $
+to minimize the energy $ H = \bra{\psi}H\ket{\psi} $? As is typical with 
+this type of problem, one resorts to a Monte Carlo method. Carleo and Troyer 
+use a technique called stochastic reconfiguration wherein one updates the 
+weights as 
+\begin{equation*}
+	W_{k+1, i}= W_{k,i} - \gamma_k S^{-1}_{k, ij} F_{k, j}
+	\qquad (k=\text{iteration step})
+\end{equation*}
+where 
+\begin{gather*}
+	S_{k,ij} = \langle O_i^\dagger O_j\rangle - \langle O_i^\dagger\rangle \langle O_j\rangle,\qquad 
+	F_{i} = \langle E_{\text{loc}} O_i^\dagger\rangle - \langle E_{\text{loc}}\rangle
+		\langle O_i^\dagger \rangle\\
+	O_i = \frac{1}{\psi} \partial_{W_i} \psi,\qquad 
+	E_{\text{loc}} = \frac{1}{\psi}\bra{\left\{\sigma_i\right\}} H \ket{\psi} 
+\end{gather*}
+Here the expectation values denote $ \langle A\rangle = \sum_{\left\{\sigma_i\right\}} 
+A (\left\{\sigma_i\right\})|\psi(\left\{\sigma_i\right\})|^2 $. They are 
+evaluted with a Markov chain sampled with a Metropolis-Hastings procedure:
+as is common with these VMC techniques, we flip a random spin and accept the 
+new configuration with probability 
+\begin{equation*}
+	P(\left\{\sigma_i\right\}_k \to \left\{\sigma_i\right\}_{k+1})
+		= \min \left(1, \Bigg| \frac{
+				\psi(\left\{\sigma_i\right\}_{k+1})
+			}{
+				\psi(\left\{\sigma_i\right\}_{k})}\Bigg|^2\right).
+\end{equation*}
+Notice that we do not need to evaluate any slater determinants and the
+evaluation of the Metropolis-Hastings weight is fairly straightforward.
 
 \subsection*{References}
 \begin{itemize}[itemsep=0.2ex]
@@ -1001,6 +1288,8 @@ Boltzmann machines."} Physical Review B 94.16 (2016): 165134.
  \href{https://arxiv.org/abs/1912.03263}{arXiv:1912.03263}.
 \item Hinton, \textit{A Practical Guide to Training
 Restricted Boltzmann Machines}. \url{https://www.cs.toronto.edu/~hinton/absps/guideTR.pdf}.
+\item Sorella, \textit{Green Function Monte Carlo with Stochastic Reconfiguration},
+ \href{https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.80.4558}{DOI:10.1103/ PhysRevLetter.80.5668}.
 \end{itemize}
 
 
@@ -1258,6 +1547,86 @@ phase iff there's no gap closing?
 \end{itemize}
 
 \entry{SPTs}{...}
+\subsection{MPS Refresher}
+Matrix product states (MPS) take the form
+\begin{equation}\label{eq:mps}
+	\ket{\psi} = \sum_{\left\{ j_i \right\}}
+		A^{(j_1)}_{\hphantom{(j_1)}\mu_1}
+		A^{(j_1)\mu_1}_{\hphantom{(j_1)}\mu_2}
+		A^{(j_1)\mu_3}_{\hphantom{(j_1)}\mu_3}
+		\cdots
+		A^{(j_{n-1})\mu_{n-1}}_{\hphantom{(j_1)}\mu_{n-1}}
+		A^{(j_n)\mu_{n}} \ket{j_1 \cdots j_n}
+\end{equation}
+where $ A^{(j_i)\mu_i}_{\hphantom{(j_i)} \mu_i}$ are $ \chi\times \chi $
+matrices for bond size $ \chi $ (viewed as rank-3 tensors if we include the 
+additional index $ j_i $). They are ansatze wavefunctinos which leverage the
+local nature of entanglement to model to great approximation ground states of 
+gapped systems. DMRG is for instance nothing more than a variational technique
+that explores the space of MPSs.
+
+How do MPS leverage local entanglement struture? Consider some general state 
+\begin{equation*}
+	\ket{\psi} 
+		= \sum_{\left\{j_i\right\}} \psi(j_1, \dots, j_n)\ket{j_1, \dots,j_n}
+\end{equation*}
+here $ \ket{j_i} $ is a basis labelling the site degree of freedom; ultimately 
+we want to express the wavefunction in this basis. Now, we are guaranteed 
+a Schmidt decomposition of any state:
+\begin{equation*}
+	\ket{\psi}
+	= \sum_{\alpha} \Lambda^{(\alpha)} \ket{\alpha_{\text{L}}}\ket{\alpha_{\text{R}}}
+\end{equation*}
+The strategy is to proceed along the chain and successively perform Schmidt 
+decompositions at each site. We will see that this affords us a physically 
+justifiable (and thus, one hopes, sufficiently accurate) reduction in the number of
+parameters we need to express the wavefunction.
+
+To illustrate, the first two sites will proceed as 
+\begin{equation*}
+	\ket{\psi} = \sum_{\alpha^1} A^{(\alpha^1)} \ket{\alpha^1_1} \ket{\alpha^1_{2\cdots n}}
+		= \sum_{\alpha^1, \alpha^2} A^{(\alpha^1)}A^{(\alpha^2)}
+		\ket{\alpha^1_1}\ket{\alpha^1_2}\ket{\alpha^2_{3\dots n}}
+\end{equation*}
+here $ A^{(\alpha^i)} $ are the Schmidt coefficients for that particular site, 
+and $ \alpha^i_{1\dots m-1},\alpha^i_{m\dots n} $ label the states in our Schmidt basis for the 
+decomposition partitoning the sites $ m,\dots,n $.
+We can treat $ A^{(\alpha_i)}=  A^{(\alpha_i)\mu_i}_{\hphantom{(\alpha_i)} \mu_i+1} $ 
+diagonal matrix without loss of generality, for reasons that will become clear shortly.
+The dimension of this matrix is the size of the Schmidt basis, i.e., there is a 
+diagonal entry for each $ \alpha_i $. 
+The number of labels $ \alpha^1 $ will depend on the particular site in the
+chain; as we move along, the number of labels will grow (as the number of states
+needed to form a basis exponentially with the number of sites).
+The key approximation that MPSs make is to keep only the $ \chi $ lowest 
+Schmidt values---the idea is that entanglement should remain relatively localized 
+...
+
+Thus one obtains a decomposition 
+\begin{equation*}
+	\sum_{\left\{\alpha_i\right\}} 
+		\Lambda^{(\alpha_1) }_{\hphantom{(\alpha_1)} \mu_1}
+		\Lambda^{(\alpha_2) \mu_1}_{\hphantom{(\alpha_1)} \mu_2}
+		\cdots 
+		\Lambda^{(\alpha_{n-1}) \mu_{n-2}}_{\hphantom{(\alpha_{n-1})} \mu_{n-1}}
+		\Lambda^{(\alpha_n) \mu_{n-1}}_{\hphantom{(\alpha)} }
+		\ket{\alpha_1 \dots\alpha_n}
+\end{equation*}
+At this point we only need to express this in site basis $ j_i $ by means 
+of a change of basis matrix $ \Gamma^{(j_i) \nu_{i}}_{\hphantom{(j_i)} \mu_i} 
+= \langle j_{i, \mu} \vert \alpha_{i,\nu} \rangle$: 
+\begin{equation*}
+	\sum_{\left\{ j_i \right\}}
+		\Lambda^{(j_1)}_{\nu_1} \Gamma^{(j_1)\nu_1}_{\hphantom{(j_1)} \mu_2}
+		\Lambda^{(j_2)\mu_2}_{\hphantom{(j_2)}\nu_2} \Gamma^{(j_2)\nu_2}_{\hphantom{(j_i)} \mu_3}
+		\cdots 
+		\Lambda^{(j_n)\mu_n}_{\hphantom{(j_n)}\nu_n} \Gamma^{(j_n)\nu_n}_{\hphantom{(j_i)} }
+		\ket{j_1\dots j_n}
+\end{equation*}
+If we call $ \Lambda^{(j_n) \mu_i}_{\hphantom{(j_n)}\nu_i}\Gamma^{(j_i) 
+\nu_{i}}_{\hphantom{(j_i)} \mu_{i+1}} = A^{(j_i)\mu_i}_{\hphantom{(j_i)} \mu_{i+1}}$ 
+we recover the form of \cref{eq:mps}. 
+	
 
 \entry{Useful Field Theory Formuale}{3/27/24}
 \begin{equation*}
@@ -1270,6 +1639,47 @@ phase iff there's no gap closing?
 			\partial^0 \phi
 			- g^{00} \mathcal{L}
 \end{equation*}
+
+\entry{Avoided Crossings and Symmetry}{3/28/24}
+There is lore in the many-body literature that eigenvalues of a system 
+undergoing an adiabatic evolution only cross if the eigenstates have different 
+symmetries. Here's more or less how this works. Consider a diagonalized 
+Hamiltonian $ H $ perturbed by a term $ H' $
+\begin{equation*}
+H + H' = 
+	\begin{bmatrix}
+		E_1 & 0 \\ 0 & E_2 
+	\end{bmatrix}
+	+ \begin{bmatrix}
+	0 & \Delta \\ \Delta^\ast & 0 
+	\end{bmatrix}
+	= \begin{bmatrix}
+	E_1 & \Delta \\ \Delta^\ast & E_2
+	\end{bmatrix}
+\end{equation*}
+(without loss of generality we take the perturbation to be completely off-diagonal). 
+The spectrum of this Hamiltonian consists of 
+\begin{gather*}
+	\ket{\psi_{\pm}} = \phi_{\pm}\ket{E_1} - \ket{E_2},\qquad 
+	E_\pm = E_1 + E_2 \pm \sqrt{(E_1 - E_2)^2 + 4 |\Delta|^2}\\ 
+	\phi_{\pm} 
+		= E_1 - E_2 \pm \sqrt{(E_1 - E_2)^2 + 4|\Delta|^2}
+\end{gather*}
+Observe $ E_{\pm} $: since $ |\Delta|^2 $ is nonnegative, we can only have 
+$ E_+ = E_- $ if $ E_1 = E_2 $ and $ \Delta = 0 $. This is an avoided crossing; 
+we think of $ \Delta $ as depending on some adiabatically varied parameter 
+such that if any two eigenvalues are well represented by an effective $ 2\times
+2 $ Hamiltonian as above, the energy levels cannot cross for any value of $
+\Delta $.
+
+This argument relies, however, on the mixing between $ \ket{E_1} $ and $
+\ket{E_2} $. Superselection rules prevent, however, (adiabatic) evolution from a
+state in one irrep to another; more precisely we cannot adiabatically evolve 
+into a superposition of states with two different symmetries. Thus, in our 
+effective two-level system, $ \ket{E_1} $ and $ \ket{E_2} $ must enjoy the 
+same symmetry; if they do not, they cannot mix and the energy levels can cross. 
+(Is this in contradiction with the relationship beween degeneracy and symmetry? 
+Not if you can have degeneracies that don't descent from symmetries.)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
