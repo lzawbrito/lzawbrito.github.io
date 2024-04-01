@@ -1274,6 +1274,14 @@ new configuration with probability
 \end{equation*}
 Notice that we do not need to evaluate any slater determinants and the
 evaluation of the Metropolis-Hastings weight is fairly straightforward.
+One caveat is that $ S $ is not guaranteed to be nonsingular; Carleo and Troyer 
+circumvent this with an explicit regularization 
+\begin{equation*}
+	S_{ij}^{\text{reg}} = S_{ij} + \lambda_{k} \delta_{ij}S_{ij},\qquad 
+	\lambda_{k} = \max (\lambda_0 b^k, \lambda_{\text{min}})
+\end{equation*}
+where their parameters are $ \lambda_{\text{min}} = 10^{-4}$, $ \lambda_0 = 100 $, 
+$ b=0.9 $.
 
 \subsection*{References}
 \begin{itemize}[itemsep=0.2ex]
