@@ -7,7 +7,7 @@ SRC="/Users/lzawbrito/Documents/notes/"
 DEST="${SITEDIR}public/docs/notes/"
 
 rsync -av \
-	--exclude={'.*','*.mtc*','*.toc','*.maf','*.aux','_minted*','*.log','scripts/'} \
+	--exclude={'.*','*.mtc*','*.toc','*.maf','*.aux','_minted*','*.log','scripts/','*/handwritten/'} \
 	${SRC} ${DEST}
 
 rsync -av \
