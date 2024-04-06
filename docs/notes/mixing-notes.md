@@ -10,6 +10,7 @@ DRUMS
 - Low cut/high pass at around 40-50 hz on kick drum can b  ring out punch
 - Parallel compress to drywet punchiness
 - Multiband on higher frequencies of drums can tighten
+- If you want that 90s shoegaze snare sound, it's not just reverb, also low shelf
 
 BASS 
 ---- 

@@ -1,9 +1,11 @@
 \documentclass{report}
 \usepackage[lecture,smalltitle,usefancyhdr]{/Users/lzawbrito/latex-templates/lzawbrito-template}
 % \usepackage{sansmathfonts}
-\usepackage[T1]{fontenc}
-\usepackage[eulergreek]{sansmath}
-
+% \usepackage[T1]{fontenc}
+% \usepackage[eulergreek]{sansmath}
+% \usepackage{ebgaramond}
+\DeclareMathOperator{\sign}{sign}
+% \usepackage{cmbright}
 \usepackage{tikz-cd}
 \usetikzlibrary{cd}
 
@@ -484,15 +486,104 @@ so this is just scalar multiplication on $ \phi $.
 
 \subsection{1-form symmetry}
 
+\subsection{Spin manifolds}
+Consider integration by parts for forms: 
+\begin{equation*}
+	\int_X d\alpha \wedge \beta = \int_X \left[d(\alpha\wedge\beta) 
+		- (-1)^{\deg \alpha}\alpha\wedge d\beta\right]
+		= \int_{\partial X}\alpha\wedge\beta 
+			-(-1)^{\deg \alpha} \int_{X}\alpha \wedge d\beta
+\end{equation*}
+Thus setting $ \alpha = A $ and $ \beta = dA $, one finds 
+\begin{equation*}
+	\int_X F \wedge F 
+		= \int_{\partial X} A \wedge dA
+	-(-1)^{\deg\alpha}\int_{X} \cancel{A \wedge d^2 A}
+\end{equation*}
+The argument is that for this extension to be consistent, the partition function 
+needs to be the same for any two $ X_1 $ and $ X_2 $ sharing $ M $ as a boundary. 
+Thus, we may glue two such $ X_1 $ and $ X_2 $ along $ M $ (so that the integral 
+becomes an integration over $ Y $ the manifold resulting from the gluing): 
+\begin{equation*}
+	\Delta S_{\text{CS}}
+		= S_{\text{CS}}^{X_1}
+		  - S_{\text{CS}}^{X_1}
+		= \frac{k}{2\pi}\int_Y F\wedge F
+\end{equation*}
+If we stipulate 
+\begin{equation*}
+	\frac{k}{4\pi} \int_Y F\wedge F
+		\in 2\pi\mathbb{Z}
+		\iff 
+	\frac{k}{8\pi^2} \int_Y F\wedge F
+		\in \mathbb{Z}
+\end{equation*}
+we have $ e^{\Delta S_{\text{CS}}} = e^{i2\pi n}= 1$ and the partition function 
+is invariant. When is the above true? As it turns out, exactly when $ Y $ is a 
+spin manifold, which leads to the integral resolving to an integer
+\begin{equation*}
+	\int_Y F\wedge F \in 2\mathbb{Z} \Longrightarrow  \Delta S_{\text{CS}} = 
+	2\pi k \cdot n \in 2\pi \mathbb{Z}
+\end{equation*}
+
+When $ Y $ does not meet this condition, the integral is simply an integer
+\begin{equation*}
+	\int_T F\wedge F \in \mathbb{Z} \Longrightarrow \Delta S_{\text{CS}} =
+	2\pi k \cdot \frac{n}{2} \in 2\pi \mathbb{Z}
+	\text{ only if }k\in 2\mathbb{Z}
+\end{equation*}
+i.e., the Chern-Simons level must be \textit{even} in addition to being an 
+integer.
+
+How could this possibly be true? First things first: here we can view 
+$ F /2\pi $ as a member of $ H^2(Y;\mathbb{Z}) $. $ dF = 0 $ by the Levi-Civita 
+identity---i.e., because $ F = dA $---so it is in the kernel of the coboundary 
+map, and in this context 
+\begin{align*}
+	(F+ d\alpha)\wedge (F+ d\alpha)
+		&= F\wedge F + \cancel{d\alpha \wedge F} + \cancel{F\wedge d\alpha}
+			+ d\alpha\wedge d\alpha\\
+		&= F\wedge F + d^2\alpha \wedge \alpha 
+			\pm \underbrace{\cancel{d(\alpha \wedge d\alpha)}}_{\text{no }\partial X}
+\end{align*}
+so it is only defined up to an exact form. Lastly, $ F/2\pi \in H^2(Y, \mathbb{Z}) $
+because the integral of $ F $  is valued in $ 2\pi \mathbb{Z} $ thanks to the 
+Dirac quantization condition. Recall that in this case elements of the
+cohomology implicitly come up with an integration---this is the appropriate
+approach for differential cohomology, for instance De Rham cohomology.
+Correspondingly, cup products turn into wedge products.
+
+We can make contact with the Stiefel-Whitney class, we consider the reduction
+\begin{equation*}
+	H^2(Y;\mathbb{Z}) \to H^2(Y;\mathbb{Z}_2)
+\end{equation*}
+so the lift of the Stiefel-Whitney class $ w_2 $ is only defined mod 2. For 
+instance $ w_2 $ vanishing corresponds to it being even valued in $
+H^2(Y;\mathbb{Z}) $. Additionally, the intersection form satisfies 
+\begin{equation*}
+	\frac{F}{2\pi}\smallsmile \frac{F}{2\pi} = w_2 \smallsmile \frac{F}{2\pi}
+\end{equation*}
+(TODO why is this true?). Since $ F/2\pi\in\mathbb{Z} $ and $ w_2 \in 2\mathbb{Z}$ 
+if the manifold is spin, one has the intersection form is an even integer, and 
+\begin{equation*}
+	\int_Y \frac{F}{2\pi} \wedge \frac{F}{2\pi} \in 2\mathbb{Z}
+\end{equation*}
+and when the manifold is not spin, it is simply integer-valued.
+
 \subsection*{References}
 \begin{itemize}[nosep]
 \item Sachdev, ``Topology and Chern-Simons Theories,''
 	\href{http://qpt.physics.harvard.edu/phys268/}{PHYS268}.
 \item Witten, ``\href{https://projecteuclid.org/journals/communications-in-mathematical-physics/volume-141/issue-2/Perturbative-expansion-of-Chern-Simons-theory-with-noncompact-gauge-group/cmp/1104248307.full}{Perturbative expansion of Chern-Simons theory with noncompact gauge group}.''
 \item Witten, ``\href{https://projecteuclid.org/journals/communications-in-mathematical-physics/volume-121/issue-3/Quantum-field-theory-and-the-Jones-polynomial/cmp/1104178138.full}{Quantum Field Theory and the Jones Polynomial}.''
+\item Ethan Lake, \href{https://drive.google.com/file/d/1wNJaNX1Ef1hrOly-TET8yKG2rx7mcaH0/view}{\textit{QFT Diary}}.
+\item Santiago Quintero de los R\'ios
+``\href{https://webspace.science.uu.nl/~caval101/homepage/Students_files/QuinteroMaster.pdf}{Seiberg-Witten
+Theory and the Intersection Form}''
 \end{itemize}
 
-\entry{Vierbeins, Tetrads, Spin Connections}{2/11/24}
+\entry{Spin Manifold Miscellany}{2/11/24}
+\subsection{Vierbeins, Tetrads, Spin Connections}
 The vierbein (German for ``four-legged'') formalism is an alternative formulation
 of a coordinate system on a curved manifold which is intimately related to the
 spin connection. They are defined as the eigenvalues of the metric: 
@@ -506,7 +597,7 @@ coefficients for a vector expressed in a \textit{fixed} orthonormal basis
 
 Now, the more formal way to define the spin connection is as follows: There is a 
 short exact sequence 
-\begin{equation*}
+\begin{equation}\label{eq:spin-les}
 	0 \longrightarrow \Z_2 \xrightarrow{\quad}
 	\text{Spin}(N) \xrightarrow{\;\phi\;} \text{SO}(N) \longrightarrow 0
 	\footnote{This is silly, but for a long time I wondered why we used 
@@ -514,7 +605,7 @@ short exact sequence
 	holds for $N=3$, where $\text{Spin}(3) \simeq \text{SU}(2)$. On the other hand 
 	$\text{Spin}(4)\simeq \text{SU}(2)\times \text{SU}(2)$, hence the two Weyl 
 	spinors in relativistic theories.}
-\end{equation*}
+\end{equation}
 which restates the familiar mantra ``spinors are the square root of vectors.''
 Now, we might consider a $\text{Spin}(N)$ spin bundle related to an $ \text{SO}(N) $ 
 vector bundle by $ \phi $.
@@ -557,8 +648,106 @@ equation on a curved background.
 \subsection{Spinor Reps of GL\textsubscript{4}}
 TODO
 
-\subsection{Stieffel-Whitney classes}
-TODO
+\subsection{Stiefel-Whitney classes}
+Characteristic classes measure how bundles over a manifold twist, i.e., they 
+measure obstructions to a global trivialization.
+For a manifold $ M $, the class $ c $ associates an element of the 
+cohomology $ c(P)\in H^k(M) $ to a given $ G $-bundle $ P $ (properly we should 
+consider $ P $ a representative of an isomorphism class of $ G $-bundles). 
+The characteristic class that measures obstructions to our ability to define
+global orthonormal frame over the manifold is the first Stiefel-Whitney class.
+Put it simpler terms, the first Stiefel-Whitney class measures the failure of
+the manifold to be orientable.
+
+Analogously, the second Stiefel-Whitney class measures the failure of a manifold 
+to admit a spin structure, that is, a manifold is a spin manifold iff its second
+Stiefel-Whitney class is trivial. We will see how much like how $ \text{Spin}(M) $
+is the double cover of $ \text{SO}(M) $, the second Stiefel-Whitney class is 
+sort of the double cover of the first.
+
+\parhead{1st S-W class} The first Stiefel-Whitney class is defined as the determinant of the transition 
+maps on the charts of the manifold. Consider two charts $ U_i $ and $ U_j $
+related by the transition map $ t_{ij} $, itself a member of the structure 
+group $ \text{SO}(m =\dim M) $. ($ i $, $ j $ here do not index the entries 
+of the matrix but instead label the charts.) We define a $ 1 $-cochain 
+with coefficients in $ \mathbb{Z}_2 $ by the determinant of the transition 
+function: 
+\begin{equation*}
+	f(i,j)\equiv \det(t_{ij})  = \pm 1\qquad f\in C^1(M, \mathbb{Z}_2)
+\end{equation*}
+(This is a \v{C}ech cocycle). Now, $ t_{ij}t_{jk}t_{ji} = 1 $ because this 
+transitions us back to the first chart $ i $. Consequently the coboundary map 
+sends 
+\begin{equation*}
+	(\delta f)(i,j,k) = \det t_{ij}  \det t_{jk}  \det t_{ki}
+		= \det(t_{ij} t_{jk} t_{ki}) = 1
+\end{equation*}
+And, further, if we consider transforming to a different frame on $ U_i $ 
+by $ h_i \in \text{O}(m)$---and likewise for $ U_j $---the transition functions 
+transform to $ t_{ij}\rightarrow h_i t_{ij} h_j^{-1}$, in which case we find 
+\begin{equation*}
+	f(i,j) \rightarrow \det(h_i t_{ij} h_j^{-1}) = 
+	\underbrace{\det h_i \det h_j}_{\equiv (\delta f_0)(i,j)}
+	\det f_{ij}
+\end{equation*}
+Here we've defined $ f_0(i) = \det h_i $ to be a $ 0 $-cochain. Thus 
+$ f $ transforms by an exact $ 1 $-chain (which vanishes upon taking the 
+coboundary map), and the equivalence class $ [f] $ of $ f $ up to a $0$-coboundary 
+is evidently a member of $ H^1(M;\mathbb{Z}_2) $. This is the Stiefel-Whitney 
+class, $w_1(M)=[f]$. .
+
+Now, the Stiefel-Whitney class is trivial---all functions in $ [f] $ 
+are identically $ 1 $---iff the manifold is orientable. If $ M $ is orientable 
+the structure group is $ \text{SO}(m) $ and $ \det(t_{ij}) $ is necessarily
+unity. Meanwhile, if $ w_1(M) = 1 $, $ f(i,j) = (\delta f_0)(i,j) $ and we can 
+always choose $ h_i $ and $ h_j $ such that this product is unity (i.e., the 
+transition map continues to posses unit determinant).
+
+\parhead{2nd S-W class} The second Stiefel-Whitney class measures a slightly different obstruction: instead 
+of taking the consistency of the transition maps for granted (and thus taking
+the existentence of a tangent bundle for granted) and measuring their 
+failure to preserve orientation as the first class does, the second measures the
+failure of the transition maps to be consistent in the first place.
+This is the sense in which it tells us whether we can put a consistent spin 
+structure on the manifold. 
+
+Consider the lift of $ t_{ij}\in \text{SO}(m) $ to
+the double cover $ \tilde{t}_{ij} \in \text{Spin}(m)$, i.e., $ \tilde{t}_{ij} $
+such that $ \phi(\tilde{t}_ij) = t_{ij}$ for the two-to-one homomorphism given
+in \cref{eq:spin-les}. We of course need 
+\begin{equation*}
+	\tilde{t}_{ij}\tilde{t}_{jk}\tilde{t}_{ki} = I
+\end{equation*}
+for the spin bundle to be well-defined. We naturally also have 
+\begin{equation*}
+	\phi(\tilde{t}_{ij}\tilde{t}_{jk}\tilde{t}_{ki}) 
+	= t_{ij} t_{jk} t_{ki}
+	= I
+\end{equation*}
+Given the above and \cref{eq:spin-les}, $ \tilde{t}_{ij}\tilde{t}_{jk}\tilde{t}_{ki} $ 
+can only fail to be the identity up to a multiplicative constant---in fact, it 
+can only fail to be the identity up to a sign. Thus, we define 
+a 3-cochain $ f $ satisfying
+\begin{equation*}
+	\tilde{t}_{ij}\tilde{t}_{jk}\tilde{t}_{ki}
+		= f(i,j,k)I
+\end{equation*}
+Further, consider the two-cochain defined as the sign of the transition 
+function $ \tilde{t}_{ij} $. Consider picking an arbitrary primage of $ \phi(t_{ij}) $
+that might have a sign in front of it. Then we generalize to 
+\begin{equation*}
+	\tilde{t}_{ij}\tilde{t}_{jk}\tilde{t}_{ki}
+	= f(i,j,k) I 
+	\to 
+	\underbrace{\sign(t_{ij})\sign(t_{jk})\sign(t_{ki})}_{(\delta f)(i,j,k)}
+		f(i,j,k) I
+\end{equation*}
+Thus $ f $ represents an equivalence class $ [f] \in H^2(M; \mathbb{Z}_2) $.
+
+\subsection*{References}  
+\begin{itemize}[itemsep=0.2ex]
+\item Nakahara, \textit{Geometry, Topology and Physics} (2003), Section 11.6. 
+\end{itemize}
 
 
 $ O(n) \subset O(n+1) $. relative homotopy $ \pi_k(O(n+1), O(n)) \cong \pi_k(S^n)$.
@@ -1536,7 +1725,6 @@ to original n funciton.
 	so I switched his notation.
 \end{itemize}
 
-\entry{CFT Miscellany}{}
 
 \entry{Fast Computation of VMC Determinants}{3/18/24}
 Calculating the determinant is at best an $ O(n^3) $ task
@@ -1553,6 +1741,9 @@ phase iff there's no gap closing?
 	entanglement, wave function renormalization, and topological order}.
 	\url{https://arxiv.org/abs/1004.3835}.
 \end{itemize}
+
+\entry{Stationary Phase and Time Evolution in QM}{3/27/24}
+
 
 \entry{SPTs}{...}
 \subsection{MPS Refresher}
@@ -1689,7 +1880,22 @@ same symmetry; if they do not, they cannot mix and the energy levels can cross.
 (Is this in contradiction with the relationship beween degeneracy and symmetry? 
 Not if you can have degeneracies that don't descent from symmetries.)
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\chapter{April}
+\begin{tocbox}
+	\minitoc
+\end{tocbox}
+
+\entry{Is RG a semigroup?}{4/1/24}
+
+\entry{}{}
+Integer quantum hall effect - we have a harmonic oscillator portion of the 
+solution (in direction of applied magnetic field?), the quantization of which 
+is the Landau level $ \nu $. Notice that if the landau level is completely filled, 
+we have a gap. The edge modes carry the current; there are $ \nu $ different 
+``channels'' for the modes. One can use Landauer electron transport theory to 
+find that for each such channel we have $ e^2 V_H/h $ current.
 \end{document}

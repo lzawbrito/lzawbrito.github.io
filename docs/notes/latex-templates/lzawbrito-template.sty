@@ -11,6 +11,7 @@
 % For fancier command definitions; see \setdocnames in line 142
 \usepackage{xparse}
 
+
 % Nicer typography
 \usepackage{microtype}
 
@@ -187,6 +188,36 @@
     parbox=false,
     after skip=15pt,
     enlarge top initially by=-0.5em,
+}
+
+\newtcolorbox{bluebarbox}[1][]{%
+    colback=lightgray!20!white,
+    boxrule=0pt,
+    boxsep=0pt,
+    colframe=white,
+    breakable,
+    enhanced jigsaw,
+    borderline west={4pt}{0pt}{myblue!30!white},
+    % title={#2\quad}, 
+    fonttitle=\bfseries\sffamily\color{black},
+    detach title, 
+    #1,
+}
+
+% Conditional tcolorbox style depending on whether you provide a title.
+\NewDocumentEnvironment{barbox}{o m}
+{   
+    \IfNoValueTF{#1}{
+        \begin{bluebarbox}[borderline west={4pt}{0pt}{#2!30!white}]
+    }{
+        \begin{bluebarbox}[
+            borderline west={4pt}{0pt}{#2!30!white}, 
+            title={#1\quad},
+            before upper={\tcbtitle\qquad},
+            ]
+    }
+}{
+    \end{bluebarbox}
 }
 
 \newtcolorbox{quotebox}[1][]{%
