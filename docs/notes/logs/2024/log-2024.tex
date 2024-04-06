@@ -694,14 +694,16 @@ Here we've defined $ f_0(i) = \det h_i $ to be a $ 0 $-cochain. Thus
 $ f $ transforms by an exact $ 1 $-chain (which vanishes upon taking the 
 coboundary map), and the equivalence class $ [f] $ of $ f $ up to a $0$-coboundary 
 is evidently a member of $ H^1(M;\mathbb{Z}_2) $. This is the Stiefel-Whitney 
-class, $w_1(M)=[f]$. .
+class, $w_1(M)=[f]$. 
 
-Now, the Stiefel-Whitney class is trivial---all functions in $ [f] $ 
-are identically $ 1 $---iff the manifold is orientable. If $ M $ is orientable 
-the structure group is $ \text{SO}(m) $ and $ \det(t_{ij}) $ is necessarily
-unity. Meanwhile, if $ w_1(M) = 1 $, $ f(i,j) = (\delta f_0)(i,j) $ and we can 
-always choose $ h_i $ and $ h_j $ such that this product is unity (i.e., the 
-transition map continues to posses unit determinant).
+\begin{barbox}[1st S-W and Orientability]{mygreen}
+	Now, the first Stiefel-Whitney class is trivial---all functions in $ [f] $ 
+	are identically $ 1 $---iff the manifold is orientable. If $ M $ is orientable 
+	the structure group is $ \text{SO}(m) $ and $ \det(t_{ij}) $ is necessarily
+	unity. Meanwhile, if $ w_1(M) = 1 $, $ f(i,j) = (\delta f_0)(i,j) $ and we can 
+	always choose $ h_i $ and $ h_j $ such that this product is unity (i.e., the 
+	transition map continues to posses unit determinant).
+\end{barbox}
 
 \parhead{2nd S-W class} The second Stiefel-Whitney class measures a slightly different obstruction: instead 
 of taking the consistency of the transition maps for granted (and thus taking
