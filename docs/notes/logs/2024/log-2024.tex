@@ -310,36 +310,36 @@ Then
 \end{itemize}
 
 
-\entry{Lessons from software engineering}{1/19/24}
-It just occurred to me that I've made a good amount of growth as a physicist by 
-transplanting some of the habits I built in software engineering. Specifically: 
-Part of what drew me to computational work in the first place was a certain 
-convenience that it afforded---computers do the tedious work and leave the fun 
-parts to you, and even if it takes many hours and tears, once you write a
-program that does that tedious work you can easily (1) clean it up and optimize,
-and (2) reuse the code, assured that for the most part it is set in
-stone. 
+% \entry{Lessons from software engineering}{1/19/24}
+% It just occurred to me that I've made a good amount of growth as a physicist by 
+% transplanting some of the habits I built in software engineering. Specifically: 
+% Part of what drew me to computational work in the first place was a certain 
+% convenience that it afforded---computers do the tedious work and leave the fun 
+% parts to you, and even if it takes many hours and tears, once you write a
+% program that does that tedious work you can easily (1) clean it up and optimize,
+% and (2) reuse the code, assured that for the most part it is set in
+% stone. 
 
-The point is that your pen-and-paper calculations can improve by borrowing from 
-this mindset. This manifests as a slight change in mental and practical
-approach: 
-\begin{itemize}[itemsep=0pt, topsep=0pt]
-\item Be a compulsive notetaker and keep those notes neat, organized, and correct.
-	Thoroughness and clarity is analogous to good code documentation. Don't be 
-	afraid to return to the work and clean it up.
-\item Treat calculations others have done as ``code'' you can adapt to your own 
-	problems. 
-\end{itemize}
-Here's the motivating example: while at the airport terminal, vacantly staring at 
-the above Cayley table for $ \text{D}_6 $, I realized that if I ever need 
-to work out any other constructions defined on a non-abelian group, I already 
-understand $ \text{D}_6 $ relatively well, and could reuse the above work. Thus
-that entry is sort of like ``code'' that's written and available
-to be reused; by being thorough about its correctness I will be sure that those
-usages are less foolproof.  Having toy examples and models is crucial in
-physics, and understanding one 
-toy model well that is capable of conveying many phenomena is not only a useful 
-exercise, but one that can be built on in the future.
+% The point is that your pen-and-paper calculations can improve by borrowing from 
+% this mindset. This manifests as a slight change in mental and practical
+% approach: 
+% \begin{itemize}[itemsep=0pt, topsep=0pt]
+% \item Be a compulsive notetaker and keep those notes neat, organized, and correct.
+% 	Thoroughness and clarity is analogous to good code documentation. Don't be 
+% 	afraid to return to the work and clean it up.
+% \item Treat calculations others have done as ``code'' you can adapt to your own 
+% 	problems. 
+% \end{itemize}
+% Here's the motivating example: while at the airport terminal, vacantly staring at 
+% the above Cayley table for $ \text{D}_6 $, I realized that if I ever need 
+% to work out any other constructions defined on a non-abelian group, I already 
+% understand $ \text{D}_6 $ relatively well, and could reuse the above work. Thus
+% that entry is sort of like ``code'' that's written and available
+% to be reused; by being thorough about its correctness I will be sure that those
+% usages are less foolproof.  Having toy examples and models is crucial in
+% physics, and understanding one 
+% toy model well that is capable of conveying many phenomena is not only a useful 
+% exercise, but one that can be built on in the future.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -364,6 +364,8 @@ $ A\wedge \text{d}A \rightarrow \text{AdA} \rightarrow \text{Ada Lovelace} $.
 recall these are \textit{Lie algebra-valued one forms}, for which the wedge product 
 is essentially the commutator. If this theory was Abelian, however, the wedges 
 \textit{would} vanish.)
+
+\subsection{Anyons in the semiclassical theory}
 
 The Wilson lines obey the algebra 
 \begin{equation*}
@@ -474,16 +476,6 @@ suspicious, notice that $ \star D \star a $ is a zero form, i.e., a scalar,
 so this is just scalar multiplication on $ \phi $.
 
 
-\begin{itemize}[nosep]
-\item \textit{What is a spin connection?} It is the analogue of the Levi-Civita 
-	(or affine) connection for spinors. From a technical point of view, it is 
-	the pullback to the spinor group $ \text{Spin}(4) $ of the Levi-Civita 
-	connection (1-form) induced by the map $ \varphi: \text{Spin}(4) \to \text{SO}(4) $. 
-\item Why frame the Wilson line?
-\item Why $ L_- $ and $ \Delta $ nonsingular iff de Rham cohomology trivial for 
-	all dimensions?
-\end{itemize}
-
 \subsection{1-form symmetry}
 
 \subsection{Spin manifolds}
@@ -541,10 +533,11 @@ identity---i.e., because $ F = dA $---so it is in the kernel of the coboundary
 map, and in this context 
 \begin{align*}
 	(F+ d\alpha)\wedge (F+ d\alpha)
-		&= F\wedge F + \cancel{d\alpha \wedge F} + \cancel{F\wedge d\alpha}
+		&= F\wedge F 
+			+ d\alpha \wedge F + F\wedge d\alpha
 			+ d\alpha\wedge d\alpha\\
 		&= F\wedge F + d^2\alpha \wedge \alpha 
-			\pm \underbrace{\cancel{d(\alpha \wedge d\alpha)}}_{\text{no }\partial X}
+			+ \underbrace{\cancel{2 d(\alpha \wedge F) + d(\alpha \wedge d\alpha)}}_{\text{no }\partial X}
 \end{align*}
 so it is only defined up to an exact form. Lastly, $ F/2\pi \in H^2(Y, \mathbb{Z}) $
 because the integral of $ F $  is valued in $ 2\pi \mathbb{Z} $ thanks to the 
@@ -665,13 +658,13 @@ Stiefel-Whitney class is trivial. We will see how much like how $ \text{Spin}(M)
 is the double cover of $ \text{SO}(M) $, the second Stiefel-Whitney class is 
 sort of the double cover of the first.
 
-\parhead{1st S-W class} The first Stiefel-Whitney class is defined as the determinant of the transition 
-maps on the charts of the manifold. Consider two charts $ U_i $ and $ U_j $
-related by the transition map $ t_{ij} $, itself a member of the structure 
-group $ \text{SO}(m =\dim M) $. ($ i $, $ j $ here do not index the entries 
-of the matrix but instead label the charts.) We define a $ 1 $-cochain 
-with coefficients in $ \mathbb{Z}_2 $ by the determinant of the transition 
-function: 
+\parhead{1st SW class} The first Stiefel-Whitney class is defined as the 
+determinant of the transition maps on the charts of the manifold. Consider two
+charts $ U_i $ and $ U_j $ related by the transition map $ t_{ij} $, itself a
+member of the structure group $ \text{SO}(m =\dim M) $. ($ i $, $ j $ here do
+not index the entries of the matrix but instead label the charts.) We define a $
+1 $-cochain with coefficients in $ \mathbb{Z}_2 $ by the determinant of the
+transition function: 
 \begin{equation*}
 	f(i,j)\equiv \det(t_{ij})  = \pm 1\qquad f\in C^1(M, \mathbb{Z}_2)
 \end{equation*}
@@ -696,7 +689,7 @@ coboundary map), and the equivalence class $ [f] $ of $ f $ up to a $0$-cobounda
 is evidently a member of $ H^1(M;\mathbb{Z}_2) $. This is the Stiefel-Whitney 
 class, $w_1(M)=[f]$. 
 
-\begin{barbox}[1st S-W and Orientability]{mygreen}
+\begin{barbox}[1st SW and Orientability]{mygreen}
 	Now, the first Stiefel-Whitney class is trivial---all functions in $ [f] $ 
 	are identically $ 1 $---iff the manifold is orientable. If $ M $ is orientable 
 	the structure group is $ \text{SO}(m) $ and $ \det(t_{ij}) $ is necessarily
@@ -705,7 +698,7 @@ class, $w_1(M)=[f]$.
 	transition map continues to posses unit determinant).
 \end{barbox}
 
-\parhead{2nd S-W class} The second Stiefel-Whitney class measures a slightly different obstruction: instead 
+\parhead{2nd SW class} The second Stiefel-Whitney class measures a slightly different obstruction: instead 
 of taking the consistency of the transition maps for granted (and thus taking
 the existentence of a tangent bundle for granted) and measuring their 
 failure to preserve orientation as the first class does, the second measures the
@@ -742,9 +735,26 @@ that might have a sign in front of it. Then we generalize to
 	= f(i,j,k) I 
 	\to 
 	\underbrace{\sign(t_{ij})\sign(t_{jk})\sign(t_{ki})}_{(\delta f)(i,j,k)}
-		f(i,j,k) I
+		f(i,j,k) I.
 \end{equation*}
 Thus $ f $ represents an equivalence class $ [f] \in H^2(M; \mathbb{Z}_2) $.
+
+\begin{barbox}[2nd SW and Spin Structures]{mygreen}
+Of course if the manifold is spin, $\tilde{t}_{ij}\tilde{t}_{jk}\tilde{t}_{ki}=1$, 
+so $ w_2 $ is trivial. Converesely, if $ w_2 $ is trivial, it is defined up 
+to a transformation 
+\begin{equation*}
+	\tilde{t}_{ij}\tilde{t}_{jk}\tilde{t}_{ki}
+	\to 
+	f(i,j) f(j,k) f(k,i) \tilde{t}_{ij}\tilde{t}_{jk}\tilde{t}_{ki}
+\end{equation*}
+But if $ f $ is trivial it is necessarily equal to $ (\delta f_1)(i,j, k) $, so we have 
+\begin{equation*}
+	\tilde{t}_{ij}\tilde{t}_{jk}\tilde{t}_{ki}
+	\to 
+	[f(i,j) f(j,k) f(k,i)]^2 I = I.
+\end{equation*}
+\end{barbox}
 
 \subsection*{References}  
 \begin{itemize}[itemsep=0.2ex]
@@ -1691,9 +1701,11 @@ should vanish; thus it is an example of a topological current, one whose
 conservation is ensured by topology of the field configuration. One might think
 it funny to view it as a current, seeing as as which symmetry it is associated 
 with is unclear. It is arguably this very question---what symmetry this current 
-is associated with---that motivates the introduction of generalized symmetries. 
+is associated with---that motivates the introduction of generalized symmetries.
+For instance, if we consider $ \text{U}(1) $ theory, invariance under a 1-form 
+symmetry characterizes a lack of vortices (which are charged under this symmetry).
 In fact, it is often the case that the generalized symmetry in the original 
-theory is understood as a conventional symmetry in the dual theory.
+theory is understood as a conventional symmetry in the dual theory. 
 
 At any rate, the dual action is 
 \begin{equation*}
@@ -1729,13 +1741,100 @@ to original n funciton.
 
 
 \entry{Fast Computation of VMC Determinants}{3/18/24}
-Calculating the determinant is at best an $ O(n^3) $ task
+In a Monte Carlo simulation of a strongly correlated system one needs the 
+ratio 
+\begin{equation*}
+	\frac{\braket{x'\vert\Phi}}{\braket{x\vert\Phi}}
+\end{equation*}
+where $ x' $ is a proposed classical configuration and $ x $ is the present 
+configuration. Of course, given a set of single-particle wavefunctions, the 
+many-body wavefunction $ \braket{x\vert \Phi} $ is some Slater determinant 
+of the form 
+\begin{equation*}
+	\det U = 
+	\begin{bmatrix}
+		\phi_1(x_1) & \phi_2(x_1) & \cdots & \phi_N(x_1)\\ 
+		\phi_1(x_2) & \phi_2(x_2) &        & \phi_N(x_2)\\ 
+		\vdots      &             & \ddots &            \\ 
+		\phi_1(x_N) & \phi_2(x_N) &        & \phi_N(x_N)
+	\end{bmatrix}
+\end{equation*}
+(we ignore the spin d.o.f.; reintroducing it simply amounts to a product of 
+Slater determinants for up and down spins). We have made the arbitrary choice 
+to index the wavefunction along the columns and the particle along the rows; 
+of course the other option is obtained by a transpose. Now, calculating this 
+determinant is at best an $ O(N^3) $ task---assuming that the number of particles 
+is an extensive quantity we will quickly run into unfeasibly long simulation 
+times for more than a few decimal places' accuracy on a larger than $ 4\times 4 $
+lattice. 
 
-TODO explain what bug I had 
+The cleverer way to go about this is to tabulate from the get-go all possible
+weights that we might encounter. Fortunately, this is not a difficult thing 
+to calculate; the first thing we need is a matrix of the same form as above, 
+only with a row with every possible site: 
+\begin{equation*}
+	\det \tilde{U} = 
+	\begin{bmatrix}
+		\phi_1(r_1) & \phi_2(r_1) & \cdots & \phi_N(r_1)\\ 
+		\phi_1(r_2) & \phi_2(r_2) &        & \phi_N(r_2)\\ 
+		\vdots      &             & \ddots &            \\ 
+		\phi_1(r_L) & \phi_2(r_N) &        & \phi_N(r_N)
+	\end{bmatrix}
+\end{equation*}
+Observe that one can recover the slater matrix $ U $ by selecting those 
+rows of $ \tilde{U} $ that correspond to occupied sites.
+As it turns out, the following matrix will contain the weights 
+\begin{equation}\label{eq:vmc-weight}
+	W = \tilde{U} U^{-1},\qquad 
+	W_{K,\ell} = \frac{\det U'}{\det U}
+		= \frac{\braket{x'\vert \Phi}}{\braket{x \vert \Phi}}
+\end{equation}
+where $ x' $ differs from $ x $ by the particle $ x_\ell $ hopping to the site 
+$ r_K $. Here $ U $ is $ N \times N$ matrix, $ \tilde{U} $ is $ L\times N $
+($ L $ is the total number of sites), and thus $ W $ is $ L\times N$.
+Of course, upon accepting $ x' $, $ W $ changes by virtue of the appearance of 
+$ U $, which depends on the configuration. Then the matrix $ W $ can be updated 
+as 
+\begin{equation*}
+	W_{I,j}' 
+		= W_{I,j} - \frac{W_{I,\ell}}{W_{K,\ell}} (W_{K,j} - \delta_{\ell,j}),
+		\qquad ( x_\ell \to r_K )
+\end{equation*}
+Here $ \delta_{\ell, j}$ is essentially the zero matrix with the $ \ell $-th 
+column filled with ones. If only one particle is moved, this can be written 
+as a rank-1 (dyadic) update 
+\begin{equation*}
+	W'_{I,j} = W_{I,j} + a_I b_j,\qquad 
+	a_I = W_{I,\ell},\quad b_j = - \frac{1}{W_{K,\ell}}(W_{K,j}- \delta_{\ell, j})
+\end{equation*}
+For implementation it is easier to think of this as the outer product
+\begin{equation*}
+	W' = W + \mathbf{a} \mathbf{b}^T
+\end{equation*}
+where it is crucial that we take the transpose and not the complex conjugate. 
+Of course round-off errors might accumulate and at long simulation times this 
+updating is susceptible to numerical instability. It is thus customary to 
+occasionally recalculate $ W $ directly from the Slater matrix with
+\cref{eq:vmc-weight}; at 64-bit precision this recalculation takes place on 
+the order of a few million timesteps. Roundoff errors might also lead to large 
+fluctiations on account of the matrix inverse of \cref{eq:vmc-weight}---an error 
+of order $ \epsilon $ of course becomes $ 1/\epsilon $ and one observes
+disproportionally large weights which do not affect the acceptance
+probability (at that timestep) but contaminate other matrix entries. In such 
+situations it is necessary to round off elements of $ W $ at, say, roughly 
+15 decimal points for 64-bit precision floats.
+
+\subsection*{References} 
+\begin{itemize}[itemsep=0.2ex]
+\item Becca, Sorella, \textit{Quantum Monte Carlo Methods for Strongly Correlated 
+	Systems} (2017).
+\end{itemize}
 
 \entry{Local Unitary Transformations and Phase Transitions}{3/26/24}
 Does symmetry local unitary transformation still connect two states in same 
 phase iff there's no gap closing?
+
+% Consider a 
 
 \subsection*{References}
 \begin{itemize}[itemsep=0.2ex]
@@ -1900,4 +1999,109 @@ is the Landau level $ \nu $. Notice that if the landau level is completely fille
 we have a gap. The edge modes carry the current; there are $ \nu $ different 
 ``channels'' for the modes. One can use Landauer electron transport theory to 
 find that for each such channel we have $ e^2 V_H/h $ current.
+
+\entry{EFT of the Hubbard Model}{4/6/24}
+Consider the Hubbard Hamiltonian ($ a $ indexes spin)
+\begin{equation*}
+	H = -t \sum_{j = 1}^{L} (c_{j,a}^\dagger c_{j+1, a} + c_{j+1, a}^\dagger 
+							c_{j,a})
+			+ \sum_{j = 1}^{L} u(1-2n_{j\uparrow})(1-2n_{j\downarrow})
+\end{equation*}
+One can consider the continuum limit of the Hubbard model---first write 
+$ \ell = L a_0 $, i.e., split the chain into $ L $ segments of lattice spacing 
+$ a_0 $. In this case the position $ x $ is $ na_0 $. The continuum field
+operator in terms of the real and wavenumber space operators is
+\begin{equation*}
+	\psi_a(x) = \lim_{a \rightarrow \infty}
+		\frac{c_{n,a}^\dagger}{\sqrt{a_0}}
+		= \frac{1}{\sqrt{\ell}}\sum_{k=-\infty}^\infty
+			e^{-iq_k x}c_{k,a}^\dagger 
+\end{equation*}
+where $ c_k = 2\pi k/\ell $. The inverse is then 
+\begin{equation*}
+	c_{k,a}^\dagger = \frac{1}{\sqrt{\ell}}
+		= \int_0^\ell dx e^{iq_k x} \psi_a^\dagger (x) 
+\end{equation*}
+Bearing in mind that the continuum limit takes the sum to an integral as 
+\begin{equation*}
+	\sum_{j=1}^L a_0 f(na_0)
+		\xrightarrow{a_0 \to \infty}
+		\int_0^1 dx f(x)
+\end{equation*}
+(of course we could shift $ (0, \ell) \to (-\ell/2, \ell/2) $ and $ \ell\to
+\infty $ for the infinite system limit). The kinetic term becomes 
+\begin{align*}
+	-t \sum_{j=1}^L \left(
+		c_{j,a}^\dagger c_{j+1, a} + c_{j+1, a}^\dagger c_{j,a}
+	\right)
+	= -t \sum_j a_0 
+		\left( \frac{1}{a_0} c_{j,a}^\dagger c_{j+1, a} 
+			+ \frac{1}{a_0} c_{j+1, a}^\dagger c_{j,a}\right)\\ 
+	= - t \int dx (\psi_a^\dagger \psi_a(x + a_0) + \psi_a(x+a_0)^\dagger \psi_a(x))
+\end{align*}
+Now, recall that translations are generated by
+\begin{equation*}
+	\psi(x + a_0) = e^{a_0 \partial_x} \psi(x) 
+		= \psi(x) + a_0 \partial_x \psi(x) + \frac{1}{2}a_0^2 \partial^2_x \psi(x) 
+			+ \cdots 
+\end{equation*}
+Consequently, we can write 
+\begin{align*}
+	&\psi_a(x)^\dagger \psi_a(x + a_0) + \psi_a(x+a_0)^\dagger \psi_a(x)\\
+	&\qquad= \psi_a ^\dagger \left(\psi_a + a_0\partial_x \psi_a 
+		+ \frac{1}{2}a_0^2 \partial_x^2 \psi_a\right)
+		+ \left(\psi_a^\dagger + a_0 \partial_x \psi_a^\dagger 
+		+ \frac{1}{2}a_0^2 \partial_x^2 \psi^\dagger \right) \psi_a\\
+	&\qquad= 2 \psi_a^\dagger \psi_a + a_0 \left(
+		\psi_a^\dagger \partial_x \psi_a + \partial_x \psi_a^\dagger \psi_a
+	\right)
+		+ \frac{a_0^2}{2}\left(
+			\psi_a^\dagger \partial_x^2 \psi_a + \partial_x^2 \partial_a^\dagger \psi_a
+		\right)\\
+	&\qquad =2  \psi_a^\dagger \psi_a + a_0 \partial_x(\psi_a^\dagger \psi_a)
+		+ \frac{a_0^2}{2}\left(
+			\partial_x^2(\psi_a^\dagger \psi_a) - 2(\partial_x \psi_a^\dagger)
+			(\partial_x \psi_a)
+		\right)
+\end{align*}
+If we assume the fields aren't supported at the boundaries, the total derivative 
+terms vanish, and we're left with 
+\begin{equation*}
+	\int dx \left[
+		-2t \psi_a^\dagger \psi_a + ta_0^2 (\partial_x \psi_a)^2
+	\right]
+\end{equation*} 
+Now, the first term is an IR divergence quantity which ultimately may be ignored. 
+The interaction term is 
+\begin{align*}
+	a_0u(1-2n_{j\uparrow})(1-2n_{j\downarrow})
+		= a_0\pm u(1+2n_{j\uparrow} - 2n_{j\downarrow} + 4n_{j\uparrow} n_{j\downarrow})\\
+		= \pm u \left(a_0 - 2 \psi_a^\dagger \psi_a 
+			+ \frac{2}{a_0} \psi_a^\dagger \psi_b^\dagger \psi_a \psi_b \right)
+\end{align*}
+The sign ambiguity comes from different continuum limits corresponding to the 
+Shiba transformation of the $ c_{j,a} $ operators. In aggregate, the 
+continuum Hamiltonian is 
+\begin{equation*}
+	H = \int dx\; \mathcal{H}(x)
+\end{equation*}
+with Lagrangian density 
+\begin{equation*}
+	\mathcal{H} (x)
+		= -2 (t \pm u ) \psi_a^\dagger \psi_a 
+			+ a_0^2 (\psi_x\psi_a^\dagger)^2 \pm \frac{2u}{a_0}
+				\psi_a^\dagger \psi_b^\dagger \psi_b \psi_a
+\end{equation*}
+The interaction term is manifestly UV divergent due to the inverse $ a_0 $ 
+and will need to be regularized. Ignoring the IR divergent first term, we 
+we find that the continuum tight-binding model recovers the nonlinear 
+Schr\"odinger equation. Also, observe that the absence of a time derivative, 
+meaning that this theory's Lagrangian actually coincides with its Hamiltonian
+(up to a sign).
+
+\subsection{Bosonization}
+
+\entry{LSM and 't Hooft Anomalies}{...}
+
+\entry{General effective actions}{4/13/24}
 \end{document}
