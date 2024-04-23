@@ -366,6 +366,25 @@ is essentially the commutator. If this theory was Abelian, however, the wedges
 \textit{would} vanish.)
 
 \subsection{Anyons in the semiclassical theory}
+\begin{equation*}
+	\mathcal{L}
+		= \frac{k}{4\pi} \epsilon^{\mu\nu\rho} A_\mu \partial_\nu A_\rho
+			+ A_\mu J^\mu
+\end{equation*}
+\begin{equation*}
+	\frac{\delta S}{\delta A_\mu}
+		= 0 \Longrightarrow 
+		0 = \frac{k}{4\pi}\epsilon^{\mu\nu\rho} \partial_\nu A_\rho + J^\mu
+		\Longrightarrow  
+		\frac{k}{4\pi} \epsilon^{\mu\nu\rho} \partial_\nu A_\rho = -J^\mu
+\end{equation*}
+\begin{align*}
+	\frac{k}{4\pi} \epsilon^{ij}\partial_i A_j = J^0 = \rho 
+	&\Longrightarrow \frac{k}{2\pi} B = \rho\\ 
+	\frac{k}{4\pi} \epsilon^{ij} (\partial_j A_0 - \partial_0 A_j)
+		= -J^i 
+	&\Longrightarrow \frac{k}{4\pi}\epsilon^{ij} E_j = J^i
+\end{align*}
 
 The Wilson lines obey the algebra 
 \begin{equation*}
@@ -1473,7 +1492,7 @@ new configuration with probability
 			}{
 				\psi(\left\{\sigma_i\right\}_{k})}\Bigg|^2\right).
 \end{equation*}
-Notice that we do not need to evaluate any slater determinants and the
+Notice that we do not need to evaluate any Slater determinants and the
 evaluation of the Metropolis-Hastings weight is fairly straightforward.
 One caveat is that $ S $ is not guaranteed to be nonsingular; Carleo and Troyer 
 circumvent this with an explicit regularization 
@@ -1483,6 +1502,15 @@ circumvent this with an explicit regularization
 \end{equation*}
 where their parameters are $ \lambda_{\text{min}} = 10^{-4}$, $ \lambda_0 = 100 $, 
 $ b=0.9 $.
+
+Stochastic reconfiguration is known in the machine learning literature as 
+\href{https://agustinus.kristia.de/techblog/2018/03/14/natural-gradient/}{natural 
+gradient descent}; there, what we call $ S $ is playing the role of the Fisher 
+information matrix, and $ F $ plays the role of the gradient. In that sense it is a 
+so-called ``preconditioning'' on the gradient as it takes the form of an 
+adjustment to the gradient (the multiplication byt he inverse of the Fisher 
+matrix).
+
 
 \subsection*{References}
 \begin{itemize}[itemsep=0.2ex]
@@ -2071,8 +2099,8 @@ terms vanish, and we're left with
 		-2t \psi_a^\dagger \psi_a + ta_0^2 (\partial_x \psi_a)^2
 	\right]
 \end{equation*} 
-Now, the first term is an IR divergence quantity which ultimately may be ignored. 
-The interaction term is 
+Now, the first term is an IR divergence which ultimately may be ignored.  The
+interaction term is 
 \begin{align*}
 	a_0u(1-2n_{j\uparrow})(1-2n_{j\downarrow})
 		= a_0\pm u(1+2n_{j\uparrow} - 2n_{j\downarrow} + 4n_{j\uparrow} n_{j\downarrow})\\
@@ -2099,9 +2127,147 @@ Schr\"odinger equation. Also, observe that the absence of a time derivative,
 meaning that this theory's Lagrangian actually coincides with its Hamiltonian
 (up to a sign).
 
-\subsection{Bosonization}
+\subsection{Low Energy EFT}
+We have computed the continuum Hamiltonian of the Hubbard model---now, we expand 
+on this result to find the low energy effective field theory of the model. 
+We find that at less than half-filling the model is described by the 
+$ \text{SU}(2)_1 $ WZW model, and at half-filling it is described by the 
+$ \text{SU}(2) $ Thirring model. 
 
 \entry{LSM and 't Hooft Anomalies}{...}
 
 \entry{General effective actions}{4/13/24}
+\subsection{SSB and nonlinear actions}
+Spontaneous symmetry breaking takes us from an internal symmetry group (which here 
+I assume to be a Lie group)$ G $ to a subgroup $ H $ by ``breaking'' the
+generators of a coset set $ G/H $\footnote{Coset set = set of cosets $ gH $. People 
+use the term coset space but I don't think $ G/H $ is a vector space.}. The
+theory should remain $ G $-invarint, but while the vacuum expectation value or
+order parameter is obviously invariant under $ H $, the $ G/H $ fluctuations
+about the VEV, parameterized by Goldstone bosons, will transform nonlinearly
+(i.e., not as a linear representation). In fact, as is frequently drilled into
+students' heads, $ G/H $ is not even guaranteed to be a group, as $ H $ need not
+be normal, but this is not essential. To get a handle on these transformation
+rules, it is useful to think of the space of field configurations as a
+spacetime-independent manifold $ \mathcal{M} $ on which $ G $ acts---for
+instance, a $ \text{U}(1) $ theory corresponds to the manifold $ S^1 $. $
+\mathcal{M} $ then has coordinates $ \phi^i $, at least locally. This provides
+us a dictionary between the actions of the internal symmetry on the vacuum field
+configuration and the more concrete theory of group actions. 
+
+For instance, taking the field to condense to $ \phi_0 $, the stabilizer of the
+vacuum corresponds to $ H_{\phi_0} $, the unbroken part of the symmetry group
+(we endow $ H $ with a subscript $ \phi_0 $ as, strictly speaking, what portion of
+$ G $ is unbroken depends on what the field condenses to). Moreover, the orbit
+of $ \phi_0 $ under $ G $ traces out a submanifold of $ \mathcal{M} $ which is
+in fact equivalent---let's say isometric---to $ G/H $. This is because the 
+coset space comprises sets $ gH_{\phi_0} $ for $ g\in G $, from which we can see 
+that the uniue cosets are those that correspond to elements of $ G $ that don't 
+leave $ \phi_0 $ invariant (are not in $ H_{\phi_0} $). We will strictly think 
+of $ G/H $ as a manifold with points denoted by $ \phi $ unless otherwise noted.
+
+Now, let us choose a set of coordinates $ \phi^a $ of dimension $ \dim G/H_{\phi_0} $
+and  $ \chi^i $ of dimension $ \dim H_{\phi_0} $ that paramterize $ G $ such that 
+$ (\pi^a, 0) $ traces out $ G/H_{\phi_0} $ as a submanifold. We asume $
+H_{\phi_0} $ acts linearly on $ \chi^i $ (we can always construct $ \pi $ and
+$ \chi $ such that this is true). The entire theory should continue to be 
+$ G $ invariant---this includes $ (\pi^a, 0) $, of course, which implies that 
+the action of $ H_{\phi_0} $ on $ (\pi^a,\chi^i) $ possesses an invariant
+subspace in the sense that $ \pi^a $ and $ \chi^i $ are acted on independently
+by elements of the stabilizer. This just guarantees us that the $ H_{\phi_0} $
+transformation rules don't mix $ \pi $ and $ \chi $ coordinates.
+
+Now, we can reach any $ \phi \in G/H_{\phi_0} $ from $ \phi_0 $ by any element of 
+$ G $ that is in that coset $ \phi $; pick one such element of that coset to be 
+the coset representative, denoted $ U(\pi) $ to remind us that this point in 
+$ G/H_{\phi_0} $ as a manifold is given by some configuration of $ \pi^a $
+fields. $ U(\pi) $ is notably an element of $ G $, so $ U $ can be thought of 
+as a map from a Goldstone boson field configuration $ \pi $ to the full group 
+$ G $ with image $ G/H_{\phi_0} $. Perhaps it is most concrete to think of 
+$ U(\pi) $ as the exponential map $ U(\pi) = \exp(i\pi^a Q_a) $ for generators 
+$ Q $ of the Lie algebra $ \mathfrak{g}/\mathfrak{h} $. Under this view 
+$ U(\pi) $ transforms under elements of $ H_{\phi_0} $ as 
+\begin{equation*}
+	U(\pi) \to U(\pi') = hU(\pi) h^{-1}
+\end{equation*}
+where, crucially, $ \pi' $ is the field configuration obtained by acting on $ \pi $ with the 
+linear representation of $ h $. While $ U(\pi) \to g U(\pi) g^{-1} $ for any 
+$ g\in G $, we cannot so easily write $ gU(\pi) g^{-1} = U(\pi)$ for some 
+$ \pi' $ related linearly to $ \pi $. One obtains $ U(\pi') = hU(\pi) h^{-1} $
+by noting that the action of $ U(\pi) $ on the vacuum $ \phi_0 $ followed by 
+$ h $ is the same as applying $ h $ to $ \phi_0 $ to shift to a new coordinate 
+system and then applying $ U(\pi') $ where $ \pi' $ is $ \pi $ in the $ h
+$-shifted frame (think of changes of bases in linear algebra). That is, 
+\begin{equation*}
+	h U(\pi) \phi_0 = U(\pi') h \phi_0 \Longrightarrow 
+	hU(\pi)h^{-1} = U(\pi')
+\end{equation*}
+
+How does this look for a general $ g \in G$? Well, we can factorize 
+$ g = k h$ where $ k \in G/H $ (pedantic point but I think there's a
+theorem somewhere that says we can always do this, I just worry that $ G/H $
+needs to be a subgroup), thus \begin{equation*}
+	gU(\pi) = kh U(\pi) = k U(\pi')h
+\end{equation*}
+But $ kU(\pi') $ is itself another coset representative which we may write 
+$ U(\pi'') $, but we will just relabel it to $ U(\pi') $ to be concise. 
+This 
+\begin{equation*}
+	gU(\pi) = U(\pi')h(g,\pi)
+\end{equation*}
+were we have written $ h(g,\pi) $ to emphasize that the particular $ h $ will 
+depend on what the coset representative and $ g $ are. The intuitive way to 
+view this is as the statement that we have $ \pi\to \pi' $ under $ G/H $ ($ U(\pi') $
+being the representative for the new coset), but we additionally need the 
+$ H $ transformation, i.e., we need an $ h \in H$ to ensure that this is the 
+correct coset representative for the action of $ g $. $ U(\pi') h(g,h)\in 
+G/H \times H \simeq G $, more or less. Thus, bearing in mind that all of this 
+is ultimately $ G $-invariant, we now have the additional knowledge of how 
+roguhly the Goldstone bosons transform: 
+\begin{equation*}
+	U(\pi) \to U(\pi') = gU(\pi) h(\pi, g),\qquad 
+	\chi^i \to \chi'^i = D^{(\chi)}(h(\pi, g))^i_j \chi^j
+\end{equation*}
+for a representation $ D^{(\chi)} $ of $ G $. The left equation above is what is 
+meant by a nonlinear realization of the symmetry transformation. This is admittedly 
+abstract (how do we find $ h(\pi,g) $, for instance?) but it is possible to 
+get finer details out of this construction; see Brauner \S 7.3.1. This is 
+nonetheless not essential to the present discussion and remains an entry for 
+another day.
+
+\subsection{General effective actions}
+
+We want the effective action to be fully $ G $ invariant, but the action transforms 
+nonlinearly under $ G/H $ transformations---that is, under a variation of the 
+Goldstone bosons. We would like to show that those transformations are then 
+$ G $ invariant, so that indeed the action is fully $ G $ invariant.
+
+
+We will show that the allowable terms are classified by $ H^{d+1}(G/H,\mathbb{R}) $. 
+
+\subsection*{References}
+\begin{itemize}[itemsep=0.2ex]
+\item D'Hoker, Weinberg, ``General Effective Actions'', \href{https://arxiv.org/abs/hep-ph/9409402}{arXiv:hep-ph/9409402}.
+\item Brauner, \textit{Effective Field Theory for Spontaneously Broken Symmetry} (2024). See Ch. 7 in particular.
+\end{itemize}
+
+\entry{CFT Miscellany}{...}
+Schottenholer: scaling dimensions, central charge, structure constants.
+
+\entry{Toy example of renormalization}{...}
+
+\entry{Generalized Gibbs ensemble}{...}
+% I am broadly interested in topological aspects of quantum matter and field
+% theory, gauge theories, and non-equilibrium many-body dynamics. This interest is
+% informed by fundamental questions such as: What is gauge theory? What is the
+% structure of entanglement in quantum field theories? How do quantum field
+% theories thermalize? What is the interplay between microscopic and low energy
+% descriptions? 
+
+\entry{Mean field ansatze of spin liquids}{...}
+Parton = slave-boson is 
+\begin{equation*}
+	\mathbf{S}_i = f^{\dagger}_{\alpha i} \vbg{\sigma}_{\alpha\beta} f_{\beta i}
+\end{equation*}
+
 \end{document}
