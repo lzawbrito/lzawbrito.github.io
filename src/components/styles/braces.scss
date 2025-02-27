@@ -1,0 +1,213 @@
+/* // -------------------------------------
+//   Brace Variables
+// ------------------------------------- */
+
+$brace-color: rgb(86, 86, 86);
+$brace-curve-radius: 75%;
+$brace-curve-length: 15px;
+$brace-curve-tip: 10px;
+$brace-strength: 1px;
+$brace-padding: 10px;
+$brace-width: ($brace-padding * 2) - $brace-strength;
+
+
+/* // -------------------------------------
+//   Brace Base
+// ------------------------------------- */
+
+.brace {
+  display: block;
+  position: relative;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  
+  // Text
+  // font-size: 2em;
+  // line-height: 2em;
+  // text-align: center;
+  // vertical-align: middle;
+  // text-transform: lowercase;
+  // font-style: italic;
+  // color: $brace-color;
+  
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+  }
+  
+}
+
+
+// -------------------------------------
+//   Brace Top & Bottom
+// -------------------------------------
+
+.brace-top,
+.brace-bottom {
+  width: auto;
+  min-width: $brace-width;
+  background-size: $brace-width $brace-padding;
+
+  &:before,
+  &:after {
+    width: 50%;
+    height: 100%;
+  }
+
+    
+  &:before {
+    left: - ($brace-padding - $brace-strength);
+    border-left: $brace-curve-tip solid transparent;
+  }
+  
+  &:after {
+    right: - ($brace-padding - $brace-strength);
+    border-right: $brace-curve-tip solid transparent;
+  }
+  
+  
+}
+
+// ----- Brace Top ----- //
+
+.brace-top {
+  padding-bottom: $brace-padding;
+  margin: 0 calc($brace-curve-length / 2) calc($brace-curve-length / 2);
+  background-image: 
+    radial-gradient(circle at 0 0, rgba($brace-color,0) ($brace-padding - $brace-strength - 0.5), $brace-color ($brace-padding - $brace-strength + 0.5), $brace-color ($brace-padding - 0.5), rgba($brace-color,0) ($brace-padding + 0.5)),
+    radial-gradient(circle at $brace-width 0, rgba($brace-color,0) ($brace-padding - $brace-strength - 0.5), $brace-color ($brace-padding - $brace-strength + 0.5), $brace-color ($brace-padding - 0.5), rgba($brace-color,0) ($brace-padding + 0.5));
+  background-position: center bottom;
+  
+  &:before,
+  &:after {
+    top: 100%;
+    border-top: $brace-strength solid $brace-color;
+    margin-top: - $brace-strength;
+  }
+ 
+  &:before {
+    border-top-left-radius: $brace-curve-radius $brace-curve-length;
+  }
+  
+  &:after {
+    border-top-right-radius: $brace-curve-radius $brace-curve-length;
+  }
+  
+}
+
+// ----- Brace Bottom ----- //
+
+.brace-bottom {
+  padding-top: $brace-padding;
+  margin: calc($brace-curve-length / 2) calc($brace-curve-length / 2) 0;
+  background-image: 
+    radial-gradient(circle at 0 $brace-padding, rgba($brace-color,0) ($brace-padding - $brace-strength - 0.5), $brace-color ($brace-padding - $brace-strength + 0.5), $brace-color ($brace-padding - 0.5), rgba($brace-color,0) ($brace-padding + 0.5)),
+    radial-gradient(circle at $brace-width $brace-padding, rgba($brace-color,0) ($brace-padding - $brace-strength - 0.5), $brace-color ($brace-padding - $brace-strength + 0.5), $brace-color ($brace-padding - 0.5), rgba($brace-color,0) ($brace-padding + 0.5));
+  background-position: center top;
+  
+  &:before,
+  &:after {
+    bottom: 100%;
+    border-bottom: $brace-strength solid $brace-color;
+    margin-bottom: - $brace-strength;
+  }
+  
+  &:before {
+    border-bottom-left-radius: $brace-curve-radius $brace-curve-length;
+  }
+  
+  &:after {
+    border-bottom-right-radius: $brace-curve-radius $brace-curve-length;
+  }
+  
+}
+
+
+// -------------------------------------
+//   Brace Left & Right
+// -------------------------------------
+
+.brace-left,
+.brace-right {
+  display: inline-block;
+  // height: 100%;
+  min-height: $brace-padding;
+  background-size: $brace-padding $brace-width;
+
+  &:before,
+  &:after {
+    width: 100%;
+    height: 50%;
+  }
+
+    
+  &:before {
+    top: - ($brace-padding - $brace-strength);
+    border-top: $brace-curve-tip solid transparent;
+  }
+  
+  &:after {
+    bottom: - ($brace-padding - $brace-strength);
+    border-bottom: $brace-curve-tip solid transparent;
+  }
+  
+  
+}
+
+// ----- Brace Left ----- //
+
+.brace-left {
+  padding-right: $brace-padding;
+  margin: calc($brace-curve-length / 2) calc($brace-curve-length / 2) calc($brace-curve-length / 2) 0;
+  background-image: 
+    radial-gradient(circle at 0 $brace-width, rgba($brace-color,0) ($brace-padding - $brace-strength - 0.5), $brace-color ($brace-padding - $brace-strength + 0.5), $brace-color ($brace-padding - 0.5), rgba($brace-color,0) ($brace-padding + 0.5)),
+    radial-gradient(circle at 0 0, rgba($brace-color,0) ($brace-padding - $brace-strength - 0.5), $brace-color ($brace-padding - $brace-strength + 0.5), $brace-color ($brace-padding - 0.5), rgba($brace-color,0) ($brace-padding + 0.5));
+  background-position: right center;
+  
+  &:before,
+  &:after {
+    left: 100%;
+    border-left: $brace-strength solid $brace-color;
+    margin-left: - $brace-strength;
+  }
+ 
+  &:before {
+    border-top-left-radius: $brace-curve-length $brace-curve-radius;
+  }
+  
+  &:after {
+    border-bottom-left-radius: $brace-curve-length $brace-curve-radius;
+  }
+  
+}
+
+// ----- Brace Right ----- //
+
+.brace-right {
+  padding-left: $brace-padding;
+  margin: calc($brace-curve-length / 2) 0 calc($brace-curve-length / 2) calc($brace-curve-length / 2) ;
+  background-image: 
+    radial-gradient(circle at $brace-padding 0, rgba($brace-color,0) ($brace-padding - $brace-strength - 0.5), $brace-color ($brace-padding - $brace-strength + 0.5), $brace-color ($brace-padding - 0.5), rgba($brace-color,0) ($brace-padding + 0.5)),
+    radial-gradient(circle at $brace-padding $brace-width, rgba($brace-color,0) ($brace-padding - $brace-strength - 0.5), $brace-color ($brace-padding - $brace-strength + 0.5), $brace-color ($brace-padding - 0.5), rgba($brace-color,0) ($brace-padding + 0.5));
+  background-position: left center;
+  
+  &:before,
+  &:after {
+    right: 100%;
+    border-right: $brace-strength solid $brace-color;
+    margin-right: - $brace-strength;
+  }
+ 
+  &:before {
+    border-top-right-radius: $brace-curve-length $brace-curve-radius;
+  }
+  
+  &:after {
+    border-bottom-right-radius: $brace-curve-length $brace-curve-radius;
+  }
+  
+}
+

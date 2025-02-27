@@ -1,0 +1,113 @@
+@import url("https://cdn.jsdelivr.net/gh/vsalvino/computer-modern@main/fonts/serif.css");
+/* font-family: "Computer Modern Serif", serif; */
+@import url("https://cdn.jsdelivr.net/gh/vsalvino/computer-modern@main/fonts/sans.css");
+/* font-family: "Computer Modern Sans", sans-serif; */
+@import url("https://cdn.jsdelivr.net/gh/vsalvino/computer-modern@main/fonts/typewriter.css");
+/* font-family: "Computer Modern Typewriter", monospace; */
+
+/* @import url("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/a11y-dark.min.css"); */
+
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --header-width: 260px;
+  /* --side-padding: 75px; */
+  --side-padding: 5vw;
+  --header-gap: 20px;
+
+  --footer-height: 75px;
+  --top-padding: 50px;
+  
+  --vt-c-white: #ffffff;
+  --vt-c-white-trans: #ffffffde;
+  --vt-c-white-soft: #efefef;
+  --vt-c-white-mute: #e8e8e8;
+
+  --vt-c-black: #000000;
+  --vt-c-black-trans: #000000e1;
+  --vt-c-black-soft: #242424;
+  --vt-c-black-mute: #191919;
+
+  --vt-c-indigo: #2c3e50;
+
+  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
+  --vt-c-divider-light-2: rgba(63, 60, 60, 0.12);
+  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
+  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+
+  --link-blue-light: rgb(26, 0, 198);
+  --link-blue-dark: rgb(166, 162, 245);
+
+  --vt-c-text-light-mute: rgb(127, 127, 127);
+  --vt-c-text-dark-mute: rgb(127, 127, 127);
+
+  --vt-c-text-light-1: var(--vt-c-indigo);
+  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
+  --vt-c-text-dark-1: var(--vt-c-white);
+  --vt-c-text-dark-2: rgba(255, 255, 255, 0.773);
+/* pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#abb2bf;background:#282c34}.hljs-comment,.hljs-quote{color:#5c6370;font-style:italic}.hljs-doctag,.hljs-formula,.hljs-keyword{color:#c678dd}.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#e06c75}.hljs-literal{color:#56b6c2}.hljs-addition,.hljs-attribute,.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:#98c379}.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#d19a66}.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#61aeee}.hljs-built_in,.hljs-class .hljs-title,.hljs-title.class_{color:#e6c07b}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}.hljs-link{text-decoration:underline} */
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--vt-c-white);
+  --color-background-trans: var(--vt-c-white-trans);
+  --color-background-soft: var(--vt-c-white-soft);
+  --color-background-mute: var(--vt-c-white-mute);
+  --link: var(--link-blue-light);
+  --color-border: var(--vt-c-divider-light-2);
+  --color-border-hover: var(--vt-c-divider-light-1);
+
+  --color-heading: var(--vt-c-text-light-1);
+  --color-text: var(--vt-c-text-light-1);
+  --color-text-mute: var(--vt-c-text-light-mute);
+  --section-gap: 160px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--vt-c-black);
+    --color-background-soft: var(--vt-c-black-soft);
+    --color-background-mute: var(--vt-c-black-mute);
+    --color-background-trans: var(--vt-c-black-trans);
+
+
+    --link: var(--link-blue-dark);
+    --color-border: var(--vt-c-divider-dark-2);
+    --color-border-hover: var(--vt-c-divider-dark-1);
+
+    --color-heading: var(--vt-c-text-dark-1);
+    --color-text: var(--vt-c-text-dark-2);
+    --color-text-mute: var(--vt-c-text-dark-mute)
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  line-height: 1.5;
+  font-family: "Computer Modern Serif", serif;
+  font-size: 17px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body p {
+  margin-top: 0px;
+}
+
+@media (max-width: 1024px) {
+  body {
+    font-size: 15px;
+  }
+}

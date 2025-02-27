@@ -1,0 +1,178 @@
+@import "./base.css";
+
+#app {
+  margin: 0 0;
+  padding: 0;
+  font-weight: normal;
+  padding-left: var(--side-padding);
+  padding-right: var(--side-padding) ;
+  padding-top: var(--top-padding);
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: var(--link);
+  /* transition: 0.4s; */
+}
+
+h1, h2, h3 {
+  font-family: 'Computer Modern Sans', sans-serif;
+  font-weight: bold;
+}
+
+p {
+  padding-bottom: 10px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.katex {
+  font-size: 1em;
+}
+
+b {
+  font-weight: bold;
+}
+
+.fine-print {
+  font-size: 14px;
+  font-family: 'Computer Modern Typewriter', monospace;
+  font-style: italic;
+  padding-bottom: 0;
+  color: var(--color-text-mute)
+}
+
+pre {
+  font-family: 'Computer Modern Typewriter', monospace;
+}
+
+.article pre {
+  background-color: var(--color-background-mute);
+  /* border-radius: 5px; */
+  border: 1px solid ;
+  padding: 10px 20px;
+}
+
+code {
+  font-family: 'Computer Modern Typewriter', monospace;
+}
+
+.hljs {
+  tab-size: 4ch;
+}
+
+.article pre {
+  margin-bottom: 10px;
+}
+
+ol, ul {
+  margin-bottom: 10px;
+}
+
+li {
+  padding-bottom: 10px;
+  text-align: justify;
+}
+
+li::marker {
+  color: var(--color-text-mute);
+}
+
+hr {
+  margin: 100px;
+  margin-top: 20px; 
+  margin-bottom: 30px;
+}
+
+th {
+  border-bottom: 1px solid var(--color-text);
+}
+
+
+blockquote {
+  background: var(--color-background-mute);
+  border-left: 10px solid var(--color-background-soft);
+  margin: 10px 0;
+  padding: 0.5em 10px;
+  /* font-style: italic; */
+}
+
+b {
+  font-weight: bold;
+}
+
+.line-header {
+    display: grid;
+    grid-template-columns: auto minmax(20px, 1fr);
+    align-items: center;
+    text-align: center;
+    grid-gap: 20px;
+    width: 100%;
+}
+
+.line-header:after {
+    content: '';
+    border-top: 1px solid;
+}
+
+.no-bottom-padding, .no-bottom-padding * {
+  padding-bottom: 0;
+}
+
+blockquote p {
+  display: inline;
+}
+
+.quote-src {
+  font-style: normal;
+}
+
+.quote-src::before {
+  content: " — ";
+  font-style: normal;
+}
+
+
+@media (hover: hover) {
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+body {
+  display: flex;
+  height: 100vh;
+}
+
+
+@media (min-width: 2048px) {
+  .app-wrapper {
+    padding-left: calc(20vw - var(--side-padding));
+  }
+}
+
+@media (max-width: 1024px) {
+  #app {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding: 0px;
+    width: 100%;
+    /* scroll-behavior: ; */
+    /* overflow-y: hidden; */
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  #loading {
+    width: 100%;
+    text-align: center;
+  }
+}
