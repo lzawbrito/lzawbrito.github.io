@@ -59,13 +59,13 @@
     <LoadingAnim v-if="!articles"/>
     <div v-else-if="(articles.length === 0) && (searchExitCode === 0)" :style="{position: 'relative'}">
       <p :style="{
-          fontFamily: 'Computer Modern Typewriter, monospace', 
+          fontFamily: 'Courier New, monospace', 
           position: 'absolute'
         }" >No results... :(</p>
     </div>
     <div v-else-if="searchExitCode === 1" :style="{position: 'relative'}">
       <div :style="{
-          fontFamily: 'Computer Modern Typewriter, monospace', 
+          fontFamily: 'Courier New, monospace', 
           position: 'absolute',
           whiteSpace: 'pre-wrap',
         }" >
@@ -105,7 +105,7 @@
 		background-color: var(--color-background-mute);
 		color: var(--color-text);
 		border: 1px solid transparent;
-		font-family: 'Computer Modern Typewriter', monospace;
+		font-family: var(--mono-font), monospace;
 		font-size: 1.2rem;
 		margin-bottom: 20px;
     padding: 5px;

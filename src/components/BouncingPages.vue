@@ -7,6 +7,7 @@ import { flattenRoutes } from './scripts/routeTools'
 import { routes } from '../router/index'
 let id = 0
 let edgeId = 0
+let avgSpeed = 1 / 30
 
 let flat = flattenRoutes(routes)
 let rs = flat[0]
@@ -22,7 +23,7 @@ let lineConfigs = es.map((e) => {return {
 function makeParticles() {
   function makeParticle(r) {
     // Random velocity
-    let v = [Math.random() / 10, Math.random() / 10]
+    let v = [Math.random() * avgSpeed, Math.random() * avgSpeed]
     let x = [10, 10]
     return { id: id++, x: x, v: v, dims: [0, 0], text: r.name, path: r.path, noLink: r.noLink }
   }
@@ -161,6 +162,7 @@ export default {
 
 <template>
   <div id="bouncing-container" ref="container" v-on:click="handleClick">
+    <p class="fine-print">(click/tap to pause)</p>
     <v-stage :config="configKonva">
       <v-layer>
         <v-line v-for="c in lineConfigs" :key="c.points" 
@@ -212,7 +214,7 @@ line {
 
 .bouncing-page {
   font-size: 20px;
-  font-family: 'Computer Modern Typewriter', monospace;
+  font-family: var(--mono-font), monospace;
   border: 1px solid var(--color-text);
   padding: 5px;
   position: absolute; 

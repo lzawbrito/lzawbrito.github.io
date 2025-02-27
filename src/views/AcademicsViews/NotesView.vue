@@ -1,6 +1,10 @@
 <script>
   import notes from './notes.js'
+  import Markdown from 'vue3-markdown-it';
   export default {
+    components: {
+      Markdown,
+    },
     data() {
       return {
         notes: notes
@@ -14,6 +18,7 @@
     <h1>Notes (and other documents)</h1>
     <div v-for="n in notes" :key="n.category">
       <h2>{{n.category}}</h2>
+      <Markdown v-if="n.description" :source="n.description"></Markdown>
       <ul>
         <li v-for="d in n.docs" :key="d.name">
         <span class="doc-name">
@@ -27,6 +32,8 @@
           </span>
           <a :href="d.files.slice(-1)[0].file" target="_blank"> {{d.files.slice(-1)[0].extension}} </a>
         </span>
+        <!-- <span style="width: 10px"> </span> -->
+        <span style="padding-left: 10px;">{{ d.description }}</span>
         </li>
       </ul>
     </div>
@@ -36,7 +43,7 @@
 
 <style scoped>
 .doc-name {
-  font-family: "Computer Modern Typewriter", monospace;
+  font-family: var(--mono-font), monospace;
   font-style: italic;
 }
 
@@ -45,12 +52,12 @@
 }
 
 .notes-link {
- font-family: "Computer Modern Typewriter", monospace;
+ font-family: var(--mono-font), monospace;
 }
 
 .notes-link::before, .notes-link::after {
   content: "[";
-  font-family: "Computer Modern Typewriter", monospace;
+  font-family: var(--mono-font), monospace;
   text-decoration: none;
 }
 

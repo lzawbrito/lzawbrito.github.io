@@ -13,7 +13,6 @@
     mounted() {
       const update = () => {
           let f = parseInt(this.frame)
-          console.log(f)
           if (f === 250) {
             this.frame = String(1).padStart(4, '0')
           } else {
@@ -34,10 +33,13 @@
 	<main>
     <h1>Research</h1>
     <p>
-      Presently my research interests are in quantum many-body physics and
-      quantum statistical mechanics, namely decoherence, quantum chaos, and
-      Hamiltonian reconstruction. I typically study these systems using simulations 
-      of SU(2) spin chains. 
+    I am broadly interested in the intersection of quantum statistical mechanics,
+    quantum field theory, and quantum information theory; this interest is
+    informed by scientific and technological demands to understand the
+    foundational principles of quantum matter, and more generally by the
+    philosophical puzzles offered by quantum theory. I am especially drawn to work
+    that leverages computational methods to treat and provide intuition for
+    previously intractable problems.
     </p>
     <!-- <img :style="{'display': 'block', 'margin-left': 'auto', 'margin-right': 'auto'}" width=120 :src="fname + frame + fext"/> -->
     <img :style="{'display': 'block', 'margin-left': 'auto', 'margin-right': 'auto'}" width=120 src="/assets/animations/spin-chain.gif"/>
@@ -50,7 +52,7 @@
 <style>
   #download-bib {
     font-style: italic;
-    font-family: "Computer Modern Typewriter", monospace;
+    font-family: var(--mono-font), monospace;
     padding-bottom: 10px;
   }
 </style>

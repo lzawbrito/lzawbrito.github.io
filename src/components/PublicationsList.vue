@@ -23,7 +23,8 @@ import bibtexParse from 'bibtex-parser-js'
             return groups 
           }, {})
           this.pubs = Object.entries(groupedPubs).sort((a, b) => {
-            return parseInt(a[0]) < parseInt(b[0])
+            console.log(b)
+            return -(parseInt(a[0]) - parseInt(b[0]))
           })
         },
         async fetchData() {
@@ -55,30 +56,43 @@ import bibtexParse from 'bibtex-parser-js'
     <LoadingAnim v-if="!pubs"/>
     <div v-else>
       <div v-for="y in pubs.slice(0, n)" :key="y[0]">
-        <h3> {{ y[0] }} </h3> 
-        <ul>
-          <li v-for="p in y[1]" :key="p.citationKey">
-            <span v-html="formatAuthors(p.entryTags.AUTHOR)"></span>
-            <span>, </span>
-            <span id="title">"{{ p.entryTags.TITLE }}," </span>
-            <span v-if="p.entryTags.JOURNAL"> {{p.entryTags.JOURNAL}}</span>
-            <span v-if="p.entryTags.VOLUME">&nbsp{{ p.entryTags.VOLUME }}</span>
-            <span v-if="p.entryTags.PAGES">, {{ p.entryTags.PAGES }}</span>
-            <span>&nbsp({{ p.entryTags.YEAR }}). </span>
-            <span id="arxiv-link">
-              [<a :href="p.entryTags.URL" target="_blank">{{ p.entryTags.DOI }}</a>]
+        <h3 id="year"> {{ y[0] }} </h3> 
+          <p v-for="p in y[1]" :key="p.citationKey">
+            <p id="title">{{ p.entryTags.TITLE }}</p>
+            <p id="authors" v-html="formatAuthors(p.entryTags.AUTHOR)"></p>
+            <span id="journal" v-if="p.entryTags.JOURNAL"> {{p.entryTags.JOURNAL}}</span>
+            <span v-if="p.entryTags.DOI" id="arxiv-link">
+              [<a :href="p.entryTags.URL" target="_blank">{{ p.entryTags.DOI.split("/").slice(-1)[0] }}</a>]
             </span>
-          </li>
-        </ul>
+            <span v-else-if="p.entryTags.EPRINT" id="arxiv-link">
+              [<a :href="p.entryTags.URL" target="_blank">{{ p.entryTags.ARCHIVEPREFIX + ":" + p.entryTags.EPRINT }}</a>]
+            </span>
+            <hr/>
+          </p>
       </div>
-      
     </div>
 	</Transition>
 </template>
 
 <style scoped>
+  #year { 
+    margin-top: 5px;
+  }
+
   #title {
     font-style: italic;
+    font-weight: bold;
+    padding-bottom: 0px;
+    /* color: rgb(118, 101, 165); */
+  }
+
+  #authors { 
+    padding-bottom: 0px;
+    color: var(--color-text-soft);
+  }
+
+  #journal {
+    color: var(--color-text-soft);
   }
 
   .v-enter-active,
@@ -92,11 +106,19 @@ import bibtexParse from 'bibtex-parser-js'
   }
 
   #arxiv-link {
-    font-family: 'Computer Modern Typewriter', monospace;
+    font-family: var(--mono-font), monospace;
   }
 
   span {
-    white-space: pre-wrap;
+    /* white-space: pre-wrap; */
   }
 
+  hr {
+    border: 0px;
+    height: 1px;
+    margin: 0px;
+    margin-top: 8px; 
+    margin-bottom: 0px;
+    background-color: var(--color-background-soft);
+  }
   </style>

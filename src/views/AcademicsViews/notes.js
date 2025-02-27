@@ -1,110 +1,58 @@
 const notes = [
 					{
-						category: "Physics",
-						docs: [
-              {
-                name: "PHYS519 - Spin Chains Report",
-                files: [
-                  { file: "/docs/notes/spin-chains.pdf", extension: "pdf" }
-                ]
-              },
-							{
-								name: "PHYS2060 - Quantum Mechanics - PULSEE Quantum Gates Report",
-								files: [
-									{ file: "/docs/notes/pulsee-quantum-gates-report.pdf", extension: "pdf" }
-								]
-							},
-							{
-								name: "Electromagnetism Lecture Notes",
-								files: [
-									{ file: "/docs/notes/electromagnetism-notes.pdf", extension: "pdf" }
-								]
-							},
-							{
-								name: "PHYS0070 - Analytical Mechanics Lecture Notes",
-								files: [
-									{ file: "/docs/notes/phys0070-notes.pdf", extension: "pdf" }
-								]
-							},
-							{
-								name: "PHYS0500 - Adv. Classical Mechanics Lecture Notes",
-								files: [
-									{ file: "/docs/notes/phys0500-notes.pdf", extension: "pdf" }
-								]
-							},
-						]
-					},
-					{
-						category: "Math",
+						category: "\"Journal\" notes",
+						description: "Very informal notes on misc. physics, math, CS kept as journal-style entries. Subject to corrections, updates, etc.", 
 						docs: [
 							{
-								name: "MATH1260 - Complex Analysis Quick Notes",
-								files: [
-									{ file: "/docs/notes/math1260-notes.pdf", extension: "pdf" }
+								name: "2023",
+								files: [ 
+									{ file: "/docs/notes/logs/2023/log-2023.tex", extension: "tex" }, 
+									{ file: "/docs/notes/logs/2023/log-2023.pdf", extension: "pdf" }, 
 								]
 							},
 							{
-								name: "MATH1120 - Partial Differential Equations Lecture Notes",
-								files: [
-									{ file: "/docs/notes/math1120-notes.pdf", extension: "pdf" }
-								]
-							},
-							{
-								name: "Linear Algebra Notes",
-								files: [
-									{ file: "/docs/notes/linear-algebra-notes.pdf", extension: "pdf" }
-								]
-							},
-							{
-								name: "Multivariable Calculus Notes",
-								files: [
-								{ file: "/docs/notes/multivariable-calculus-notes.pdf", extension: "pdf"}
+								name: "2024",
+								files: [ 
+									{ file: "/docs/notes/logs/2024/log-2024.tex", extension: "tex" }, 
+									{ file: "/docs/notes/logs/2024/log-2024.pdf", extension: "pdf" }, 
 								]
 							}
-						]
-					},
-					{
-						category: "Computer Science",
-						docs: [
-							{
-								name: "CluMMP (CSCI2370 Final Project)",
-								files: [
-									{ file: "/docs/notes/CSCI2370-Final-Report.pdf", extension: "pdf" }
-								]
-							},
-							{
-								name: "CSCI1951A - Data Science",
-								files: [
-									{ file: "/docs/notes/csci1951a-notes.pdf", extension: "pdf" }
-								]
-							},
 						]
 					},
 					{
 						category: "LaTeX",
 						docs: [
 							{
-								name: "My Template",
+								name: "My template",
 								files: [
-									{ file: "/docs/notes/pset-template.tex", extension: "tex"},
-									{ file: "/docs/notes/lzawbrito-template.sty", extension: "sty"}
-								]
+									{ file: "/docs/notes/latex-templates/lzawbrito-template.sty", extension: "sty"}
+								],
 							},
 							{
-								name: "My Macros",
+								name: "Colors for template",
 								files: [
-									{ file: "/docs/notes/macros.tex", extension: "tex"}
+									{ file: "/docs/notes/latex-templates/color-palette.tex", extension: "tex"}
 								]
 							},
-							{
-								name: "Template Documentation (work in progress)",
-								files: [
-									{ file: "/docs/notes/lzawbrito-template-docs.tex", extension: "tex"},
-									{ file: "/docs/notes/lzawbrito-template-docs.pdf", extension: "pdf"}
-								]
-							}
 						]
-					}
+					},
+					{
+						category: "Other",
+						docs: [
+							{								
+									name: "Intro to Density Matrices and Decoherence",
+									files: [
+									{ file: "/docs/notes/dm-decoherence.pdf", extension: "pdf" }
+									],
+							},
+							{								
+									name: "Intro to Spin Chain Models",
+									files: [
+									{ file: "/docs/notes/spin-chains.pdf", extension: "pdf" }
+									],
+							},
+						]
+					},
 		]
 
 export default notes

@@ -61,7 +61,7 @@ h1 {
 }
 
 #loading {
-  font-family: 'Computer Modern Typewriter', monospace;
+  font-family: var(--mono-font), monospace;
   position: absolute;
 }
 

@@ -9,13 +9,13 @@
 					{ year: '2014-2020', text: 'The Overlake School, Redmond, WA' },
 					{ year: '2020-2024.5',  text: 'Brown University, Providence, RI. B.Sc. in Mathematical Physics and Computer Science' } 
 				],
-				otherResearch: [
-					{ year: '2021', text: "Residual neural network strong gravitational lens classifier in long-exposure DECaLS survey. Under Ian Dell'Antonio." },
-					{ year: '2021', text: "Pedagogical simulation and modelling of active Brownian particles in circular confinements.  Under Hamid Karani." }
-				],
 				employment: [
 					{ year: '2017-2018', text: 'Assistant instructor, Play-Well Teknologies'},
-					{ year: '2021', text: 'Teaching assistant, APMA1930W: Probabilities in Quantum Mechanics'}
+					{ year: '2022-2023', text: 'Teaching assistant, APMA1930W: Probabilities in Quantum Mechanics'},
+					{ year: '2023', text: 'Instructional Lab Assistant, Brown Physics Dept.'},
+				],
+				awards: [
+					{ year: '2023-2024', text: '<a href="https://goldwaterscholarship.gov/" target="_blank">Goldwater Scholar</a> in Physics and Astronomy' },
 				],
 				outreach: [
 					{ year: '2021-2022', text: 'Undergraduate Physics Journal Club, Co-head' },
@@ -39,7 +39,9 @@
 							"PHYS2470 - Advanced Statistical Mechanics (+)",
 							"PHYS2300 - Quantum Theory of Fields I (+)",
 							"PHYS2600 - Computational Physics (+)",
-							"PHYS2010 - Techniques in Experimental Physics (+)"
+							"PHYS2320 - Quantum Theory of Fields II (+)",
+							"PHYS2430 - Quantum Many Body Theory (+)",
+							"PHYS1980 - DISP in Generalized Symmetries and 't Hooft Anomalies"
 						]
 					},
 					{
@@ -58,7 +60,7 @@
 							"MATH1120 - Partial Differential Equations",
 							"MATH1260 - Complex Analysis",
 							"MATH1530 - Abstract Algebra",
-							"MATH2010 - Differential Geometry (+,*)"
+							"MATH2010 - Differential Geometry (+)"
 						]
 					},
 					{
@@ -67,7 +69,7 @@
 							"PHIL1283 - Philosophy of Quantum Mechanics",
 							"PHIL0211 - Modern Political Philosophy",
 							"PHIL1860 - Sense and Reference",
-							"PHIL2710 - Recent Debates in the Philosophy of Logic (+)"
+							"PHIL2710 - Recent Debates in the Philosophy of Logic (+, *)"
 						]
 					}
 				]
@@ -81,8 +83,11 @@
 	<h1>
 		Lucas Z. Brito
 	</h1>
-	<p id="contact-info">CV/Resume <span :style="{ fontFamily: 'Computer Modern Typewriter' }" >[<a href="/docs/lucas-z-brito-resume.pdf">pdf</a>]</span>
-		// <a :style="{ fontFamily: 'Computer Modern Typewriter' }" 
+	<p id="contact-info">CV/Resume <span :style="{ fontFamily: 'Courier New' }" >
+			[<a href="/docs/resume/lucas-z-brito-resume.pdf">pdf</a>, 
+			<a href="/docs/resume/lucas-z-brito-resume.tex">tex</a>]
+		</span>
+		// <a :style="{ fontFamily: 'Courier New' }" 
 		href="mailto:lucas_brito@brown.edu">lucas_brito@brown.edu</a></p>
 	<p class="fine-print">This page is not accessible from the main website for privacy.</p>
 	<h2 class="line-header">
@@ -98,15 +103,15 @@
 		Publications
 	</h2>
 	<PublicationsList n="5"/>
-	<h2 class="line-header">
+	<!-- <h2 class="line-header">
 		Other Research
-	</h2>
-	<table>
+	</h2> -->
+	<!-- <table>
 		<tr v-for="i in otherResearch" :key="i.year">
 			<td class="table-date">{{ i.year }}</td>
 			<td>{{ i.text }}</td>
 		</tr>
-	</table>
+	</table> -->
 	<h2 class="line-header">
 		Employment
 	</h2>
@@ -114,6 +119,13 @@
 		<tr v-for="i in employment" :key="i.year">
 			<td class="table-date">{{ i.year }}</td>
 			<td>{{ i.text }}</td>
+		</tr>
+	</table>
+	<h2 class="line-header">Awards and Recognition</h2>
+	<table>
+		<tr v-for="i in awards" :key="i.year">
+			<td class="table-date">{{ i.year }}</td>
+			<td v-html="i.text"></td>
 		</tr>
 	</table>
 	<h2 class="line-header">Outreach</h2>
@@ -151,7 +163,7 @@ table {
 }
 
 .table-date {
-	font-family: 'Computer Modern Typewriter', monospace;
+	font-family: var(--mono-font), monospace;
 	text-align: right;
 	vertical-align: top;
 	padding-right: 10px;
@@ -171,7 +183,7 @@ ul.no-bullets {
 }
 
 #courses {
-  font-family: "Computer Modern Typewriter", monospace;
+  font-family: var(--mono-font), monospace;
   font-style: italic;
 	white-space: pre-wrap;
 }

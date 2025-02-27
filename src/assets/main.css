@@ -5,9 +5,9 @@
   padding: 0;
   font-weight: normal;
   padding-left: var(--side-padding);
-  padding-right: var(--side-padding) ;
   padding-top: var(--top-padding);
   width: 100%;
+  /* padding-left: calc(20vw - var(--side-padding)); */
 }
 
 a {
@@ -17,9 +17,18 @@ a {
 }
 
 h1, h2, h3 {
-  font-family: 'Computer Modern Sans', sans-serif;
+  font-family: 'Arial', sans-serif;
   font-weight: bold;
 }
+
+h1 { 
+  font-size: 24px;
+}
+
+h2 { 
+  font-size: 20px;
+}
+
 
 p {
   padding-bottom: 10px;
@@ -37,14 +46,14 @@ b {
 
 .fine-print {
   font-size: 14px;
-  font-family: 'Computer Modern Typewriter', monospace;
+  font-family: var(--mono-font), monospace;
   font-style: italic;
   padding-bottom: 0;
   color: var(--color-text-mute)
 }
 
 pre {
-  font-family: 'Computer Modern Typewriter', monospace;
+  font-family: var(--mono-font), monospace;
 }
 
 .article pre {
@@ -55,7 +64,7 @@ pre {
 }
 
 code {
-  font-family: 'Computer Modern Typewriter', monospace;
+  font-family: var(--mono-font), monospace;
 }
 
 .hljs {
@@ -80,6 +89,9 @@ li::marker {
 }
 
 hr {
+  border: 0px;
+  background-color: var(--color-background-soft);
+  height: 1px;
   margin: 100px;
   margin-top: 20px; 
   margin-bottom: 30px;
@@ -146,11 +158,11 @@ body {
 }
 
 
-@media (min-width: 2048px) {
+/* @media (min-width: 2048px) {
   .app-wrapper {
     padding-left: calc(20vw - var(--side-padding));
   }
-}
+} */
 
 @media (max-width: 1024px) {
   #app {

@@ -1,14 +1,19 @@
-@import url("https://cdn.jsdelivr.net/gh/vsalvino/computer-modern@main/fonts/serif.css");
+/* @import url("https://cdn.jsdelivr.net/gh/vsalvino/computer-modern@main/fonts/serif.css"); */
 /* font-family: "Computer Modern Serif", serif; */
-@import url("https://cdn.jsdelivr.net/gh/vsalvino/computer-modern@main/fonts/sans.css");
+/* @import url("https://cdn.jsdelivr.net/gh/vsalvino/computer-modern@main/fonts/sans.css"); */
 /* font-family: "Computer Modern Sans", sans-serif; */
-@import url("https://cdn.jsdelivr.net/gh/vsalvino/computer-modern@main/fonts/typewriter.css");
-/* font-family: "Computer Modern Typewriter", monospace; */
+/* @import url("https://cdn.jsdelivr.net/gh/vsalvino/computer-modern@main/fonts/typewriter.css"); */
+/* font-family: var(--mono-font), monospace; */
 
 /* @import url("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/a11y-dark.min.css"); */
 
 /* color palette from <https://github.com/vuejs/theme> */
+
+
 :root {
+  --mono-font: "Courier New";
+
+  
   --header-width: 260px;
   /* --side-padding: 75px; */
   --side-padding: 5vw;
@@ -38,7 +43,8 @@
   --link-blue-dark: rgb(166, 162, 245);
 
   --vt-c-text-light-mute: rgb(127, 127, 127);
-  --vt-c-text-dark-mute: rgb(127, 127, 127);
+  --vt-c-text-dark-mute: rgb(97, 97, 97);
+  --vt-c-text-dark-soft: rgb(148, 148, 148);
 
   --vt-c-text-light-1: var(--vt-c-indigo);
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
@@ -77,7 +83,8 @@
 
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
-    --color-text-mute: var(--vt-c-text-dark-mute)
+    --color-text-mute: var(--vt-c-text-dark-mute);
+    --color-text-soft: var(--vt-c-text-dark-soft);
   }
 }
 
@@ -95,8 +102,8 @@ body {
   color: var(--color-text);
   background: var(--color-background);
   line-height: 1.5;
-  font-family: "Computer Modern Serif", serif;
-  font-size: 17px;
+  /* font-family: "Computer Modern Serif", serif; */
+  font-size: 16px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -21,7 +21,7 @@
 <template>
   <div id="lyrics-wrapper">
     <h2><span id="title" @click="show = !show">{{ title }}</span> <span v-if="tab" id="tab-link"><a :href="tab" target="_blank">tab</a> </span><span v-html="arrow"></span></h2>
-    <Markdown v-if="show" :source="lyrics"></Markdown>
+    <Markdown v-if="show" :breaks="true" :source="lyrics"></Markdown>
   </div>
 </template>
 
@@ -41,13 +41,13 @@
  }
  
  #tab-link {
-  font-family: 'Computer Modern Typewriter', monospace;
+  font-family: var(--mono-font), monospace;
   font-size: 18px;
  }
 
 #tab-link::before, #tab-link::after {
   content: "[";
-  font-family: "Computer Modern Typewriter", monospace;
+  font-family: var(--mono-font), monospace;
   text-decoration: none;
 }
 

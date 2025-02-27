@@ -73,7 +73,7 @@ export default {
 #loading {
   position: absolute;
   z-index: 2;
-  font-family: 'Computer Modern Typewriter', monospace;
+  font-family: var(--mono-font), monospace;
 }
 
 #article-header {

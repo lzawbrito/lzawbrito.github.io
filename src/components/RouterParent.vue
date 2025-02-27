@@ -44,7 +44,8 @@ export default {
     <pre v-else-if="atParentRoute" class="parent-active">> {{ name }}</pre>
     <pre v-else class="parent">  {{ name }} </pre>
     <div :style="{'display': childrenDisplay}" id="hover-menu">
-      <hr class="brace brace-left">
+      <!-- <hr class="brace brace-left"> -->
+      <div id="brace"></div>
       <div id="children-menu">
         <slot />
       </div>
@@ -55,13 +56,13 @@ export default {
 <style scoped>
 
 .parent {
-  font-family: 'Computer Modern Typewriter', monospace;
+  font-family: var(--mono-font), monospace;
   color: var(--link)
 }
 
 .parent-active {
   color: var(--color-text);
-  font-family: 'Computer Modern Typewriter', monospace;
+  font-family: var(--mono-font), monospace;
 }
 
 #hover-menu {
@@ -75,11 +76,17 @@ export default {
   z-index: 0;
 }
 
+#brace { 
+  border: solid 1px var(--color-text-mute);
+  border-right: none;
+  width:8px;
+}
+
 #children-menu {
   padding-left: 0px;
 }
 
 </style>
-<style lang="scss" scoped>
+<!-- <style lang="scss" scoped>
   @import "./styles/braces.scss";
-</style>
+</style> -->

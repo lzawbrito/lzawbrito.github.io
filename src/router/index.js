@@ -6,12 +6,9 @@ import SoloMusicView from '../views/MusicViews/SoloMusicView.vue'
 import ScoresMusicView from '../views/MusicViews/ScoresMusicView.vue'
 import ProjectsView from '../views/AcademicsViews/ProjectsView.vue'
 import PublicationsView from '../views/AcademicsViews/PublicationsView.vue'
-import BlogView from '../views/BlogView.vue'
 import PathNotFound from '../views/PathNotFound.vue'
-import BlogMenu from  '../components/BlogMenu.vue'
-import ManifestoView from  '../views/ManifestoView.vue'
+import AboutView from  '../views/AboutView.vue'
 import AcademicsView from '../views/AcademicsView.vue'
-import ArticlePage from '../components/ArticlePage.vue'
 import AlbumPage from '../components/AlbumPage.vue'
 import CVView from '../views/CVView.vue'
 
@@ -40,7 +37,7 @@ export const routes = [
         },
         {
           path: 'projects',
-          name: 'Projects',
+          name: 'GitHub\u2197',
 
           // eslint-disable-next-line no-unused-vars
           beforeEnter(to, from, next) {
@@ -89,24 +86,24 @@ export const routes = [
         }
       ]
     },
-    {
-      path: '/blog',
-      name: 'Blog',
-      component: BlogView,
-      hideChildren: true, 
-      children: [
-        {
-          name: 'Blog',
-          path: '',
-          component: BlogMenu
-        },
-        {
-          path: ':path',
-          component: ArticlePage,
-          props: true
-        }
-       ]
-    },
+    // {
+    //   path: '/blog',
+    //   name: 'Blog',
+    //   component: BlogView,
+    //   hideChildren: true, 
+    //   children: [
+    //     {
+    //       name: 'Blog',
+    //       path: '',
+    //       component: BlogMenu
+    //     },
+    //     {
+    //       path: ':path',
+    //       component: ArticlePage,
+    //       props: true
+    //     }
+    //    ]
+    // },
     {
       path: '/cv',
       name: 'CV/Resume',
@@ -114,9 +111,9 @@ export const routes = [
       hide: true,
     },
     {
-      path: '/manifesto',
-      name: 'Manifesto?',
-      component: ManifestoView,
+      path: '/about',
+      name: 'About?',
+      component: AboutView,
     },
     { path: '/:pathMatch(.*)*', component: PathNotFound },
   ]

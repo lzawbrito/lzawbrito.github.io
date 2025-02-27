@@ -35,7 +35,7 @@ import AlbumEntry from '../../components/AlbumEntry.vue';
     <Transition>
       <div v-if="!releases" id="loading"></div>
       <div v-else class="album-list">
-        <AlbumEntry v-for="r in releases" :key="r.id"
+        <AlbumEntry v-for="r in releases.filter((a) => !a.hide)" :key="r.id"
           :title="r.title" 
           :year="r.year" 
           :artist="r.artist" 
@@ -61,7 +61,7 @@ h1 {
 }
 
 #loading {
-  font-family: 'Computer Modern Typewriter', monospace;
+  font-family: var(--mono-font), monospace;
   position: absolute;
 }
 

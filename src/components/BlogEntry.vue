@@ -37,7 +37,7 @@
 <style>
 #date {
   font-size: 10x;
-  font-family: 'Computer Modern Typewriter', monospace;
+  font-family: var(--mono-font), monospace;
 }
 
 #wrapper {
@@ -64,7 +64,7 @@
 }
 
 #read-more {
-  font-family: 'Computer Modern Typewriter', monospace;
+  font-family: var(--mono-font), monospace;
   font-size: 18px;
   font-style: italic;
   padding: inherit;

@@ -95,7 +95,7 @@ nav {
   display: flex;
   flex-direction: column;
   text-align: center;
-  font-family: "Computer Modern Typewriter", monospace;
+  font-family: var(--mono-font), monospace;
 }
 
 nav a::before {
@@ -150,7 +150,7 @@ main {
   padding-left: calc(var(--header-width ) + var(--header-gap));
   padding-bottom: 100px; 
   /* width: calc(100vw - var(--side-padding) - var(--header-width)); */
-  margin-right: calc(var(--header-width ) + var(--header-gap));
+  margin-right: clamp(10px, calc(var(--header-width ) + var(--header-gap) + var(--side-padding)), 25vw);
   max-width: 1300px;
   /* min-width: 800px; */
 }
@@ -214,6 +214,7 @@ nav {
   .title {
     font-size: 32px;
   }
+
   header .wrapper {
     font-size: 20px;
     display: flex;

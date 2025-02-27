@@ -1,0 +1,203 @@
+\documentclass{article}
+
+\usepackage{tabularx}
+\usepackage{multicol}
+
+\usepackage{fancyhdr}
+
+\usepackage{microtype}
+\usepackage{bibentry}
+
+\usepackage[explicit]{titlesec}
+%symbols, etc
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{physics}
+
+%boxes
+\usepackage{minibox}
+
+%subfigures
+\usepackage{graphicx}
+\usepackage{subfig}
+
+%tikz
+\usepackage{tikz}
+
+%tabs in code package
+\usepackage{fancyvrb}
+
+\usepackage{xcolor}
+\definecolor{myblue}{rgb}{0.25,0.5,0.75}
+
+%hyperref--hyperlinks, etc
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=myblue,
+    filecolor=magenta,      
+    urlcolor=myblue,
+}
+
+%custom enumeration
+\usepackage{enumitem}	
+
+% change margin
+\usepackage[margin=0.55in]{geometry}
+\usepackage{changepage}
+
+%new table spacing
+\usepackage{booktabs}
+
+
+%epigraph
+\usepackage{epigraph}
+
+% indent size
+\setlength\parindent{0cm}
+\setlength{\parskip}{.5em}
+
+%code environment
+\newenvironment{code}{
+\VerbatimEnvironment
+\begin{adjustwidth}{0.5 in}{0.5in}
+\begin{Verbatim}[tabsize=4]}
+{
+\end{Verbatim}
+\end{adjustwidth}}
+
+\usepackage{array}
+\newcolumntype{L}{>{\raggedleft}p{0.12\textwidth}}
+\newcolumntype{R}{p{0.8\textwidth}}
+\newcommand\VRule{\color{white}\vrule width 0.5pt}
+\setlength{\extrarowheight}{5pt}
+
+\thispagestyle{empty}
+\newcommand{\raisedrulefill}[2][0ex]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}
+
+\titleformat{\section}{\Large}{\thesection.
+}{0em}{\textit{\textsf{#1}}\,\raisedrulefill[0.4ex]{1pt}}
+\titlespacing*{\section}{0em}{0.1em}{0.1em}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\begin{document}
+
+\begin{minipage}{2in}
+    \LARGE{\textbf{\textsf{Lucas Z. Brito}}}
+\end{minipage}
+\hfill
+\begin{minipage}{4.2in}
+    \medskip
+    \raggedleft
+    % Brown University, 69 Brown St., Mail \#7584, Providence, RI, 02912\\
+    \href{https://www.lzawbrito.com/cv}{\texttt{lzawbrito.com}}
+    $ \;\cdot\; $
+    (208) 816-4186 $ \; \cdot \; $  
+    \href{mailto:lucas_brito@brown.edu}{\texttt{lucas\_brito@brown.edu}}\\
+\end{minipage}
+
+\bigskip
+
+\section*{Education}
+\begin{tabular}{L!{\VRule}R}
+    \texttt{2020-2024.5} & Brown University, Providence, RI. B.Sc. in  Mathematical
+        Physics and Computer Science \\
+\texttt{2014-2020} & The Overlake School, Redmond, WA
+\end{tabular}
+
+\section*{Publications}
+\begin{tabular}{L!{\VRule}R}
+\texttt{2023} & \textbf{L. Z. Brito}, S. Carr, J. A. Jacoby, J. B. Marston. 
+\textit{Hamiltonian Reconstruction: the Correlation Matrix and Incomplete Operator Bases,} 
+\texttt{[}\href{https://arxiv.org/abs/2311.09302}{\texttt{arXiv:2311.09302}}\texttt{]}.\\
+\texttt{2022}& D. Candoli, I. K. Nikolov, \textbf{L. Z.  Brito}, S. Carr, S.
+Sanna, V. F. Mitrović, \textit{PULSEE: A software for the quantum simulation of
+an extensive set of magnetic resonance observables"}.
+\texttt{[}\href{https://doi.org/10.1016/j.cpc.2022.108598}{\texttt{doi:j.cpc.2022.105898}}\texttt{]}.
+\end{tabular}
+
+\section*{Employment}
+\begin{tabular}{L!{\VRule}R}
+\texttt{2023}      & \textit{Instructional Lab Assistant, Brown Department of Physics}\\
+                   & Specialized in quantum optics. Designed and implemented
+                     tabletop demonstration of Bell's inequality, single photon 
+                     interferometry. Wrote Python photon acquisition software for 
+                     laboratory usage. \\
+\texttt{2022-2023} & \textit{Teaching Assistant, APMA1930W - Probabilities in Quantum Mechanics}\\
+                   & Wrote and lectured supplementary curriculum on quantum 
+                     information theory and related topics. Substitute lectured.\\
+\texttt{2017-2018} & \textit{Assistant instructor, Play-Well Teknologies}
+\end{tabular}
+
+\section*{Skills}
+\begin{tabular}{L!{\VRule}R}
+\texttt{Programming Languages} & Python (Scipy, Numpy, Matplotlib/Seaborn, 
+SKLearn, Pandas), Julia, Java, Javascript (React, Vue), HTML, CSS, SQL, \LaTeX,
+bash scripting (Slurm, Git).\\
+\texttt{Languages} & English, Portuguese, Spanish (conversational). 
+\end{tabular}
+\setlength{\multicolsep}{0pt}
+
+\section*{Awards and Recognition}
+\begin{tabular}{L!{\VRule}R}
+\texttt{2023-2024} & Goldwater Scholar in Physics and Astronomy.
+\end{tabular}
+
+\section*{Relevant Coursework}
+\begin{tabularx}{\textwidth}{L!{\VRule}R}
+\texttt{Physics} &  
+\vspace*{-1em}
+\begin{multicols}{2}
+    \begin{itemize}[nosep,leftmargin=4mm]
+    \item Advanced Electromagnetic Theory 
+    \item Quantum Mechanics I*, II* 
+    \item Advanced Quantum Mechanics*
+    \item Advanced Statistical Mechanics*
+    \item Computational Physics*
+    \item Quantum Theory of Fields I*, II*
+    \item Quantum Many-Body Theory* 
+    \item Gauge Theory*
+    \end{itemize}
+\end{multicols}
+\\[-1em]
+\texttt{Computer Science} & 
+    % Accelerated Introduction to Computer Science (\texttt{CSCI0190}), 
+    % Data Science (\texttt{CSCI1951A}), 
+    % Introduction to Software Engineering (\texttt{CSCI0320}), 
+    % Interdisciplinary Scientific Visualization (\texttt{CSCI3270}, graduate).\\
+    \vspace*{-1em}
+\begin{multicols}{2}
+    \begin{itemize}[nosep,leftmargin=4mm]
+    \item Accelerated Intro to Computer Science
+    \item Data Science 
+    \item Intro to Software Engineering 
+    \item Interdisciplinary Scientific Visualization* 
+    \item IS in Scientific Visualization
+    \end{itemize}
+\end{multicols}
+\\[-1em]
+\texttt{Mathematics} & 
+\vspace*{-1em}
+\begin{multicols}{2}
+    \begin{itemize}[nosep,leftmargin=4mm]
+    \item Linear algebra
+    \item Partial Differential Equations
+    \item Abstract Algebra
+    \item Complex Analysis
+    \item Differential Geometry*
+    \end{itemize}
+\end{multicols}
+\end{tabularx}
+\vspace*{-4em} % grad level annotation
+\begin{flushright}
+(* = graduate level)
+\end{flushright}
+
+\section*{Outreach}
+\begin{tabular}{L!{\VRule}R}
+\texttt{2021-pres.} & Undegraduate Physics Journal Club, Co-Head.
+\end{tabular}
+
+
+\end{document}
