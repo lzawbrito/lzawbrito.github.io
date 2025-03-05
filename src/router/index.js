@@ -1,11 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import NotesView from '../views/AcademicsViews/NotesView.vue'
 import MusicView from '../views/MusicView.vue'
 import SoloMusicView from '../views/MusicViews/SoloMusicView.vue'
 import ScoresMusicView from '../views/MusicViews/ScoresMusicView.vue'
-import ProjectsView from '../views/AcademicsViews/ProjectsView.vue'
-import PublicationsView from '../views/AcademicsViews/PublicationsView.vue'
 import PathNotFound from '../views/PathNotFound.vue'
 import AboutView from  '../views/AboutView.vue'
 import AcademicsView from '../views/AcademicsView.vue'
@@ -22,30 +19,7 @@ export const routes = [
     {
       path: '/work',
       name: 'Work',
-      redirect: '/work/notes',
       component: AcademicsView,
-      children: [
-        {
-          path: 'research',
-          name: 'Research',
-          component: PublicationsView,
-        },
-        {
-          path: 'notes',
-          name: 'Notes',
-          component: NotesView
-        },
-        {
-          path: 'projects',
-          name: 'GitHub\u2197',
-
-          // eslint-disable-next-line no-unused-vars
-          beforeEnter(to, from, next) {
-            window.location.href = "https://github.com/lzawbrito"
-          },
-          component: ProjectsView,
-        },
-      ]
     },
     {
       path: '/music',
@@ -112,7 +86,7 @@ export const routes = [
     },
     {
       path: '/about',
-      name: 'About?',
+      name: 'About',
       component: AboutView,
     },
     { path: '/:pathMatch(.*)*', component: PathNotFound },
