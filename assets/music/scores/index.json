@@ -1,0 +1,46 @@
+[
+	{
+		"title": "Things to Remember When I'm Upset",
+		"id": "things-to-remember",
+		"year": "2021",
+		"artist": "dir. Vivian Kong",
+		"role": "score, foley",
+		"img": "/assets/music/scores/covers/things-to-remember-cover.png",
+		"links": [
+			{ "name": "Vimeo", "link": "https://vimeo.com/553240546", "id": "vimeo" }
+		]
+	},
+	{
+		"title": "Invisible Cities",
+		"id": "invisible-cities",
+		"year": "2021",
+		"artist": "dir. Kong/Chen",
+		"role": "score",
+		"img": "/assets/music/scores/covers/invisible-cities-cover.jpg",
+		"links": [
+			{ "name": "YouTube", "link": "https://youtu.be/vA8Ud5M1PgQ", "id": "youtube" }
+		]
+	},
+	{
+		"title": "video_practices",
+		"id": "video-practices",
+		"year": "2020",
+		"artist": "dir. Vivian Kong",
+		"role": "score",
+		"img": "/assets/music/scores/covers/video-practices-cover.jpg",
+		"links": [
+			{ "name": "YouTube", "link": "https://youtu.be/vA8Ud5M1PgQ", "id": "youtube" }
+		]
+	},
+	{
+		"title": "Sun Sheep God Power",
+		"id": "sun-sheep-god-power",
+		"year": "2020",
+		"artist": "dir. Vivian Kong",
+		"role": "score",
+		"img": "/assets/music/scores/covers/sun-sheep-god-power-cover.jpg",
+		"links": [
+			{ "name": "YouTube", "link": "https://youtu.be/vA8Ud5M1PgQ", "id": "youtube" }
+		]
+	}
+]
