@@ -32,7 +32,7 @@ export function flattenRoutes(routes) {
 
 			if (route.path === '/') {
 				flattened.push({
-					name: "lzawbrito.github.io", 
+					name: "lzawbrito", 
 					path: "/",
 					noLink: false
 				})
