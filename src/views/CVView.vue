@@ -7,7 +7,11 @@
 			return {
 				education: [
 					{ year: '2014-2020', text: 'The Overlake School, Redmond, WA' },
+<<<<<<< HEAD
 					{ year: '2020-2024.5',  text: 'Brown University, Providence, RI. B.Sc. in Mathematical Physics and Computer Science' } 
+=======
+					{ year: '2020-2024.5',  text: 'Brown University, Providence, RI. B.Sc. in Mathematical Physics' } 
+>>>>>>> 222e9ee (first commit)
 				],
 				employment: [
 					{ year: '2017-2018', text: 'Assistant instructor, Play-Well Teknologies'},
@@ -41,7 +45,12 @@
 							"PHYS2600 - Computational Physics (+)",
 							"PHYS2320 - Quantum Theory of Fields II (+)",
 							"PHYS2430 - Quantum Many Body Theory (+)",
+<<<<<<< HEAD
 							"PHYS1980 - DISP in Generalized Symmetries and 't Hooft Anomalies"
+=======
+							"PHYS1980 - DISP in Generalized Symmetries and 't Hooft Anomalies",
+							"PHYS2320 - The Standard Model"
+>>>>>>> 222e9ee (first commit)
 						]
 					},
 					{
