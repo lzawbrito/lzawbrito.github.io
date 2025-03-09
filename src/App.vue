@@ -149,8 +149,8 @@ main {
   flex-direction: column;
   padding-left: calc(var(--header-width ) + var(--header-gap));
   padding-bottom: 100px; 
-  /* width: calc(100vw - var(--side-padding) - var(--header-width)); */
-  margin-right: clamp(10px, calc(var(--header-width ) + var(--header-gap) + var(--side-padding)), 25vw);
+  width: 850px;
+  /* margin-right: clamp(10px, calc(10 *var(--header-width ) + var(--header-gap) + var(--side-padding)), 40vw); */
   max-width: 1300px;
   /* min-width: 800px; */
 }
@@ -184,6 +184,7 @@ nav {
     padding: 20px 20px; 
     padding-top: 50px;
     margin: 0;
+    width: 100%;
     padding-bottom: 100px; 
   }
   

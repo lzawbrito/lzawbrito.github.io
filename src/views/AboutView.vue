@@ -1,4 +1,6 @@
 <script>
+import { RouterLink } from 'vue-router';
+
 export default {
   data() {
     return {
@@ -32,11 +34,12 @@ export default {
     <p>
       Incoming physics PhD student at some yet-to-be-determined
       university. I am interested in quantum many-body theory and field
-      theory. You can check out some of my physics work <a href="/work">here</a>.
+      theory. You can check out some of my physics work <RouterLink to="/work">here.</RouterLink>
     </p>
     <p>
       I also make music with and without other people, which you can check out 
-      <a href="/music">here</a>. 
+      <RouterLink to="/work">here.</RouterLink>
+
     </p>
     <div id="links-container">
         <h1>Friends</h1>
