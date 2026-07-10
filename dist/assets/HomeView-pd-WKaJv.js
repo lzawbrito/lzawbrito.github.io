@@ -1,1 +1,0 @@
-import{m as e,u as t,y as n}from"./konva-vendor-BQexPzfL.js";import{t as r}from"./index-ygUc6kr4.js";var i={__name:`HomeView`,setup(i){return(i,a)=>(n(),t(`main`,null,[e(r)]))}};export{i as default};
