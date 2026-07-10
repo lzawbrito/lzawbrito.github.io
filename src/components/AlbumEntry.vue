@@ -3,9 +3,9 @@
   export default {
     props: ['title', 'year', 'artist', 'role', 'img', 'path'],
     computed: {
-      // abbrTitle() {
-      //   return (this.title.length > 25) ? this.title.substring(0, 22) + "..." : this.title
-      // }
+      webpImg() {
+        return this.img.replace(/\.png$/, '.webp')
+      }
     }
   }
 </script>
@@ -13,7 +13,10 @@
 <template>
 <RouterLink :to="path">
 	<div class="album-entry">
-		<img width="275" :src="`${img}`" onload="this.style.opacity=1" />
+		<picture>
+			<source :srcset="webpImg" type="image/webp" />
+			<img width="275" height="275" :src="img" loading="lazy" onload="this.style.opacity=1" />
+		</picture>
     <div id="album-label">
       <div id="spread-container">
         <span id="title">{{ title }}</span>

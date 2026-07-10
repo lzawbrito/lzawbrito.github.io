@@ -25,7 +25,10 @@ export default {
   computed: {
     albumIndex() {
       return this.$route.meta.albumIndex
-    } 
+    },
+    coverWebp() {
+      return this.release.img.replace(/\.png$/, '.webp')
+    }
   },
 }
 </script>
@@ -37,7 +40,10 @@ export default {
         <div v-else id="article-wrapper">
           <div id="cover-wrapper">
             <div>
-              <img id="cover" :src="`${release.img}`" onload="this.style.opacity=1" />
+              <picture>
+                <source :srcset="coverWebp" type="image/webp" />
+                <img id="cover" :src="release.img" width="750" height="750" onload="this.style.opacity=1" />
+              </picture>
             </div>
             <div>
               <h1>{{ release.title }}</h1>
