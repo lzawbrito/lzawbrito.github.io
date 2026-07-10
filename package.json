@@ -5,7 +5,7 @@
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview --port 4173 --host",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+    "lint": "eslint . --fix"
   },
   "dependencies": {
     "bibtex-parser-js": "^0.0.2",
@@ -16,9 +16,11 @@
     "vue3-markdown-it": "^1.0.10"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.4",
     "@vitejs/plugin-vue": "^3.0.1",
-    "eslint": "^8.21.0",
-    "eslint-plugin-vue": "^9.3.0",
+    "eslint": "^9.39.4",
+    "eslint-plugin-vue": "^10.9.2",
+    "globals": "^17.7.0",
     "sass": "^1.54.5",
     "vite": "^3.0.4",
     "vite-svg-loader": "^3.6.0"
