@@ -78,6 +78,7 @@ export default {
 #cover {
   opacity: 0;
   transition: 0.5s;
+  width: auto;
   height: 150px;
 }
 
