@@ -1,10 +1,7 @@
 <script>
 
-  import Markdown from 'vue3-markdown-it';
-
   export default {
     props: ['title', 'lyrics', 'tab'],
-    components: { Markdown },
     data() {
       return {
         show: false,
@@ -13,6 +10,16 @@
     computed: {
       arrow() {
         return this.show ? "&#8593" : "&#8595"
+      },
+      formattedLyrics() {
+        const escapeHtml = (s) => s
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+        return this.lyrics
+          .split(/\n[ \t]*\n/)
+          .map((paragraph) => `<p>${escapeHtml(paragraph).replace(/\n/g, '<br>')}</p>`)
+          .join('')
       }
     }
   }
@@ -21,7 +28,7 @@
 <template>
   <div id="lyrics-wrapper">
     <h2><span id="title" @click="show = !show">{{ title }}</span> <span v-if="tab" id="tab-link"><a :href="tab" target="_blank">tab</a> </span><span v-html="arrow"></span></h2>
-    <Markdown v-if="show" :breaks="true" :source="lyrics"></Markdown>
+    <div v-if="show" id="lyrics" v-html="formattedLyrics"></div>
   </div>
 </template>
 

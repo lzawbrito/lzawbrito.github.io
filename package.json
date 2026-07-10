@@ -12,8 +12,7 @@
     "konva": "^10.3.0",
     "vue": "^3.5.39",
     "vue-konva": "^3.4.0",
-    "vue-router": "^5.1.0",
-    "vue3-markdown-it": "^1.0.10"
+    "vue-router": "^5.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
