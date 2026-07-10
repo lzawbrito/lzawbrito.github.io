@@ -1,0 +1,1 @@
+import{s as e,u as t,y as n}from"./konva-vendor-BQexPzfL.js";import{n as r}from"./index-ygUc6kr4.js";var i={};function a(r,i){return n(),t(`main`,null,[...i[0]||=[e(`h1`,null,`404`,-1),e(`p`,null,` This page doesn't exist... sorry... or if it's a broken link please forgive me... `,-1)]])}var o=r(i,[[`render`,a]]);export{o as default};
