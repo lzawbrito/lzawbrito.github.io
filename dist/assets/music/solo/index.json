@@ -23,6 +23,27 @@
 			{"role": "Cover art", "name": "Breanna Humphrey"}
 		]
 	},
+		{	
+		"title": "Doors of the Planet",
+		"id": "dotp",
+		"year": "2026",
+		"img": "/assets/music/solo/dotp/dotp-cover-750.jpg",
+		"links": [
+			{ "name": "Spotify", "https://open.spotify.com/album/63nGTc7idwzzntBbSnxjM7?si=mJpsM4OpR6mKhGp5nZNG8A": "", "id": "spotify" },
+			{ "name": "Bandcamp", "link": "https://lucaszbrito.bandcamp.com/album/doors-of-the-planet", "id": "bandcamp" }
+		],
+		"tracks": [
+			{ "tab": "/assets/music/solo/dotp/if.txt", "title": "If", "lyrics": "If you're small\nIf you're small\nMake a door\nIf you want\nIf you're wanting me to find you\n\nI'm leaving home\nI'm staying up\nA missing word\nOn my tongue\nA missing word describes you\n\nMusic sounds better when\nLooking close\nAn X-ray shows\nA missing bone\nGesturing to draw you\n\nIf I had gone with you tonight\nYou're so pretty I want to cry\nWhen I'm afraid, afraid to die\nWhen I call, I call tonight\nDon't pick up\n\nCutting off\nthe bad part\nof the apple I'm\nEating it to spite you\n\nI'm a pin\nWheel I'm a\nscythe I'm a\nFlash of light in your eyes\n\nIf I had gone with you tonight\nYou're so pretty I want to cry\nWhen I'm afraid, afraid to die\nWhen I call, I call tonight\nDon't pick up" },
+			{ "tab": "/assets/music/solo/dotp/language.txt", "title": "Language", "lyrics": "Walking and walking I can cast wishes\nWanting and wanting I can name what I want\n\nI want the earth to steal Saturn's wide rings\nI want to sing without having to say things\nThe world to hit me to prove to me I'm here\nI want your voice spoken in my ear\n\nThrough the radio\nEven just\nThrough the radio\nEven if\nThrough the radio\nNo words, just whispers\n\nCause language fails often like this\nWell, language fails often like this\nWell, language fails often like this\nWell, language fails often like this\n\nWe can only ever speak of one thing\nI know a thousand words but one meaning\nThe sea holds a thousand pearls but none for me\nI only ever live when you speak to me\n\nThrough the radio\nEven just\nThrough the radio\nEven if\nThrough the radio\nNo words, just whispers\n\nCause language fails often like this\nWell, language fails often like this\nWell, language fails often like this\nWell, language fails often like this"},
+			{ "tab": "/assets/music/solo/dotp/165-ne-regional.txt", "title": "165 NE Regional", "lyrics": "165 northeast regional\nI took it to meet you\n\nThe only person I haven’t loved\nLives in New York"},
+			{ "tab": "/assets/music/solo/dotp/iwtwaslaw.txt", "title": "Iwtwaslaw", "lyrics": "Sister call me anytime you want, I love you\nLike a fire eats all the air in the room\nThese are all the things I can only say through\nSongs, I want to write a song like a window\n\nGod is something underground that's slowly digging up\nPress up, your ear against the ground, you can hear the moving earth\nHold me, pale like a child's arms are awkward\nNo, I can't, can't bend to touch the floor, let alone to reach for the phone\n\nNew England finds a way to touch your heart if you let it\nNew England gives you nights that can swallow you forever\nInfinite and clear like a diamond in the darkness\nAll my love for you burns like a candle across the distance\n\nGod is something underground that's slowly digging up\nPress up, your ear tight against mine, so we see the same world\nHold me, pale like a child's arms are awkward\nSister, sister, I love you, I love you like a fire burns"},
+			{ "tab": "/assets/music/solo/dotp/sam.txt", "title": "Sam", "lyrics": "Sam\nI still think of you and remember you in this way\nI'm in that green room and music's sounding from the stage\nWe're talking, I'm hanging onto every word you say\nYou write a note I've carried with me to this day\n\nSam, where have you gone?\n\nSam\nSam died away from me when he was twenty-one\nLittle airplanes leave LAX and shine in the sun\nAustin, Cambridge, Denver, Boston Logan\nThis all fits in a puzzle that I'm still working on\n\nSam\nWhere have you gone?\nSam"},
+			{ "tab": "/assets/music/solo/dotp/comet.txt", "title": "Comet", "lyrics": "I find broken glass in my cup\nSo fine, pleated like a rose\nShimmers in the water\nand there, a memory comes to mind\n\nA strange comet passed on over my bed\nLast night, I saw through half-shut eyes\nStrange to dream outside one's mind\n\nIt's not the spoon that bends, but everything around it\nEverything around, everyone now\nHangs on the teeth of a crown\n\nI find broken glass in my cup\nand there the world shares a secret now\nRight there we speak for the last time\n\nBut after this, will you find me as a phantom?\nWould you cross this river that is frozen?\nIn my mind, you're drifting in the hallways\nIn my mind the wind that sounds is your voice\nIn my mind, a train is leaving Providence"}
+		],
+		"credits": [
+			{"role": "Music, lyrics, mix", "name": "Lucas Brito"}
+		]
+	},
 	{	
 		"title": "Spaces Without Length",
 		"id": "spaces-without-length",
