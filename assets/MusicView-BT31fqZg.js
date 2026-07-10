@@ -1,0 +1,1 @@
+import{_ as e,b as t,l as n,w as r}from"./konva-vendor-_04RHQAT.js";import{n as i}from"./index-CJE4B2Kw.js";e();var a={};function o(e,i){let a=r(`router-view`);return t(),n(a)}var s=i(a,[[`render`,o]]);export{s as default};

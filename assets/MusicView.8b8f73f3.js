@@ -1,1 +1,0 @@
-import{_ as e}from"./index.874cb4ab.js";import{b as r,o as t,g as c}from"./vue-vendor.fca59f51.js";import"./konva-vendor.7149b443.js";const n={};function s(_,a){const o=r("router-view");return t(),c(o)}const f=e(n,[["render",s]]);export{f as default};
