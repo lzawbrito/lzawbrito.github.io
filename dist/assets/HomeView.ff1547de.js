@@ -1,1 +1,0 @@
-import{B as e}from"./index.874cb4ab.js";import{o,d as a,e as r}from"./vue-vendor.fca59f51.js";import"./konva-vendor.7149b443.js";const _={__name:"HomeView",setup(t){return(n,c)=>(o(),a("main",null,[r(e)]))}};export{_ as default};
