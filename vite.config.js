@@ -12,5 +12,17 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (!id.includes('node_modules')) return
+          if (/markdown-it|highlight\.js|lodash/.test(id)) return 'markdown-vendor'
+          if (/[\\/]konva|vue-konva/.test(id)) return 'konva-vendor'
+          if (/[\\/]vue[\\/]|@vue|vue-router/.test(id)) return 'vue-vendor'
+        }
+      }
+    }
   }
 })
