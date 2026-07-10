@@ -1,95 +1,60 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import MusicView from '../views/MusicView.vue'
-import SoloMusicView from '../views/MusicViews/SoloMusicView.vue'
-import ScoresMusicView from '../views/MusicViews/ScoresMusicView.vue'
-import PathNotFound from '../views/PathNotFound.vue'
-import AboutView from  '../views/AboutView.vue'
-import AcademicsView from '../views/AcademicsView.vue'
-import AlbumPage from '../components/AlbumPage.vue'
-import CVView from '../views/CVView.vue'
 
 export const routes = [
     {
       path: '/',
       name: 'Home',
-      component: HomeView,
+      component: () => import('../views/HomeView.vue'),
       meta: {home: true}
     },
     {
       path: '/work',
       name: 'Work',
-      component: AcademicsView,
+      component: () => import('../views/AcademicsView.vue'),
+      sections: [
+        { name: 'Positions', hash: 'positions', omit: true },
+        { name: 'Documents', hash: 'documents' },
+        { name: 'Publications', hash: 'publications' },
+      ]
     },
     {
       path: '/music',
       name: 'Music',
-      component: MusicView,
-      redirect: '/music/solo',
-      meta: {music: true},
+      component: () => import('../views/MusicView.vue'),
+      sections: [
+        { name: 'Other', hash: 'other' },
+        { name: 'Solo', hash: 'solo-music' },
+      ],
       children: [
         {
-          name: 'Solo',
-          path: 'solo',
-          component: SoloMusicView,
-          hideChildren: true,
+          path: '',
+          component: () => import('../views/MusicViews/SoloMusicView.vue'),
+          hide: true,
         },
-        {
-          name: 'Scores',
-          path: 'scores',
-          component: ScoresMusicView
-        },
-        // {
-        //   name: 'Other',
-        //   path: 'other',
-        //   component: OtherMusicView
-        // },
         {
           path: 'solo/:path',
-          component: AlbumPage,
+          component: () => import('../components/AlbumPage.vue'),
           hide: true,
           props: true,
           meta: { albumIndex: '/assets/music/solo/index.json' }
         },
-        {
-          path: 'scores/:path',
-          component: AlbumPage,
-          hide: true,
-          props: true,
-          meta: { albumIndex: '/assets/music/scores/index.json' }
-        }
       ]
     },
-    // {
-    //   path: '/blog',
-    //   name: 'Blog',
-    //   component: BlogView,
-    //   hideChildren: true, 
-    //   children: [
-    //     {
-    //       name: 'Blog',
-    //       path: '',
-    //       component: BlogMenu
-    //     },
-    //     {
-    //       path: ':path',
-    //       component: ArticlePage,
-    //       props: true
-    //     }
-    //    ]
-    // },
     {
       path: '/cv',
       name: 'CV/Resume',
-      component: CVView,
+      component: () => import('../views/CVView.vue'),
       hide: true,
     },
     {
       path: '/about',
       name: 'About',
-      component: AboutView,
+      component: () => import('../views/AboutView.vue'),
+      sections: [
+        { name: 'About', hash: 'about', omit: true },
+      ]
     },
-    { path: '/:pathMatch(.*)*', component: PathNotFound },
+    { path: '/:pathMatch(.*)*', component: () => import('../views/PathNotFound.vue') },
   ]
 
 
@@ -98,6 +63,9 @@ const router = createRouter({
   routes: routes,
   // eslint-disable-next-line no-unused-vars
   scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      return { el: to.hash, behavior: 'smooth' }
+    }
     return { top: 0 }
   }
 })
