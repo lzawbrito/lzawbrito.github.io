@@ -56,8 +56,8 @@ import bibtexParse from 'bibtex-parser-js'
     <LoadingAnim v-if="!pubs"/>
     <div v-else>
       <div v-for="y in pubs.slice(0, n)" :key="y[0]">
-        <h3 id="year"> {{ y[0] }} </h3> 
-          <p v-for="p in y[1]" :key="p.citationKey">
+        <h3 id="year"> {{ y[0] }} </h3>
+          <div v-for="p in y[1]" :key="p.citationKey">
             <p id="title">{{ p.entryTags.TITLE }}</p>
             <p id="authors" v-html="formatAuthors(p.entryTags.AUTHOR)"></p>
             <span id="journal" v-if="p.entryTags.JOURNAL"> {{p.entryTags.JOURNAL}}</span>
@@ -68,7 +68,7 @@ import bibtexParse from 'bibtex-parser-js'
               [<a :href="p.entryTags.URL" target="_blank">{{ p.entryTags.ARCHIVEPREFIX + ":" + p.entryTags.EPRINT }}</a>]
             </span>
             <hr/>
-          </p>
+          </div>
       </div>
     </div>
 	</Transition>

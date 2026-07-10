@@ -1,14 +1,7 @@
 <script>
-import { RouterLink } from 'vue-router';
-
 export default {
   data() {
     return {
-      friendsSites: [
-        { link: "https://www.liv-victorino.com/", name: 'liv-victorino.com' },
-        { link: "https://cyrawirth.neocities.org/", name: 'Cyra Wirth' },
-        { link: "https://bricedickerson.com/", name: 'Brice' },
-      ],
       miscSites: [
         { link: "http://plaza.ufl.edu/tasker87/entertainment8.htm", name: "Navidson Record" },
         { link: "https://simone.computer/#/", name: "simone.computer" },
@@ -30,23 +23,18 @@ export default {
 
 <template>
   <main>
-    <h1 class="line-header">About</h1>
+    <h1 id="about" class="line-header">About</h1>
     <p>
-      Incoming physics PhD student at some yet-to-be-determined
-      university. I am interested in quantum many-body theory and field
-      theory. You can check out some of my physics work <RouterLink to="/work">here.</RouterLink>
+      Physics PhD student at Harvard university. I am interested in quantum many-body
+      theory and quantum field theory. Right now I am thinking about higher gauge theory 
+      and fractionalization of spatial symmetries. You can find my physics work <RouterLink
+      to="/work">here.</RouterLink>
     </p>
     <p>
       I also make music with and without other people, which you can check out 
-      <RouterLink to="/work">here.</RouterLink>
+      <RouterLink to="/music">here :)</RouterLink>
 
     </p>
-    <div id="links-container">
-        <h1>Friends</h1>
-        <div id="links-wrapper">
-          <a v-for="p in friendsSites" :key="p.link" :href="p.link"> {{ p.name }} </a>
-      </div>
-    </div>
   </main>
 </template>
 

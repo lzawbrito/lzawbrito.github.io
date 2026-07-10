@@ -14,7 +14,6 @@ function formatAuthors(namelist) {
 </script>
 
 <template>
-  <p>
   <p id="title">{{ title }}</p>
   <p id="authors" v-html="formatAuthors(authors)"></p>
   <span id="journal"> {{ journal }}</span>
@@ -23,7 +22,6 @@ function formatAuthors(namelist) {
     <a v-bind:href="arxivurl" target="_blank">{{ arxiv }}</a>]
   </span>
   <hr />
-  </p>
 </template>
 
 <style scoped>

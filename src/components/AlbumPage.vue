@@ -1,11 +1,10 @@
 <script>
 import LoadingAnim from '../components/LoadingAnim.vue'
 import SongLyrics from '../components/SongLyrics.vue'
-import Markdown from 'vue3-markdown-it';
 
 export default {
     props: ['path', 'index'],
-    components: { LoadingAnim, SongLyrics, Markdown },
+    components: { LoadingAnim, SongLyrics },
     data() {
       return {
         release: null,
@@ -53,7 +52,6 @@ export default {
           <SongLyrics v-for="l in release.tracks" :tab="l.tab" :key="l.title" :title="l.title" :lyrics="l.lyrics"></SongLyrics>
           <hr v-if="release.credits"/>
           <h2 v-if="release.credits">Credits</h2>
-          <!-- <Markdown id="credits" :source="release.credits"></Markdown> -->
           <table id="credits">
             <tr v-for="p in release.credits" :key="p.name">
               <td><i>{{ p.role }}:</i></td> <td>{{ p.name }}</td>
