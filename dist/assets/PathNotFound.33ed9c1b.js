@@ -1,0 +1,1 @@
+import{_ as o}from"./index.874cb4ab.js";import{o as t,d as s,j as e}from"./vue-vendor.fca59f51.js";import"./konva-vendor.7149b443.js";const n={},r=e("h1",null,"404",-1),a=e("p",null," This page doesn't exist... sorry... or if it's a broken link please forgive me... ",-1),c=[r,a];function i(_,l){return t(),s("main",null,c)}const p=o(n,[["render",i]]);export{p as default};
