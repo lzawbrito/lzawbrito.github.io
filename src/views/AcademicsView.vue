@@ -1,5 +1,6 @@
 <script setup>
 import PubItem from '../components/PubItem.vue';
+import TalkItem from '../components/TalkItem.vue';
 </script>
 
 <template>
@@ -80,6 +81,10 @@ import PubItem from '../components/PubItem.vue';
 			journal="Computer Physics Communications" doi="j.cpc.2022.108598"
 			doiurl="https://www.sciencedirect.com/science/article/pii/S0010465522003174" arxiv="2108.11415"
 			arxivurl="https://arxiv.org/abs/2108.11415" />
+		<h1 id="talks" class="line-header">Talks</h1>
+		<h3 id="year"> 2026 </h3>
+		<TalkItem title="Lattice 2-group symmetries" location="Vishwanath group meeting" date="Sep 2026"
+			v-bind:links="[{ label: 'slides', url: '/docs/talks/2group-pres.pdf' }]" />
 	</div>
 </template>
 

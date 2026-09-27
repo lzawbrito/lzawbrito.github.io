@@ -12,6 +12,7 @@ export const sections = [
     children: [
       { name: 'Documents', hash: 'documents' },
       { name: 'Publications', hash: 'publications' },
+      { name: 'Talks', hash: 'talks' },
     ]
   },
   {
