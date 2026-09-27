@@ -4,7 +4,7 @@
 <template>
 
 	<div class="title">
-		<div class="title-content">lzawbrito</div>
+		<RouterLink to="/" class="title-content">lzawbrito</RouterLink>
 		<div class="subtitle">(Lucas Z. Brito)</div>
 	</div>
 </template>
@@ -17,7 +17,9 @@
 	white-space: nowrap;
 } */
 .title-content {
-	font-family: 'Computer Modern Sans', sans-serif;
+	display: block;
+	color: inherit;
+	font-family: var(--serif-font), Garamond, serif;
 	font-weight: bold;
 	font-size: 40px;
 	white-space: nowrap;
@@ -25,12 +27,15 @@
 }
 
 .subtitle {
-  font-family: sans-serif;
+  font-family: var(--serif-font), Garamond, serif;
   font-style: italic;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .title{
   margin-bottom: 5px;
+}
+.title-content:hover {
+	text-decoration: none;
 }
 </style>

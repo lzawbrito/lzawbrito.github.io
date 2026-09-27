@@ -17,7 +17,7 @@ a {
 }
 
 h1, h2, h3 {
-  font-family: 'Arial', sans-serif;
+  font-family: var(--serif-font), Garamond, serif;
   font-weight: bold;
 }
 
@@ -121,11 +121,20 @@ b {
     text-align: center;
     grid-gap: 20px;
     width: 100%;
+    margin-top: 20px;
 }
 
 .line-header:after {
     content: '';
     border-top: 1px solid;
+}
+
+main [id] {
+    scroll-margin-top: var(--top-padding);
+}
+
+main > .line-header:first-child {
+    margin-top: 0;
 }
 
 .no-bottom-padding, .no-bottom-padding * {

@@ -1,55 +1,23 @@
-export function flattenRoutes(routes) {
-	let flattened = []
+// Build the node/edge graph for the landing page: the root node links to each
+// top-level section, and each section links to its subsections.
+export function flattenSections(sections, mainPath) {
+	let flattened = [{ name: "lzawbrito", path: "/", noLink: false }]
 	let edges = []
-	function flattenHelper(r, depth, currentPath) {
-		for (let i = 0; i < r.length; i++) {
-			var route = r[i]
-			if (!("name" in route) || route.hide) {
-				continue
-			}
-
-			// At top level every node is home's child
-			if (depth === 0) {
-				edges.push([0, flattened.length])
-			}
-
-			if ("redirect" in route) {
-				let parentIdx = flattened.length
-				flattened.push({
-					name: route.name, 
-					path: currentPath + "/" + route.path, 
-					noLink: true
-				})
-				if ("children" in route) {
-					let filteredChildren = route.children.filter((c) => !c.hide || ("name" in c))
-					for (let c = 0; c < filteredChildren.length; c++) {
-						edges.push([parentIdx, flattened.length + c])
-					}
-					flattenHelper(filteredChildren, depth + 1, currentPath + route.path + '/')  
-				}
-				continue
-			} 
-
-			if (route.path === '/') {
-				flattened.push({
-					name: "lzawbrito", 
-					path: "/",
-					noLink: false
-				})
-				continue 
-			} 
+	function flattenHelper(ss, parentIdx) {
+		for (let i = 0; i < ss.length; i++) {
+			let section = ss[i]
+			let idx = flattened.length
+			edges.push([parentIdx, idx])
 			flattened.push({
-				name: route.name, 
-				path: currentPath + route.path, 
+				name: section.name,
+				path: mainPath + '#' + section.hash,
 				noLink: false
 			})
-
+			if ('children' in section) {
+				flattenHelper(section.children, idx)
+			}
 		}
 	}
-	flattenHelper(routes, 0, "")
+	flattenHelper(sections, 0)
 	return [flattened, edges]
-}
-
-export function isFirstRoute(route, targetRouteName) {
-	return route.split("/").includes(targetRouteName.toLowerCase())
 }

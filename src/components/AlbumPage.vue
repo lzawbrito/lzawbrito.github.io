@@ -133,7 +133,7 @@ h1 {
 
 #links-wrapper a {
   font-family: var(--mono-font), monospace;
-  border: 1px solid var(--color-background-soft);
+  border: 1px solid var(--color-background-mute);
   padding: 7px;
   font-size: 18px
 }

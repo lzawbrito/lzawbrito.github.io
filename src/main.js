@@ -8,4 +8,6 @@ const app = createApp(App)
 
 app.use(router)
 app.use(VueKonva)
-app.mount('#app')
+// Wait for the initial route to resolve so the main layout doesn't flash
+// before the landing page (App.vue branches on $route.meta.home)
+router.isReady().then(() => app.mount('#app'))

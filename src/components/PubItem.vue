@@ -5,7 +5,7 @@ function formatAuthors(namelist) {
   let formNames = namelist.map((n) => {
     let name = n.split(', ').reverse().join(' ')
     if (name === 'Lucas Z. Brito') {
-      return '<b>Lucas Z. Brito</b>'
+      return '<b>LZB</b>'
     }
     return name
   })
@@ -14,61 +14,46 @@ function formatAuthors(namelist) {
 </script>
 
 <template>
-  <p id="title">{{ title }}</p>
-  <p id="authors" v-html="formatAuthors(authors)"></p>
-  <span id="journal"> {{ journal }}</span>
-  <span id="arxiv-link">
-    [<span v-if="doi"><a v-bind:href="doiurl" target="_blank">{{ doi }}</a>, </span>
-    <a v-bind:href="arxivurl" target="_blank">{{ arxiv }}</a>]
-  </span>
-  <hr />
+  <div class="pub-item">
+    <p class="pub-title">{{ title }}</p>
+    <p class="pub-authors" v-html="formatAuthors(authors)"></p>
+    <p class="pub-links">
+      <span v-if="journal" class="pub-journal">{{ journal }}&ensp;</span>
+      <span class="pub-ids">
+        [<span v-if="doi"><a v-bind:href="doiurl" target="_blank">{{ doi }}</a>, </span>
+        <a v-bind:href="arxivurl" target="_blank">{{ arxiv }}</a>]
+      </span>
+    </p>
+  </div>
 </template>
 
 <style scoped>
-#year {
-  margin-top: 5px;
+.pub-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background-color: #f6f6f6;
+  padding: 10px 14px;
+  margin-bottom: 8px;
 }
 
-#title {
+.pub-item p {
+  padding-bottom: 0;
+  text-align: left;
+}
+
+.pub-title {
   font-style: italic;
-  font-weight: bold;
-  padding-bottom: 0px;
-  /* color: rgb(118, 101, 165); */
+  line-height: 1.3;
 }
 
-#authors {
-  padding-bottom: 0px;
+.pub-authors,
+.pub-journal {
   color: var(--color-text-soft);
 }
 
-#journal {
-  color: var(--color-text-soft);
-}
-
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
-
-#arxiv-link {
+.pub-ids {
   font-family: var(--mono-font), monospace;
-}
-
-span {
-  /* white-space: pre-wrap; */
-}
-
-hr {
-  border: 0px;
-  height: 1px;
-  margin: 0px;
-  margin-top: 8px;
-  margin-bottom: 0px;
-  background-color: var(--color-background-soft);
+  font-size: 0.9em;
 }
 </style>

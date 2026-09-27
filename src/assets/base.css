@@ -11,7 +11,8 @@
 
 
 :root {
-  --mono-font: "Courier New";
+  --serif-font: "EB Garamond";
+  --mono-font: "Courier Prime";
 
   
   --header-width: 260px;
@@ -39,8 +40,8 @@
   --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
   --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
 
-  --link-blue-light: rgb(26, 0, 198);
-  --link-blue-dark: rgb(166, 162, 245);
+  --link-blue-light: #407fbf;
+  --link-blue-dark: #407fbf;
 
   --vt-c-text-light-mute: rgb(127, 127, 127);
   --vt-c-text-dark-mute: rgb(97, 97, 97);
@@ -69,6 +70,7 @@
   --section-gap: 160px;
 }
 
+/* Dark mode disabled; uncomment to re-enable (also in AcademicsView.vue)
 @media (prefers-color-scheme: dark) {
   :root {
     --color-background: var(--vt-c-black);
@@ -87,6 +89,7 @@
     --color-text-soft: var(--vt-c-text-dark-soft);
   }
 }
+*/
 
 *,
 *::before,
@@ -102,8 +105,11 @@ body {
   color: var(--color-text);
   background: var(--color-background);
   line-height: 1.5;
-  /* font-family: "Computer Modern Serif", serif; */
+  font-family: var(--serif-font), Garamond, serif;
   font-size: 16px;
+  /* EB Garamond's x-height ratio. Inherited everywhere, so Courier Prime
+     (ratio 0.45) is scaled down to match Garamond's lowercase height */
+  font-size-adjust: 0.4;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

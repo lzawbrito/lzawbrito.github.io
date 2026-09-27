@@ -1,16 +1,17 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import BouncingPages from './components/BouncingPages.vue';
-import RouterParent from  './components/RouterParent.vue'
 import TitleComponent from './components/TitleComponent.vue'
-import { routes } from './router/index'
+import { sections, MAIN_PATH } from './router/index'
 </script>
 
 <script>
 export default {
   data() {
     return  {
-      routes: routes,
+      sections: sections,
+      mainPath: MAIN_PATH,
+      activeHash: null,
       sidebarOn: false
       // hljsStyle: hljsStyle
     }
@@ -18,9 +19,61 @@ export default {
   computed: {
     home() {
       return this.$route.meta.home
-    } 
+    },
+    onMain() {
+      return this.$route.path === MAIN_PATH
+    },
+    // Top-level hash of whichever section the active hash belongs to
+    activeParent() {
+      const parent = this.sections.find((s) => s.hash === this.activeHash
+        || (s.children || []).some((c) => c.hash === this.activeHash))
+      return parent ? parent.hash : null
+    }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.updateActiveHash, { passive: true })
+    this.updateActiveHash()
+  },
+  unmounted() {
+    window.removeEventListener('scroll', this.updateActiveHash)
+  },
+  watch: {
+    $route(to, from) {
+      if (to.path !== from.path) this.sidebarOn = false
+      this.$nextTick(this.updateActiveHash)
+    }
   },
   methods: {
+    sectionTo(hash) {
+      return { path: MAIN_PATH, hash: '#' + hash }
+    },
+    // Scroll spy: the active section is the last one whose top has passed
+    // the upper part of the viewport
+    updateActiveHash() {
+      if (!this.onMain) {
+        this.activeHash = null
+        return
+      }
+      const hashes = this.sections.flatMap((s) => [s.hash, ...(s.children || []).map((c) => c.hash)])
+      let active = hashes[0]
+      let activeTop = -Infinity
+      for (const h of hashes) {
+        const el = document.getElementById(h)
+        if (!el) continue
+        const top = el.getBoundingClientRect().top
+        if (top <= window.innerHeight / 3 && top >= activeTop) {
+          active = h
+          activeTop = top
+        }
+      }
+      // At the very bottom, the last section can't scroll far enough up
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+        const last = this.sections[this.sections.length - 1]
+        const lastChildren = last.children || []
+        active = lastChildren.length ? lastChildren[lastChildren.length - 1].hash : last.hash
+      }
+      this.activeHash = active
+    },
     darkMode() {
       return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
     },
@@ -47,15 +100,14 @@ export default {
     <div class="wrapper" :style="(mediaWidth() < 1024) ? { width: sidebarOn ? '80%' : '0%', opacity: sidebarOn ? '1' : '0'} : {}" >
       <TitleComponent/>
       <nav>
-        <div v-for="r in routes" :key="r.name">
-          <RouterLink v-if="!('redirect' in r) && !(r['hide'])" :to="r.path" v-on:click="handleSidebarClick()" >
-            {{ r.name }}
-          </RouterLink>
-          <RouterParent v-else-if="'children' in r" class="router-parent" :name="r.name">
-            <div v-for="c in r.children" :key="c.name" v-on:click="handleSidebarClick()">
-              <RouterLink v-if="!c.hide" :to="r.path + '/' + c.path"  > {{c.name}} </RouterLink>
-            </div>
-          </RouterParent>
+        <div v-for="s in sections" :key="s.hash">
+          <RouterLink :to="sectionTo(s.hash)" :class="{ active: activeParent === s.hash }"
+            v-on:click="handleSidebarClick()">{{ s.name }}</RouterLink>
+          <div v-if="s.children" class="subsections">
+            <RouterLink v-for="c in s.children" :key="c.hash" :to="sectionTo(c.hash)"
+              :class="{ active: activeHash === c.hash }"
+              v-on:click="handleSidebarClick()">{{ c.name }}</RouterLink>
+          </div>
         </div>
       </nav>
     </div>
@@ -107,16 +159,18 @@ nav a:hover {
   text-decoration: none;
 }
 
-nav a.router-link-exact-active {
+nav a.active {
   color: var(--color-text);
 }
-nav a.router-link-exact-active::before {
+nav a.active::before {
   white-space: pre;
   content: "> ";
 }
 
-nav a.router-link-exact-active:hover {
-  text-decoration: none;
+nav .subsections {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2ch;
 }
 
 nav a:hover::before {
@@ -128,6 +182,7 @@ nav a:hover::before {
 nav a {
   display: inline-block;
   padding: 0;
+  width: fit-content;
 }
 
 nav a:first-of-type {
@@ -144,12 +199,24 @@ nav a:first-of-type {
   background: linear-gradient(0deg, var(--color-background) 33%, rgba(0,212,255,0) 100%);
 }
 
+/* The content column is centered in the viewport (but never closer to the
+   left edge than it originally sat), and the sidebar sits at its original
+   distance to the left of it */
+.app-wrapper {
+  --content-width: 570px;
+  --content-left: max(
+    calc(var(--side-padding) + var(--header-width) + var(--header-gap)),
+    calc((100vw - var(--content-width)) / 2)
+  );
+}
+
 main {
   display: flex;
   flex-direction: column;
-  padding-left: calc(var(--header-width ) + var(--header-gap));
+  /* #app already provides --side-padding on the left */
+  margin-left: calc(var(--content-left) - var(--side-padding));
   padding-bottom: 100px; 
-  width: 850px;
+  width: var(--content-width);
   /* margin-right: clamp(10px, calc(10 *var(--header-width ) + var(--header-gap) + var(--side-padding)), 40vw); */
   max-width: 1300px;
   /* min-width: 800px; */
@@ -158,6 +225,7 @@ main {
 header {
   position: fixed;
   display: flex;
+  left: calc(var(--content-left) - var(--header-width) - var(--header-gap));
 }
 
 header .wrapper {
@@ -178,6 +246,7 @@ nav {
   header {
     position: fixed;
     display: flex;
+    left: auto;
   }
 
   main {

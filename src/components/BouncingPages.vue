@@ -3,13 +3,13 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <script>
-import { flattenRoutes } from './scripts/routeTools'
-import { routes } from '../router/index'
+import { flattenSections } from './scripts/routeTools'
+import { sections, MAIN_PATH } from '../router/index'
 let id = 0
 let edgeId = 0
 let avgSpeed = 1 / 30
 
-let flat = flattenRoutes(routes)
+let flat = flattenSections(sections, MAIN_PATH)
 let rs = flat[0]
 let es = flat[1]
 let edges = es.map((e) => {return { id: edgeId++, nodes: e, coords: [[0, 0], [0, 0]]}})

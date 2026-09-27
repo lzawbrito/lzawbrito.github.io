@@ -22,23 +22,54 @@ export default {
 
 
 <template>
-  <main>
-    <h1 id="about" class="line-header">About</h1>
+  <div class="about-wrapper">
+    <img class="portrait" src="/assets/portrait_transparent.png" alt="Drawing of Lucas Z. Brito"
+      width="868" height="886" />
+    <div class="about-text">
     <p>
-      Physics PhD student at Harvard university. I am interested in quantum many-body
-      theory and quantum field theory. Right now I am thinking about higher gauge theory 
-      and fractionalization of spatial symmetries. You can find my physics work <RouterLink
-      to="/work">here.</RouterLink>
+      Physics PhD student at Harvard. I am interested in quantum many-body
+      theory and quantum field theory. Currently I'm thinking about higher groups 
+      and anomalies in lattice systems in and out of equilibrium. You can find my physics work <RouterLink :to="{ hash: '#science' }">here.</RouterLink>
     </p>
     <p>
       I also make music with and without other people, which you can check out 
-      <RouterLink to="/music">here :)</RouterLink>
-
+      <RouterLink :to="{ hash: '#music' }">here :)</RouterLink>
     </p>
-  </main>
+    <p>
+      Reach me at <span class="email">lbrito[at]g.harvard.edu</span>.
+    </p>
+    </div>
+  </div>
 </template>
 
 <style scoped>
+.email {
+  font-family: var(--mono-font), monospace;
+}
+
+.about-wrapper {
+  display: flex;
+  /* Portrait comes first in the markup so it sits above the text on mobile */
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 20px;
+}
+
+.portrait {
+  width: 160px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.about-text {
+  flex: 1;
+}
+
+@media (max-width: 1024px) {
+  .about-wrapper {
+    flex-direction: column;
+  }
+}
 
 #links-container h2 {
   margin-bottom: 10px;

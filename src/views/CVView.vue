@@ -84,11 +84,11 @@
 	<h1>
 		Lucas Z. Brito
 	</h1>
-	<p id="contact-info">CV/Resume <span :style="{ fontFamily: 'Courier New' }" >
+	<p id="contact-info">CV/Resume <span :style="{ fontFamily: 'var(--mono-font), monospace' }" >
 			[<a href="/docs/resume/lucas-z-brito-resume.pdf">pdf</a>, 
 			<a href="/docs/resume/lucas-z-brito-resume.tex">tex</a>]
 		</span>
-		// <a :style="{ fontFamily: 'Courier New' }" 
+		// <a :style="{ fontFamily: 'var(--mono-font), monospace' }" 
 		href="mailto:lucas_brito@brown.edu">lucas_brito@brown.edu</a></p>
 	<p class="fine-print">This page is not accessible from the main website for privacy.</p>
 	<h2 class="line-header">
