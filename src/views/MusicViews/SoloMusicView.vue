@@ -29,17 +29,8 @@ import AlbumEntry from '../../components/AlbumEntry.vue';
 
 <template>
   <div>
-    <h1 id="other" class="line-header" style="padding-bottom: 0;">
-      Other
-    </h1>
-    <div class="other-list">
-      <ul>
-        <li>Drums for <a target="_blank" href="https://plasticmaryband.com/">Plastic Mary</a></li>
-        <li>Drums for <a target="_blank" href="https://stevesmind.bandcamp.com/album/red-mud">Steve's Mind</a></li>
-      </ul>
-    </div>
     <h1 id="solo-music" class="line-header">
-      Solo 
+      Releases
     </h1>
     <Transition>
       <div v-if="!releases" id="loading"></div>
@@ -54,6 +45,15 @@ import AlbumEntry from '../../components/AlbumEntry.vue';
           />
       </div>
     </Transition>
+    <h1 id="other" class="line-header" style="padding-bottom: 0;">
+      Other
+    </h1>
+    <div class="other-list">
+      <ul>
+        <li>Drums for <a target="_blank" href="https://plasticmaryband.com/">Plastic Mary</a></li>
+        <li>Drums for <a target="_blank" href="https://stevesmind.bandcamp.com/album/red-mud">Steve's Mind</a></li>
+      </ul>
+    </div>
 
   </div>
 </template>

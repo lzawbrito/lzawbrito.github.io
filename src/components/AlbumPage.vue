@@ -49,7 +49,7 @@ export default {
               <h1>{{ release.title }}</h1>
               <h2 v-if="!release.artist">{{ release.year }}</h2>
               <h2 v-else>{{ release.artist }} // {{release.year}}</h2>
-              <div id="links-wrapper">
+              <div id="links-wrapper" class="link-boxes">
                 <a v-for="l in release.links" :key="l.id" :id="l.id" :href="l.link" target="_blank">{{ l.name }}</a>
               </div>
             </div>
@@ -111,39 +111,8 @@ h1 {
   opacity: 0;
 }
 
-#spotify {
-  color: rgb(51, 130, 81)
-}
-
-#bandcamp {
-  color: #5b8692; 
-}
-
-#apple-music {
-  color: #bf575c;
-}
-
-#vimeo {
-  color: #3ba0c2 
-}
-
-#youtube {
-  color: #b92727
-}
-
-#links-wrapper a {
-  font-family: var(--mono-font), monospace;
-  border: 1px solid var(--color-background-mute);
-  padding: 7px;
-  font-size: 18px
-}
-
 #links-wrapper {
   padding-top: 10px;
-  display: flex; 
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: flex-start;
 }
 
 @media (max-width: 1024px) {

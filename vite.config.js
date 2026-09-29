@@ -55,7 +55,6 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (!id.includes('node_modules')) return
-          if (/[\\/]konva|vue-konva/.test(id)) return 'konva-vendor'
           if (/[\\/]vue[\\/]|@vue|vue-router/.test(id)) return 'vue-vendor'
         }
       }

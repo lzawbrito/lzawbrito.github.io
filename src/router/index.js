@@ -10,17 +10,17 @@ export const sections = [
     name: 'Science',
     hash: 'science',
     children: [
-      { name: 'Documents', hash: 'documents' },
       { name: 'Publications', hash: 'publications' },
       { name: 'Talks', hash: 'talks' },
+      { name: 'Documents', hash: 'documents' },
     ]
   },
   {
     name: 'Music',
     hash: 'music',
     children: [
+      { name: 'Releases', hash: 'solo-music' },
       { name: 'Other', hash: 'other' },
-      { name: 'Solo', hash: 'solo-music' },
     ]
   },
 ]

@@ -1,10 +1,19 @@
 <script setup>
 import PubItem from '../components/PubItem.vue';
 import TalkItem from '../components/TalkItem.vue';
+
+const profiles = [
+	{ name: 'INSPIRE', url: 'https://inspirehep.net/authors/3203677' },
+	{ name: 'Google Scholar', url: 'https://scholar.google.com/citations?user=vvraEfcAAAAJ' },
+	{ name: 'arXiv', url: 'https://arxiv.org/search/?searchtype=author&query=Brito%2C+Lucas+Z' },
+]
 </script>
 
 <template>
 	<div>
+		<div class="profile-links link-boxes">
+			<a v-for="p in profiles" :key="p.name" :href="p.url" target="_blank">{{ p.name }}</a>
+		</div>
 		<h1 id="positions" class="line-header" style="padding-bottom: 10px;">
 			Positions
 		</h1>
@@ -28,34 +37,6 @@ import TalkItem from '../components/TalkItem.vue';
 			</div>
 			<div class="bio-year">2020</div>
 		</div>
-		<h1 id="documents" class="line-header">Documents</h1>
-		<ul>
-			<li><span class="doc-name">CV</span>
-				<span class="notes-link">
-					<a href="/docs/resume/lucas-z-brito-resume.tex">tex</a>,
-					<a href="/docs/resume/lucas-z-brito-resume.pdf">pdf</a>
-				</span>
-			</li>
-		</ul>
-		<h2>LaTeX</h2>
-		<ul>
-			<li>
-				<span class="doc-name">
-					Template
-				</span>
-				<span class="notes-link">
-					<a href="/docs/notes/latex-templates/lzawbrito-template.sty">sty</a>
-				</span>
-			</li>
-			<li>
-				<span class="doc-name">
-					Template colors
-				</span>
-				<span class="notes-link">
-					<a href="/docs/notes/latex-templates/color-palette.tex">tex</a>
-				</span>
-			</li>
-		</ul>
 		<h1 id="publications" class="line-header">Publications</h1>
 		<h3 id="year"> 2026 </h3>
 		<PubItem title="Lattice 2-group symmetries: operators, defects, and gauging"
@@ -85,6 +66,34 @@ import TalkItem from '../components/TalkItem.vue';
 		<h3 id="year"> 2026 </h3>
 		<TalkItem title="Lattice 2-group symmetries" location="Vishwanath group meeting" date="Sep 2026"
 			v-bind:links="[{ label: 'slides', url: '/docs/talks/2group-pres.pdf' }]" />
+		<h1 id="documents" class="line-header">Documents</h1>
+		<ul>
+			<li><span class="doc-name">CV</span>
+				<span class="notes-link">
+					<a href="/docs/resume/lucas-z-brito-resume.tex">tex</a>,
+					<a href="/docs/resume/lucas-z-brito-resume.pdf">pdf</a>
+				</span>
+			</li>
+		</ul>
+		<h2>LaTeX</h2>
+		<ul>
+			<li>
+				<span class="doc-name">
+					Template
+				</span>
+				<span class="notes-link">
+					<a href="/docs/notes/latex-templates/lzawbrito-template.sty">sty</a>
+				</span>
+			</li>
+			<li>
+				<span class="doc-name">
+					Template colors
+				</span>
+				<span class="notes-link">
+					<a href="/docs/notes/latex-templates/color-palette.tex">tex</a>
+				</span>
+			</li>
+		</ul>
 	</div>
 </template>
 
@@ -92,6 +101,10 @@ import TalkItem from '../components/TalkItem.vue';
 <style scoped>
 h1 {
 	padding-top: 10px;
+}
+
+.profile-links {
+	padding-top: 4px;
 }
 
 .bio-grid {
