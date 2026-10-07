@@ -42,10 +42,12 @@ const profiles = [
 		<PubItem title="Lattice 2-group symmetries: operators, defects, and gauging"
 			v-bind:authors="['Lucas Z. Brito', 'Salvatore D. Pace']" arxiv="2609.10682"
 			arxivurl="https://arxiv.org/abs/2609.10682" />
-		<h3 id="year"> 2025 </h3>
 		<PubItem title="General Microstructure Factor Analysis of Diffusion MRI in Gray-Matter Predicts Cognitive Scores"
-			v-bind:authors="['Lucas Z. Brito', 'Ryan P. Cabeen', 'David H. Laidlaw']" arxiv="2510.24879"
-			arxivurl="https://arxiv.org/abs/2510.24879" />	
+			v-bind:authors="['Lucas Z. Brito', 'Ryan P. Cabeen', 'David H. Laidlaw']"
+			journal="NeuroImage" doi="NeuroImage.2026.121991"
+			doiurl="https://doi.org/10.1016/j.neuroimage.2026.121991" arxiv="2510.24879"
+			arxivurl="https://arxiv.org/abs/2510.24879" />
+		<h3 id="year"> 2025 </h3>
 		<PubItem title="Reconstructing Spin Hamiltonians of 2D Gutzwiller-Projected Wavefunctions "
 			v-bind:authors="['Lucas Z. Brito', 'J. B. Marston']" arxiv="2510.15034"
 			arxivurl="https://arxiv.org/abs/2510.15034" />
