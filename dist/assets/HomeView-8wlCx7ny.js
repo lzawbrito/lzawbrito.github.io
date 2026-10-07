@@ -1,0 +1,1 @@
+import{f as e,g as t,h as n}from"./vue-vendor-T_BLiU05.js";import{t as r}from"./index-DwS5sBjx.js";var i={__name:`HomeView`,setup(i){return(i,a)=>(t(),e(`main`,null,[n(r)]))}};export{i as default};
