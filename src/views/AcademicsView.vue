@@ -47,9 +47,10 @@ const profiles = [
 			journal="NeuroImage" doi="NeuroImage.2026.121991"
 			doiurl="https://doi.org/10.1016/j.neuroimage.2026.121991" arxiv="2510.24879"
 			arxivurl="https://arxiv.org/abs/2510.24879" />
-		<h3 id="year"> 2025 </h3>
-		<PubItem title="Reconstructing Spin Hamiltonians of 2D Gutzwiller-Projected Wavefunctions "
-			v-bind:authors="['Lucas Z. Brito', 'J. B. Marston']" arxiv="2510.15034"
+		<PubItem title="Reconstructing spin Hamiltonians of two-dimensional Gutzwiller-projected wave functions"
+			v-bind:authors="['Lucas Z. Brito', 'J. B. Marston']"
+			journal="Physical Review B" doi="PhysRevB.114.194405"
+			doiurl="https://link.aps.org/doi/10.1103/qcjl-cklq" arxiv="2510.15034"
 			arxivurl="https://arxiv.org/abs/2510.15034" />
 		<h3 id="year"> 2024 </h3>
 		<PubItem title="Hamiltonian reconstruction: The correlation matrix and incomplete operator bases"
