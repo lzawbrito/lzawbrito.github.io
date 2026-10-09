@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1791411492.28001 "lucas-z-brito-resume.tex" "lucas-z-brito-resume.pdf" "lucas-z-brito-resume" 1791411492.79191 0
+["pdflatex"] 1791556831.52556 "lucas-z-brito-resume.tex" "lucas-z-brito-resume.pdf" "lucas-z-brito-resume" 1791556832.17277 0
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -161,9 +161,9 @@
   "/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1773289748 5571915 c7549c520e326cef0faccb09c1e29464 ""
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1773289847 3636715 4b934d9129fd7f7ad7ff491554c4d411 ""
   "/usr/local/texlive/2026/texmf.cnf" 1773289740.29516 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
-  "lucas-z-brito-resume.aux" 1791411492.7436 162 55205a9e8a8eca30d36afb389b0617bf "pdflatex"
-  "lucas-z-brito-resume.out" 1791411492.62525 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "lucas-z-brito-resume.tex" 1791411481.95721 7662 4f9126dfe676e37e63b76678654fe413 ""
+  "lucas-z-brito-resume.aux" 1791556832.12041 162 55205a9e8a8eca30d36afb389b0617bf "pdflatex"
+  "lucas-z-brito-resume.out" 1791556831.97713 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "lucas-z-brito-resume.tex" 1791556831.33887 7684 aaf57ae57234c38ea01bcfad500bd513 ""
   (generated)
   "lucas-z-brito-resume.aux"
   "lucas-z-brito-resume.log"

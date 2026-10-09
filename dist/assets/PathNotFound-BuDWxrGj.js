@@ -1,1 +1,0 @@
-import{f as e,g as t,l as n}from"./vue-vendor-T_BLiU05.js";import{n as r}from"./index-DwS5sBjx.js";var i={};function a(r,i){return t(),e(`main`,null,[...i[0]||=[n(`h1`,null,`404`,-1),n(`p`,null,` This page doesn't exist... sorry... or if it's a broken link please forgive me... `,-1)]])}var o=r(i,[[`render`,a]]);export{o as default};
