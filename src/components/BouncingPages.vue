@@ -353,13 +353,13 @@ export default {
     },
     startDrag(p, e) {
       if (e.button !== 0) return
-      e.currentTarget.setPointerCapture(e.pointerId)
       // Pick the box up from where it's shown, in case it's been pulled in
       p.x = this.shown(p)
       p.offset = [0, 0]
       const pos = [e.clientX, e.clientY]
       this.drag = {
         p,
+        el: e.currentTarget,
         pointerId: e.pointerId,
         // Where in the box it was grabbed, so it doesn't jump to the pointer
         offset: [pos[0] - p.x[0], pos[1] - p.x[1]],
@@ -374,8 +374,12 @@ export default {
       const drag = this.drag
       if (!drag || e.pointerId !== drag.pointerId) return
       const pos = [e.clientX, e.clientY]
-      if (Math.hypot(pos[0] - drag.start[0], pos[1] - drag.start[1]) > dragThreshold) {
+      if (!drag.moved &&
+          Math.hypot(pos[0] - drag.start[0], pos[1] - drag.start[1]) > dragThreshold) {
         drag.moved = true
+        // Only capture once it's a drag: capturing on press would retarget the
+        // click to the box, so a plain click would never reach its link
+        drag.el.setPointerCapture(e.pointerId)
       }
       if (!drag.moved) return
 
